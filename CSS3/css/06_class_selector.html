@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class selector</title>
+    <style>
+        /*
+        
+            메인타이틀 : 나눔고딕, 1.3em, 초록색
+            서브타이틀 : 나눔고딕코딩, 12px, 토마토
+        
+        */
+
+
+
+        h1.main-title {
+            font-family: '나눔고딕';
+            font-size: 1.3em;
+            color: green;
+        }
+
+        .sub-title {
+            font-family: '나눔고딕코딩';
+            font-size: 20px;
+            color: tomato;
+        }
+
+        .highlight-bg {
+            background-color: yellow;
+        }
+
+    </style>
+</head>
+<body>
+    <h1 class="main-title">Class Selector</h1>
+
+    <p>
+        <h3 class="sub-title">Class selector sub title</h3>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        Temporibus fugit perspiciatis veritatis magnam tempora? 
+        Aliquam repudiandae minus laboriosam, assumenda inventore accusamus, 
+        provident facere, atque quia consequatur delectus officia in blanditiis.
+    </p>
+    <p>
+        <h3 class="sub-title">Class selector sub title</h3>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        Temporibus fugit perspiciatis veritatis magnam tempora? 
+        Aliquam repudiandae minus laboriosam, assumenda inventore accusamus, 
+        provident facere, atque <b class="sub-title highlight-bg">quia consequatur</b> delectus officia in blanditiis.
+    </p>
+
+    
+</body>
+</html>
