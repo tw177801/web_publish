@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nth-child</title>
+
+    <style>
+
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul.first li:first-child {color: blue;}
+        li:las-child {text-decoration: underline;} 
+        li:nth-child(3) {background-color: aqua;} 
+        
+        /* 네이버 - 토마토, 밑줄 x, 진하게 */
+
+
+        ul.first > li:nth-last-child(2) > a {
+            color : tomato;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .box article {
+            width: 100px;
+            height: 100px;
+            border: 1px solid silver;
+        }
+      
+        article:first-child {
+            background-color: yellow;
+        }
+        article:nth-child(3) {
+            background-color: green;
+        }
+
+    </style>
+
+
+</head>
+<body>
+    <h1>nth-child pseudo-class slelctor</h1>
+    <ul class="first">
+        <li>HTML5</li>
+        <li>CSS3</li>
+        <li>JavaScript</li>
+        <li><a href="#">naver</a></li>
+        <li>React</li>
+    </ul>
+    <div class="box">
+        <article></article>
+        <article></article>
+        <article></article>
+        <article></article>
+        <article></article>
+    </div>
+</body>
+</html>
