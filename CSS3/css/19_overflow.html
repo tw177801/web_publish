@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>overflow</title>
+    <style>
+        div {
+            width: 400px;
+            border: 1px solid silver;
+        }
+        div p {
+            width: 600px;
+            border: 1px solid green;
+        }
+
+        .auto { overflow: auto;}
+        .hidden { overflow: hidden;}
+        .scroll { overflow: scroll;}
+        .scroll-x { overflow-x: scroll;}
+        .scroll-y { overflow-y: scroll;}
+        .bg-image-y {
+            width: 10%;
+            height: 100px;
+            background-image: url(https://img.freepik.com/free-vector/outline-flat-seamless-arabic-geometric-ornament-pattern_1409-4191.jpg?t=st=1729653846~exp=1729657446~hmac=57a215fd60bb0e66af0b3fbce95ca48502bbe145cfcc6fcb07a2961dc3ab6d04&w=996);
+            background-repeat: repeat;
+        }
+    </style>
+</head>
+<body>
+    <h1>Overflow</h1>
+
+    <div class="auto bg-image-y">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+            Corrupti, quia. Ullam, perspiciatis iste? 
+            Expedita saepe veniam omnis nemo tempora eveniet magni, dolorum, 
+            consectetur voluptas minima consequuntur dolorem accusamus, 
+            corrupti esse.</p>
+    </div>
+    <div class="hidden">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+            Corrupti, quia. Ullam, perspiciatis iste? 
+            Expedita saepe veniam omnis nemo tempora eveniet magni, dolorum, 
+            consectetur voluptas minima consequuntur dolorem accusamus, 
+            corrupti esse.</p>
+    </div>
+    <div class="scroll">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+            Corrupti, quia. Ullam, perspiciatis iste? 
+            Expedita saepe veniam omnis nemo tempora eveniet magni, dolorum, 
+            consectetur voluptas minima consequuntur dolorem accusamus, 
+            corrupti esse.</p>
+    </div>
+    <div class="scroll-x">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+            Corrupti, quia. Ullam, perspiciatis iste? 
+            Expedita saepe veniam omnis nemo tempora eveniet magni, dolorum, 
+            consectetur voluptas minima consequuntur dolorem accusamus, 
+            corrupti esse.</p>
+    </div>
+    <div class="scroll-y">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+            Corrupti, quia. Ullam, perspiciatis iste? 
+            Expedita saepe veniam omnis nemo tempora eveniet magni, dolorum, 
+            consectetur voluptas minima consequuntur dolorem accusamus, 
+            corrupti esse.</p>
+    </div>
+
+
+</body>
+</html>
