@@ -29,6 +29,6 @@
 
 }
 
-.font-color-main { color: var(--color-font-primary);}
-.font-color-gray { color: var(--color-gray-222);}
+.font-color-main { color: var(--color-gray-222);}
+.font-color-gray { color: var(--color-primary);}
 
