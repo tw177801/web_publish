@@ -10,160 +10,420 @@
 /* .font-color-gray { color: rgb(77,77,77);}  */
 
 header {
-    border: 1px solid var(--color-border);
-    width: 1000px;
+    /* border: 1px solid var(--color-border); */
+    width: 100%;
     height: 150px;
     margin: 0 auto;
-    
-}
-
-.header-top {
-    padding: 20px 0px;
-}
-
-.header-top, .header-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.header-top-logo {
-    /* border: 1px solid blue; */
-    position: relative;
-    width: 320px;
-}
-
-.header-top-logo > a > img {
-    width: 120px;
-}
-
-.header-top-logo > span {
-    position: absolute;
-    top: 30px;
-    left: 110px;
-    /* overflow: hidden; */
-    letter-spacing: 5px;
-    color: gray;
-    font-weight: 500;
-}
-
-.header-top ul, .header-bottom ul {
-    /* border: 1px solid green; */
-    display: flex;
-    list-style-type: none;
-}
-
-.header-top ul li {
-    /* background-color: aqua; */
-    /* padding: 15px 10px; */
-}
+    border-bottom: 1px solid red;
+     }
 
 
-.header-top ul li a {
-    /* background-color: aqua; */
-    padding: 30px 10px;
-    text-decoration: none;
-    color: var(--color-primary)
-}
+                                                                                .header-top {
+                                                                                    padding: 20px 0px;
+                                                                                }
+
+                                                                                .header-top, .header-bottom-content { 
+                                                                                    width: 1000px;
+                                                                                    margin: 0 auto;
+                                                                                }
+
+                                                                                .header-top, .header-bottom, .header-bottom-content {
+                                                                                    display: flex;
+                                                                                    justify-content: space-between;
+                                                                                    align-items: center;
+                                                                                }
+
+                                                                                .header-top-logo {
+                                                                                    /* border: 1px solid blue; */
+
+                                                                                    position: relative;
+                                                                                    width: 320px;
+                                                                                }
+
+                                                                                .header-top-logo > a > img {
+                                                                                    width: 120px;
+                                                                                }
+
+                                                                                .header-top-logo > span {
+                                                                                    position: absolute;
+                                                                                    top: 30px;
+                                                                                    left: 110px;
+                                                                                    /* overflow: hidden; */
+                                                                                    letter-spacing: 5px;
+                                                                                    color: gray;
+                                                                                    font-weight: 500;
+                                                                                }
+
+                                                                                .header-top ul, .header-bottom ul {
+                                                                                    /* border: 1px solid green; */
+                                                                                    display: flex;
+                                                                                    list-style-type: none;
+                                                                                }
+
+                                                                                .header-top ul li {
+                                                                                    /* background-color: aqua; */
+                                                                                    /* padding: 15px 10px; */
+                                                                                    margin-left: 30px;
+                                                                                }
 
 
-.header-bottom dl {
-    display: none;
-}
-
-.header-bottom {
-    /* border: 1px solid silver; */
-    height: 40px;
-  
-}
+                                                                                .header-top ul li a {
+                                                                                    /* background-color: aqua; */
+                                                                                    /* padding: 30px 10px; */
+                                                                                    text-decoration: none;
+                                                                                    color: var(--color-primary)
+                                                                                }
 
 
-.header-bottom li {
-    padding: 10px 25px;
 
-}
+                                                                                /*header-bottom, bt*/
 
-.header-bottom li a {
-    text-decoration: none;
-    font-weight: 700;
-    color: var(--color-primary)
-}
+                                                                                .header-bottom {
+                                                                                    width: 100%;
+                                                                                    height: 40px; 
+                                                                                    padding-top: 5px 0;
+                                                                                    /* padding-bottom: 20px; */
+                                                                                    border-top: 1px solid silver;
+                                                                                    /* border-bottom: 2px solid tomato; */
+
+                                                                                }
+
+                                                                                .header-bottom dl {
+                                                                                    display: none;
+                                                                                }
+
+                                                                                .header-bottom-content {
+                                                                                    /* border: 1px solid blue; */
+                                                                                }
+
+
+                                                                                .header-bottom li {
+                                                                                    padding: 10px 25px;
+                                                                                }
+
+                                                                                .header-bottom li a {
+                                                                                    text-decoration: none;
+                                                                                    font-weight: 700;
+                                                                                    color: var(--color-primary)
+                                                                                }
+
+
+
+
+
+                                                                                /*****************************************************
+                                                                                *****************************************************/
+
+                                                                                /*****************************************************
+                                                                                *****************************************************/
+
+                                                                                .header-menu-icon {
+                                                                                    /* border: 1px solid blue; */
+                                                                                    display: block;
+                                                                                    width: 46px;
+                                                                                    min-height: 50px;
+                                                                                    /* overflow: hidden; */
+                                                                                    position: relative;
+                                                                                }
+
+                                                                                .header-menu-icon img {
+                                                                                    width: 36px;
+                                                                                    height: 36px;
+                                                                                }
+
+                                                                                .header-menu-icon span {
+                                                                                    /* border: 1px solid red; */
+                                                                                    width: 56px;
+                                                                                    height: 16px;
+                                                                                    font-size: 12px;
+                                                                                    bottom: 0;
+                                                                                    left: -5px;
+                                                                                    font-weight: 600;
+                                                                                    position: absolute;
+                                                                                }
+
+
+
+                                                                                /*header-top-card*/
+
+
+                                                                                .header-top-card {
+
+                                                                                    /* border: 1px solid red; */
+                                                                                    position: relative;
+                                                                                    left: 100px;
+                                                                                    top: 5px;
+                                                                                }
+
+
+                                                                                .header-bottom-search {
+                                                                                    width: 250px;
+                                                                                    display: flex;
+                                                                                    justify-content: space-between;
+                                                                                    padding: 0 10px;
+                                                                                    border-right: 1px solid silver;
+                                                                                    border-left: 1px solid silver;
+
+                                                                                }
+
+                                                                                .header-bottom-search input {
+                                                                                    width: 80%;
+                                                                                    border: none;
+                                                                                    padding: 5px;
+                                                                                }
+
+
+
+                                                                                /********************************************
+                                                                                * title : footer style
+                                                                                * author : hong@naver.com
+                                                                                * final date : 2024/0/24
+                                                                                *********************************************/
+
+                                                                                footer {
+                                                                                    /* margin: 0 auto;
+                                                                                    background-color: antiquewhite; */
+                                                                                    width: 100%;
+                                                                                    height: 200px;
+                                                                                    background-color: var(--color-footerbg);
+                                                                                }
+
+                                                                                .footer-content {
+                                                                                    width: 1000px;
+                                                                                    margin: 0 auto;
+                                                                                }
+
+                                                                                footer p:first-child ul {
+                                                                                    border: 1px solid var(--color-border);
+                                                                                    display: flex;
+
+                                                                                }
+
+                                                                                .footer-intro > ul {
+                                                                                    /* border: 1px solid var(--color-border); */
+                                                                                    /* background-color: aqua; */
+
+                                                                                    width: 100%;
+                                                                                    height: 80px;
+                                                                                    display: flex;
+                                                                                    align-items: center;
+                                                                                    justify-content: space-between;
+                                                                                    list-style-type: none;
+                                                                                    border-bottom: 1px solid var(--color-silver);
+
+                                                                                }
+
+                                                                                .footer-intro > ul a {
+                                                                                    font-size: 14px;
+                                                                                    font-weight: bold;
+                                                                                    text-decoration: none;
+                                                                                    color: var(--color-primary);
+                                                                                }
+
+
+                                                                                .footer-intro > ul a:hover {
+                                                                                    /* color: red; */
+                                                                                    text-decoration: underline;
+                                                                                }
+
+
+
+                                                                                .footer-intro > ul li:nth-child(8) {
+                                                                                    color: var(--color-black);
+                                                                                    font-weight: 500;
+                                                                                    text-decoration: underline;
+                                                                                }
+
+                                                                                .footer-intro ~ p {
+                                                                                    color: var(--color-primary);
+                                                                                    font-size: 10px;
+                                                                                    font-weight: 600;
+                                                                                    padding: 3px 0;
+                                                                                }
+
+                                                                                .p {
+                                                                                    /* border: 1px solid red; */
+                                                                                    margin-top: 20px;
+
+                                                                                }
+
+                                                                                .p2 {
+                                                                                    margin-bottom: 20px;
+
+                                                                                }
+
+
+
 
 /********************************************
-* title : footer style
+* title : content style
 * author : hong@naver.com
 * final date : 2024/0/24
 *********************************************/
 
-footer {
-    /* margin: 0 auto;
-    background-color: antiquewhite; */
+.content, 
+.content-top,
+.content-moviechart 
+{
     width: 100%;
-    height: 200px;
-    background-color: var(--color-footerbg);
 }
 
-.footer-content {
+.content-top {
+    background-color: #000;
+    position: relative;
+    top: -3px;
+}
+
+
+
+
+/* content-moviechart*/
+
+
+.content-top iframe, 
+.content-moviechart > div,
+.content-event-special {
+    display: block;
     width: 1000px;
     margin: 0 auto;
 }
 
-footer p:first-child ul {
-    border: 1px solid var(--color-border);
-    display: flex;
-
+.content-moviechart { 
+    /* border: 1px solid green; */
+    background-color: lightcyan;  
+    padding: 40px 0;
 }
 
-.footer-intro + ul {
-    /* border: 1px solid var(--color-border); */
-    /* background-color: aqua; */
 
-    width: 100%;
-    height: 80px;
+.content-title-style div {
+    border: 1px solid red;
+    display: flex;
+    
+    /* padding: 10px 0; */
+}
+
+.content-title-style div:last-child {
+    border: 1px solid red;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    list-style-type: none;
-    border-bottom: 1px solid var(--color-silver);
-
+    /* padding: 10px 0; */
 }
 
-.footer-intro + ul a {
-    font-size: 14px;
+
+
+
+
+
+/*
+    공통적으로 적용되는 클래스는 직접 셀렉팅하는 경우 부모를 직관적으로 지정
+*/
+
+/*무비차트/상영예정작 텍스트*/
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+.content-moviechart .content-title-style > div:first-child { 
+    /* border: 1px solid green; */
+    
+    position: relative;
+    width: 240px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/*무비차트/상영예정작 중간 라인 */
+
+!!!!!!!!!!!!!!!!!!!!!!!
+.content-moviechart .content-title-style > div > span:first-child + span {
+    /* font-size: 10px; */
+    display: inline-block;
+    width: 1px;
+    height: 12px;
+    background-color: var(--color-silver);
+    position: absolute;
+    top: 5px;
+    left: 45%;
+}
+
+
+
+/* .content-moviechart .content-title-style > div > span:last-child {
+    border: 1px solid red;
+    margin-left: 10px;
+    right: 0;
+    text-align: right;
+} */
+
+
+/* .content-moviechart-title div:last-child button {
+    border: 1px solid var(--color-primary);
+    border-radius: 15px;
+    padding: 7px 15px;
+} */
+
+                                                                                    /* 무비차트/상영예정작 리스트 */
+
+                                                                                    .content-moviechart-list ul {
+                                                                                        /* border: 1px solid red; */
+                                                                                        list-style-type: none;
+                                                                                        display: flex;
+                                                                                        justify-content: space-between;
+                                                                                    }
+
+                                                                                    .content-moviechart-list ul li {
+                                                                                        /* border: 1px solid blue; */
+                                                                                        padding: 15px 15px 0;
+                                                                                    }
+
+                                                                                    .content-moviechart-list ul li:first-child {
+                                                                                        /* border: 1px solid blue; */
+                                                                                        padding-left: 0px;
+                                                                                    }
+
+                                                                                    .content-moviechart-list ul li:last-child {
+                                                                                        /* border: 1px solid blue; */
+                                                                                        padding-right: 0px;
+                                                                                    }
+
+
+                                                                                    .content-moviechart-list ul li img {
+                                                                                        /* border: 5px solid green; */
+                                                                                        border-radius: 15px;
+                                                                                        width: 170px;
+                                                                                    }
+
+                                                                                    .content-moviechart-list ul li h3 {
+                                                                                        text-align: center;
+                                                                                        padding: 10px 0;
+                                                                                    }
+
+
+                                                                                    .content-moviechart-list ul li h5 {
+                                                                                        text-align: center;
+                                                                                        padding-top: 3px;
+                                                                                        color: var(--color-primary);
+                                                                                    }
+
+
+
+/* event 섹션 */
+
+
+.content-event-special ul li p {
     font-weight: bold;
-    text-decoration: none;
-    color: var(--color-primary);
-
-
 }
 
 
-.footer-intro + ul a:hover {
-    /* color: red; */
-    text-decoration: underline;
-}
-
-
-
-.footer-intro + ul li:nth-child(8) {
-    color: var(--color-black);
-    font-weight: 500;
-    text-decoration: underline;
-}
-
-.footer-intro ~ p {
-    color: var(--color-primary);
-    font-size: 10px;
-    font-weight: 600;
-    padding: 3px 0;
-}
-
-.p {
+/* moviechart, event, special => title */
+.content-title-style {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
     /* border: 1px solid red; */
-    margin-top: 20px;
-
 }
-.p2 {
-    margin-bottom: 20px;
 
+.content-title-style font {
+    font-size: 1.4em;
+    font-weight: 600;
 }
+

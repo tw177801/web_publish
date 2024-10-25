@@ -2,6 +2,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: '나눔고딕';
 }
 
 
@@ -13,5 +14,21 @@
     --color-border: tomato;
     --color-silver: silver;
     --color-footerbg: rgba(248, 248, 248, 0.442);
+    --color-buttonbg: rgb (222, 222, 222);
+    --color-gray-222: rgb (102, 102, 222);
+    --color-font-primary: rgb (34, 34, 34);
+}
+
+
+/*index-total-button style*/
+.total-view-button {
+
+    border: 1px solid var(--color-primary); 
+    border-radius: 15px;
+    padding: 5px 13px;
 
 }
+
+.font-color-main { color: var(--color-font-primary);}
+.font-color-gray { color: var(--color-gray-222);}
+
