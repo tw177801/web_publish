@@ -322,7 +322,7 @@ footer p:first-child ul {
 }
 
 .content-title-style-cl .ab {
-    border: 1px solid red;
+    /* border: 1px solid red; */
     display: inline-block;
     /* position: absolute;
     right: 0; */
@@ -437,10 +437,6 @@ footer p:first-child ul {
 /* event 섹션 */
 
 
-.content-event-special {
-    border: 1px solid red;
-}
-
 .content-event-A {
 
     display: flex;
@@ -465,6 +461,7 @@ footer p:first-child ul {
 }
 
 
+
 .event-content-title {
     font-size: 17px;
     font-weight: 700;
@@ -481,6 +478,7 @@ footer p:first-child ul {
 
 
 /* speacial */
+/* 특별관 */
 
 .special-cotent-list {
     display: flex;
@@ -548,22 +546,6 @@ footer p:first-child ul {
     
     border-top: 1px solid white;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -662,6 +644,8 @@ footer p:first-child ul {
 
 
 /* moviechart, event, special => title */
+
+/* 특별관 */
 
 .content-title-style {
     display: flex;
