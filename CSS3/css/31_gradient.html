@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gradient Style</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            border: 1px solid silver;
+            margin: 2rem auto;
+        }
+
+        .linear {
+            /* background: linear-gradient(to bottom, #000 0%, #fff 100%); */
+            /* background: linear-gradient(to top, #000 0%, #fff 100%); */
+            /* background: linear-gradient(to left, #000 0%, #fff 100%); */
+            /* background: linear-gradient(to right, #000 0%, #fff 100%); */
+            color: #fff;
+            /* background-color: red; */
+            background: #3e1717;
+            background: linear-gradient(127deg,#3e1717 0%, #4f3ea7 80%);
+            background: -webkit-linear-gradient(127deg,#3e1717 0%, #4f3ea7 80%);
+            background: -moz-linear-gradient(127deg,#3e1717 0%, #4f3ea7 80%);
+        }
+
+        .radial {
+            /* background: radial-gradient(circle at center, #000 0%, #fff 100%); */
+
+            /* background: #3545b7;
+            background: radial-gradient(circle farthest-corner at center center, #3545b7 0%, #00ffac 80%);
+            background: -webkit-radial-gradient(circle farthest-corner at center center, #3545b7 0%, #00ffac 80%);
+            background: -moz-radial-gradient(circle farthest-corner at center center, #3545b7 0%, #00ffac 80%);
+                     */
+
+            background: #b73538;
+            background: radial-gradient(ellipse farthest-corner at center center, #b73538 0%, #ffef00 80%);
+            background: -webkit-radial-gradient(ellipse farthest-corner at center center, #b73538 0%, #ffef00 80%);
+            background: -moz-radial-gradient(ellipse farthest-corner at center center, #b73538 0%, #ffef00 80%);
+
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Gradient Style</h1>
+    <div class="box linear">Linear Gradient</div>
+    <div class="box radial">radial Gradient</div>
+
+</body>
+</html>
