@@ -35,11 +35,30 @@
             to {opacity: .3; color: green;}
         }
 
+        .box_img {
+            width: 300px;
+            height: 300px;
+            border: 1px solid silver;
+            position: fixed;
+            top: 30px;
+            right: 50px;
+            animation: boxImage 10s ease 0s infinite;
+        }
+
+        @keyframes boxImage {
+            from { background-image: url("/CGV/images/event1.jpg");}
+            30% {background-image: url("/CGV/images/giftcard.jpg");}
+            60% {background-image: url(/CGV/images/logoRed.png);}
+            to { background-image: url(/CGV/images/header_card_img.png);}
+        }
+
+
 
     </style>
 </head>
 <body>
     <h1>Animation</h1>
     <div class="box">box</div>
+    <div class="box_img"></div>
 </body>
 </html>

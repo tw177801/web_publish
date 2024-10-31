@@ -1,177 +1,42 @@
 
+/* 
+.btn-ticket {
 
-
-/********************************************
-* title : header style
-* author : hong@naver.com
-* final date : 2024/0/24
-*********************************************/
-
-/* .font-color-gray { color: rgb(77,77,77);}  */
-
-header {
-    /* border: 1px solid var(--color-border); */
-    width: 100%;
-    height: 150px;
-    margin: 0 auto;
-    /* border-bottom: 1px solid red; */
-     }
-
-
-.header-top {
-    padding: 20px 0px;
-}
-
-.header-top, 
-.header-bottom-content { 
-    width: 1000px;
-    margin: 0 auto;
-}
-
-.header-top, .header-bottom, .header-bottom-content {
-    display: flex;
     justify-content: space-between;
+} */
+
+.goto-top {
+    background-color: white;
+    /* line-height: 40px; */
+    width: 50px;
+    height: 50px;
+    display: flex;
     align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    border-radius: 30px;
+    position: fixed;
+    bottom: 40px;
+    right: 70px;
+
 }
 
-.header-top-logo {
-    /* border: 1px solid blue; */
-
-    position: relative;
-    width: 320px;
-}
-
-.header-top-logo > a > img {
-    width: 120px;
-}
-
-.header-top-logo > span {
-    position: absolute;
-    top: 30px;
-    left: 110px;
-    /* overflow: hidden; */
-    letter-spacing: 5px;
-    color: gray;
-    font-weight: 500;
-}
-
-.header-top ul, .header-bottom ul {
-    /* border: 1px solid green; */
-    display: flex;
-    list-style-type: none;
-}
-
-.header-top ul li {
-    /* background-color: aqua; */
-    /* padding: 15px 10px; */
-    margin-left: 30px;
-    list-style-type: none;
-}
-
-
-.header-top ul li a {
-    /* background-color: aqua; */
-    /* padding: 30px 10px; */
+.position {
+    padding: 15px 35px;
     text-decoration: none;
-    color: var(--color-primary)
-}
-
-
-
-/*header-bottom, bt*/
-
-.header-bottom {
-    width: 100%;
-    height: 40px; 
-    padding-top: 5px 0;
-    /* padding-bottom: 20px; */
-    border-top: 1px solid silver;
-    /* border-bottom: 2px solid tomato; */
-
-}
-
-.header-bottom dl {
-    display: none;
-}
-
-.header-bottom-content {
-    /* border: 1px solid blue; */
-}
-
-
-.header-bottom li {
-    padding: 10px 25px;
-}
-
-.header-bottom li a {
-    text-decoration: none;
+    text-transform: uppercase;
     font-weight: 700;
-    color: var(--color-primary)
+    position: fixed;
+    right: 450px;
+    bottom: 30px;
+    border-radius: 30px;
+    line-height: 1.500em;
+    background-image: linear-gradient(to left, rgb(255, 115, 86), rgb(251, 67, 87));
+    box-shadow: 1px 3px 6px 0 rgba(0, 0, 0, 0.3);
+    border-radius: 25px;
+    transition: right 0.4s;
+    color: white;
 }
-
-
-.header-menu-icon {
-    /* border: 1px solid blue; */
-    display: block;
-    width: 46px;
-    min-height: 50px;
-    /* overflow: hidden; */
-    position: relative;
-}
-
-.header-menu-icon img {
-    width: 36px;
-    height: 36px;
-}
-
-.header-menu-icon span {
-    /* border: 1px solid red; */
-    width: 56px;
-    height: 16px;
-    font-size: 12px;
-    bottom: 0;
-    left: -5px;
-    font-weight: 600;
-    position: absolute;
-}
-
-
-
-/*header-top-card*/
-
-
-.header-top-card {
-
-    /* border: 1px solid red; */
-    position: relative;
-    left: 100px;
-    top: 5px;
-}
-
-
-.header-bottom-search {
-    width: 250px;
-    display: flex;
-    justify-content: space-between;
-    padding: 0 10px;
-    border-right: 1px solid silver;
-    border-left: 1px solid silver;
-
-}
-
-.header-bottom-search input {
-    width: 80%;
-    border: none;
-    padding: 5px;
-}
-
-.header-bottom-search img {
-    width: 40%;
-
-}
-
-
-
 
 
 
@@ -589,108 +454,4 @@ header {
     font-weight: 600;
 }
 
-
-
-
-/* 로그인 화면 */
-
-
-/********************************************
-* title : LOGIN FORM style
-* author : hong@naver.com
-* final date : 2024/0/24
-*********************************************/
-
-.login-form form {
-    /* border: 1px solid green; */
-    width: 800px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    color: var(--color-login-font);
-}
-
-.login-form ul {
-    border: 1px solid green;
-    list-style-type: none;
-    width: 420px;
-}
-
-.login-form ul li {
-    padding: 10px;
-
-}
-
-
-.input-text, .login-button {
-
-    width: 250px;
-    height: 40px;
-}
-
-.login-button {
-    color: white;
-    width: 250px;
-    height: 40px;
-    background-color: red;
-    font-weight: bold;
-    font-size: 15px;
-    border: 1px solid white;
-}
-
-
-.login-button2 {
-    color: white;
-    width: 250px;
-    height: 40px;
-    background-color: rgb(47, 192, 78);
-    /* font-weight: bold; */
-    font-size: 15px;
-}
-
-
-/* .login-form input:not(input[type="checkbox"]),
-.login-form button {
-    width: 263px;
-    padding: 10px;
-
-} */
-
-
-.login-form input[type="text"],
-.login-form input[type="password"] {
-    /* border: 1px solid blue; */
-    /* padding-left: 20px; */
-}
-
-.login-form button {
-    outline-color: var(--color-button);
-    outline-style: solid;
-    outline-width: 1px;
-}
-
-.login-form ul p {
-    font-size: 14px;
-    font-weight: bold;
-}
-
-
-.login-form ul > li:nth-child(5) {
-    border: 1px solid green;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 10pt;
-}
-
-.login-form ul > li:nth-child(5) div:last-child > :nth-child(2) {
-
-    padding-right: 10px;
-
-}
-
-.login-form ul > li:nth-child(5) div:last-child > a {
-    color: var(--color-login-font);
-    font-weight: 700;
-}
 
