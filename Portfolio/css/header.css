@@ -4,21 +4,28 @@
 /* header */
 
 .header-body {
-    background-color: #a73737;
+    background-color: #323a55;
 
 }
 
 
 
 .box {
-    background-color: white;
+    /* background-color: white; */
     width: 100px;
     margin: 10px;
     padding: 10px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     border-radius: 20px;
 
+}
+
+
+.name {
+    margin-left: 10px;
+    font-size: 30px;
 }
 
 
@@ -29,26 +36,40 @@
 .search ul {
     display: flex;
     width: 380px;
-    border: 1px solid red;
+    align-items: center;
+    /* border: 1px solid red; */
     position: relative;
     margin: 0 auto;
     padding: 0;
     top: -80px;
-    right: -700px;
+    right: -540px;
     justify-content: space-between;
     
 }
 
-
-
 .search li {
     list-style-type: none;
+    padding: 20px;
 }
 
 .search li a {
     /* border: 1px solid red; */
     font-weight: bold;
     color: white;
-
     text-decoration: none;
 }
+
+
+.search li a:hover { 
+    cursor: pointer;
+    color: aqua;
+    /* border: 1px solid aqua;
+    padding: 10px;
+    border-radius: 20px; */
+}
+
+.search li:nth-child(4) { 
+    /* border: 1px solid red; */
+    
+}
+

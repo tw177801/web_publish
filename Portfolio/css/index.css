@@ -1,46 +1,84 @@
 body {
     margin: 0 auto;
     padding: 0 auto;
-    height: 10000px; 
+    /* height: 10000px;  */
     background-color: rgb(24, 16, 36);
     /* background-color: black; */
     color: white;
 
 }
 
-
-
-/* header */
-/* header */
-/* header */
-/* header */
-
-
-/* content*/
+/* introduce */
+/* introduce */
+/* introduce */
+/* introduce */
+/* introduce */
 
 .ctn {
-    /* border: 1px solid red; */
-    /* margin-left: 300px; */
-    /* width: 800px; */
+
+    align-items: center;
+    margin-bottom: 150px;
+}
+
+.ctn2 {
+    /* margin-left: 50px; */
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
 }
 
 
 .introduce {
+    /* border: 1px solid red; */
     color: white;
     font-weight: bold;
-    font-size: 60px;
-    margin-left: 300px;
-    margin-top: 200px;
+    font-size: 50px;
+    text-align: center;
 }
 
-
+.in-del {
+    color: aqua;
+}
 
 
 .int2 {
     /* border: 1px solid red; */
-    margin-left: 300px;
-    margin-top: 40px;
-    font-size: 18px;
+    /* margin-left: 300px;
+    margin-top: 40px; */
+    text-align: center;
+    /* font-size: 18px; */
+}
+
+.content-imgbtn {
+    display: flex;
+    justify-content: center;
+    margin-top: 130px;
+}
+
+.content-imgbtn img {
+    border: 5px solid aqua;
+    border-radius: 150px;
+    width: 250px;
+
+}
+
+
+.btn {
+    /* border: 1px solid red; */
+    border: none;
+    border-radius: 20px;
+    background-color: aqua;
+    width: 150px;
+    height: 50px;
+    font-size: 23px;
+    font-weight: bold;
+    color: black;
+
+}
+
+.btnc {
+    display: flex;
+    justify-content: center;
 }
 
 
