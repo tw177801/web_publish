@@ -1,0 +1,48 @@
+body {
+    margin: 0 auto;
+    padding: 0 auto;
+    height: 10000px; 
+    background-color: rgb(24, 16, 36);
+    /* background-color: black; */
+    color: white;
+
+}
+
+
+
+/* header */
+/* header */
+/* header */
+/* header */
+
+
+/* content*/
+
+.ctn {
+    /* border: 1px solid red; */
+    /* margin-left: 300px; */
+    /* width: 800px; */
+}
+
+
+.introduce {
+    color: white;
+    font-weight: bold;
+    font-size: 60px;
+    margin-left: 300px;
+    margin-top: 200px;
+}
+
+
+
+
+.int2 {
+    /* border: 1px solid red; */
+    margin-left: 300px;
+    margin-top: 40px;
+    font-size: 18px;
+}
+
+
+
+/*footer*/
