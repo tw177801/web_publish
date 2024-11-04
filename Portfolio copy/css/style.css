@@ -84,7 +84,7 @@
   */
 
   .header {
-    border: 1px solid yellow;
+    /* border: 1px solid yellow; */
     background-color: var(--color-primary);
     width: 100%;
     padding: 1rem;
@@ -351,7 +351,7 @@
 
 .category__count {
   position: absolute;
-  top: 0;
+  top: -20px;
   right: 16px;
   background-color: orange;
   color: var(--color-text);
@@ -360,5 +360,145 @@
   line-height: 28px;
   border-radius: 100%;
   opacity: 0;
+  transition: all 1000ms ease;
 }
 
+.category--selected .category__count,
+.category:hover .category__count {
+  opacity: 1;
+  top: 0;
+}
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.project {
+  position: relative;
+  overflow: hidden;
+}
+
+.project__img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.project__metadata {
+  /* border: 2px solid red; */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  background-color: var(--color-primary);
+}
+
+.project__metadata__title::after {
+  width: 50px;
+  height: 2px;
+  content: '';
+  display: block;
+  background-color: var(--color-accent);
+  position: relative;
+  margin: 0.8rem 0;
+  left: 50px;
+  transform: translateX(-50%);
+}
+
+.project__metadata:hover {
+  opacity: 0.8;
+}
+
+/*
+  Testimonial
+*/
+
+.testimonials {
+  margin: 3rem;
+}
+
+.testimonial {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.testimonial:nth-child(even) .testimonial__img {
+  order: 1;
+}
+
+
+.testimonial__img {
+  width: 150px;
+  height: 150px;
+  border-radius: 100%;
+  box-shadow: 4px 8px 8px rgba(0, 0, 0, 0.38);
+}
+
+.testimonial__bubble {
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 4px 8px 8px rgba(0, 0, 0, 0.38);
+}
+
+.testimonial__bubble__name {
+  display: inline-block;
+  margin-top: 0.3rem;
+  color: var(--color-accent);
+  filter: brightness(70%);
+}
+
+/*
+  Arrow-up
+*/
+
+.arrow--up {
+  position: fixed;
+  bottom: 3rem;
+  right: 3rem;
+  color: var(--color-text);
+  font-size: 3rem;
+  width: 4.5rem;
+  height: 4.5rem;
+  background-color: var(--color-primary);
+  text-align: center;
+  border-radius: 100%;
+  box-shadow: 5px 5px 0px 0px var(--color-accent);
+}
+
+
+
+/*
+  Footer
+*/
+
+#contact {
+  background-color: var(--color-primary);
+  color: var(--color-text);
+}
+
+.contact__links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  font-size: 2rem;
+  padding: 1rem;
+}
+
+.contact__link {
+  color: var(--color-text);
+}
+
+.contact__link:hover {
+  color: var(--color-accent);
+}
