@@ -132,7 +132,7 @@
 
   .header__toggle {
     /* border: 1px solid yellow; */
-    display: none;
+    /* display: none; */
     color: var(--color-text);
     font-size: 1.5rem;
     position: absolute;
@@ -140,15 +140,23 @@
     right: 1rem;
   }
 
+  .header__toggle {
+    display: block;
+  }
+
+  .header__menu {
+    display: none;
+  }
   
-  /*
-    Home
-  */
+
+  /*Home*/
+
+  
 
   #home {
     background-color: var(--color-primary);
     color: var(--color-white);
-    padding: 5rem 1rem;
+    padding: 5rem 3rem;
     padding-top: 7rem;
     text-align: center;
   }
@@ -163,9 +171,8 @@
 }
 
 .home__title {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
 
 }
 
@@ -209,10 +216,13 @@
   align-items: center;
   gap: 1rem;
   margin: 2.5rem 0;
+  flex-direction: column;
+  align-items: center;
 }
 
 
 .major {
+  width: 30rem;
   background-color: var(--color-gray);
   color: var(--color-text);
   padding: 2rem 1rem;
@@ -238,7 +248,7 @@
 
 .job {
   display: flex;
-  /* justify-content: flex-start; */
+  justify-content: center;
   align-items: center;
   gap: 10px;
   margin-bottom: 1rem;
@@ -265,7 +275,8 @@
 
 .skills {
   display: grid;
-  grid-template-columns: 6fr 4fr;
+  /* grid-template-columns: 6fr 4fr; */
+  grid-template-columns: 1fr;
   margin: 2rem 0;
   border-radius: 8px;
   overflow: hidden;
@@ -336,12 +347,14 @@
 }
 
 .category {
+  width: 100%;
   color: var(--color-text);
   padding: 0.5rem 3rem;
   border: 1px solid var(--color-accent);
   border-radius: 4px;
   font-size: 1.1rem;
   position: relative;
+  flex-direction: column;
 }
 
 .category--selected {
@@ -457,6 +470,22 @@
   filter: brightness(70%);
 }
 
+.testimonial {
+  flex-direction: column;
+}
+
+.testimonial:nth-child(even) .testimonial__img {
+  order: 0;
+}
+
+.arrow--up {
+  bottom: 1.5rem;
+  right: 2rem;
+  font-size: 2rem;
+  width: 3rem;
+  height: 3rem;
+}
+
 /*
   Arrow-up
 */
@@ -501,4 +530,60 @@
 
 .contact__link:hover {
   color: var(--color-accent);
+}
+
+
+/*************************
+  media screen - 768 ✖ 1024
+  이모지 단축키 : window key + .(period)
+*************************/
+@media screen and (max-width : 768px) {
+  .section {
+    padding: 3rem 2rem;
+  }
+  .title {
+    font-size: 2rem;
+  }
+  .description {
+    font-size: 1rem;
+  }
+  .header {
+    flex-direction: column;
+    align-items: start;
+  }
+  .header__toggle {
+    display: block;
+  }
+
+  .skills {
+    grid-template-columns: 6fr 4fr;
+  }
+}
+
+/*************************
+  media screen - 412
+*************************/
+@media screen and (max-width : 412px) {
+  .section {
+    padding: 1.5rem 1rem;
+  }
+
+  .header__logo__title {
+    font-size: 1.5rem;
+  }
+
+  #home {
+    padding: 5rem 1.5rem;
+  }
+
+  .home__avatar {
+    width: 200px;
+    height: 200px;
+  }
+
+  
+  .skills {
+    grid-template-columns: 1fr;
+  }
+
 }
