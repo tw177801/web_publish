@@ -11,14 +11,14 @@
 
 
 //primative 값
-console.log(3 > 2);
-console.log(3 < 2);
-console.log(3 >= 3);
-console.log(3 <= 3);
-console.log(3 == '2'); // 3 == 2
-console.log(3 == 'A'); // 3 == 67
-console.log(3 === '2'); // number === string
-console.log(3 === 'A'); // number === string
+// console.log(3 > 2);
+// console.log(3 < 2);
+// console.log(3 >= 3);
+// console.log(3 <= 3);
+// console.log(3 == '2'); // 3 == 2
+// console.log(3 == 'A'); // 3 == 67
+// console.log(3 === '2'); // number === string
+// console.log(3 === 'A'); // number === string
 
 let obj1 = {
     name: "홍길동"
@@ -28,10 +28,24 @@ let obj2 = {
     name: "홍길동"
 };
 
-console.log(obj1);
-console.log(obj2);
+let obj3 = obj1; //call by reference
 
-console.log(`obj1 : ${obj1}`);
-console.log(`obj2 : ${obj2}`);
+
+// = -> 할당, == -> 값 비교, === -> 값, 데이터 타입 비교
+
+// console.log(obj1);
+// console.log(obj2);
+// console.log(`obj1 : ${obj1}`);
+// console.log(`obj2 : ${obj2}`);
+
+// console.log(obj1 == obj2);
+// console.log(obj1 === obj2);
+// console.log(typeof obj1 === typeof obj2);
+
+// console.log(obj1 == obj3);
+// console.log(obj1 === obj3);
+// console.log(typeof obj1 === typeof obj3);
+
+console.log(obj1.name == obj2.name);
 
 
