@@ -17,7 +17,7 @@ console.log(b % 2); //a가 짝수? 홀수?
 // 문자로 시작하면 뒤에 나오는 +는 접합 연산자로 실행됨
 console.log(10 + 20);
 console.log("sum : " + (10 + 20)); 
-console.log('sum : ${10 + 20}'); 
+console.log(`sum : ${10 + 20}`); 
 
 
 
