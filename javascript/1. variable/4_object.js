@@ -19,6 +19,9 @@ orange = {
     translation: '🚚'
 };
 
+
+
+
 console.log(orange);
 console.log(orange.translation);
 console.log(orange.name);
