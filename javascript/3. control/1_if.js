@@ -14,12 +14,66 @@
     
 // }
 
-let fruit = "orange";
-if(fruit === "apple") {
-    console.log('🍎');
-} else {
-    console.log(fruit);
-}
+// let fruit = "orange";
+// if(fruit === "apple") {
+//     console.log('🍎');
+// } else {
+//     console.log(fruit);
+// }
 
 
 // 위의 조건식을 삼항연산자로 작성해보세요.
+// let display = undefined;
+// (fruit === "apple") ? (display = '🍎') : (display = fruit);
+// console.log(display);
+
+// (fruit === "apple") ? console.log('🍎') : console.log(fruit);
+
+
+// 점심 메뉴 : 피자 '🍕' , 햄버거 '🌭'
+// 요구 사항 : 점심 메뉴에 피자와 핫도그가 있다. 피자와 핫도그 중에서 선택한 메뉴에 따라
+// 이모지가 출력되도록 한다. 
+
+// let menu = undefined;
+// menu = 'hotdog';
+// if(menu === "pizza") console.log('🍕');
+// else console.log('🌭');
+// // 1줄일 때만 블레이스 괄호 생략 가능
+
+// if(menu === "pizza") {
+//     console.log(menu);
+//     console.log('🍕');
+// } else console.log('🌭');
+// // 2줄 이상 블레이스 괄호 생략 불가
+
+
+
+// let choiceMenu = undefined;
+// (menu === 'pizza') ? choiceMenu='🍕': choiceMenu= '🌭';
+// console.log(choiceMenu);
+
+
+// 학생명이 홍길동, 홍길순, 김영희 인지 체크하여
+// 해당하는 경우 이름을 출력하고,
+// 해당하지 않는 경우 ' 해당 학생 없음'으로 출력해주세요.
+// 출력포맷 : 실행 결과 ==> 
+
+let name = undefined;
+let result = undefined;
+name = '김영희';
+if(name === '홍길동') {
+    // console.log(`실행결과 ==> ${name}`);
+    result = name;
+} else if(name === '홍길순') {
+    // console.log(`실행결과 ==> ${name}`);
+    result = name;
+} else if(name === '김영희') {
+    // console.log(`실행결과 ==> ${name}`);
+    result = name;
+} else {
+    // console.log(`실행결과 ==> 해당 학생 없음`);
+    result = '해당 학생 없음';
+}
+
+
+console.log(`실행결과 ==> ${result}`);
