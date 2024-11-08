@@ -32,10 +32,40 @@
 // }
 
 //출력
-let numberList = ['🍕', '🍔', '🍟', '🌭'];
-for(let i=0; i <= 4; i++){ // 0 ~ 4 배열의 인덱스!!!
+let numberList = ['🍕', '🍔', '🍟'];
+// 배열의 마지막 인덱스 주소는 배열 크기보다 하나 작다. -1
+// 배열의 크기 구하는 형식 : 배열 객체.length
+console.log(`numberList.length = ${numberList.length}`);
+
+for(let i=0; i <= numberList.length-1; i++){ // 0 ~ 4 배열의 인덱스!!!
     console.log(numberList[i]);
 }
+
+// 과일리스트 출력
+let fruitList = ['apple', 'orange', 'lemon'];
+let emojiList = ['🍎', '🍊', '🍋'];
+
+let length = fruitList.length-1;
+
+for(let k = 0; k <= fruitList.length-1 ; k++) {
+    // lemon 만 출력 
+    let fruit = fruitList[k];
+    let emoji = emojiList[k];
+    if(fruit === 'lemon') {
+        console.log(emoji);
+    }
+}
+
+
+// let fruitList = ['apple', 'orange', 'lemon'];
+// console.log(`fruitList.length = ${fruitList.lenght}`);
+
+// for(let i=0; i <= fruitList.length-1; i++){
+//     console.log(fruitList[i]);
+    
+// }
+
+
 
 //인덱스 값이 아닌 할당 값 출력
 // let numberList = [1,2,3,4,5];
