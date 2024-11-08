@@ -42,13 +42,22 @@
 // }
 
 //별찍기
-for(let i=1; i<11; i++) {
+// for(let i=1; i<11; i++) {
+//     let rows = '';
+//     for(let j=1; j<=i; j++) {
+//         rows += `*`;
+//     }
+//     console.log(rows);
+// }
+
+
+// console.clear();
+
+//거꾸로
+for(let i=11; i>=1; i--) {
     let rows = '';
-    for(let j=1; j<=i; j++) {
+    for(let j=i; j>=1; j--) {
         rows += `*`;
     }
     console.log(rows);
 }
-
-
-// console.clear();
