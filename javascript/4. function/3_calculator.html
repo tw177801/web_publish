@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <script src="/javascript/4. function/2_calculator.js"></script>
+    <script>
+        function dataInput() {
+            //계산기 처리를 위한 데이터 전처리
+            //a <-- document.getElemnetById("number1").number1
+            let a = document.getElementById("number1").value;
+            let b = document.getElementById("number2").value;
+            // console.log(parseInt(a), typeof parseInt(a));
+            
+            calculator(parseInt(a), parseInt(b), "+");
+            //b 
+            //op
+            // calculator(a, b, op);
+        }
+    </script>
+</head>
+<body>
+    <h1>계산기</h1>
+    <form action="#">
+        <ul>
+            <li>
+                <label for="">number1</label>
+                <input type="text" id="number1">
+            </li>
+            <li>
+                <label for="">number2</label>
+                <input type="text" id="number2">
+            </li>
+            <li>
+                <button type="button" onclick="dataInput()"> ➕ </button>
+                <button type="button"> ➖ </button>
+                <button type="button"> * </button>
+                <button type="button"> / </button>
+                <button type="button"> % </button>
+            </li>
+        </ul>
+        <div>
+            <span>실행 결과 : </span>
+            <span></span>
+        </div>
+    </form>
+
+</body>
+</html>
+
+<!-- 
+    onclick: 함수 호출
+
+
+    DOM(Document Object Mdel): javascript 엔진 html body 객체
+
+    document.getElementId("").value -> html 작성 코드
+
+    javascript에서 id 값이 중요
+
+-->

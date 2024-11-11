@@ -1,5 +1,5 @@
 // 계산기 기능 구현
-
+// 브라우저 캐쉬에 function만 저장되어 있다.
 console.clear();
 
 
@@ -17,8 +17,10 @@ function calculator(a, b, op) {
     }
 }
 
-calculator(1, 2, '+');
-calculator(10, 2, '-');
-calculator(10, 2, '*');
-calculator(10, 2, '/');
-calculator(10, 2, '%');
+// calculator(1, 2, '+');
+// calculator(10, 2, '-');
+// calculator(10, 2, '*');
+// calculator(10, 2, '/');
+// calculator(10, 2, '%');
+
+
