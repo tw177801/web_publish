@@ -15,26 +15,27 @@
             // alert -> java script 내장 함수
             // (1)
             // a <-- document.getElemnetById("number1").number1
-            let a = document.getElementById("number1").value;
-            let b = document.getElementById("number2").value;
-            
-            if(a === "") {
+            let a = document.querySelector("#number1"); // -> 주소값
+            let b = document.querySelector("#number2");
+            // 
+            if(a.value === "") {
                 alert("첫번째 숫자를 입력해주세요");
-                document.getElementById("number1").focus();
-            } else if (b === "") {
+                a.focus();
+            } else if (b.value === "") {
                 alert ("두번째 숫자를 입력해주세요");
-                document.getElementById("number2").focus();
+                b.focus();
             } else {
                 
                 // (2)
                 // console.log(parseInt(a), typeof parseInt(a));
-                calculator(parseInt(a), parseInt(b), op);
+                calculator(parseInt(a.value), parseInt(b.value), op);
                 // b 
                 // op
                 // calculator(a, b, op);
             }
         }
 
+        //식별자, 이름 정확히 
 
     </script>
 
