@@ -13,9 +13,16 @@
 
 console.clear();
 
+//빌트인 함수 parsenInt() 호출
+
 let a = '100';
 console.log(a, typeof a);
 console.log(parseInt(a), typeof parseInt(a));
 console.log(a+100);
 console.log(parseInt(a)+100);
 
+// 2개의 숫자를 입력받아, 합계를 출력하는 로직 작성
+let num1 = 10;
+let num2 = 20;
+
+console.log(`sum ==> (${num1 + num2})`);
