@@ -6,7 +6,7 @@
 */ 
 // rows : 1~9, col : 3~5
 
-console.clear();
+
 
 // let start = 3;
 // let finish = 5;
