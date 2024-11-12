@@ -33,6 +33,8 @@
 
 /*
     구구단 선택 함수 형식 : start ~ end 단 출력
+    입력되는 start는 0보다 커야 한다.
+    10단 이상은 출력되지 않도록 한다.
 */
 
 // function selectGugudan(start, end) {
@@ -48,6 +50,7 @@
 
 /*
     구구단 싱글 함수 형식 : single 단 출력
+    입력되는 매개변수는 0보다 커야 한다.
 */
 console.clear();
 function singleGugudan(dan) {
