@@ -10,7 +10,7 @@ function add(a, b) {
 }
 
 
-let sum = add;
+let sum = add; //call by reference 
 console.log(add);
 console.log(sum);
 // console.log(add(1, 2));
