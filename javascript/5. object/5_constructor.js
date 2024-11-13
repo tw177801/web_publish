@@ -13,7 +13,10 @@ function Fruit (name, color, emoji) {
 
 
 const apple = new Fruit("apple", "red", "🍎");
-console.log(apple);
+const orange = new Fruit("orange", "coral", "🍎");
+
+console.log(apple, typeof apple);
+console.log(orange);
 
 
 // // apple : property - name, color : method - display()
