@@ -49,11 +49,6 @@ class Lion extends Animal { // Lion 클래스는 Animal 클래스의 자식이�
 
 // const a = new Lion();
 
-const tom = new Lion("tom", "white", "🦁", "meat");
-
-tom.display();
-tom.sleep();
-tom.eat();
 
 
 
@@ -61,44 +56,72 @@ tom.eat();
 // 속성 : name, color, emoji, taste(식성), age
 // 메소드 : display(이모지), sleep, eat
 
-class Tiger{
+class Tiger extends Animal{
     constructor(name, color, emoji, taste, age) {
-        this.name = name;
-        this.color = color;
-        this.emoji = emoji;
-        this.taste = taste;
+        super(name, color, emoji, taste);
         this.age = age;
     }
+    getAge = () => console.log(this.age);
 
-    display = () => console.log(`${this.name} : ${this.emoji}`);
-    sleep = () => console.log(`${this.name} 가(이) 잔다.`);
-    eat = () => console.log(`${this.name} 가(이) 먹는다.`);
+    
+
+    // display = () => console.log(`${this.name} : ${this.emoji}`);
+    // sleep = () => console.log(`${this.name} 가(이) 잔다.`);
+    // eat = () => console.log(`${this.name} 가(이) 먹는다.`);
 }
 
-const jerry = new Tiger("jerry", "orange", "🐱", "meat", 3);
 
-jerry.display();
-jerry.sleep();
-jerry.eat();
 
 // Dog 클래스
 // 속성 : name, color, emoji, taste(식성)
 // 메소드 : display(이모지), sleep, eat
 
-class Dog{
+class Dog extends Animal{
     constructor(name, color, emoji, taste, type) {
-    this.name = name;
-    this.color = color;
-    this.emoji = emoji;
-    this.taste = taste;
+    super(name, color, emoji, taste);
     this.type = type;
     }
+    getType = () => console.log(this.type);
 
-    display = () => console.log(`${this.name} : ${this.emoji}`);
-    sleep = () => console.log(`${this.name} 가(이) 잔다.`);
-    eat = () => console.log(`${this.name} 가(이) 먹는다.`);
+    
 }
 
 // 도식화 그림 => 다이어그램
 
-const Lucky = new Dog("Lucky", "graywhite", "")
+/**
+ * 동물원에서 동물을 관리하는 클래스
+ * 속성 : #type, #동물의 객체(Lion, Tiger, Dog)
+ * 메소드 : setter/getter
+ */
+
+class EverZoo {
+    static LION = 1;
+    static TIGER = 2;
+    static DOG = 3;
+
+    #type;
+    #animal;
+    constructor(type, animal) {
+        this.#type = type;
+        this.#animal = animal;
+    }
+
+    get type()  { return this.#type; }
+    get animal()  { return this.#animal; }
+
+    set type(type) { this.#type = type; }
+    set animal(animal)  { this.#animal = animal; }
+}
+
+// 클래스 생성 및 호출
+const tom = new Lion("tom", "white", "🦁", "meat");
+const Lucky = new Dog("Lucky", "graywhite", "🐶", "meat", "포메라니언");
+const jerry = new Tiger("jerry", "orange", "🐱", "meat", 3);
+
+// tom.display();  tom.sleep();    tom.eat();
+// Lucky.display();    Lucky.getType();  
+// jerry.display();    jerry.sleep();  jerry.eat(); 
+
+const everZoo = new EverZoo(EverZoo.LION, tom);
+console.log(everZoo.type, everZoo.animal);
+
