@@ -1,8 +1,6 @@
 // 학사관리 프로그램을 생성하는 경우, 사용자를 정의하는 클래스를 설계
 // 학생, 교수, 학부모, 직원 ==> Member 부모 클래스 (name, age, address)
 
-console.clear();
-
 
 class Member {
     #name;
@@ -72,23 +70,80 @@ class Employee extends Member {
 
 // signup 버튼 클릭시 호출되는 함수
 const signupCheck = () => {
-    let type1 = document.querySelector(".type1");
-    let type2 = document.querySelector(".type2");
-    let type3 = document.querySelector(".type3");
-    let type4 = document.querySelector(".type4");
-
-
+    let type = document.querySelector("input[type=radio]:checked");
     let sno = document.querySelector("#sno");
     let name = document.querySelector("#name");
     let age = document.querySelector("#age");
     let address = document.querySelector("#address");
+    let cname = '';
+    let department = '';
 
     //  type에 따라서 각각의 클래스 생성
-    switch(type1) {
-        case 1: Student(sno, name, age, address); break;
-    }
+    let member = null;
+    switch(type.value) {
+        case '1': 
+            member = new Student(sno.value, 
+                                name.value, 
+                                age.value, 
+                                address.value); 
+                                break;
 
-} 
+        case '2': 
+            member = new Professor(name, 
+                                    age, 
+                                    address, 
+                                    subject); 
+                                    break;
+
+        case '3': 
+            member = new Parent(name, 
+                                age, 
+                                address, 
+                                cname); 
+                                break;
+
+        case '4': 
+            member = new Employee(name, 
+                                age, 
+                                address, 
+                                department); 
+                                break;
+        default : 
+    }
+    
+    console.log(member);
+    
+} // end of signupCheck
+
+// display
+const display = (type) => {
+    // type=1 학생폼
+    if(type === '1') {
+
+        document.querySelector('#student').style.display = "block";
+        document.querySelector('#professor').style.display = "none";
+        document.querySelector('#parent').style.display = "block";
+        document.querySelector('#employee').style.display = "block";
+    } else if(type === '2') {
+        document.querySelector('#student').style.display = "none";
+        document.querySelector('#professor').style.display = "block";
+        document.querySelector('#parent').style.display = "none";
+        document.querySelector('#employee').style.display = "none";
+        
+    } else if(type === '3') {
+        document.querySelector('#student').style.display = "none";
+        document.querySelector('#professor').style.display = "none";
+        document.querySelector('#parent').style.display = "block";
+        document.querySelector('#employee').style.display = "none";
+        
+    } else if(type === '4') {
+        document.querySelector('#student').style.display = "none";
+        document.querySelector('#professor').style.display = "none";
+        document.querySelector('#parent').style.display = "none";
+        document.querySelector('#employee').style.display = "block";
+        
+    }
+}
 
 // const hong = new Student('1234', '홍길동', 20, '서울시 강남구'); // 학생
 // const smith = new Professor('smith', 40, '서울시 서초구', 'JavaScript'); // 교수
