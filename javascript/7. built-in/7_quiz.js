@@ -1,6 +1,5 @@
 // 1. 'Hello~ Java Scirpt!!!' 문자열을 한 문자씩 출력해주세요
 
-console.clear();
 
 // built-in 함수 -> 리엑트 적용 가능
 
