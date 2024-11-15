@@ -40,3 +40,11 @@ console.log(typeof str);
 console.log(typeof str2);
 console.log(str === str2.valueOf());
 
+
+/**Boolean class */
+let flag = true;
+let flag2 = new Boolean(true);
+console.log(typeof flag);
+console.log(typeof flag2);
+console.log(flag === flag2);
+console.log(flag === flag2.valueOf());
