@@ -3,6 +3,8 @@
 
 // built-in 함수 -> 리엑트 적용 가능
 
+console.clear();
+
 
 let str = 'Hello~ Java Scirpt!!!';
 for(let i=0; i<str.length; i++) {
@@ -15,9 +17,9 @@ let hobbys = '독서, 수영, 영화, 게임, 사이클';
 hobbys = hobbys.split(',');
 console.log(hobbys);
 
-for(let i=0; i<hobbys.length; i++) {
-    console.log(hobbys[i].trim());    
-}
+// for(let i=0; i<hobbys.length; i++) {
+//     console.log(hobbys[i].trim());    
+// }
 
-hobbys.forEach((hobby) => console.log(hobby.trim()));
+// hobbys.forEach((hobby) => console.log(hobby.trim()));
 
