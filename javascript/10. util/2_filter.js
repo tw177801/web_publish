@@ -37,6 +37,8 @@ const oddNumber = (array) => {
     return array.filter((number) => (number%2));
 }
 
+
+
 // const evenNumber = (array) => {
 //     return array.filter((number) => number%2 === 0);
 // }
