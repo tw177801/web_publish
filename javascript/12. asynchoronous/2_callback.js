@@ -10,6 +10,10 @@ function runInDelay (callback, seconds) {
 runInDelay(function () {console.log(`타이머 3초 경과`);} , 3000);
 runInDelay(() => {console.log(`타이머 1초 경과!!`);}, 1000);
 
+console.log(`--프로그램 종료--`);
+
+
 // 결과 설명 가능해야 함
 // queue 
 // event roop
+
