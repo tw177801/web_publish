@@ -15,3 +15,6 @@ let jsonData = await api.json();
 return jsonData;
 
 }
+
+
+let a = 1;
