@@ -52,7 +52,7 @@ function initForm() {
 
 // KMDB API 연동 후 출력 화면
 function searchMovieResult(type, value, title) {
-
+    /**검색결과 출력 Promise --> 화면 */
     kmdb(type, value, title)
         .then((result) => {
             let count = result.TotalCount;
@@ -60,13 +60,28 @@ function searchMovieResult(type, value, title) {
             let output = ``;
 
             if(count) {
-            
+                let actorFive = result.TotalCount[];
+
                 let info = result.Data[0].Result[0];
                 let directors = result.Data[0].Result[0].directors.director;
                 let actors = result.Data[0].Result[0].actors.actor;
                 let posterArray = result.Data[0].Result[0].posters.split("|");
                 let stillArray = result.Data[0].Result[0].stlls.split("|");
                 let staffs = result.Data[0].Result[0].staffs.staff;
+
+                let title = info.title.replaceAll('!HS', '').replaceAll
+                // let actorFive = [];
+                
+                actors.forEach((actor, i) => {
+                    if(i<5) actorFive.push(actor.actorNm);
+                });
+                
+                actors.forEach((actor, i) => {
+                    actorAll.push(actor.actorNm);
+                });
+
+                // console.log(`actorFive --> ${actorFive}`);
+                
 
 
                 output += `
@@ -77,11 +92,19 @@ function searchMovieResult(type, value, title) {
                     <div class="container-content">
                         <h3>헤어질결심</h3>
                         <h5>헤어질결심(영문)</h5>
+                        
                         <hr>
-                        <p>극영화 15세관람가 대한민국 138분 2022-06-29(개봉)</p>
-                        <p><span>제작사</span><span>(주)모호필름</span></p>
-                        <p><span>감독</span><span>박찬욱</span></p>
-                        <p><span>출연</span><span>탕웨이, 박해일, 이정현..</span></p>
+                        <p> </p>
+                        
+                        
+                        <p><span>제작사 :: </span><span>${info.company}</span></p>
+                        <p><span>감독 :: </span><span>${staffs[0].staffNm}</span></p>
+
+                        <p>
+                        <span>출연 :: </span><span id="actors">${actorFive.join()}</span>
+                        <button type = "button" id="more_actors">더보기</button>
+                        <button type = "button" id="close_actors">접기</button>
+                        </p>
                     </div>
                     </div>
                 `;
@@ -119,7 +142,27 @@ function searchMovieResult(type, value, title) {
             }
 
             document.querySelector("#result").innerHTML = output;
-        })
-        .catch((error) => console.log(error));
+
+                
+            /**more_actors 더보기 버튼 이벤트 */
+                document.querySelector("#more_actors")
+                .addEventListener('click', () => {
+                document.querySelector("#actors").textContent = actorAll.join();
+                document.querySelector("#more_actors").style.display = "none";
+                document.querySelector("#close_actors").style.display = "inline-block";
+                
+            });
+            
+            /**close_actors 접기 버튼 이벤트 */
+            document.querySelector("#more_actors")
+            .addEventListener('click', () => {
+                document.querySelector("#actors").textContent = actorFive.join();
+                document.querySelector("#more_actors").style.display = "inline-block";
+                document.querySelector("#close_actors").style.display = "none";
+            });
+
+            })
+            .catch((error) => console.log(error));
     
+
 }
