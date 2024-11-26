@@ -15,5 +15,3 @@ let jsonData = await api.json();
 return jsonData;
 
 }
-
-// https://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&detail=Y&director=%EB%B0%95%EC%B0%AC%EC%9A%B1&ServiceKey=I56WH5ND32XBK64E5N41
