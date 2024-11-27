@@ -1,4 +1,32 @@
 /**
+ * KMDB 영화 포스터 검색
+ */
+
+
+export async function searchMoviePoster(movieNm, openDt) {
+
+
+    const key = `1387ed83604df30a0c5d9dfdea0cba00`;
+    const url = `http://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieInfo.json?key=${key}&movieCd=${movieCd}`;
+    
+    const result = await fetch(url);
+    const jsonData = await movie.json();
+
+    return result;
+
+
+
+    
+
+
+}
+
+
+
+
+
+
+/**
  * KOBIS 영화 정보 상세 호출 함수
  */
 export async function kobisMovieDetail(movieCd) {

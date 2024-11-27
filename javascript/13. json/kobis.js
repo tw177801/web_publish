@@ -1,4 +1,4 @@
-import { kobisBoxOffice as boxOffice } from './kobisCommons.js';
+import { kobisBoxOffice as boxOffice, searchMoviePoster } from './kobisCommons.js';
 
 initForm();
 
@@ -57,11 +57,25 @@ function searchBoxOffice(ktype, searchDt) {
 
             //ktype을 체크하여 Daily, Weekly
             let rankList = null;
+            let posterList = [];
+
             if(ktype === 'Daily'){
                 rankList = result.boxOfficeResult.dailyBoxOfficeList;
             } else if(ktype === 'Weekly'){
                 rankList = result.boxOfficeResult.weeklyBoxOfficeList;
             }
+
+            // 영화 포스터 가져오기 - KMDB
+            rankList.forEach((element) => {
+                let movieNm = element.movieNm;
+                let openDt = element.openDt.replaceAll('-', '');
+
+                posterList.push(getPoster(movieNm, openDt));  // await 빼면 순서 보장 안함
+
+            });
+
+            Promise.all(posterList) //비동기식 처리는 모두 종료가 되도록 실행
+            .then((poster) => {
 
             let output = `            
                 <h5>박스오피스 타입 : ${type}</h5>
@@ -75,11 +89,11 @@ function searchBoxOffice(ktype, searchDt) {
                         <th>누적관객수</th>
                     </tr>`;
             
-            rankList.forEach((element) => {
-                output += `
+            rankList.forEach((element, i) => {
+                    output += `
                     <tr>
                         <td>${element.rank}</td>
-                        <td>${element.movieNm}</td>
+                        <td><img src=${poster[i]} width="100px">${element.movieNm}</td>
                         <td>${element.openDt}</td>
                         <td>${element.audiCnt}</td>
                         <td>${element.audiAcc}</td>
@@ -91,7 +105,16 @@ function searchBoxOffice(ktype, searchDt) {
             
             // 테이블 화면 출력            
             document.querySelector("#result").innerHTML = output;
-        })
-        .catch();
+        }) .catch(); //Promise.all()
+
+    })
+    .catch(); //
 
 }
+
+
+/** 순차적으로 비동기식 호출을 위해 getposter 함수 생성 */
+async function getPoster(movieNm, openDt) {
+    return await searchMoviePoster(movieNm, openDt);
+}
+
