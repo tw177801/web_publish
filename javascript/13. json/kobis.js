@@ -93,7 +93,7 @@ function searchBoxOffice(ktype, searchDt) {
                     output += `
                     <tr>
                         <td>${element.rank}</td>
-                        <td><img src=${poster[i]} width="100px">${element.movieNm}</td>
+                        <td><img src=${poster[i]} width="100px" class="a">${element.movieNm}</td>
                         <td>${element.openDt}</td>
                         <td>${element.audiCnt}</td>
                         <td>${element.audiAcc}</td>
@@ -105,6 +105,15 @@ function searchBoxOffice(ktype, searchDt) {
             
             // 테이블 화면 출력            
             document.querySelector("#result").innerHTML = output;
+
+            // 이미지 클릭 이벤트
+            document.querySelector(".a")
+                    .addEventListener('click', () => {
+                        alert("이미지 클릭");
+                        
+                    });
+
+
         }) .catch(); //Promise.all()
 
     })
