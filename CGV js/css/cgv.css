@@ -1,0 +1,457 @@
+
+/* 
+.btn-ticket {
+
+    justify-content: space-between;
+} */
+
+.goto-top {
+    background-color: white;
+    /* line-height: 40px; */
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    border-radius: 30px;
+    position: fixed;
+    bottom: 40px;
+    right: 70px;
+
+}
+
+.position {
+    padding: 15px 35px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    position: fixed;
+    right: 450px;
+    bottom: 30px;
+    border-radius: 30px;
+    line-height: 1.500em;
+    background-image: linear-gradient(to left, rgb(255, 115, 86), rgb(251, 67, 87));
+    box-shadow: 1px 3px 6px 0 rgba(0, 0, 0, 0.3);
+    border-radius: 25px;
+    transition: right 0.4s;
+    color: white;
+}
+
+
+
+
+/********************************************
+* title : content style
+* author : hong@naver.com
+* final date : 2024/0/24
+*********************************************/
+
+.content, 
+.content-top,
+.content-moviechart 
+{
+    width: 100%;
+}
+
+.content-top {
+    background-color: #000;
+    position: relative;
+    top: -3px;
+}
+
+
+
+
+/* content-moviechart*/
+
+
+.content-top iframe, 
+.content-moviechart > div,
+.content-event-special {
+    display: block;
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.content-moviechart { 
+    /* border: 1px solid green; */
+    background-color: lightcyan;  
+    padding: 40px 0;
+
+}
+
+
+.content-title-style-cl > div {
+    border: 1px solid green;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    /* border: 1px solid blue; */
+    
+    /* padding: 10px 0; */
+}
+
+.content-title-style-cl > div > div {
+    /* border: 1px solid blue; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 220px;
+    /* padding: 10px 0; */
+}
+
+.content-title-style-cl .ab {
+    /* border: 1px solid red; */
+    display: inline-block;
+    /* position: absolute;
+    right: 0; */
+    width: 100px;
+    text-align: right;
+}
+
+.content-title-style-cl .ba {
+    /* border: 1px solid red; */
+    width: 3px;
+    height: 10px;
+    background-color: gray;
+}
+
+
+
+
+
+
+
+/*
+    공통적으로 적용되는 클래스는 직접 셀렉팅하는 경우 부모를 직관적으로 지정
+*/
+
+/*무비차트/상영예정작 텍스트*/
+
+.content-moviechart .content-title-style > div:first-child { 
+    /* border: 1px solid green; */
+    
+    position: relative;
+    width: 240px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/*무비차트/상영예정작 중간 라인 */
+
+
+.content-moviechart .content-title-style > div > span:first-child + span {
+    /* font-size: 10px; */
+    display: inline-block;
+    width: 1px;
+    height: 12px;
+    background-color: var(--color-silver);
+    position: absolute;
+    top: 5px;
+    left: 45%;
+}
+
+
+
+/* .content-moviechart .content-title-style > div > span:last-child {
+    border: 1px solid red;
+    margin-left: 10px;
+    right: 0;
+    text-align: right;
+} */
+
+
+/* .content-moviechart-title div:last-child button {
+    border: 1px solid var(--color-primary);
+    border-radius: 15px;
+    padding: 7px 15px;
+} */
+
+/* 무비차트/상영예정작 리스트 */
+
+.content-moviechart-list ul {
+    /* border: 1px solid red; */
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+.content-moviechart-list ul li {
+    /* border: 1px solid blue; */
+    padding: 15px 15px 0;
+}
+
+.content-moviechart-list ul li:first-child {
+    /* border: 1px solid blue; */
+    padding-left: 0px;
+}
+
+.content-moviechart-list ul li:last-child {
+    /* border: 1px solid blue; */
+    padding-right: 0px;
+}
+
+
+.content-moviechart-list ul li img {
+    /* border: 5px solid green; */
+    border-radius: 15px;
+    width: 170px;
+}
+
+.content-moviechart-list ul li h3 {
+    text-align: center;
+    padding: 10px 0;
+}
+
+
+.content-moviechart-list ul li h5 {
+    text-align: center;
+    padding-top: 3px;
+    color: var(--color-primary);
+}
+
+
+
+/* event 섹션 */
+
+
+.content-event-A {
+
+    display: flex;
+    list-style-type: none;
+}
+
+.content-event-A li {
+    border: 1px solid blue;
+    padding: 20px;
+}
+
+.content-event-A li p {
+    border: 1px solid blue;
+    padding: 5px;
+    /* font-weight: bold; */
+}
+
+.content-event-A img {
+    width: 100%;
+    border-radius: 8%;
+    justify-content: space-between;
+}
+
+
+
+.event-content-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-top: 10px;
+}
+
+.event-content-title2 {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-gray-222);
+
+}
+
+
+/* speacial */
+/* 특별관 */
+
+.special-cotent-list {
+    display: flex;
+    justify-content: space-between;
+}
+.special-cotent-list img {
+    width: 480px;
+    height: 270px;
+    /* border: 1px solid green; */
+}
+
+
+.special-cotent-list ul {
+    /* border: 1px solid green; */
+    width: 480px;
+}
+
+
+.special-cotent-list ul li {
+    border-top: 1px solid black;
+    list-style-type: none;
+    padding: 19px 20px;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+
+.special-cotent-list li strong {
+    font-size: 1.1em;
+    letter-spacing: 1px;
+    font-weight: 1000;
+}
+
+/* .content2 {
+    background-color: var(--color-footerbg);
+    display: inline-block;
+    padding: 5px;
+    font-size: 15px;
+    border-radius: 6px;
+} */
+
+.content2 {
+    padding: 2px 7px;
+    font-size: 14px;
+    color: #666;
+    line-height: 1.429em;
+    background-color: #f6f6f6;
+    border-radius: 5px;
+}
+
+
+.special-cotent-list li:last-child {
+    border-bottom: 1px solid black;
+}
+
+.special-cotent-list ul li:hover {
+    border: 1px solid var(--color-primary);
+    border-radius: 10px;    
+}
+
+.special-cotent-list ul li:hover + li {   
+    border-top: 1px solid white;
+}
+
+
+
+/* package */
+/* 패키지 */
+/* 패키지 */
+/* 패키지 */
+/* 패키지 */
+/* 패키지 */
+/* 패키지 */
+/* 패키지 */
+/* 패키지 */
+
+.package-content-list {
+    /* border: 1px solid blue; */
+    display: flex;
+    justify-content: space-between;
+    margin: 60px 0 30px 0;
+}
+
+
+.package-title-font {
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+.package-title-button {
+
+    padding: 2px 15px 3px;
+    font-weight: 400;
+    font-size: 12px;
+    color: #666;
+    line-height: 1.417em;
+    border: 1px solid #f4f4f4;
+    border-radius: 11px;
+}
+
+
+.package-border {
+    border: 1px solid rgb(187, 184, 184);
+    height: 400px;
+    border-radius: 8px;
+    padding: 20px;
+    width: 320px;
+
+}
+
+.package-border > div {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.package-border > ul {
+    /* border: 1px solid red; */
+    list-style-type: none;
+
+}
+
+.package-border > ul li {
+    display: flex;
+    align-items: center;   
+    justify-content: flex-start;
+    padding: 20px;
+}
+
+
+/*공지사항, 앱다운로드*/
+/*공지사항, 앱다운로드*/
+/*공지사항, 앱다운로드*/
+/*공지사항, 앱다운로드*/
+/*공지사항, 앱다운로드*/
+/*공지사항, 앱다운로드*/
+/*공지사항, 앱다운로드*/
+/*공지사항, 앱다운로드*/
+/*공지사항, 앱다운로드*/
+/*공지사항, 앱다운로드*/
+/*공지사항, 앱다운로드*/
+
+
+.notice-content-list, .notice-content-list > div:first-child {
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+
+
+.notice-content-border {
+    
+    border: 1px solid silver;
+    border-radius: 8px;
+    width: 750px;
+    height: 200px;
+    margin-bottom: 70px;
+    padding: 20px;
+}
+
+
+
+
+.notice-content-list {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+
+
+
+/* moviechart, event, special => title */
+
+/* 특별관 */
+
+.content-title-style {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    /* border: 1px solid red; */
+}
+
+.content-title-style-font {
+    font-size: 1.4em;
+    font-weight: 600;
+}
+
+
