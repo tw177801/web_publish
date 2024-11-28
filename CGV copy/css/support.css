@@ -1,0 +1,198 @@
+/*************************
+* title: notice/news style
+* author: naver.com
+* final date: 
+*****************************/
+
+
+/*head*/
+/*head*/
+/*head*/
+
+.support-content-headline {
+    margin-bottom: 10px;
+}
+
+.support-content-headline button {
+    background-color: black;
+    color: white;
+    width: 80px;
+    height: 25px;
+    border: 1px solid var(--color-silver);
+    outline: 1px solid #000;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+
+.support-content-headline {
+    width: 100%;
+}
+
+.support-content > nav ul li:first-child a {
+    background-color: var(--color-silver);
+    border-left: 1px solid var(--color-button);
+   border-bottom: 2px solid var(--color-button);
+}
+
+.support-content > nav + p {
+    margin: 40px 0 20px;
+}
+
+.support-content ul li > a {
+    width: 90px;
+    color: #fff;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    padding: 7px;
+    /* border-bottom: 1px solid silver; */
+}
+
+.support-content ul li > a:hover {
+
+    background-color: red;
+
+    
+}
+
+.support-content > div select, 
+.support-content > div input, 
+.support-content > div button {
+    /* border: 1px solid blue; */
+    padding: 5px 15px;
+}
+
+.support-content {
+    border: 1px solid gray;
+    width: 700px;
+    margin: 0 auto;
+    font-size: 14px;
+    color: rgb(110, 106, 106);
+}
+
+
+
+.support-content > div {
+    margin: 20px 0 10px;
+    /* padding: 5px 20px; */
+}
+
+
+.support-content ul {
+    /* border: 1px solid red; */
+    /* padding: 10px; */
+
+    display: flex;
+    border-bottom: 3px solid gray;
+    list-style-type: none;
+}
+
+.support-content ul li {
+    /* border: 1px solid red; */
+    float: left;
+    position: relative;
+    display: block;
+    width: 87px;
+    height: 37px;
+    margin-left: 2px;
+    line-height: 36px;
+    text-align: center;
+    background-color: #898987;
+    font-weight: 500;
+    font-size: 13px;
+}
+
+
+
+
+
+
+/*content*/
+/*content*/
+/*content*/
+/*content*/
+/*content*/
+
+
+
+
+
+
+.support-content > table {
+    width: 700px;
+    text-align: center;
+
+}
+
+
+.support-content > table th {
+    padding: 10px 0;
+}
+
+ 
+.support-content > table tbody td {
+    padding: 16px 0;
+    /* border: 1px solid red; */
+}
+
+.support-content > table,
+.support-content > table th, 
+.support-content > table td {
+    /* border: 1px solid red; */
+    border-collapse: collapse;
+}
+
+.support-content > table thead th:first-child {
+    width: 20%;
+    /* border: 1px solid red; */
+}
+
+.support-content > table thead th:nth-child(2) 
+.support-content > table thead th:nth-child(4) 
+.support-content > table thead th:nth-child(5) {
+
+    width: 16%;
+    /* border: 1px solid red; */
+}
+
+.support-content > table thead th:nth-child(3) {
+
+    text-align: left;
+    text-indent: 8px;
+}
+
+.support-content > table thead th {
+    background-color: rgb(234, 234, 234);
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.support-content > table tbody td:nth-child(3) a {
+    text-decoration: none;
+    color: var(--color-primary);
+}
+
+.support-content > table tbody td:nth-child(3) a:hover {
+    text-decoration: underline;
+    color: var(--color-primary);
+    font-weight: bold;
+}
+
+.support-content > table tbody tr:last-child td {
+    border-bottom: 1px solid silver;
+}
+
+
+
+
+
+/*tfoot*/
+/*tfoot*/
+
+.support-content > table tfoot td {
+    padding: 20px 0;
+    font-size: 1em;
+    font-weight: 700;
+    letter-spacing: 5px;
+}
