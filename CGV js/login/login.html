@@ -39,7 +39,11 @@
                     <li>
                         <div class="login-form-input">
                         <i class="fa-regular fa-user"></i>
-                        <input type="text" name="id" id="id" placeholder="아이디를 입력해주세요" class="input-text">
+                        <input type="text" 
+                                name="id" 
+                                id="id" 
+                                oninput="handleChange(event)"
+                                placeholder="아이디를 입력해주세요" class="input-text">
                         </div>
                         <p id="error-msg-id"></p>
                     </li>

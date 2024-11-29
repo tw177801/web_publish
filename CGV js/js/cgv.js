@@ -30,7 +30,7 @@ function createMovieChartList(page) {
             
             .then((poster) => {
                 let output = `<ul>`;
-                (page !== 2)? output += `<li><span class="movie-chart" id="arrow-left">&lt;&lt;</span></li>`
+                (page === 2)? output += `<li><span class="movie-chart" id="arrow-left">&lt;&lt;</span></li>`
                                 : output += '';
 
                 let idx = 0;
@@ -63,12 +63,12 @@ function createMovieChartList(page) {
                 // arrow-right :: click event
                 // 공식 외우기!!
                 const arrows = document.querySelectorAll(".movie-chart");
-                    arrows.forEach((arrow) => {
-                        arrow.addEventListener('click', (event) => {
-                            (event.target.id === 'arrow-right')? 
-                            createMovieChartList(2): createMovieChartList(1);
-                        });
+                arrows.forEach((arrow) => {
+                    arrow.addEventListener('click', (event) => {
+                        (event.target.id === 'arrow-right')? 
+                            createMovieChartList(2) : createMovieChartList(1) ;                        
                     });
+                });
 
 
 
@@ -111,4 +111,3 @@ async function getPoster(movieNm, openDt) {
 }
 
 // async, await 기억. 순서대로 호출 
-
