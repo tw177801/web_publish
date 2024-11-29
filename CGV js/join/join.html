@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/CGV/css/cgv.css">
-    <link rel="stylesheet" href="/CGV/css/commons.css">
-    <link rel="stylesheet" href="/CGV/css/join.css">
+    <link rel="stylesheet" href="/CGV js/css/cgv.css">
+    <link rel="stylesheet" href="/CGV js/css/commons.css">
+    <link rel="stylesheet" href="/CGV js/css/join.css">
     <script src="/CGV js/js/cgv.js"></script>
     <script src="/CGV js/js/cgvForm.js"></script>
     <title>Document</title>
@@ -34,7 +34,7 @@
                                    oninput="handleChangeJoin(event)"
                                    class="textform"
                                    placeholder="아이디 입력 (6~20자)" >
-                              <button class="check">중복 확인</button>
+                              <button class="button" onclick="idCheck()">중복 확인</button>
                          </div>
                          
                          
@@ -67,33 +67,41 @@
  
                     <li>
                          <label for=""><b>이름</b></label>
+                         <span id="error-msg-name">이름을 입력해주세요</span>
                          <div>
                          <input type="text" 
                               name="name" 
                               class="textform"
+                              id="name"
+                              oninput = "handleChangeJoin(event)"
                               placeholder="이름을 입력해주세요">
                          </div>
                     </li>
  
                     <li>
                          <label for=""><b>전화번호</b></label> 
+                         <span id="error-msg-phone">전화번호를 입력해주세요</span>
                          <div>
                          <input type="text" 
                               name="phone" 
                               class="textform"
+                              id="phone"
+                              oninput="handleChangeJoin(event)"
                               placeholder="휴대폰 번호 입력('-'제외 11자리 입력)">
                          </div>
                     </li>
  
                     <li>
                          <label for=""><b>이메일 주소</b></label> 
-
+                         <span id="error-msg-emailname">이메일 주소를 입력해주세요</span>
                          <div>
                          <input type="email" 
                               name="emailname"
+                              id="emailname"
+                              oninput="handleChangeJoin(event)"
                               placeholder="이메일 주소">
                           <span> @ </span>
-                          <select name="emaildomain">
+                          <select name="emaildomain" id="emaildomain">
                               <option value="default">선택</option>
                               <option value="naver.com">naver.com</option>
                               <option value="gmail.com">gmail.com</option>
