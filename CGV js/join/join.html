@@ -6,8 +6,9 @@
     <link rel="stylesheet" href="/CGV js/css/cgv.css">
     <link rel="stylesheet" href="/CGV js/css/commons.css">
     <link rel="stylesheet" href="/CGV js/css/join.css">
-    <script src="/CGV js/js/cgv.js"></script>
-    <script src="/CGV js/js/cgvForm.js"></script>
+    
+    <script type="module" src="/CGV js/js/cgv.js"></script>
+    <script type="module" src="/CGV js/js/cgvForm.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -34,7 +35,8 @@
                                    oninput="handleChangeJoin(event)"
                                    class="textform"
                                    placeholder="아이디 입력 (6~20자)" >
-                              <button class="button" onclick="idCheck()">중복 확인</button>
+                              <button class="button" onclick="idCheck(event)">중복 확인</button>
+                              <input type="hidden" id="idCheckResult" value="default">
                          </div>
                          
                          
@@ -61,6 +63,7 @@
                               name="cpwd" 
                               class="textform"
                               oninput="handleChangeJoin(event)"
+                              onbluck="pwdCheck()"
                               placeholder="비밀번호 재입력">
                          </div>
                     </li>

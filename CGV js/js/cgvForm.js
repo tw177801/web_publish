@@ -1,9 +1,71 @@
-/*****************************************
- *      아이디 중복 체크
- ******************************************/
+/**
+ * 패스워ㅡ드. 패스워드 학인 check
+ */
 
-function idCheck() {
-    alert('아이디 중복체크');
+function passwordCheck() {
+    const pwd = document.querySelector("#pwd");
+    const cpwd = document.querySelector("#cpwd");
+    const pwdMsg = document.querySelector("#error-msg-pwd");
+    const cpwdMsg = document.querySelector("#errot-msg-cpwd");
+
+    if(pwd.value === "") {
+        pwdMsg.scule.color= "red";
+        pwd.focus();
+    } else if(cpwd.value === "") {
+        cpwdMsg.style.color = "red";
+        cpwd.focus();
+    } else {
+        if(pwd.value === cpwd.value) {
+            alert("패스워드가 동일합니다");
+        } else {
+            alert("패스워드가 다릅니다. 다시 입력해주세요.");
+            pwd.value = "";
+            cpwd.value = "";
+            pwdMsg.style.color = "red";
+            cpwdMsg.style.color = "red";
+            pwd.focus();
+        }
+    }
+
+
+}
+// }alert('dsfsdf')
+
+
+
+
+
+
+
+
+
+
+
+
+
+function idCheck(event) {
+    const did = "test";
+    const id = document.querySelector("#id");
+    const idMsg = document.querySelector("#error-msg-id");
+
+    if(id.value === "") {
+        idMsg.style.color = "red";
+        id.focus();
+    } else {
+        // 중복체크
+        if(did === id.value.trim()) {
+            alert("이미 사용중인 아이디입니다. 다시 입력해주세요.");
+            id.focus();
+        } else {
+            alert("사용이 가능한 아이디입니다.");
+            document.querySelector("#idCheckResult").value = "success";
+            console.log(document.querySelector("#idCheckResult").value);
+            
+            // event.target.sytle.backgroundColor = "gray";
+        }
+    }
+
+
 }
 
 
@@ -30,6 +92,8 @@ function joinFormCheck() {
     const phoneMsg = document.querySelector("#error-msg-phone");
     const emailnameMsg = document.querySelector("#error-msg-emailname");
     const emaildomainMsg = document.querySelector("#error-msg-emaildomain");
+    const idCheckReuslt=document.querySelector("#idCheckReuslt");
+
 
     if(event.target.id === "id") {
         (event.target.value.trim().length !== 0)
@@ -56,16 +120,20 @@ function joinFormCheck() {
     } else if (name.value === "") {
         nameMsg.style.color = "red";
         name.focus();
-    } else if (phone.value === "") {
+    } else if (phone.value === "" && ) {
         phoneMsg.style.color = "red";
         phone.focus();
     } else if(emailname.value === "") {
         emailnameMsg.style.color = "red";
         emailname.focus();
     } else if(emaildomain.value === "emaildomainMsg") {
+        emaildomain.style.color = "red";
         emaildomain.focus();
-    } else {
-        alert("가입 성공!")
+    } else if(idCheckReuslt.value === "default") {
+        alert("아이디 중복체크를 진행해주세요");
+    }
+    else {
+        alert("가입 성공!");
     }
 }
 

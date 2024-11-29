@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/CGV/css/commons.css">
     <link rel="stylesheet" href="/CGV/css/mycgv.css">
     <link rel="stylesheet" href="/CGV/css/support.css">
+    <script src="/CGV js/js/cgv_support.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -34,9 +35,7 @@
                                    <option value="title">내용</option>
                               
                          </select>
-                         
                               <input type="text" name="search_content">
-                        
                               <button>검색하기</button>
                     </div>
 
@@ -44,14 +43,12 @@
                     <div>
                     <nav>
                          <ul>
-                              
-                                   <li><a href="#">전체</a></li>
-                                   <li><a href="#">시스템점검</a></li>
-                                   <li><a href="#">극장</a></li>
-                                   <li><a href="#">행사/이벤트</a></li>
-                                   <li><a href="#">제휴이벤트</a></li>
-                                   <li><a href="#">기타</a></li>
-
+                              <li><a onclick="onChangNoticeList('total')">전체</a></li>
+                              <li><a onclick="onChangNoticeList('system')">시스템점검</a></li>
+                              <li><a href="#">극장</a></li>
+                              <li><a href="#">행사/이벤트</a></li>
+                              <li><a href="#">제휴이벤트</a></li>
+                              <li><a href="#">기타</a></li>
                          </ul>
                     </nav>
                     </div>
@@ -60,21 +57,10 @@
 
 
 
-                    <!-- table -->
-                    <!-- table -->
-                    <!-- table -->
-                    <!-- table -->
-                    <!-- table -->
-
-
                     <table>
 
-                         <!--thead-->
-                         <!--thead-->
-                         <!--thead-->
-                         <!--thead-->
-
-                         <thead>
+              
+                         <!-- <thead>
                               <tr>
                                    <th>번호</th>
                                    <th>구분</th>
@@ -83,12 +69,6 @@
                                    <th>조회수</th>
                               </tr>
                          </thead>
-
-
-                         <!--tobody-->
-                         <!--tobody-->
-                         <!--tobody-->
-                         <!--tobody-->
 
                          <tbody>
                               <tr>
@@ -207,20 +187,14 @@
                              
                          </tbody>
 
-                         <!--tfoot-->
-                         <!--tfoot-->
-                         <!--tfoot-->
-                         <!--tfoot-->
+                      
 
                          <tfoot>
                               <tr>
                                    <td colspan="5">1 2 3 4 5 >> </td>
                               </tr>
-                         </tfoot>
-
-
+                         </tfoot> -->
                     </table>
-
                </div>
      </div>
 </div>
