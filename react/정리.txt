@@ -24,7 +24,7 @@ User Interface(사용자 인터페이스)를 만들기 위한 JavaScript 라이�
 2| NPM 커뮤니티를 통해 React 앱을 생성함
 3| React 앱 생성
     - npx create-react-app [생성할 앱 이름]
-    ex) npx create-react-app my-app
+    ex> npx create-react-app my-app
 
 4| React 앱 실행
         > cd [이동할 앱 이름]
@@ -32,3 +32,11 @@ User Interface(사용자 인터페이스)를 만들기 위한 JavaScript 라이�
 
 5. React 실행 순서
 - npm start > src/index.js > App.js
+
+
+**
+
+return 시 하나의 그룹핑, 문단 하나 return 불가
+컴포넌트
+
+대문자로 시작
