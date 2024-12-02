@@ -23,6 +23,6 @@ export default function App2() {
 }
 
 
-//return 시 하나의 그룹핑, 문단 하나 return 불가
+// return 시 하나의 그룹핑, 문단 하나 return 불가
 // props는 object 리터럴로 넘어감
 
