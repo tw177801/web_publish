@@ -49,3 +49,40 @@ return 시 하나의 그룹핑, 문단 하나 return 불가
   반환하도록 한다. (예) <div>, <>
 - 로직을 실행하는 코드는 {}묶어서 반환코드에 추가한다.
 
+
+7. 터미널 프로그램 다운로드 및 설치
+1| 윈도우: cmder
+2| mac: iterm2 
+
+
+**
+
+1. React?
+사용자 인터페이스를 위한 라이브러리 
+
+2. 장점
+코드 수정 용이
+유지 보수 편의성
+화면의 빠른 업데이트와 렌더링
+함수 기반의 컴포넌트
+재사용성을 높임
+방대한 정보를 공유하는 커뮤니티 사이트 (NPM)
+React Native를 이용하여 모바일 앱 생성 가능
+
+3. React 앱 생성 명령어
+npx create-react-app [name]
+yarn create-react-app [name] - Meta(구, 페이스북)
+create-react-app
+
+
+4. React 실행 순서
+
+npm start > 
+public\index.html - <div id="root"></div>
+src\index.js >App.js 등등 컴포넌트 호출
+
+
+
+
+
+
