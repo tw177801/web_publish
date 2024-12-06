@@ -16,26 +16,26 @@ export default function Event() {
             "src": "https://img.cgv.co.kr/WebApp/contents/eventV4/42888/17332152020130.jpg",
             "title": "[모아나2] 스페셜 포스터",
             "date": "2024.12.05~2024.12.31",
-        },
+        }
     ];
 
     return (
         <section>
-                <div className="content-title-style">
-                    <h3 className="content-title-style-font">EVENT</h3>
-                    <button className="total-view-button">전체보기 &gt;</button>
-                </div>
-                <ul className="content-event-list">
-                    {list.map(item => 
-                        <li>
-                            <EventItem 
-                                src={item.src}
-                                title={item.title}
-                                date={item.date}
-                                />
-                        </li>
-                    )}
-                </ul>
+            <div className="content-title-style">
+                <h3 className="content-title-style-font">EVENT</h3>
+                <button className="total-view-button">전체보기 &gt;</button>
+            </div>
+            <ul className="content-event-list">
+                {list.map(item => 
+                    <li>
+                        <EventItem 
+                            src={item.src}
+                            title={item.title}
+                            date={item.date}
+                            />
+                    </li>
+                )}
+            </ul>
         </section> 
     );
 }
