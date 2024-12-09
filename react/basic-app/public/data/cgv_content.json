@@ -1,41 +1,40 @@
- {
-    "specialList" : [
+{
+    "specialList": [
         { "text1":"SUITE CINEMA", "text2": "#호텔 컨셉의 프리미엄관"},
         { "text1":"CINE & LIVINGROOM", "text2": "#신개념 소셜 상영관"},
         { "text1":"4DX", "text2": "#모션시트#오감체험"},
         { "text1":"CINE de CHEF", "text2": "#쉐프가 있는 영화관"}
     ],
-
-    "packageList" : [
+    "packageList": [
         { 
             "title": "패키지",
             "list": [
-                {
-                    "src": "http://192.168.50.129:5501/CGV/images/package.jpg",
+                { 
+                    "src": "/images/package.jpg",
                     "alt": "Package Image",
                     "text": "우리 패키지",
                     "price": 62000
                 },
-                {
-                    "src": "http://192.168.50.129:5501/CGV/images/package.jpg",
+                { 
+                    "src": "/images/package.jpg",
                     "alt": "Package Image",
                     "text": "우리 패키지",
                     "price": 62000
                 }
             ]
-        }, 
+        },
         { 
             "title": "영화관람권",
             "list": [
-                {
-                    "src" : "http://192.168.50.129:5501/CGV/images/ticket.jpg",
-                    "alt": "Package Image",
+                { 
+                    "src": "/images/ticket.jpg",
+                    "alt": "Ticket Image",
                     "text": "CGV 영화관람권",
                     "price": 13000
                 },
-                {
-                    "src": "http://192.168.50.129:5501/CGV/images/ticket.jpg",
-                    "alt": "Package Image",
+                { 
+                    "src": "/images/ticket.jpg",
+                    "alt": "Ticket Image",
                     "text": "CGV 영화관람권",
                     "price": 13000
                 }
@@ -44,23 +43,22 @@
         { 
             "title": "기프트카드",
             "list": [
-                {
-                    "src": "http://192.168.50.129:5501/CGV/images/giftcard.jpg",
+                { 
+                    "src": "/images/giftcard.jpg",
                     "alt": "Giftcard Image",
-                    "text": "기프트카드 충전권",
+                    "text": "기프트카드 A형",
                     "price": "금액충전형"
                 },
-                {
-                    "src": "http://192.168.50.129:5501/CGV/images/giftcard.jpg",
+                { 
+                    "src": "/images/giftcard.jpg",
                     "alt": "Giftcard Image",
-                    "text": "기프트카드 충전권",
+                    "text": "기프트카드 A형",
                     "price": "금액충전형"
                 }
             ]
-        }        
+        }    
     ],
-
-    "list" : [
+    "eventList": [
         {
             "src": "https://img.cgv.co.kr/WebApp/contents/eventV4/42386/17297657794310.jpg",
             "title": "[CGV]10월 컬처위크",

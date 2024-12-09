@@ -1,5 +1,5 @@
 {
-"list" : [
+    "topMenuList": [
         { "href":"#", 
             "src":"https://img.cgv.co.kr/R2014/images/common/ico/loginPassword.png",
             "name": "로그인"
@@ -16,8 +16,7 @@
             "src":"https://img.cgv.co.kr/R2014/images/common/ico/loginCustomer.png",
             "name": "고객센터"
         }
-    ], 
-
+    ],
     "bottomMenuList": [
         { "name": "영화" },   
         { "name": "극장" },
@@ -25,6 +24,5 @@
         { "name": "스토어" },
         { "name": "이벤트" },
         { "name": "혜택" }
-
     ]
 }

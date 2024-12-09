@@ -1,18 +1,14 @@
 import SpecialItem from "./SpecialItem";
 import {useState, useEffect} from 'react';
 
-
 export default function Special() {
-    
-    const [ list, setList ] = useState([]);
+    const [list, setList] = useState([]);
 
     useEffect(()=>{
-
         fetch("/data/cgv_content.json")
             .then(data => data.json())
             .then(jsonData => setList(jsonData.specialList))
             .catch(error => console.log(error));
-
     }, []);
 
     return (

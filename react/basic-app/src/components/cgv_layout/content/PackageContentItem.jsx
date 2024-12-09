@@ -3,7 +3,7 @@ export default function PackageContentItem({src, alt, text, price}) {
         <>
             <img src={src} 
                 alt={alt}
-                width="100px"/>
+                width="100px" />
             <div>
                 <p>{text}</p>
                 <p>{price}</p>

@@ -15,7 +15,6 @@ import Footer from './Footer.jsx';
 import FooterTop from './footer/FooterTop.jsx';
 import FooterContent from './footer/FooterContent.jsx';
 
-
 export default function AppCgv() {
     return (
         <>
@@ -26,11 +25,10 @@ export default function AppCgv() {
             <Content>
                 <Top />
                 <MovieChart /> 
-                <EventSpecial />      
-                <Package />      
-                <Notice />      
-                <GotoButton />      
-
+                <EventSpecial />  
+                <Package />  
+                <Notice />  
+                <GotoButton />         
             </Content>
             <Footer>
                 <FooterTop src="http://adimg.cgv.co.kr/images/202410/SSG/980x240.png"/>
