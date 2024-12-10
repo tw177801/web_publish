@@ -1,0 +1,25 @@
+.container {
+    text-align: center;
+    border: 1px solid lightgray;
+    width: 300px;
+    margin: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.number {
+    font-size: 50px;
+    /* display: block; */
+    padding: 10px;
+}
+
+.total-number {
+    font-size: 50px;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.button {
+    margin: 20px 10px;
+    font-size: 20px;
+}
