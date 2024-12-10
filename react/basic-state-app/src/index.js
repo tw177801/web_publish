@@ -5,12 +5,13 @@ import './index.css';
 // import AppAirbnb from './components/airbnb/AppAirbnb';
 // import AppAvatar from './components/avatar/AppAvatar.jsx';
 // import reportWebVitals from './reportWebVitals';
-import AppCounter from './components/counter/AppCounter.jsx';
+// import AppCounter from './components/counter/AppCounter.jsx';
+import AppBestSeller from './components/yes24/AppBestSeller.jsx';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <AppCounter />
+    <AppBestSeller />
     {/* <AppAvatar /> */}
   </React.StrictMode>
 );

@@ -1,27 +1,22 @@
-import {useState} from 'react';
+import { useState } from 'react';
 
-
-export default function Counter() {
+export default function Counter({total, click}) {
 
     const [number, setNumber] = useState(0); 
     // const [totalNumber, setTotalNumber] = useState(0); 
 
-
     function increment() {
 
         //삼항 연산자
-        // (number < 10) ? setNumber(number+1) : setNumber(number) ;
-
-
+        (number < 10) ? setNumber(number+1) : setNumber(number) ;
+        console.log(`number ==> ${number}`);
+        
+        click(number, '+');
 
         // if(number < 10) {
         //     setNumber(number+1);
         //     setTotalNumber(totalNumber + number);
         // }
-
-
-
-
 
         // if(number < 11) {
         //     setNumber(number+1);
@@ -32,18 +27,16 @@ export default function Counter() {
     }
     
     function dcrement() {
-
         (number > 0) ? setNumber(number-1) : setNumber(0) ;
         // setNumber(number-1);
-
-
+        click(number, '-');
     }
 
     return (
         <div className="container">
             <div>
                 <span className="number">{number} / </span>
-                <span className="total-number">{totalNumber}</span>
+                <span className="total-number">{total}</span>
             </div>
             <button type="button"
                     className="button"
