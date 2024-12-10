@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function BestBookButton() {
+export default function BestBookButton({qtyChange}) {
     
     
     const [qty, setQty] = useState(1);
@@ -26,7 +26,8 @@ export default function BestBookButton() {
                         >+</button>
             </li> 
             <li>
-                <button type="button">카트에 넣기</button>
+                <button type="button" 
+                        onClick={()=>{qtyChange(qty)}}>카트에 넣기</button>
             </li>
             <li>
                 <button type="button">바로 구매</button>
