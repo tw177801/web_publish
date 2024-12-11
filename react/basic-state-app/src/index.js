@@ -6,12 +6,13 @@ import './index.css';
 // import AppAvatar from './components/avatar/AppAvatar.jsx';
 // import reportWebVitals from './reportWebVitals';
 // import AppCounter from './components/counter/AppCounter.jsx';
-import AppBestSeller from './components/yes24/AppBestSeller.jsx';
+// import AppBestSeller from './components/yes24/AppBestSeller.jsx';
+import AppOlive from './components/olive/AppOlive.jsx';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <AppBestSeller />
+    <AppOlive />
     {/* <AppAvatar /> */}
   </React.StrictMode>
 );

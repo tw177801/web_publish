@@ -5,12 +5,12 @@ import './Airbnb.css';
 export default function AppAirbnb() {
     const [list, setList] = useState([]);
 
-    useEffect(()=>{
-        fetch("/data/airbnb.json")
-            .then(data => data.json())
-            .then(jsonData => setList(jsonData))
-            .catch(error => console.log(error));
-    }, []);
+        useEffect(()=>{
+            fetch("/data/airbnb.json")
+                .then(data => data.json())
+                .then(jsonData => setList(jsonData))
+                .catch(error => console.log(error));
+        }, []);
     
 
     return (

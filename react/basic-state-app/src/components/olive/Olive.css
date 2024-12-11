@@ -1,0 +1,21 @@
+header {
+    padding: 20px 0;
+    padding-bottom: 30px;
+    border-bottom: 1px solid lightgray;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+header img  {
+    width: 40%;
+    margin-left: 20px;
+}
+
+header ul {
+    display: flex;
+    list-style-type: none;
+    justify-content: right;
+    margin-right: 20px;
+}
+
