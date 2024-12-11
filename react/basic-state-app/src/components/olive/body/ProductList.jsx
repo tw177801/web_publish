@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Product from './Product.jsx';
 import './OliveBody.css';
 
-export default function ProductList() {
+export default function ProductList({cart}) {
 
     const [productList, setProductList] = useState([]);
     
@@ -14,15 +14,21 @@ export default function ProductList() {
 
         }, []);
 
-        console.log(`productList --> ${productList}`);
+    const totalCart = (id) => {
+        // alert(`productList - ${id} ::: 카트 클릭!!`);
         
+        cart(id);   //AppOlive의 handleCartApp 함수 호출 
+    
+    }
 
     return (
         <ul className='product-list-container'>
-            {productList && productList.map(item => 
+            { productList && productList.map(item => 
                 
                 <li>
                     <Product 
+                        totalCart = {totalCart}
+                        id = {item.id}
                         img = {item.img}
                         title={item.title}
                         description={item.description}

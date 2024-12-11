@@ -1,4 +1,20 @@
+.header-logo {
+    
+    width: 500px;
+    
 
+} 
+
+.header-content {
+    /* margin: 50px; */
+    border: 1px solid red;
+}
+
+
+
+
+
+/************************************/
 
 .product-container {
     width: 250px;
@@ -6,7 +22,7 @@
 }
 
 .product-container img {
-    width: 200px;
+    width: 240px;
 
 }
 
@@ -73,5 +89,17 @@
     display: flex;
     gap: 40px;
     list-style-type: none;
-    margin: 20px 0;
+    margin: 30px 0;
+}
+
+
+/*****************/
+
+
+.cart {
+    color: gray;
+}
+
+.cart:hover {
+    color: coral;
 }
