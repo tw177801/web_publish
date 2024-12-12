@@ -16,51 +16,63 @@
 
         {"img" : "https://image.aladin.co.kr/product/35225/12/cover200/k752934734_2.jpg", 
         "title": "[국내]일의 감각",
-        "type" : "domestic"
+        "type" : "domestic",
+        "category" : "자기계발"
         },
         {"img" : "https://image.aladin.co.kr/product/35256/5/cover200/k412934146_1.jpg", 
         "title": "[국외]스파이코스트",
-        "type" : "overseas"
+        "type" : "overseas",
+        "category" : "소설"
         },
         {"img" : "https://image.aladin.co.kr/product/35110/1/cover200/k612934606_1.jpg", 
         "title": "[국내]린치핀",
-        "type" : "domestic"
+        "type" : "domestic",
+        "category" : "자기계발"
         },
         {"img" : "https://image.aladin.co.kr/product/35225/12/cover200/k752934734_2.jpg", 
         "title": "[국내]일의 감각",
-        "type" : "domestic"
+        "type" : "domestic",
+        "category" : "에세이"
         },
         {"img" : "https://image.aladin.co.kr/product/35256/5/cover200/k412934146_1.jpg", 
         "title": "[국외]스파이코스트",
-        "type" : "overseas"
+        "type" : "overseas",
+        "category" : "사회과학"
         },
         {"img" : "https://image.aladin.co.kr/product/35110/1/cover200/k612934606_1.jpg", 
         "title": "[국내]린치핀",
-        "type" : "domestic"
+        "type" : "domestic",
+        "category" : "자기계발"
         },
         {"img" : "https://image.aladin.co.kr/product/35225/12/cover200/k752934734_2.jpg", 
         "title": "[국내]일의 감각",
-        "type" : "domestic"
+        "type" : "domestic",
+        "category" : "고전"
         },
         {"img" : "https://image.aladin.co.kr/product/35256/5/cover200/k412934146_1.jpg", 
         "title": "[국외]스파이코스트",
-        "type" : "overseas"
+        "type" : "overseas",
+        "category" : "외국어"
         },
         {"img" : "https://image.aladin.co.kr/product/35110/1/cover200/k612934606_1.jpg", 
         "title": "[국내]린치핀",
-        "type" : "domestic"
+        "type" : "domestic",
+        "category" : "자기계발"
         },
         {"img" : "https://image.aladin.co.kr/product/35225/12/cover200/k752934734_2.jpg", 
         "title": "[국내]일의 감각",
-        "type" : "domestic"
+        "type" : "domestic",
+        "category" : "자기계발"
         },
         {"img" : "https://image.aladin.co.kr/product/35256/5/cover200/k412934146_1.jpg", 
         "title": "[국외]스파이코스트",
-        "type" : "overseas"
+        "type" : "overseas",
+        "category" : "외국어"
         },
         {"img" : "https://image.aladin.co.kr/product/35110/1/cover200/k612934606_1.jpg", 
         "title": "[국내]린치핀",
-        "type" : "domestic"
+        "type" : "domestic",
+        "category" : "자기계발"
         }
 
 ]}
