@@ -8,6 +8,7 @@ import './index.css';
 // import AppCounter from './components/counter/AppCounter.jsx';
 // import AppBestSeller from './components/yes24/AppBestSeller.jsx';
 import AppOlive from './components/olive/AppOlive.jsx';
+// import AppCounter2 from './components/counter2/AppCounter2.jsx';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

@@ -13,7 +13,6 @@ export default function Product(props) {
     }
 
 
-
     return (
         <div className='product-container'>
             <div>
@@ -21,9 +20,9 @@ export default function Product(props) {
                 
                     <div>
                         <FontAwesomeIcon 
-                                icon = {faCartShopping} 
-                                onClick={handleCart} 
-                                className='cart'
+                            icon = {faCartShopping} 
+                            onClick={handleCart} 
+                            className='cart'
                         />
                     </div>
 

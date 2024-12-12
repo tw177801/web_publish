@@ -86,10 +86,14 @@
 }
 
 .product-list-container {
-    display: flex;
-    gap: 40px;
+    /* display: flex;
+    gap: 40px; */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     list-style-type: none;
-    margin: 30px 0;
+    margin: 20px 0;
+
+
 }
 
 
