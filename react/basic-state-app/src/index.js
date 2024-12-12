@@ -7,13 +7,14 @@ import './index.css';
 // import reportWebVitals from './reportWebVitals';
 // import AppCounter from './components/counter/AppCounter.jsx';
 // import AppBestSeller from './components/yes24/AppBestSeller.jsx';
-import AppOlive from './components/olive/AppOlive.jsx';
+// import AppOlive from './components/olive/AppOlive.jsx';
 // import AppCounter2 from './components/counter2/AppCounter2.jsx';
+import AppAladin from './components/aladin/AppAladin.jsx';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <AppOlive />
+    <AppAladin />
     {/* <AppAvatar /> */}
   </React.StrictMode>
 );

@@ -1,0 +1,66 @@
+{
+
+    "category" : [
+
+        {"name" : "에세이"},
+        {"name" : "소설"},
+        {"name" : "자기계발"},
+        {"name" : "사회과학"},
+        {"name" : "고전"},
+        {"name" : "외국어"}
+
+
+    ],
+
+    "books" : [
+
+        {"img" : "https://image.aladin.co.kr/product/35225/12/cover200/k752934734_2.jpg", 
+        "title": "[국내]일의 감각",
+        "type" : "domestic"
+        },
+        {"img" : "https://image.aladin.co.kr/product/35256/5/cover200/k412934146_1.jpg", 
+        "title": "[국외]스파이코스트",
+        "type" : "overseas"
+        },
+        {"img" : "https://image.aladin.co.kr/product/35110/1/cover200/k612934606_1.jpg", 
+        "title": "[국내]린치핀",
+        "type" : "domestic"
+        },
+        {"img" : "https://image.aladin.co.kr/product/35225/12/cover200/k752934734_2.jpg", 
+        "title": "[국내]일의 감각",
+        "type" : "domestic"
+        },
+        {"img" : "https://image.aladin.co.kr/product/35256/5/cover200/k412934146_1.jpg", 
+        "title": "[국외]스파이코스트",
+        "type" : "overseas"
+        },
+        {"img" : "https://image.aladin.co.kr/product/35110/1/cover200/k612934606_1.jpg", 
+        "title": "[국내]린치핀",
+        "type" : "domestic"
+        },
+        {"img" : "https://image.aladin.co.kr/product/35225/12/cover200/k752934734_2.jpg", 
+        "title": "[국내]일의 감각",
+        "type" : "domestic"
+        },
+        {"img" : "https://image.aladin.co.kr/product/35256/5/cover200/k412934146_1.jpg", 
+        "title": "[국외]스파이코스트",
+        "type" : "overseas"
+        },
+        {"img" : "https://image.aladin.co.kr/product/35110/1/cover200/k612934606_1.jpg", 
+        "title": "[국내]린치핀",
+        "type" : "domestic"
+        },
+        {"img" : "https://image.aladin.co.kr/product/35225/12/cover200/k752934734_2.jpg", 
+        "title": "[국내]일의 감각",
+        "type" : "domestic"
+        },
+        {"img" : "https://image.aladin.co.kr/product/35256/5/cover200/k412934146_1.jpg", 
+        "title": "[국외]스파이코스트",
+        "type" : "overseas"
+        },
+        {"img" : "https://image.aladin.co.kr/product/35110/1/cover200/k612934606_1.jpg", 
+        "title": "[국내]린치핀",
+        "type" : "domestic"
+        }
+
+]}
