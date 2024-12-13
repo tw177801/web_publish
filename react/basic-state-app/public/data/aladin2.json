@@ -1,0 +1,46 @@
+{
+
+    "category" : [
+
+        {"name" : "에세이"},
+        {"name" : "소설"},
+        {"name" : "자기계발"},
+        {"name" : "사회과학"},
+        {"name" : "고전"},
+        {"name" : "외국어"}
+
+    ],
+
+
+    "books" : [
+
+        {
+            "img" : "https://image.yes24.com/goods/139752317/L",
+            "title" : "알트코인 대폭동",
+            "type" : "domestic",
+            "category" : "사회과학"
+        
+        },
+        {
+            "img" : "https://image.yes24.com/goods/128266166/L",
+            "title" : "너에게 들려주는 단단한 말",
+            "type" : "overseas",
+            "category" : "소설"
+        
+        },
+        {
+            "img" : "https://image.yes24.com/goods/134602629/L",
+            "title" : "넥서스",
+            "type" : "domestic",
+            "category" : "에세이"
+        
+        }
+
+
+    ]
+
+
+
+
+
+}
