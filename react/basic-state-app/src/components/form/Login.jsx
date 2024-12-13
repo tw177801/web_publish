@@ -130,3 +130,8 @@ export default function Login() {
 }
 
 // 리액트 작업 포지션 생각하기
+
+//{type: text, name=id, value: test}
+//{type: password, name=password, value: 1234}
+//{name, value} = event.target;
+
