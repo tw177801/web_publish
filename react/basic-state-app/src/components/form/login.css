@@ -1,0 +1,146 @@
+
+
+
+/* 로그인 화면 */
+
+
+/********************************************
+* title : LOGIN FORM style
+* author : hong@naver.com
+* final date : 2024/0/24
+*********************************************/
+
+
+
+
+.login-form form {
+    /* border: 1px solid green; */
+    width: 800px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    color: var(--color-login-font);
+}
+
+.login-form ul {
+    border: 1px solid green;
+    list-style-type: none;
+    width: 420px;
+}
+
+.login-form ul li {
+    padding: 10px;
+
+}
+
+
+.input-text, .login-button {
+
+    width: 250px;
+    height: 40px;
+}
+
+.login-button {
+    color: white;
+    width: 250px;
+    height: 40px;
+    background-color: red;
+    font-weight: bold;
+    font-size: 15px;
+    border: 1px solid white;
+}
+
+
+.login-button2 {
+    color: white;
+    width: 250px;
+    height: 40px;
+    background-color: rgb(47, 192, 78);
+    /* font-weight: bold; */
+    font-size: 15px;
+}
+
+
+.login-form-input /* icon, input */ {
+    border: 2px solid silver;
+    width: 270px;
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+}
+
+.login-form input:not(input[type="checkbox"]) {
+    width: 230px;
+    padding: 5px;
+    margin-left: 10px;
+    border: none;
+    outline: none;
+}
+
+
+.login-form ul li:nth-child(5),
+.login-form button {
+    width: 270px;
+    padding: 10px;
+
+}
+
+
+
+.login-form input i {
+    
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+    /* border: 1px solid blue; */
+    /* padding-left: 20px; */
+}
+
+.login-form button {
+    outline-color: var(--color-button);
+    outline-style: solid;
+    outline-width: 1px;
+}
+
+.login-form ul p {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+.login-form ul > li:nth-child(5) {
+    border: 1px solid green;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 10pt;
+}
+
+.login-form ul > li:nth-child(5) div:last-child > :nth-child(2) {
+
+    padding-right: 10px;
+
+}
+
+.login-form ul > li:nth-child(5) div:last-child > a {
+    color: var(--color-login-font);
+    font-weight: 700;
+}
+
+
+.login-content-window {
+    position: relative;
+}
+
+
+form {
+
+    display: block;
+}
+
+
+/* .id-pw {
+    display: flex;
+    justify-content: space-between;
+} */
