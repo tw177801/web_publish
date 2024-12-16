@@ -1,11 +1,20 @@
 import React, {useState, useRef} from 'react';
+import { validateForm2 } from '../../apis/validate.js';
 
 export default function UserInfo() {
 
 
-    const nameRef = useRef(null);
-    const addressRef = useRef(null);
-    const ageRef = useRef(null);
+    // const nameRef = useRef(null);
+    // const addressRef = useRef(null);
+    // const ageRef = useRef(null);
+
+
+    const refs = {
+        nameRef : useRef(null),
+        addressRef : useRef(null),
+        ageRef : useRef(null)
+
+    };
 
 
     // const [name, setName] = useState('');
@@ -26,36 +35,48 @@ export default function UserInfo() {
 
     }
 
-    const validateForm = () => {
+    // const validateForm = () => {
 
-        let result = true;
+    //     let result = true;
 
-        if(nameRef.current.value === '') {
-            alert('이름을 입력해주세요');
-            nameRef.current.focus();
-            result = false;
-        } else if (addressRef.current.value === '') {
-            alert('주소를 입력해주세요');
-            addressRef.current.focus();
-            result = false;
-        } else if (ageRef.current.value === '') {
-            alert('나이를 입력해주세요');
-            ageRef.current.focus();
-            result = false;
-        }
+    //     if(nameRef.current.value === '') {
+    //         alert('이름을 입력해주세요');
+    //         nameRef.current.focus();
+    //         result = false;
+    //     } else if (addressRef.current.value === '') {
+    //         alert('주소를 입력해주세요');
+    //         addressRef.current.focus();
+    //         result = false;
+    //     } else if (ageRef.current.value === '') {
+    //         alert('나이를 입력해주세요');
+    //         ageRef.current.focus();
+    //         result = false;
+    //     }
 
-        return result;
-    }
+    //     return result;
+    // }
     
     
     const handleSubmit = (event) => {
             event.preventDefault();
-            if(validateForm()) console.log(formData);
+            // if(validateForm()) console.log(formData);
+
+            // const refs = {
+            //     'nameRef' : nameRef,
+            //     'addressRef' : addressRef,
+            //     'ageRef' : ageRef
+            // };
+
+            if(validateForm2(refs)){
+                console.log(formData);
+            }
+
     }
 
     /********************************* */
 
     return (
+        
         <div>
 
             <h1>UserInfo</h1>
@@ -68,7 +89,7 @@ export default function UserInfo() {
                         <label htmlFor="">Name</label>
                         <input type="text" 
                                name="name"
-                               ref={nameRef}
+                               ref={refs.nameRef}
                                value={formData.name}
                                onChange={handleChangeForm}
                                />
@@ -79,7 +100,7 @@ export default function UserInfo() {
                         <label htmlFor="">Address</label>
                         <input type="text" 
                                name="address"
-                               ref={addressRef}
+                               ref={refs.addressRef}
                                value={formData.address}
                                onChange={handleChangeForm}
                                />
@@ -89,7 +110,7 @@ export default function UserInfo() {
                         <label htmlFor="">Age</label>
                         <input type="text" 
                                name="age"
-                               ref={ageRef}
+                               ref={refs.ageRef}
                                value={formData.age}
                                onChange={handleChangeForm}
                                />
