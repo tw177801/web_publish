@@ -143,13 +143,6 @@ export const validateSignup = (refs, errors, setErrors) => {
     } 
 
 
-
-
-
-
-
-
-    
     return checkResult;
 
 }
