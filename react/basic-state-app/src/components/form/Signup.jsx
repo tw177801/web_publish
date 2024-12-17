@@ -1,5 +1,5 @@
 import React, {useState, useRef} from 'react';
-import { validateSignup } from '../../apis/validate.js';
+import { validateSignup, handleIdCheck } from '../../apis/validate.js';
 import { errorCheckSignup } from '../../apis/errorCheck.js';
 import { initFormNames } from '../../apis/initial.js';
 
@@ -92,33 +92,33 @@ export default function Signup() {
 
     //아이디 중복체크
     // value 체크
-    const handleIdCheck = () => {
+     //     const handleIdCheck = () => {
 
-          const id = refs.idRef.current;
+     //           const id = refs.idRef.current;
 
-          if(id.value === '') {
-               // alert("아이디를 입력해주세요");
-               // refs.idRef.current.focus();
-               // return false;
+     //           if(id.value === '') {
+     //                // alert("아이디를 입력해주세요");
+     //                // refs.idRef.current.focus();
+     //                // return false;
 
-               errorCheckSignup('id', id.value, errors, setErrors);
+     //                errorCheckSignup('id', id.value, errors, setErrors);
 
-          } else {
-               
-               const did = 'test';
-               if(did === id.value ) {
+     //           } else {
+          
+     //                const did = 'test';
+     //                if(did === id.value ) {
 
-                    setErrors({...errors, ['id']:'이미 사용중인 아이디 입니다. 다시 입력해주세요.'});
-                    id.focus();
+     //                     setErrors({...errors, ['id']:'이미 사용중인 아이디 입니다. 다시 입력해주세요.'});
+     //                     id.focus();
 
-               } else {
-                    setErrors({...errors, ['id']:'사용이 가능한 아이디입니다.'});
-                    idMsgRef.current.style.setProperty('color','green');
-                    idMsgRef.current.style.setProperty('font-weight', 'bold');
+     //                } else {
+     //                     setErrors({...errors, ['id']:'사용이 가능한 아이디입니다.'});
+     //                     idMsgRef.current.style.setProperty('color','green');
+     //                     idMsgRef.current.style.setProperty('font-weight', 'bold');
 
-               }
-          }
-     };
+     //                }
+     //           }
+     //      };
 
 
      //패스워드 & 패스워드 확인 check
@@ -151,7 +151,6 @@ export default function Signup() {
 
 
 
-    
 
 
     return (
