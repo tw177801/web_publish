@@ -4,14 +4,15 @@ import React from 'react';
 // import Login3 from './Login3.jsx';
 // import UserInfo from './UserInfo.jsx';
 // import CgvLoginForm from './CgvLoginForm.jsx';
-import Signup from './Signup.jsx';
+// import Signup from './Signup.jsx';
+import Signup2 from './Signup2.jsx';
 
 export default function AppForm() {
     return (
         <div>
 
 
-            <Signup /> 
+            <Signup2 /> 
 
             {/* <Login2 /> */}
             {/* <CgvLoginForm /> */}

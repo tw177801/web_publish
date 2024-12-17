@@ -1,5 +1,45 @@
 /**
  * 
+ * Signup2 유효성 체크
+ */
+
+
+export function validateFormSignup2(refs) {
+    let checkResult = true;
+
+
+    if(refs.idRef.current.value === '') {
+        alert('아이디 입력');
+        refs.idRef.current.focus();
+        checkResult = false;
+
+
+        
+    }
+
+
+
+    return checkResult;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * 
  * CgvLoginForm 유효성 체크 함수
  * @returns 
  * 
@@ -146,3 +186,6 @@ export const validateSignup = (refs, errors, setErrors) => {
     return checkResult;
 
 }
+
+
+
