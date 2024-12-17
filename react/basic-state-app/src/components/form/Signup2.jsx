@@ -1,9 +1,12 @@
 import React, {useState, useRef} from 'react';
 import { validateFormSignup2 } from '../../apis/validate.js';
+import { initFormNames } from '../../apis/initial.js';
+
 
 export default function Signup2() {
 
     const refs = {
+
         idRef:useRef(null),
         pwdRef:useRef(null),
         nameRef:useRef(null),
@@ -18,9 +21,10 @@ export default function Signup2() {
         genderRef:useRef(null),
         emailRef:useRef(null),
         introRef:useRef(null)
-    }
+    
+    };
 
-    const init = {
+    const initArray = {
 
         'id':'',
         'pwd':'',
@@ -37,10 +41,51 @@ export default function Signup2() {
         'email': '',
         'intro': ''
 
-        
-    }
+    };
 
-    const [formData, setFormData] = useState(init);
+    // const init = initArray.reduce((acc, key)=> {
+    //             acc[key] = '';
+    //             return acc;
+    // },{});
+
+    // 배열 + reduce() 함수
+
+    // const refArray = ['idRef', 'pwdRef', 'nameRef', 'phone1Ref'];
+    
+    
+    //React 전용 useRef 함수는 custom hook 등을 활용
+    // const refs2 = refArray.reduce((acc, key)=>{
+    //             acc[key] = useRef(null)
+    //             return acc;
+    // }, {});
+
+    // console.log(initFormNames(initArray));
+    
+
+    // acc = {'idRef': useRef(null)};
+
+
+    // const init = {
+
+    //     'id':'',
+    //     'pwd':'',
+    //     'name': '',
+    //     'phone1': '',
+    //     'phone2': '',
+    //     'phone3': '',
+    //     'address': '',
+    //     'birth1': '',
+    //     'birth2': '',
+    //     'birth3': '',
+    //     'job': '',
+    //     'gender': '',
+    //     'email': '',
+    //     'intro': ''
+
+        
+    // }
+
+    const [formData, setFormData] = useState(initFormNames(initArray));
     const handleChangeForm = (event) => {
         const {name, value} = event.target;
         setFormData({...formData, [name]:value});

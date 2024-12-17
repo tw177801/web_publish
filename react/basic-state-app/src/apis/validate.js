@@ -14,7 +14,11 @@ export function validateFormSignup2(refs) {
     // console.log(refKeys);
     console.log(refEntries);
     
-    const msgs = {'idRef':'아이디', 'pwdRef':'패스워드'};
+    const msgs = {
+    
+        'idRef':'아이디', 'pwdRef':'패스워드'
+        
+    };
 
     /**!!! 배열.map() or 배열.forEach() 함수는 배열 객체를 순회하는 것이
      * 목적이므로 if 체크 후 focus가 적용되지 않음!!!
