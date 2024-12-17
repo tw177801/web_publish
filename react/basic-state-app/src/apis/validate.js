@@ -5,33 +5,113 @@
 
 
 export function validateFormSignup2(refs) {
-    let checkResult = true;
+
+    // const refValues = Object.values(refs);
+    // const refKeys = Object.Keys(refs);
+    const refEntries = Object.entries(refs);
+
+    // console.log(refValues);
+    // console.log(refKeys);
+    console.log(refEntries);
+    
+    const msgs = {'idRef':'아이디', 'pwdRef':'패스워드'};
+
+    /**!!! 배열.map() or 배열.forEach() 함수는 배열 객체를 순회하는 것이
+     * 목적이므로 if 체크 후 focus가 적용되지 않음!!!
+     */
+
+    // refEntries.forEach((item, index) => {
+    //     const name = item[0];
+    //     const ref = item[1];
+    
+    //     if(ref.current.value === '') {
+    //         alert(`${msgs[name]}를 입력해주세요`);
+    //         ref.current.focus();
+
+    //         return false;
+    //     }
+
+    // });
 
 
-    if(refs.idRef.current.value === '') {
-        alert('아이디 입력');
-        refs.idRef.current.focus();
-        checkResult = false;
+    for(const item of refEntries) {
+        const name = item[0];
+        const ref = item[1];
 
+        if(ref && ref.current.value === '') {
+            alert(`${msgs[name]}입력`);
+            ref.current.focus();
+            return false;
+        } 
 
-        
     }
 
+    // let checkResult = true;
 
 
-    return checkResult;
+    // if(refs.idRef.current.value === '') {
+    //     alert('아이디 입력');
+    //     refs.idRef.current.focus();
+    //     checkResult = false;
+    // } else if (refs.pwdRef.current.value === '') {
+    //     alert('패스워드 입력');
+    //     refs.pwdRef.current.focus();
+    //     checkResult = false;
+    // } else if (refs.nameRef.current.value === '') {
+    //     alert('이름 입력');
+    //     refs.nameRef.current.focus();
+    //     checkResult = false;
+    // } else if (refs.phone1Ref.current.value === '') {
+    //     alert('휴대폰 번호 입력');
+    //     refs.phone1Ref.current.focus();
+    //     checkResult = false;
+    // } else if (refs.phone2Ref.current.value === '') {
+    //     alert('휴대폰 번호 입력');
+    //     refs.phone2Ref.current.focus();
+    //     checkResult = false;
+    // } else if (refs.phone3Ref.current.value === '') {
+    //     alert('휴대폰 번호 입력');
+    //     refs.phone3Ref.current.focus();
+    //     checkResult = false;
+    // } else if (refs.addressRef.current.value === '') {
+    //     alert('주소 입력');
+    //     refs.addressRef.current.focus();
+    //     checkResult = false;
+    // } else if (refs.birth1Ref.current.value === '') {
+    //     alert('생일 입력');
+    //     refs.birth1Ref.current.focus();
+    //     checkResult = false;
+    // } else if (refs.birth2Ref.current.value === '') {
+    //     alert('생일 입력');
+    //     refs.birth2Ref.current.focus();
+    //     checkResult = false;
+    // } else if (refs.birth3Ref.current.value === '') {
+    //     alert('생일 입력');
+    //     refs.birth3Ref.current.focus();
+    //     checkResult = false;
+    // } else if (refs.jobRef.current.value === '') {
+    //     alert('직업 입력');
+    //     refs.jobRef.current.focus();
+    //     checkResult = false;
+    // } else if (refs.genderRef.current.value === '') {
+    //     alert('성별 입력');
+    //     refs.genderRef.current.focus();
+    //     checkResult = false;
+    // } else if (refs.emailRef.current.value === '') {
+    //     alert('이메일 입력');
+    //     refs.emailRef.current.focus();
+    //     checkResult = false;
+    // } else if (refs.introRef.current.value === '') {
+    //     alert('자기소개 입력');
+    //     refs.introRef.current.focus();
+    //     checkResult = false;
+    // }
+
+
+
+    // return checkResult;
 
 }
-
-
-
-
-
-
-
-
-
-
 
 
 
