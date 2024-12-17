@@ -213,10 +213,13 @@ export const validateForm2 = (refs) => {
  * Signup 컴포넌트의 유효성체크 함수
  */
 
+
+// Signup import
 export const validateSignup = (refs, errors, setErrors) => {
 
     // console.log(refs);
     let checkResult = true;
+    
     if(refs.idRef.current.value === '') {
         // alert("아이디 입력");
         setErrors({...errors, ['id']:'아이디를 입력해주세요'});

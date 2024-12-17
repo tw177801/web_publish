@@ -11,6 +11,7 @@ import './join.css';
 export default function Signup() {
 
     const idMsgRef = useRef(null);
+    const passMsgRef = useRef(null);
 
     const refs = {
         idRef: useRef(null),
@@ -70,13 +71,16 @@ export default function Signup() {
 
         const {name, value} = event.target;
         setFormData({...formData, [name]: value});
+
+        idMsgRef.current.style.setProperty('color','red');
+        idMsgRef.current.style.setProperty('font-weight', 'bold');
         errorCheckSignup(name, value, errors, setErrors);
         // if(name === 'id') {
         //     (value === '') ? setErrors({...errors, ['id']:'아이디를 입력해주세요'}) 
         //     : setErrors({...errors, ['id']:''});
         // }
         
-    }
+    };
     
     // 폼의 입력이 종료된 후 Submit 함수
     const handleSubmitSignup = (event) => {
@@ -84,7 +88,7 @@ export default function Signup() {
         event.preventDefault();
         if(validateSignup(refs, errors, setErrors)) console.log(formData);
 
-    }
+    };
 
     //아이디 중복체크
     // value 체크
@@ -106,15 +110,48 @@ export default function Signup() {
 
                     setErrors({...errors, ['id']:'이미 사용중인 아이디 입니다. 다시 입력해주세요.'});
                     id.focus();
+
                } else {
                     setErrors({...errors, ['id']:'사용이 가능한 아이디입니다.'});
                     idMsgRef.current.style.setProperty('color','green');
-                    idMsgRef.current.setProperty('fontWeight', 'bold');
+                    idMsgRef.current.style.setProperty('font-weight', 'bold');
+
+               }
+          }
+     };
+
+
+     //패스워드 & 패스워드 확인 check
+     const handlePasswordCheck = () => {
+
+          const pwd = refs.pwdRef.current;
+          const cpwd = refs.cpwdRef.current;
+
+          if(pwd.value === '') {
+               errorCheckSignup('pwd', pwd.value, errors, setErrors);
+               pwd.focus();
+          } else if (cpwd.value === '') {
+               errorCheckSignup('cpwd', cpwd.value, errors, setErrors);
+               cpwd.focus();
+          } else {
+               if(pwd.value === cpwd.value) {
+                    setErrors({...errors, ['pwd']:'비밀번호가 동일합니다.'});
+                    refs.pwdRef.current.style.setProperty('color','green');
+                    refs.pwdRef.current.style.setProperty('font-weight', 'bold');
+               } else {
+                    setErrors({...errors, ['pwd']:'비밀번호가 일치하지 않습니다. 다시 입력해주세요.'});
+                    setFormData({...formData, ['pwd']:'', ['cpwd']:''});
+                    refs.pwdRef.current.focus();
 
                }
           }
 
-    }
+
+     };
+
+
+
+    
 
 
     return (
@@ -143,7 +180,7 @@ export default function Signup() {
           
                               <li>
                                    <label for="" ><b>패스워드</b></label>
-                                   <span>{errors.pwd}</span>
+                                   <span ref={passMsgRef}>{errors.pwd}</span>
                                    <div>
                                    <input type="password" 
                                         name="pwd" 
@@ -165,6 +202,7 @@ export default function Signup() {
                                         value={formData.cpwd}
                                         ref={refs.cpwdRef}
                                         onChange={handleChangeSignup}
+                                        onBlur={handlePasswordCheck}
                                         placeholder="패스워드 재입력"/>
                                    </div>
                               </li>
