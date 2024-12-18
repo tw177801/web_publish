@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import BestBookButton from './BestBookButton.jsx';
 import BestBookAvatar from './BestBookAvatar.jsx';
 import BestBookContent from './BestBookContent.jsx';
 
-export default function BestBook() {
+export default function BestBook({list}) {
     
     // const [totalQty, setTotalQty] = useState(0);
 
@@ -18,42 +18,44 @@ export default function BestBook() {
     // }
 
 
-
-
     return (
         <>
-        <div style={{'display':'flex'}}>
-            {/* <div>전체카트수량 : {totalQty}</div> */}
+            {list && list.map((book, i) => 
 
-            <BestBookAvatar 
-                rank="1" 
-                img="https://image.yes24.com/goods/13137546/L"        
-            />
+                <div className='total-content' 
+                    style={{'display':'flex'}}>
+                    {/* <div>전체카트수량 : {totalQty}</div> */}
 
-            <BestBookContent 
-                suggest = {true}
-                today = {true}
-                type = "도서"
-                title= "소년이 온다"
-                author = "한강"
-                company = "창비"
-                pubDate= "2014년 05월"
-                price="13,500원"
-                perSale="10"
-                point="750"
-            />
+                    <BestBookAvatar 
+                            rank={i+1} 
+                            img={book.img}        
+                    />
 
-            <BestBookButton />
-                {/* {list.map((item) => 
-                
-                <div style={{display: 'flex'}}>
-                        <img src={item.img} width="100px"/>
-                        <BestBookButton qtyChange={handleChangeQty}/>
-                    </div>
-                
-                )} */}
-                
-        </div>
+                    <BestBookContent 
+                            suggest = {book.suggest}
+                            today = {book.today}
+                            type = {book.type}
+                            title= {book.title}
+                            author = {book.author}
+                            company = {book.company}
+                            pubDate= {book.pubDate}
+                            price= {book.price}
+                            perSale= {book.perSale}
+                            point= {book.point}
+                    />
+
+                    <BestBookButton />
+                        {/* {list.map((item) => 
+                        
+                        <div style={{display: 'flex'}}>
+                                <img src={item.img} width="100px"/>
+                                <BestBookButton qtyChange={handleChangeQty}/>
+                            </div>
+                        
+                        )} */}
+
+                </div>
+            )}
         </>
     );
     

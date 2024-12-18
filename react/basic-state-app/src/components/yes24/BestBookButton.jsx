@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './BestBook.css';
 
 export default function BestBookButton({qtyChange}) {
     
@@ -16,6 +17,7 @@ export default function BestBookButton({qtyChange}) {
     
     return (
         <ul className='container-button'>
+
            <li>
                 <input type="checkbox" />
                 <button type="button" 
@@ -27,6 +29,7 @@ export default function BestBookButton({qtyChange}) {
             </li> 
             <li>
                 <button type="button" 
+                        className="btn-cart"
                         >카트에 넣기</button>
             </li>
             <li>
@@ -35,6 +38,7 @@ export default function BestBookButton({qtyChange}) {
             <li>
                 <button type="button">리스트에 넣기</button>
             </li>
+        
         </ul>
     );
 }
