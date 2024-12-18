@@ -15,7 +15,7 @@ export default function BestBookButton({qtyChange}) {
     
     
     return (
-        <ul>
+        <ul className='container-button'>
            <li>
                 <input type="checkbox" />
                 <button type="button" 
@@ -27,7 +27,7 @@ export default function BestBookButton({qtyChange}) {
             </li> 
             <li>
                 <button type="button" 
-                        onClick={()=>{qtyChange(qty)}}>카트에 넣기</button>
+                        >카트에 넣기</button>
             </li>
             <li>
                 <button type="button">바로 구매</button>

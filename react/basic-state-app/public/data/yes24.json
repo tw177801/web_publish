@@ -1,0 +1,46 @@
+{
+
+    "menuList" : [
+        {
+            "name":"종합",
+            "href":"#",
+            "bg":"white",
+            "color":"#333"
+
+        },
+        {
+            "name":"실시간",
+            "href":"#",
+            "bg":"white",
+            "color":"#333"
+
+        },
+        {
+            "name":"특가",
+            "href":"#",
+            "bg":"white",
+            "color":"#333"
+        },
+        {
+            "name":"일별",
+            "href":"#",
+            "bg":"white",
+            "color":"#333"
+        },
+        {
+            "name":"월별/주별",
+            "href":"#",
+            "bg":"white",
+            "color":"#333"
+        },
+        {
+            "name":"스테디셀러",
+            "href":"#",
+            "bg":"white",
+            "color":"#333"
+        }
+        
+    ]
+
+
+}

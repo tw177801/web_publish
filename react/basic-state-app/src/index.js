@@ -6,16 +6,16 @@ import './index.css';
 // import AppAvatar from './components/avatar/AppAvatar.jsx';
 // import reportWebVitals from './reportWebVitals';
 // import AppCounter from './components/counter/AppCounter.jsx';
-// import AppBestSeller from './components/yes24/AppBestSeller.jsx';
+import AppBestSeller from './components/yes24/AppBestSeller.jsx';
 // import AppOlive from './components/olive/AppOlive.jsx';
 // import AppCounter2 from './components/counter2/AppCounter2.jsx';
 // import AppAladin from './components/aladin/AppAladin.jsx';
-import AppForm from './components/form/AppForm.jsx';
+// import AppForm from './components/form/AppForm.jsx';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <AppForm />
+    <AppBestSeller />
     {/* <AppAvatar /> */}
   </React.StrictMode>
 );

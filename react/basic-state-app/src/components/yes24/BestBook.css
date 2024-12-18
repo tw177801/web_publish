@@ -1,0 +1,33 @@
+.container {
+
+    width: 1000px;
+    margin: auto;
+}
+.container-avatar {
+    display: flex;
+    align-items: center;
+   
+    /* border: 1px solid red; */
+}
+
+.container-avatar img {
+    width: 120px;
+}
+
+.container-avatar p {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 0 10px;
+}
+
+.container-content {
+    padding: 0 40px;
+    background-color: lightgray;
+}
+
+
+.container-button {
+    list-style-type: none;
+    background-color: antiquewhite;
+    padding: 20px;
+}
