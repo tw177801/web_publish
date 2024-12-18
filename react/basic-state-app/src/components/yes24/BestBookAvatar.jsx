@@ -5,7 +5,6 @@ export default function BestBookAvatar({rank, img}) {
 
 
 
-
     return (
         <div className='container-avatar'>
 

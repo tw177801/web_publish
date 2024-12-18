@@ -94,7 +94,7 @@
                 "rank":"7",
                 "img":"https://image.yes24.com/goods/5926713/L",
                 "suggest" : true,
-                "today" : true,
+                "today" : false,
                 "type" : "도서",
                 "title" : "희랍어 시간",
                 "author" : "한강",
