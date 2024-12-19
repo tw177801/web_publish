@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+// import Routes from "./Routes";
+
 import './index.css';
 import AppRouter2 from './components/router2/AppRouter2.jsx';
 // import AppRouter from './components/router/AppRouter';
@@ -14,6 +16,7 @@ import AppRouter2 from './components/router2/AppRouter2.jsx';
 // import AppAladin from './components/aladin/AppAladin.jsx';
 // import AppForm from './components/form/AppForm.jsx';
 
+// ReactDOM.render(<Routes />, document.getElementById("root"));
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
