@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 // import Routes from "./Routes";
 
 import './index.css';
-import AppRouter2 from './components/router2/AppRouter2.jsx';
+// import AppRouter2 from './components/router2/AppRouter2.jsx';
 // import AppRouter from './components/router/AppRouter';
 // import App from './App';
 // import AppAirbnb from './components/airbnb/AppAirbnb';
@@ -11,7 +11,7 @@ import AppRouter2 from './components/router2/AppRouter2.jsx';
 // import reportWebVitals from './reportWebVitals';
 // import AppCounter from './components/counter/AppCounter.jsx';
 // import AppBestSeller from './components/yes24/AppBestSeller.jsx';
-// import AppOlive from './components/olive/AppOlive.jsx';
+import AppOlive from './components/olive/AppOlive.jsx';
 // import AppCounter2 from './components/counter2/AppCounter2.jsx';
 // import AppAladin from './components/aladin/AppAladin.jsx';
 // import AppForm from './components/form/AppForm.jsx';
@@ -20,8 +20,8 @@ import AppRouter2 from './components/router2/AppRouter2.jsx';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <AppRouter2 />
-    {/* <AppAvatar /> */}
+    {/* <AppRouter2 /> */}
+    <AppOlive />
   </React.StrictMode>
 );
 

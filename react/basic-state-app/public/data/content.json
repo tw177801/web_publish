@@ -1,0 +1,23 @@
+{
+    "about" : [
+        {
+
+            "title" : "About me",
+            "content" : "Lorem ipsum dolor sit amet consectetur adipisicing elit"
+        },
+        {
+            "title2" : "Front-end",
+            "content2" : "HTML, CSS, JavaScript, TypeScript, React, WebAPIs"
+        },
+        {
+            "title2" : "Mobile",
+            "content2" : "Android Studio, React Native, iOS, Swift, Java, Kotlin"
+        },
+        {
+            "title2" : "Back-end",
+            "content2" : "Java, JavaScript, Go, Kotlin, Spring, Spring Boot"
+        }
+
+    ]
+
+}
