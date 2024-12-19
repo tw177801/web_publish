@@ -16,7 +16,8 @@ export function validateFormSignup2(refs) {
     
     const msgs = {
     
-        'idRef':'아이디', 'pwdRef':'패스워드'
+        'idRef':'아이디', 'pwdRef':'패스워드',
+        'jobRef': '직업'
         
     };
 
@@ -42,13 +43,22 @@ export function validateFormSignup2(refs) {
         const name = item[0];
         const ref = item[1];
 
-        if(ref && ref.current.value === '') {
-            alert(`${msgs[name]}입력`);
-            ref.current.focus();
-            return false;
-        } 
+        if(name !== 'jobRef') {
 
+            if(ref && ref.current.value === '') {
+                alert(`${msgs[name]}를 입력해주세요.`);
+                ref.current.focus();
+                return false;
+            } else {
+
+            if(ref.current.value === 'default') {
+                alert(`${msgs[name]}입력`);
+                ref.current.focus();
+                return false;
+            } 
+        }
     }
+}
 
     // let checkResult = true;
 
