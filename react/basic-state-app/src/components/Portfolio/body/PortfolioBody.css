@@ -18,44 +18,86 @@
     --max-size-width: 1200px;
   }
 
-  
-.tbody {
-    text-align: center;
-}
-
-.p1 {
-
+  .max-container {
+    max-width: var(--max-size-width);
+    margin: auto;
     /* border: 1px solid red; */
-    font-weight: bold;
+  }
+  .section {
+    padding: 4rem; 
+    text-align: center;
+  }
+  .title {
     font-size: 2.5rem;
     margin: 1rem 0;
-}
+  }
+  .description {
+    font-size: 1.5rem;
+    margin: 0.5rem 0;
+  }
 
 
-.p2 {
-    /* font-size: 1.5rem;
-    margin: 0.5rem 0; */
-}
-
-
-.tbottom {
-    /* display: flex; */
-}
-
-
-.tp1 {
+  /*
+  About me
+*/
+/* 
+.majors {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin: 2.5rem 0;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  
+  .major {
+    width: 30rem;
+    background-color: var(--color-gray);
+    color: var(--color-text);
+    padding: 2rem 1rem;
+    border-radius: 1rem;
+    box-shadow: 4px 8px 8px rgba(0, 0, 0, 0.38);
+  }
+  
+  .major__icon {
+    font-size: 5rem;
+    color: var(--color-accent);
+    margin: 1rem 0;
+  }
+  
+  .major__title {
     font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 1rem;
-}
+  }
+  
+  .jobs {
+    text-align: start;
+  }
+  
+  .job {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1rem;
+  }
+  
+  .job__name {
+    color: var(--color-primary);
+  }
+  
+  .job__period {
+    font-size: 0.8rem;
+    color: var(--color-primary);
+  }
+ */
 
-.max-container {
-    /* margin: auto; */
-    /* height: 400px; */
-    background-color: #1b1e26;
-    color: white;
-    text-align: center;
-}
+
+
+
 
 /*skills*/
 

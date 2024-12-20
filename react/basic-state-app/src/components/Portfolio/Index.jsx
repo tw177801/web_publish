@@ -1,6 +1,5 @@
 import React from 'react';
 import Content from './body/Content.jsx';
-import Content2 from './body/Content2.jsx';
 
 export default function Index() {
 
@@ -11,7 +10,7 @@ export default function Index() {
         <div>
 
                 <Content />
-                <Content2 />
+                {/* <Content2 /> */}
            
         </div>
     );
