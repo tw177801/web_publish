@@ -3,33 +3,19 @@
         {
 
             "title" : "About me",
-            "content" : "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident exercitationem nisi repudiandae nihil animi asperiores similique odit praesentium, fuga rem officiis dignissimos at inventore, placeat neque labore possimus unde. Saepe!"
-        },
-        {
+            "content" : "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident exercitationem nisi repudiandae nihil animi asperiores similique odit praesentium, fuga rem officiis dignissimos at inventore, placeat neque labore possimus unde. Saepe!",
             "title2" : "Front-end",
-            "content2" : "HTML, CSS, JavaScript, TypeScript, React, WebAPIs"
-        },
-        {
-            "title2" : "Mobile",
-            "content2" : "Android Studio, React Native, iOS, Swift, Java, Kotlin"
-        },
-        {
-            "title2" : "Back-end",
-            "content2" : "Java, JavaScript, Go, Kotlin, Spring, Spring Boot"
-        },
-
-        {
-
+            "content2" : "HTML, CSS, JavaScript, TypeScript, React, WebAPIs",
+            "title3" : "Mobile",
+            "content3" : "Android Studio, React Native, iOS, Swift, Java, Kotlin",
+            "title4" : "Back-end",
+            "content4" : "Java, JavaScript, Go, Kotlin, Spring, Spring Boot",
             "job" : "/images/jobs/google.png",
             "h1" : "Google as Junior Software Engineer",
-            "h2" : "2019 Oct - Until now"
-
-        },
-        {
-
-            "job" : "/images/jobs/samsung.png",
-            "h1" : "Samsung as Junior Software Engineer",
-            "h2" : "2010 Oct - 2019 Oct"
+            "h2" : "2019 Oct - Until now",
+            "job2" : "/images/jobs/samsung.png",
+            "h3" : "Samsung as Junior Software Engineer",
+            "h4" : "2010 Oct - 2019 Oct"
 
         }
 
@@ -42,47 +28,26 @@
         {
             "t1" : "My Skills",
             "t2" : "Skills & Attributes",
-            "c1" : "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis beatae, aliquid ratione commodi nam ex voluptate rem eveniet cupiditate optio natus? Cum, harum eum sint id quod nulla adipisci. Sunt?"
-
-        },
-
-        {
-            "stitle" : "Coding Skills"
-        },
-
-        {
+            "c1" : "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis beatae, aliquid ratione commodi nam ex voluptate rem eveniet cupiditate optio natus? Cum, harum eum sint id quod nulla adipisci. Sunt?",
+            "stitle" : "Coding Skills",
             "sc1" : "HTML",
-            "sc2" : "98%"
-        },
-        {
-            "sc1" : "CSS",
-            "sc2" : "90%"
-        },
-        {
-            "sc1" : "JavaScript",
-            "sc2" : "90%"
-        },
-        {
-            "sc1" : "TypeScript",
-            "sc2" : "80%"
-        },
-        {
-            "sc1" : "React",
-            "sc2" : "79%"
-        },
-        {
-            "sc1" : "NodeJS",
-            "sc2" : "68%"
-        },
-        {
+            "sc2" : "98%",
+            "sc3" : "CSS",
+            "sc4" : "90%",
+            "sc5" : "JavaScript",
+            "sc6" : "90%",
+            "sc7" : "TypeScript",
+            "sc8" : "80%",
+            "sc9" : "React",
+            "sc10" : "79%",
+            "sc11" : "NodeJS",
+            "sc12" : "68%",
             "ptitle" : "Tools",
             "li1" : "Visual Studio Code",
             "li2" : "IntelliJ",
             "li3" : "Android Studio Code",
             "li4" : "iOS development tools",
-            "li5" : "Eclipse"
-        },
-        {
+            "li5" : "Eclipse",
             "etitle" : "Etc",
             "b1" : "Git",
             "b2" : "Scrum Master",
@@ -90,6 +55,56 @@
         }
 
 
+
+    ],
+
+
+    "work" : [
+
+        {
+            "title" : "My work",
+            "description" : "Projects",
+            "category" : "All",
+            "ct1" : "Front-end",
+            "ct2" : "Back-end",
+            "ct3" : "Mobile",
+            "pcontent" : "Clone Coding with HTML, CSS",
+            "pimg" : "/images/projects/project1.webp",
+            "mtitle" : "Project #1",
+            "pimg2" : "/images/projects/project2.webp",
+            "mtitle2" : "Project #2",
+            "pimg3" : "/images/projects/project3.webp",
+            "mtitle3" : "Project #3",
+            "pimg4" : "/images/projects/project4.webp",
+            "mtitle4" : "Project #4",
+            "pimg5" : "/images/projects/project5.webp",
+            "mtitle5" : "Project #5",
+            "pimg6" : "/images/projects/project6.webp",
+            "mtitle6" : "Project #6",
+            "pimg7" : "/images/projects/project7.webp",
+            "mtitle7" : "Project #7",
+            "pimg8" : "/images/projects/project8.webp",
+            "mtitle8" : "Project #8"
+        }
+
+    ],
+
+
+    "testimonial" : [
+
+        {
+
+            "title" : "Testimonial",
+            "description" : "See what they say about me",
+            "pcnt" : "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis similique, unde nam totam quam, nisi odio error amet provident iste modi eos dicta, eum suscipit rem illum inventore sapiente blanditiis?",
+            "img" : "/images/people1.webp",
+            "name" : "James Kim",
+            "img2" : "/images/people2.webp",
+            "name2" : "Smith Park",
+            "img3" : "/images/people3.webp",
+            "name3" : "Anna Jin"
+
+        }
 
     ]
 
