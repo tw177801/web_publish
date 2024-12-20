@@ -9,7 +9,6 @@ export default function Aboutme(about) {
 
     return (
         <>
-
             <section id="about" class="section max-container">
 
                 <h2 class="title">{about.title}</h2>

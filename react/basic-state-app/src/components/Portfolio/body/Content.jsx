@@ -19,8 +19,6 @@ export default function Content() {
                 setSkills(jsonData.skills);
                 setWork(jsonData.work);
                 setTestimonial(jsonData.testimonial);
-            
-                
                 // setContent(jsonData.body-content);
             })
             .catch();
