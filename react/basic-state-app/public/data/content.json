@@ -16,7 +16,80 @@
         {
             "title2" : "Back-end",
             "content2" : "Java, JavaScript, Go, Kotlin, Spring, Spring Boot"
+        },
+
+        {
+
+            "job" : "/images/jobs/google.png",
+            "h1" : "Google as Junior Software Engineer",
+            "h2" : "2019 Oct - Until now"
+
+        },
+        {
+
+            "job" : "/images/jobs/samsung.png",
+            "h1" : "Samsung as Junior Software Engineer",
+            "h2" : "2010 Oct - 2019 Oct"
+
         }
+
+    ],
+
+
+    "skills" : [
+
+
+        {
+            "t1" : "My Skills",
+            "t2" : "Skills & Attributes",
+            "c1" : "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis beatae, aliquid ratione commodi nam ex voluptate rem eveniet cupiditate optio natus? Cum, harum eum sint id quod nulla adipisci. Sunt?"
+
+        },
+
+        {
+            "stitle" : "Coding Skills"
+        },
+
+        {
+            "sc1" : "HTML",
+            "sc2" : "98%"
+        },
+        {
+            "sc1" : "CSS",
+            "sc2" : "90%"
+        },
+        {
+            "sc1" : "JavaScript",
+            "sc2" : "90%"
+        },
+        {
+            "sc1" : "TypeScript",
+            "sc2" : "80%"
+        },
+        {
+            "sc1" : "React",
+            "sc2" : "79%"
+        },
+        {
+            "sc1" : "NodeJS",
+            "sc2" : "68%"
+        },
+        {
+            "ptitle" : "Tools",
+            "li1" : "Visual Studio Code",
+            "li2" : "IntelliJ",
+            "li3" : "Android Studio Code",
+            "li4" : "iOS development tools",
+            "li5" : "Eclipse"
+        },
+        {
+            "etitle" : "Etc",
+            "b1" : "Git",
+            "b2" : "Scrum Master",
+            "b3" : "SVN"
+        }
+
+
 
     ]
 
