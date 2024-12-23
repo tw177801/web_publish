@@ -14,6 +14,11 @@ import Job from './components/content/Job.jsx';
 import Skills from './components/content/Skills.jsx';
 import Coding from './components/content/Coding.jsx';
 import Categories from './components/content/Categories.jsx';
+import Testimonial from './components/content/Testimonial.jsx';
+import Arrow from './components/content/Arrow.jsx';
+import Top from './components/content/Top.jsx';
+import ContactLinks from './components/content/ContactLinks.jsx';
+import Bottom from './components/content/Bottom.jsx';
 
 
 function App() {
@@ -49,7 +54,6 @@ function App() {
           
         </SectionWrap>
         
-        
 
         <SectionWrap
           id="skill"
@@ -82,12 +86,20 @@ function App() {
           title="my work"
           description="Projects"
         >
-          <Categories />
+          <Testimonial />
         </SectionWrap>
 
+        <Arrow />
       </Content>
       
+
       <Footer>
+        <Top 
+          title="Let's talk"
+          description="jeon.developer.judy@gmail.com"
+        />
+        <ContactLinks />
+        <Bottom />
       </Footer>
    </>
   );
