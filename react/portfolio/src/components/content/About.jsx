@@ -10,31 +10,31 @@ export default function About() {
                 omnis architecto dignissimos. Iusto ipsa inventore adipisci.</p>
             <ul class="majors">
                 <li class="major">
-                    <i class="fa-brands fa-html5 major__icon"></i>
-                    <p class="major__title">Front-end</p>
-                    <p>HTML, CSS, JavaScript, TypeScript, React, WebAPIs</p>
+                <i class="fa-brands fa-html5 major__icon"></i>
+                <p class="major__title">Front-end</p>
+                <p>HTML, CSS, JavaScript, TypeScript, React, WebAPIs</p>
                 </li>
                 <li class="major">
-                    <i class="fa-solid fa-mobile major__icon"></i>
-                    <p class="major__title">Mobile</p>
-                    <p>Android Studio, React Native, iOS, Swift, Java, Kotlin</p>
+                <i class="fa-solid fa-mobile major__icon"></i>
+                <p class="major__title">Mobile</p>
+                <p>Android Studio, React Native, iOS, Swift, Java, Kotlin</p>
                 </li>
                 <li class="major">
-                    <i class="fa-solid fa-server major__icon"></i>
-                    <p class="major__title">Back-end</p>
-                    <p>Java, JavaScript, Go, Kotlin, Spring, Spring Boot</p>
+                <i class="fa-solid fa-server major__icon"></i>
+                <p class="major__title">Back-end</p>
+                <p>Java, JavaScript, Go, Kotlin, Spring, Spring Boot</p>
                 </li>
             </ul>
             <ul class="jobs">
                 <li class="job">
-                <img src="images/jobs/google.png" alt="google"/>
+                <img src="images/jobs/google.png" alt="google" />
                 <div>
                     <p class="job__name">Google as Junior Software Engineer</p>
                     <p class="job__period">2019 Oct - Until now</p>
                 </div>
                 </li>
                 <li class="job">
-                <img src="images/jobs/samsung.png" alt="samsung"/>
+                <img src="images/jobs/samsung.png" alt="samsung" />
                 <div>
                     <p class="job__name">Samsung as Junior Software Engineer</p>
                     <p class="job__period">2010 Oct - 2019 Oct</p>

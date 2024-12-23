@@ -2,11 +2,9 @@ import React from 'react';
 
 export default function Skills({children}) {
     return (
-        <div className="skills">
+        <div class="skills">
             {children}
-
         </div>
-       
     );
 }
 
