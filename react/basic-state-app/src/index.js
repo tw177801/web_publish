@@ -10,19 +10,19 @@ import './index.css';
 // import AppAvatar from './components/avatar/AppAvatar.jsx';
 // import reportWebVitals from './reportWebVitals';
 // import AppCounter from './components/counter/AppCounter.jsx';
-import AppBestSellerRouter from './components/yes24_router/AppBestSellerRouter.jsx';
+// import AppBestSellerRouter from './components/yes24_router/AppBestSellerRouter.jsx';
 // import AppOlive from './components/olive/AppOlive.jsx';
 // import AppCounter2 from './components/counter2/AppCounter2.jsx';
 // import AppAladin from './components/aladin/AppAladin.jsx';
 // import AppForm from './components/form/AppForm.jsx';
-// import Index from './components/Portfolio/Index.jsx';
+import Index from './components/Portfolio/Index.jsx';
 
 // ReactDOM.render(<Routes />, document.getElementById("root"));
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     {/* <AppRouter2 /> */}
-    <AppBestSellerRouter />
+    <Index />
   </React.StrictMode>
 );
 

@@ -46,27 +46,27 @@ export default function Myskills(skills)
                 </ul>
               </article>
 
-              <div className='skill-bottom'>
+              
                 <article className="skills__tools">
-                  <h3 className="skill__title">{skills.ptitle}</h3>
-                  <ul className='li-skill'>
-                      <li style={{'listStyleType':'none'}}>{skills.li1}</li>
-                      <li style={{'listStyleType':'none'}}>{skills.li2}</li>
-                      <li style={{'listStyleType':'none'}}>{skills.li3}</li>
-                      <li style={{'listStyleType':'none'}}>{skills.li4}</li>
-                      <li style={{'listStyleType':'none'}}>{skills.li5}</li>
-                  </ul>
+                    <h3 className="skill__title">{skills.ptitle}</h3>
+                    <ul className='li-skill'>
+                        <li style={{'listStyleType':'none'}}>{skills.li1}</li>
+                        <li style={{'listStyleType':'none'}}>{skills.li2}</li>
+                        <li style={{'listStyleType':'none'}}>{skills.li3}</li>
+                        <li style={{'listStyleType':'none'}}>{skills.li4}</li>
+                        <li style={{'listStyleType':'none'}}>{skills.li5}</li>
+                    </ul>
                 </article>
 
                 <article className="skills__etc">
-                  <h3 className="skill__title">{skills.etitle}</h3>
-                  <ul>
-                    <li style={{'listStyleType':'none'}}>{skills.b1}</li>
-                    <li style={{'listStyleType':'none'}}>{skills.b2}</li>
-                    <li style={{'listStyleType':'none'}}>{skills.b3}</li>
-                  </ul>
+                    <h3 className="skill__title">{skills.etitle}</h3>
+                    <ul>
+                      <li style={{'listStyleType':'none'}}>{skills.b1}</li>
+                      <li style={{'listStyleType':'none'}}>{skills.b2}</li>
+                      <li style={{'listStyleType':'none'}}>{skills.b3}</li>
+                    </ul>
                 </article>
-              </div>
+              
               
             </div> 
           </section>
