@@ -2,6 +2,9 @@ import React from 'react';
 import Project from './Project.jsx';
 
 export default function Projects() {
+
+
+
     const projectList = [
         {
             "img" : "images/projects/project1.webp",
@@ -52,6 +55,10 @@ export default function Projects() {
             "description" : "Clone Coding with HTML, CSS",
         },
     ];
+
+
+
+
     return (
         <ul class="projects">
             {projectList && projectList.map((project) => 
@@ -61,6 +68,7 @@ export default function Projects() {
                         alt={project.alt}
                         title={project.title}
                         description={project.description}
+
                         />
                 </li>            
             )}
