@@ -27,6 +27,16 @@
   }
 
 
-  5. 터미널에서 배포 실행
+5. 터미널에서 배포 실행
 
   npm run deploy
+
+
+6. Git Repository react-sample-1의 브랜치 확인
+    gh-pages 브랜치 선택
+    setting > pages > 배포 브랜치 gh-pages 선택
+
+
+7. 배포 확인
+    https://tw177801.github.io/react-sample-1
+    
