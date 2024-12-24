@@ -28,7 +28,7 @@ export default function Notice() {
                     </div>
 
                     <div>
-                        <h3>앱 다운로드</h3>
+                        {/* <h3>앱 다운로드</h3> */}
                         <p>CGV앱에서 더 편리하게 이용하세요</p>
                         <img src="images/img_qrcode.gif" alt="QR"/>
                         <p>QR코드를 스캔하고<br/>앱설치 페이지로 바로 이동하세요</p>
