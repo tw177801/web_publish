@@ -39,4 +39,6 @@
 
 7. 배포 확인
     https://tw177801.github.io/react-sample-1
-    
+
+
+순서 기억
