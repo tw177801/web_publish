@@ -1,5 +1,9 @@
 
 /*
+
+
+	* 데이터베이스의 테이블은 행과 열을 이용하여 데이터를 저장하는 시스템이다.
+	
 	SQL(Structured Query Language): 데이터 베이스에서 사용하는 구조화된 언어
     --> DBMS(DataBase Management System)에 접속하여 CRUD 작업을 수행하는 언어
     
@@ -199,7 +203,7 @@ SELECT
     SALARY AS '연봉'
 	FROM EMPLOYEE;
 
-사원 테이블에서 사원명, 부서, 연봉을 조회 
+-- 사원 테이블에서 사원명, 부서, 연봉을 조회 
 -- 별칭으로 컬럼명을 수정
 -- 기존 컬럼을 이용하여 가상컬럼 생성 - 연봉 10% 인센티브 컬럼(가상 컬럼, 물리적 X) 추가 생성
 -- 타입이 숫자인 컬럼은 수식 연산이 가능함
@@ -228,3 +232,223 @@ select * from employee;
 select * from department;
 select * from unit;
 select * from vacation;
+
+-- 1
+/*
+	DISTINCT: 데이터 중복 배제, 중복된 데이터 하나만 출력
+    형식 - SELECT [DISTINCT 컬럼리스트(중복데이터 포함)] 
+			FROM [테이블명]
+            WHERE [조건절];
+*/
+
+-- 사원테이블의 부서 컬럼을 조회
+SELECT DISTINCT DEPT_ID
+	FROM EMPLOYEE;
+    
+SELECT DISTINCT EMP_ID, DEPT_ID
+	FROM EMPLOYEE;
+    
+/*
+	ORDER BY: 데이터 정렬 (오름차순, 내림차순)
+    형식: SELECT ~ 
+			FROM ~
+            WHERE ~
+            ORDER BY [ASC/DESC] 컬럼리스트 
+*/
+
+-- 사원아이디, 사원명, 입사일, 연봉을 조회
+
+
+-- 사원아이디 기준 오름차순으로 정렬 
+SELECT EMP_ID, EMP_NAME, HIRE_DATE, SALARY 
+	FROM EMPLOYEE
+	ORDER BY EMP_ID ASC;
+
+-- 사원아이디 기준 오름차순, 입사일 기준 내림차순 
+SELECT EMP_ID, EMP_NAME, HIRE_DATE, SALARY 
+	FROM EMPLOYEE
+	ORDER BY EMP_ID ASC, HIRE_DATE DESC;
+    
+-- 급여를 기준으로 오름차순 정렬 후 조회 
+SELECT EMP_ID, EMP_NAME, HIRE_DATE, SALARY
+	FROM EMPLOYEE
+		ORDER BY SALARY ASC;
+        
+SELECT EMP_ID, EMP_NAME, HIRE_DATE, SALARY
+	FROM EMPLOYEE
+		ORDER BY SALARY DESC;
+
+SELECT * FROM EMPLOYEE;        
+
+-- EGN_NAME이 정해지지 않은 사원들을 최근 입사한 순서대로 조회
+SELECT *
+	FROM EMPLOYEE
+	WHERE ENG_NAME IS NULL
+    ORDER BY HIRE_DATE DESC;
+
+
+-- 퇴직한 사원들을 급여가 높은 순으로 조회 
+SELECT * 
+	FROM EMPLOYEE
+    WHERE RETIRE_DATE IS NOT NULL
+    ORDER BY SALARY DESC;
+    
+
+-- 정보 시스템 부서의 사원들 중 급여가 높은 순으로 조회
+SHOW DATABASES;
+SHOW TABLES;
+
+SELECT *
+	FROM EMPLOYEE
+	WHERE DEPT_ID = 'SYS'
+    ORDER BY DEPT_ID DESC;
+
+
+
+-- 정보 시스템 부서의 사원들 중 최근 입사일 기준, 급여가 낮은 순으로 조회 
+SELECT *
+	FROM EMPLOYEE
+    WHERE DEPT_ID = 'SYS'
+    ORDER BY HIRE_DATE DESC, SALARY ASC;
+    
+/*
+	특정 범위의 데이터 검색: WHERE [조건절 + 비교연산자]
+    형식 - SELECT [컬럼리스트] 
+		  FROM [테이블명]
+          WHERE 컬럼명 [비교연산자 조건절]
+*/
+
+
+-- 사원중에서 연봉이 5000 이상인 사원들을 조회 
+SELECT * FROM EMPLOYEE
+	WHERE SALARY >= 5000
+    ORDER BY SALARY DESC;
+    
+-- 입사일이 '2016년 1월 1일' 이전에 입사한 사원을 조회
+-- DATE 타입은 표현은 문자처럼, 처리방식은 숫자처럼 
+SELECT * 
+	FROM EMPLOYEE
+	WHERE HIRE_DATE <= '2016-01-01';
+    
+-- 입사일이 2015년 1월 1일 이후이고, 급여가 6000이상인 사원들을 조회
+-- AND(~이고): 2개의 조건이 모두 만족한 데이터만 조회
+SELECT *
+	FROM EMPLOYEE
+    WHERE HIRE_DATE >= '2015-01-01' AND SALARY >= 6000;
+
+-- 입사일이 2015년 1월 1일 이후이거나 또는, 급여가 6000 이상인 사원들을 조회
+-- OR(~또는): 2개의 조건 중 1개만 만족해도 데이터 조회
+SELECT *
+	FROM EMPLOYEE
+	WHERE HIRE_DATE >= '2015-01-01' OR SALARY >= 6000;
+    
+-- 입사일이 2015년 1월 1일부터 2017년 12월 31일 사이에 입사한 사원들을 모두 조회
+SELECT * FROM EMPLOYEE
+	WHERE HIRE_DATE >= '2015-01-01'
+		AND HIRE_DATE <= '2017-12-31';
+        
+        
+-- 연봉 구간이 5000 이상부터 7000미만의 사원들을 모두 조회
+SELECT * FROM EMPLOYEE
+	WHERE SALARY >= 5000
+		AND SALARY <7000
+		ORDER BY SALARY ASC;
+        
+/*
+
+	BETWEEN ~ AND: 특정 구간 조회시 사용
+    형식 - SELECT []
+		FROM []
+        WHERE  BETEEN AND
+*/
+
+-- 2016년 입사자들을 조회
+-- 2016-01-01 ~ 2016-12-31
+SELECT *
+	FROM EMPLOYEE
+    WHERE HIRE_DATE BETWEEN '2016-01-01' AND '2016-12-31';
+    
+    
+-- 사원아이디가 S0001, S0010, S0020 인 사원의 모든 정보를 조회
+SELECT *
+	FROM EMPLOYEE
+	WHERE EMP_ID = 'S0001' 
+    OR EMP_ID = 'S0010'
+    OR EMP_ID = 'S0020';
+    
+-- 부서 아이디가 MKT, GEN, HRD인 부서에 속한 모든 사원을 조회
+SELECT *
+	FROM EMPLOYEE
+		WHERE DEPT_ID = 'MKT'
+		OR DEPT_ID = 'GEN'
+		OR DEPT_ID = 'HRD';
+        
+/*
+	IN 연산자: 한 컬럼에 추가되는 OR 연산식을 대체하는 IN 연산자 
+    형식: SELECT [컬럼리스트]
+		FROM [테이블명]
+        WHERE 컬럼명 IN (조건1, 조건2, 조건3...);
+*/
+-- 사원아이디가 S0001, S0010, S0020 인 사원의 모든 정보를 조회
+SELECT *
+	FROM EMPLOYEE
+	WHERE EMP_ID IN ('S0001', 'S0010', 'S0020');
+    
+-- 부서 아이디가 MKT, GEN, HRD인 부서에 속한 모든 사원을 조회
+SELECT *
+	FROM EMPLOYEE
+    WHERE DEPT_ID IN ('MKT', 'GEN', 'HRD');
+
+/*
+	와일드 카드 문자: 특정 문자열 검색 + LIKE
+    종류: %(전체), _(한문자)
+    사용법: LIKE 연산자와 함께 조건식을 추가하여 사용됨 
+    형식 - SELECT [컬럼리스트]
+		FROM [테이블명]
+        WHERE 컬럼명 [와일드 카드 문자를 이용한 특정문자열 검색 조건]
+*/
+
+-- 영어 이름이 'f'로 시작하는 모든 사원들을 조회
+SELECT * FROM EMPLOYEE
+	WHERE ENG_NAME LIKE 'f%';
+    
+-- '한'씨 성을 가진 모든 사원들을 조회
+SELECT * FROM EMPLOYEE
+	WHERE EMP_NAME LIKE '한%';
+
+-- 이메일 주소 2번째 자리에 'a'가 들어가는 모든 사원을 조회 
+SELECT * FROM EMPLOYEE
+	WHERE EMAIL LIKE '_a%';
+    
+-- 이메일 주소가 4자리인 모든 사원을 조회
+SELECT * FROM EMPLOYEE
+	WHERE EMAIL LIKE '____@%';
+    
+-- 이름에 '삼'이 들어가는 모든 사원을 조회
+SELECT * FROM EMPLOYEE
+	WHERE EMP_NAME LIKE '%삼%';
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
