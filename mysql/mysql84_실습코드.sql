@@ -1445,3 +1445,34 @@ DELETE FROM CP_EMPLOYEE
 	WHERE EMP_ID = 'S0003';
 
 
+USE HRDB2019;
+SELECT DATABASE();
+SELECT * FROM cp_employee;
+
+DELETE FROM CP_EMPLOYEE
+	WHERE EMP_ID = 'S0004';
+commit;
+
+SELECT * FROM CP_EMPLOYEE
+	WHERE EMP_ID = 'S0005';
+SELECT * FROM CP_EMPLOYEE
+	WHERE EMP_ID = 'S0004';
+
+ROLLBACK;
+
+/**********************************************
+프로그램 개발을 통해 실시간 접속시에는 AUTO COMMIT 실행됨 
+
+트랜잭션 내부 관리 -> ATM 오류, 취소시 
+
+수동 작업 제외 자동 오토 커밋 -> DROP, TRUNCATE  
+***********************************************/
+
+
+
+
+
+
+
+
+
