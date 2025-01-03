@@ -1433,8 +1433,15 @@ UPDATE CP_EMPLOYEE
 -- 작업 완료: commit, 작업 취소: rooback
 commit;
 
+-- 3. DELETE: 데이터 삭제
+-- 트랜잭션 관리법에 따라 삭제된 데이터를 복원 가능, AUTO COMMIT 상태에서 불가 
+-- 형식: DELETE FROM [테이블명]
+-- 		WHERE [조건절]; 
+-- 현재까지 진행한 모든 작업 DB에 반영 
 
 
-
+SELECT * FROM CP_EMPLOYEE;
+DELETE FROM CP_EMPLOYEE
+	WHERE EMP_ID = 'S0003';
 
 
