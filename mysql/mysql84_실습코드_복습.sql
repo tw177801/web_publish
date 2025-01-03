@@ -1430,7 +1430,7 @@ UPDATE CP_EMPLOYEE
     WHERE EMP_NAME= '강우동';
 
 -- 트랙잭션 처리방식이 auto commit이 아닌 경우 
--- 작업 완료: commit, 작업 취소: rooback
+-- 작업 완료: commit, 작업 취소: rollback
 commit;
 
 -- 3. DELETE: 데이터 삭제
