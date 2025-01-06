@@ -1472,7 +1472,7 @@ ROLLBACK;
 	하나 이상의 테이블 생성 및 연결, 조회
     - 생성: CREATE TABLE
     - 연결: FOREIGN KEY(참조키) 제약 추가
-    - 조회: JOIN, SUBQUERY
+    - SELECT(조회): JOIN, SUBQUERY
     ** 데이터베이스의 테이블 설계과정: 데이터베이스 모델링 
 		-> 데이터 정규화 
         -> ERD(Entity Relationship Diagram) 
@@ -1596,20 +1596,195 @@ CREATE TABLE PROFESSOR (
 DESC PROFESSOR;
 select * from INFORMATION_SCHEMA.TABLE_CONSTRAINTS
 	where table_name = 'PROFESSOR';
-    
+
+-- SUBJECT 데이터 추가
+INSERT INTO SUBJECT(SNAME, SDATE) VALUES ('HTML', NOW());
+INSERT INTO SUBJECT(SNAME, SDATE) VALUES ('JAVASCRIPT', NOW());
+INSERT INTO SUBJECT(SNAME, SDATE) VALUES ('MYSQL', NOW());
+SELECT * FROM SUBJECT;
+
+-- STUDENT 데이터 추가 
+
+INSERT INTO STUDENT(SNAME, GENDER, SID, STDATE) 
+	VALUES('홍길동','M',1,SYSDATE()),
+			('홍길순','F',2,SYSDATE()),
+			('유정','M',3,SYSDATE()),
+			('홍설','F',2,SYSDATE());
+            
+SELECT * FROM STUDENT;
+
+INSERT INTO PROFESSOR(NAME, SID, PDATE) 
+		VALUES('스미스',1, NOW()),
+			('이순신',2, NOW()),
+			('강감찬',3, NOW());
+SELECT * FROM PROFESSOR;
+
 -- HTML 과목의 정보를 조회 
--- HTML 과목을 수강하는 모든 학생을 조회 
+SELECT * FROM SUBJECT 
+		WHERE SNAME = 'HTML';
+
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++
+	JOIN: 2개 이상의 테이블 연동 
+	- 2개 이상의 테이블을 조합하여 집합 
+    - CROSS(CATESIAN) JOIN (합집합) (CATETION)
+		: 2개 테이블이 독립적으로 생성된 경우, JOIN 연결 고리 X
+        : PROFESSOR & STUDENT -> PROFESSOR * STUDENT 
+	- INNER(EQUI) JOIN (교집합) 
+		: 2개의 테이블이 JOIN 연결고리를 통해 연동 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+SELECT * FROM PROFESSOR;
+-- CROSS(CATESIAN) JOIN (합집합)
+-- SELECT [컬럼리스트] FROM [테이블명 [테이블별칭], 테이블명 [테이블별칭], ...]  
+-- WHERE [조건절] 
+
+SELECT * 
+	FROM PROFESSOR, STUDENT
+    ORDER BY PID;
+
+SELECT PID, NAME, P.SID, SNAME, GENDER, STDATE 
+	FROM PROFESSOR P, STUDENT S;
+
+-- PROFESSOR, STUDENT, DEPARTMENT 조인하여 모든 데이터 조회 
+SELECT COUNT(*) FROM PROFESSOR; -- 3
+SELECT COUNT(*) FROM STUDENT; -- 4  
+SELECT COUNT(*) FROM DEPARTMENT; -- 7  
+
+SELECT COUNT(*)
+	FROM PROFESSOR, STUDENT, DEPARTMENT; -- 84 
+
+SELECT * FROM PROFESSOR, STUDENT, DEPARTMENT;
+
+-- ANSI SQL (SEQUL :: MS-SQL)
+SELECT * 
+	FROM PROFESSOR CROSS JOIN STUDENT
+		 CROSS JOIN DEPARTMENT;
+
+-- INNER JOIN (교집합) 형식 
+-- SELECT [컬럼리스트] FROM [테이블명1 [테이블별칭], 테이블명2 [테이블별칭], ...]  
+-- WHERE [테이블명1.조인컬럼 = 테이블명2.조인컬럼] 
+-- AND [조건절 ~~] 
+
+SELECT * FROM SUBJECT;
+SELECT * FROM PROFESSOR;
+SELECT * 
+	FROM SUBJECT S, PROFESSOR P 
+    WHERE S.SID = P.SID;
+
+INSERT INTO PROFESSOR(NAME, SID, PDATE) VALUES('안중근', 1, NOW());
+
+INSERT INTO SUBJECT(SNAME, SDATE) VALUES ('REACT', NOW());
+SELECT * FROM SUBJECT;
+
 -- HTML 과목을 강의하는 모든 교수를 조회 
+
+SELECT *
+	FROM SUBJECT S, PROFESSOR P
+    WHERE S.SID = P.SID 
+    AND S.SNAME = 'HTML';
+
+SELECT * 
+	FROM SUBJECT S INNER JOIN PROFESSOR P
+		ON S.SID = P.SID
+        WHERE SNAME = 'HTML';
+
+-- 이순신 교수가 강의하는 과목의 과목 아이디, 과목명, 교수 아이디, 교수명, 교수등록일을 조회 
+SELECT S.SID, S.SNAME, P.PID, P.NAME, P.PDATE
+	FROM SUBJECT S INNER JOIN PROFESSOR P
+		ON S.SID = P.SID
+        WHERE P.NAME = '이순신';
+
+SELECT S.SID, S.SNAME, P.PID, P.NAME, P.PDATE
+	FROM SUBJECT S, PROFESSOR P 
+    WHERE S.SID = P.SID
+    AND P.NAME = '이순신';
+SELECT * FROM STUDENT;
+SELECT * FROM SUBJECT;
+
+-- HTML 과목을 수강하는 모든 학생을 조회 
+SELECT *
+	FROM SUBJECT S, STUDENT T 
+    WHERE S.SID = T.SID
+    AND S.SNAME = 'HTML';
+    
+
+SELECT *
+	FROM SUBJECT S INNER JOIN STUDENT T
+    ON S.SID = T.SID
+    WHERE S.SNAME='HTML';
+
 -- HTML 과목을 수강하는 모든 학생과 강의하는 교수를 모두 조회 
+-- SELECT *
+-- 	FROM SUBJECT SU, PROFESSOR P, STUDENT ST
+--     WHERE SU.SID = P.SID = ST.SID;
+
+SELECT *
+	FROM SUBJECT SU, PROFESSOR P, STUDENT ST
+    WHERE SU.SID = P.SID 
+    AND SU.SID = ST.SID
+    AND SU.SNAME = 'HTML';
 
 
--- 장바구니, 상품, 회원 
--- 주문, 상품, 회원 
+-- SELECT *
+-- 	FROM SUBJECT SU, PROFESSOR P, STUDENT ST
+--     WHERE SU.SID = P.SID;
+
+SELECT *
+	FROM SUBJECT SU INNER JOIN PROFESSOR P INNER JOIN STUDENT ST 
+		ON SU.SID = P.SID AND SU.SID = ST.SID
+        WHERE SU.SNAME = 'HTML';
+
+-- EMPLOYEE, DEPARTMENT, VACATION, UNIT 테이블들의 ERD 참조 
+-- 모든 사원들의 사원번호, 사원명, 성별, 부서명, 입사일 조회
+-- 사원번호 기준으로 오름차순 
+SELECT * FROM EMPLOYEE;
+SELECT * FROM DEPARTMENT;
+
+SELECT E.EMP_ID, E.EMP_NAME, E.GENDER, D.DEPT_NAME, E.HIRE_DATE
+	FROM EMPLOYEE E, DEPARTMENT D
+    WHERE E.DEPT_ID = D.DEPT_ID
+    ORDER BY EMP_ID ASC;
+
+SELECT E.EMP_ID, E.EMP_NAME, E.GENDER, D.DEPT_NAME, E.HIRE_DATE
+	FROM EMPLOYEE E INNER JOIN DEPARTMENT D 
+    ON E.DEPT_ID = D.DEPT_ID
+	ORDER BY EMP_ID ASC;
+
+SELECT * FROM EMPLOYEE
+		WHERE DEPT_ID='MKT';
 
 
+-- 마케팅부서에 속해 있는 사원들의 사원번호, 사원명, 입사일, 급여, 부서 ID, 부서명 조회 
+SELECT E.EMP_ID, E.EMP_NAME, E.HIRE_DATE, CONCAT((E.SALARY), '만원') 연봉, D.DEPT_ID, D.DEPT_NAME
+	FROM EMPLOYEE E INNER JOIN DEPARTMENT D 
+    ON E.DEPT_ID = D.DEPT_ID 
+    WHERE E.DEPT_ID='MKT';
+    
+SELECT E.EMP_ID, E.EMP_NAME, E.HIRE_DATE, CONCAT((E.SALARY), '만원') 연봉, D.DEPT_ID, D.DEPT_NAME
+	FROM EMPLOYEE E, DEPARTMENT D
+    WHERE E.DEPT_ID = D.DEPT_ID 
+    AND E.DEPT_ID = 'MKT';
+
+-- 인사과에 속한 사원들 중에 휴가를 사용한 사원들의 리스트 모두 조회 
+SELECT * FROM EMPLOYEE;
+SELECT * FROM DEPARTMENT;
 
 
+SELECT *
+	FROM DEPARTMENT D, EMPLOYEE E, VACATION V 
+    WHERE D.DEPT_ID = E.DEPT_ID
+    AND		E.EMP_ID = V.EMP_ID
+    AND  D.DEPT_NAME = '인사';
+    
+SELECT *
+	FROM DEPARTMENT D INNER JOIN EMPLOYEE E INNER JOIN VACATION V
+    ON D.DEPT_ID = E.DEPT_ID 
+    WHERE E.EMP_ID = V.EMP_ID
+    AND D.DEPT_NAME = '총무';
+    
 
+    
+    
+    
 
 
     
