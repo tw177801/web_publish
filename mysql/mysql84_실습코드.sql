@@ -1468,6 +1468,143 @@ ROLLBACK;
 수동 작업 제외 자동 오토 커밋 -> DROP, TRUNCATE  
 ***********************************************/
 
+/**********************************************
+	하나 이상의 테이블 생성 및 연결, 조회
+    - 생성: CREATE TABLE
+    - 연결: FOREIGN KEY(참조키) 제약 추가
+    - 조회: JOIN, SUBQUERY
+    ** 데이터베이스의 테이블 설계과정: 데이터베이스 모델링 
+		-> 데이터 정규화 
+        -> ERD(Entity Relationship Diagram) 
+***********************************************/
+USE HRDB2019;
+SELECT DATABASE();
+SHOW TABLES;
+DESC EMPLOYEE;
+-- ERD: Database > Reverse Engineer
+-- 정규화: 데이터베이스 저장 효율성을 높이기 위한 방식 - 데이터 중복 배제, 테이블 분리...
+-- 반정규화: 분리된 테이블을 하나로 합치는 방식 
+
+
+-- [kk전자의 인사관리시스템: 사원테이블 생성 - 정규화✖] 
+-- 사원 테이블의 데이터: 
+-- 사원 아이디(KID, 기본키(auto)), 사원명, 주소, 입사일, 연봉, 부서번호, 부서명, 부서위치  
+
+-- [kk전자의 인사관리시스템: 사원테이블 생성 - 정규화⚪] 
+create table KK_DEPARTMENT (
+	DEPT_ID char(4) PRIMARY KEY,
+    DEPT_NAME char(20) NOT NULL,
+    LOC varchar(30)
+);
+
+desc KK_DEPARTMENT;
+
+select * from INFORMATION_SCHEMA.TABLE_CONSTRAINTS
+	where table_name like 'KK%';
+
+select * from KK_DEPARTMENT;
+
+insert into KK_DEPARTMENT
+	values ('SYS','정보시스템','서울시 서초구'),
+		   ('HRD','인사관리','서울시 종로구'),
+		   ('ACC','회계관리','서울시 강남구');
+
+
+
+create table KK_EMPLOYEE (
+	KID			INT		PRIMARY KEY		AUTO_INCREMENT,
+    KANME 		VARCHAR(10) NOT NULL,
+    ADDRESS 	varchar(20),
+    HIRE_DATE	DATE,
+    SALARY		INT,
+    DEPT_ID		CHAR(3),
+    CONSTRAINT FK_KK_EMPLOYEE	FOREIGN KEY(DEPT_ID)
+			   REFERENCES KK_DEPARTMENT(DEPT_ID)
+);
+
+insert into KK_EMPLOYEE (KANME,ADDRESS,HIRE_DATE,SALARY,DEPT_ID)
+	value ('홍길동','서울시 강남구', CURDATE(),3000,'SYS');
+
+-- Error Code: 1452. Cannot add or update a child row: 
+-- a foreign key constraint fails (`hrdb2019`.`kk_employee`, CONSTRAINT `FK_KK_EMPLOYEE` 
+-- FOREIGN KEY (`DEPT_ID`) REFERENCES `kk_department` (`DEPT_ID`))	
+-- SOLUTION: 참조하는 KK_DEPARTMENT 테이블의 DEPT_ID 확인 
+insert into KK_EMPLOYEE (KANME,ADDRESS,HIRE_DATE,SALARY,DEPT_ID)
+	value ('스미스','뉴욕', CURDATE(),5000,'HR');
+
+DESC KK_EMPLOYEE;
+select * from INFORMATION_SCHEMA.TABLE_CONSTRAINTS
+	where table_name like 'KK%';
+
+SELECT * FROM KK_EMPLOYEE;
+SHOW TABLES;
+
+
+/*
+[학사관리 시스템 설계]
+1. 과목(SUBJECT) 테이블은 
+	컬럼명: SID(과목아이디), 
+		  SNAME(과목명), 
+          SDATE(등록일:년월일 시분초)
+    SID는 기본키, 자동으로 생성한다.
+    
+2. 학생(STUDENT)테이블은 반드시 1개 이상의 과목을 수강
+	컬럼: STID(학생아이디) 기본키, 자동생성
+    SNAME(학생명) NOT NULL 
+    GENDER(성별) 문자 1자 NOT NULL
+    SID(과목 아이디),
+    STDATE(등록일자) 년월일 시분초
+    
+3. 교수(PROFESSOR) 테이블은 반드시 1개 이상의 과목 강의
+	컬럼: PID(교수아이디) 기본키, 자동생성
+		NAME(교수명) NOT NULL
+		SID(과목 아이디),
+        PDATE(등록일자) 년월일 시분초 
+*/
+
+
+CREATE TABLE SUBJECT (
+	SID INT PRIMARY KEY AUTO_INCREMENT,
+    SNAME VARCHAR(20) NOT NULL,
+    SDATE datetime
+);
+
+
+CREATE TABLE STUDENT (
+	STID INT PRIMARY KEY AUTO_INCREMENT,
+    SNAME VARCHAR(10) NOT NULL,
+    GENDER CHAR(1) NOT NULL,
+    SID INT,
+    STDATE	DATETIME,
+    CONSTRAINT FK_STUDENT_SID FOREIGN KEY(SID)
+				REFERENCES SUBJECT(SID)
+);
+
+DESC STUDENT;
+SELECT * FROM STUDENT;
+
+
+CREATE TABLE PROFESSOR (
+	PID INT PRIMARY KEY AUTO_INCREMENT,
+    NAME VARCHAR(10) NOT NULL,
+    SID INT,
+    PDATE DATETIME,
+    CONSTRAINT FK_PROFESSOR_SID FOREIGN KEY(SID)
+				REFERENCES SUBJECT(SID)
+);
+
+DESC PROFESSOR;
+select * from INFORMATION_SCHEMA.TABLE_CONSTRAINTS
+	where table_name = 'PROFESSOR';
+    
+-- HTML 과목의 정보를 조회 
+-- HTML 과목을 수강하는 모든 학생을 조회 
+-- HTML 과목을 강의하는 모든 교수를 조회 
+-- HTML 과목을 수강하는 모든 학생과 강의하는 교수를 모두 조회 
+
+
+-- 장바구니, 상품, 회원 
+-- 주문, 상품, 회원 
 
 
 
@@ -1475,4 +1612,4 @@ ROLLBACK;
 
 
 
-
+    
