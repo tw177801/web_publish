@@ -1995,3 +1995,223 @@ SELECT *
 	FROM EMP M LEFT OUTER JOIN EMP E 
 		ON M.MGR = E.EMP_ID
 	WHERE M.MGR IS NULL; 
+
+-- 홍길동 사원이 관리하는 사원들의 매니저 사원아이디, 매니저 사원명, 
+-- 연봉, 매니저가 관리하는 사번, 매니저가 관리하는 사원명 조회 
+SELECT E.EMP_ID, E.EMP_NAME
+	FROM EMP E, EMP M -- E: 매니저가 관리하는 사원 정보, M: 매니저의 정보 테이블 
+    WHERE E.MGR = M.EMP_ID 
+    AND E.MGR = 'S0001'; 
+    
+SELECT EMP_ID, EMP_NAME, MGR 
+	FROM EMP ORDER BY MGR;
+
+
+/*******************************************
+	SUB QUERY(서브쿼리)
+		: SELECT ~ FROM ~ WHERE 
+    
+    SELECT [컬럼명, ... (스칼라 서브쿼리: 권장 X)]
+		FROM [(인라인 뷰)] 
+        WHERE [ (서브쿼리) ] 
+
+	- 단일행 서브쿼리:  
+    - 다중행 서브쿼리: 
+
+********************************************/
+
+-- (단일행)홍길동 사원이 속한 부서의 이름과 본부아이디를 조회 
+SELECT * FROM EMPLOYEE;
+SELECT * FROM DEPARTMENT;
+
+SELECT DEPT_NAME, UNIT_ID 
+	FROM DEPARTMENT
+    WHERE DEPT_ID = (SELECT DEPT_ID FROM EMPLOYEE WHERE EMP_NAME = '홍길동');
+
+SELECT DEPT_ID FROM EMPLOYEE WHERE EMP_NAME = '홍길동';
+
+-- 홍길동 사원이 사용한 휴가 내역을 조회 
+
+-- 2017 ~  2018년도 휴가 내역 
+SELECT EMP_ID FROM EMPLOYEE WHERE EMP_NAME = '홍길동';
+
+SELECT *
+	FROM VACATION
+    WHERE EMP_ID = (SELECT EMP_ID FROM EMPLOYEE WHERE EMP_NAME = '홍길동')
+	AND LEFT(BEGIN_DATE, 4) BETWEEN 2017 AND 2018;
+
+
+
+SELECT VACATION_ID, EMP_ID, BEGIN_DATE,REASON -- 컬럼리스트는 컬럼명을 정확하게 작성하시는 권장, 
+	FROM VACATION 
+    WHERE EMP_ID = (SELECT EMP_ID FROM EMPLOYEE WHERE EMP_NAME= '홍길동')
+		AND LEFT(BEGIN_DATE, 4) BETWEEN 2017 AND 2018);
+
+
+SELECT V.VACATION_ID, V.EMP_ID, V.BEGIN_DATE, V.REASON
+	FROM VACATION V, EMPLOYEE E
+    WHERE V.EMP_ID = E.EAP_ID 
+		AND E.EMP_NAME = '홍길동'
+        AND LEFT(V.BEGIN_DATE, 4) BETWEEN 2017 AND 2018;
+
+-- 제3본부에 속한 부서들을 모두 출력 
+SELECT *
+	FROM DEPARTMENT 
+    WHERE UNIT_ID = (SELECT UNIT_ID FROM UNIT WHERE UNIT_NAME = '제3본부');
+
+SELECT UNIT_ID FROM UNIT WHERE UNIT_NAME = '제3본부';
+
+
+-- 제3본부에 속한 사원들을 모두 출력 
+
+SELECT *
+	FROM EMPLOYEE
+    WHERE DEPT_ID IN ( -- 부서 ID가 2개 이므로 다중행 서브쿼리 형식 = IN 사용 
+		SELECT DEPT_ID 
+			FROM DEPARTMENT
+			WHERE UNIT_ID = (SELECT UNIT_ID FROM UNIT WHERE UNIT_NAME = '제3본부')
+			);
+    
+-- 가장 먼저 입사한 사원의 정보를 조회 
+SELECT 
+		*
+        FROM EMPLOYEE 
+        WHERE HIRE_DATE = (SELECT MIN(HIRE_DATE) FROM EMPLOYEE);
+        -- ORDER BY HIRE_DATE ASC;
+
+SELECT MIN(HIRE_DATE) FROM EMPLOYEE;
+
+-- 가장 급여가 높은 사원의 정보 조회
+
+SELECT * FROM EMPLOYEE
+	WHERE SALARY = (SELECT MAX(SALARY) FROM EMPLOYEE);
+    
+-- 가장 급여 낮은 사원 
+SELECT * FROM EMPLOYEE
+	WHERE SALARY = (SELECT MIN(SALARY) FROM EMPLOYEE);
+    
+
+-- 정보 시스템 부서 사원 중에 휴가를 사용한 사원들을 조회 
+
+SELECT * FROM EMPLOYEE;
+SELECT * FROM VACATION;
+
+SELECT *
+	FROM EMPLOYEE E INNER JOIN VACATION V 
+    ON E.EMP_ID = V.EMP_ID
+    WHERE E.DEPT_ID = 'SYS';
+
+SELECT *
+	FROM EMPLOYEE
+    WHERE DEPT_ID = (SELECT DEPT_ID FROM DEPARTMENT WHERE DEPT_NAME = '정보시스템')
+		AND EMP_ID IN (SELECT DISTINCT EMP_ID FROM VACATION); 
+
+SELECT DISTINCT EMP_ID FROM VACATION;
+    
+-- 정보 시스템 부서 사원 중에 휴가를 사용하지 않은 사원들을 조회  
+SELECT *
+	FROM EMPLOYEE
+    WHERE DEPT_ID = (SELECT DEPT_ID FROM DEPARTMENT WHERE DEPT_NAME = '정보시스템')
+		AND EMP_ID NOT IN (SELECT DISTINCT EMP_ID FROM VACATION);
+
+/********************************************************
+	출력 번호 생성: ROW_NUMBER() OVER (ORDER BY [정렬할 컬럼명]) 
+    ** SELECT의 컬럼리스트 자리에 사용되며, * 문자와는 동시에 사용 불가능 
+    
+    
+**********************************************************/
+-- 정보시스템 부서 사원들 사원아이디, 사원명, 입사일 모두 출력 
+
+SELECT ROW_NUMBER() OVER(ORDER BY EMP_ID),
+		EMP_ID,
+		EMP_NAME,
+        HIRE_DATE
+	FROM EMPLOYEE 
+	WHERE DEPT_ID = (SELECT DEPT_ID FROM DEPARTMENT WHERE DEPT_NAME = '정보시스템');
+
+SELECT ROW_NUMBER() OVER(ORDER BY EMP_ID DESC) AS NO,
+		EMP_ID AS ID,
+		EMP_NAME AS NAME,
+        HIRE_DATE
+	FROM EMPLOYEE 
+	WHERE DEPT_ID = (SELECT DEPT_ID FROM DEPARTMENT WHERE DEPT_NAME = '정보시스템')
+    ORDER BY EMP_ID ASC;
+
+/**
+[
+	{'ROW_NUMBER() OVER(ORDER BY )'}
+    -> AS 사용 
+    {'NO':6, 'ID': 'S0001', 'NAME'} 
+]
+**/
+
+-- 모든 사원의 사원아이디, 사원명, 급여, 부서 아이디 
+-- 출력행 포함 
+SELECT ROW_NUMBER() OVER(ORDER BY SALARY DESC) AS NO,
+		EMP_ID,
+		EMP_NAME, 
+        SALARY,
+        DEPT_ID 
+        FROM EMPLOYEE;
+
+SELECT * FROM EMPLOYEE;
+SELECT * FROM VACATION;
+
+
+-- 사원별 휴가사용 일수를 그룹핑하여, 사원아이디, 사원명, 입사일, 연봉, 휴가사용일수를 조회 
+-- 휴가 사용 일수를 구하는 인라인뷰와 사원테이블을 조인 
+SELECT 
+		EMP_ID, SUM(DURATION) VCOUNT
+        FROM VACATION V
+        GROUP BY EMP_ID; 
+        
+SELECT ROW_NUMBER() OVER(ORDER BY VCOUNT DESC) AS NO, -- **!
+	E.EMP_ID,
+    E.EMP_NAME,
+    E.HIRE_DATE,
+    CONCAT(FORMAT(E.SALARY,0), '만원') AS SALARY,
+    V.VCOUNT 휴가사용횟수
+	FROM EMPLOYEE E, 
+		(SELECT 
+		EMP_ID, SUM(DURATION) VCOUNT
+        FROM VACATION V
+        GROUP BY EMP_ID) V -- 인라인뷰의 별칭은 반드시 정의!! 
+	WHERE E.EMP_ID = V.EMP_ID;
+    
+-- HRD 부서 사원들의 휴가 사용 일수와 사원 ID, 사원명, 부서 ID, 부서명 출력
+-- 1. HRD 부서의 사원 중 휴가를 사용한 사원 ID, 휴가 사용 일수  
+-- SUBQUERY, JOIN 사용 
+
+SELECT * FROM EMPLOYEE;
+SELECT * FROM DEPARTMENT;
+SELECT * FROM VACATION;
+
+SELECT EMP_ID, SUM(DURATION)
+	FROM VACATION
+    WHERE EMP_ID IN (SELECT EMP_ID 
+	FROM EMPLOYEE
+    WHERE DEPT_ID = 'HRD')
+    GROUP BY EMP_ID;
+    
+-- 2. 1번 결과와 EMPLOYEE 테이블을 조인하여 사원 상세 정보 출력 
+SELECT ROW_NUMBER() OVER(ORDER BY EMP_ID) AS NO,
+	E.EMP_ID,
+    E.EMP_NAME,
+    E.DEPT_ID,
+    (SELECT DEPT_NAME FROM DEPARTMENT WHERE DEPT_ID = 'HRD') AS DNAME, -- 스칼라 
+    VCOUNT
+	FROM (SELECT EMP_ID, SUM(DURATION) VCOUNT
+			FROM VACATION
+			WHERE EMP_ID IN (SELECT EMP_ID 
+			FROM EMPLOYEE
+			WHERE DEPT_ID = 'HRD')
+			GROUP BY EMP_ID) V,
+		EMPLOYEE E 
+	WHERE V.EMP_ID = E.EMP_ID 
+        ; 
+
+
+SELECT EMP_ID 
+	FROM EMPLOYEE
+    WHERE DEPT_ID = 'HRD';
+SELECT DEPT_ID FROM DEPARTMENT WHERE DEPT_ID = 'HRD';
