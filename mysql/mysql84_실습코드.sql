@@ -1783,8 +1783,67 @@ SELECT *
     
 
     
-    
-    
+   
+USE HRDB2019;
+SELECT DATABASE();
+
+-- 영업부서인 사원의 사원명, 폰번호, 부서명, 휴가사용 이유 조회
+-- 휴가 사용 이유가 '두통'인 사원, 소속본부 조회 
+show tables;
+select * from employee;
+select * from DEPARTMENT;
+select * from vacation;
+select * from UNIT;
+
+SELECT E.EMP_NAME,
+	   E.PHONE,
+       D.DEPT_NAME,
+       V.REASON
+	FROM EMPLOYEE E INNER JOIN VACATION V INNER JOIN DEPARTMENT D 
+    ON E.EMP_ID = V.EMP_ID
+    WHERE D.DEPT_NAME = '영업';
+
+SELECT E.EMP_NAME, E.PHONE, D.DEPT_NAME, V.REASON, U.UNIT_NAME
+	FROM VACATION V, EMPLOYEE E, DEPARTMENT D, UNIT U
+    WHERE V.EMP_ID = E.EMP_ID
+		AND E.DEPT_ID = D.DEPT_ID
+		AND D.UNIT_ID = U.UNIT_ID
+		AND V.REASON = '두통'
+		AND D.DEPT_NAME = '영업';
+        
+-- ANSI SQL
+SELECT E.EMP_NAME, E.PHONE, D.DEPT_NAME, V.REASON, U.UNIT_NAME
+	FROM VACATION V INNER JOIN EMPLOYEE E
+					INNER JOIN DEPARTMENT D 
+					INNER JOIN UNIT U 
+        ON V.EMP_ID = E.EMP_ID
+			AND E.DEPT_ID = D.DEPT_ID
+			AND D.UNIT_ID = U.UNIT_ID
+            WHERE V.REASON = '두통' AND D.DEPT_NAME = '영업';
+
+SELECT * FROM EMPLOYEE;
+SELECT * FROM DEPARTMENT;
+SELECT * FROM UNIT;
+
+-- 2014년부터 2015년까지 입사한 사원들 중에서 퇴사하지 않은 사원들의
+-- 사원 ID, 사원명, 부서명, 입사일, 소속본부를 조회 
+SELECT 
+	E.EMP_ID, E.EMP_NAME, D.DEPT_NAME, E.HIRE_DATE, U.UNIT_NAME
+		FROM EMPLOYEE E INNER JOIN DEPARTMENT D INNER JOIN UNIT U 
+		ON E.DEPT_ID = D.DEPT_ID
+		WHERE LEFT(HIRE_DATE,4) BETWEEN 2014 AND 2015
+		AND E.RETIRE_DATE IS NULL
+        ORDER BY U.UNIT_NAME ASC;
+/*
+
+JSON DATA -> MAP, FILTER  
+
+[
+	{'EMP_ID': 'S0003', 'EMP_NAME': '강우동' ...},
+	{'EMP_ID': 'S0009', 'EMP_NAME': '강우동' ...},
+]
+
+*/
 
 
     
