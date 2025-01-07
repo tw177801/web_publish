@@ -1623,7 +1623,7 @@ SELECT * FROM PROFESSOR;
 SELECT * FROM SUBJECT 
 		WHERE SNAME = 'HTML';
 
-/*+++++++++++++++++++++++++++++++++++++++++++++++++++++
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	JOIN: 2개 이상의 테이블 연동 
 	- 2개 이상의 테이블을 조합하여 집합 
     - CROSS(CATESIAN) JOIN (합집합) (CATETION)
@@ -1631,7 +1631,10 @@ SELECT * FROM SUBJECT
         : PROFESSOR & STUDENT -> PROFESSOR * STUDENT 
 	- INNER(EQUI) JOIN (교집합) 
 		: 2개의 테이블이 JOIN 연결고리를 통해 연동 
-++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+	- OUTER JOIN : INNER JOIN(교집합) + 선택한 테이블 중 교집합에서 제외된 데이터 
+    - SELF JOIN : 1개의 테이블을 연결하는 형식 -> 서브쿼리(SUB QUERY) 
+    ** 1개의 테이블에 PK를 참조하는 컬럼이 존재하는 경우 사용! 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 SELECT * FROM PROFESSOR;
 -- CROSS(CATESIAN) JOIN (합집합)
 -- SELECT [컬럼리스트] FROM [테이블명 [테이블별칭], 테이블명 [테이블별칭], ...]  
@@ -1846,4 +1849,149 @@ JSON DATA -> MAP, FILTER
 */
 
 
+-- OUTER JOIN
+SELECT * FROM SUBJECT;
+SELECT * FROM PROFESSOR;
+
+-- ** 오라클 형식의 OUTER JOIN 지원 X 
+-- SELECT 
+-- 	* FROM SUBJECT S INNER JOIN PROFESSOR P 
+-- 		ON S.SID = P.SID(+);
+
+-- ANSI SQL: LEFT OUTER JOIN, RIGHT OUTER JOIN 
+SELECT 
+	* FROM SUBJECT S LEFT OUTER JOIN PROFESSOR P
+		ON S.SID = P.SID;
     
+SELECT
+	* FROM SUBJECT S RIGHT OUTER JOIN PROFESSOR P 
+		ON S.SID = P.SID;
+        
+USE HRDB2019;
+SHOW TABLES;
+-- DEPARTMENT, UNIT TABLE 
+-- 모든 부서의 본부 아이디, 본부명을 출력 
+SELECT * FROM DEPARTMENT;
+SELECT * FROM UNIT;
+
+SELECT
+	* FROM DEPARTMENT D LEFT OUTER JOIN UNIT U 
+		ON D.UNIT_ID = U.UNIT_ID
+        ORDER BY D.UNIT_ID;
+
+-- 2017년부터 2018년도까지 입사한 사원들의 사원명, 입사일, 연봉, 부서명 조회 
+-- 단, 퇴사한 사원들도 모두 조회
+-- 소속본부를 모두 조회 
+
+SELECT * FROM EMPLOYEE;
+SELECT * FROM DEPARTMENT;
+
+SELECT * FROM EMPLOYEE WHERE DEPT_ID = 'STG';
+
+SELECT E.EMP_NAME, 
+		E.HIRE_DATE, 
+        E.SALARY, 
+        D.DEPT_NAME, 
+        U.UNIT_NAME,
+        E.RETIRE_DATE
+		FROM EMPLOYEE E INNER JOIN DEPARTMENT D ON E.DEPT_ID = D.DEPT_ID 
+						LEFT OUTER JOIN UNIT U ON D.UNIT_ID = U.UNIT_ID
+		WHERE LEFT(E.HIRE_DATE,4) BETWEEN 2017 AND 2018
+        AND RETIRE_DATE IS NULL;
+        
+-- SUBJECT, STUDENT 테이블 사용 
+-- 학생들이 선택하지 않은 과목을 조회 
+        
+SELECT * FROM SUBJECT;        
+SELECT * FROM STUDENT;
+
+SELECT 
+		* FROM SUBJECT S LEFT OUTER JOIN STUDENT T
+			ON S.SID = T.SID
+            WHERE T.SID IS NULL;
+
+-- SELF JOIN을 위한 테이블 복제 
+SHOW TABLES;
+CREATE TABLE EMP
+AS 
+SELECT * FROM EMPLOYEE;
+
+SELECT * FROM EMP;
+DESC EMP;
+
+-- EMP 테이블에 EMP_ID 컬럼에 기본키 제약 추가
+ALTER TABLE EMP 
+	ADD CONSTRAINT PK_EMP_ID PRIMARY KEY(EMP_ID);
+
+-- EMP 테이블에 MGR 컬럼 추가 
+ALTER TABLE EMP
+	ADD COLUMN MGR CHAR(5);
+DESC EMP;
+
+SELECT * FROM EMP;
+SELECT * FROM DEPARTMENT;
+
+SET SQL_SAFE_UPDATES = 0;
+-- SYS 부서의 사원들의 매니저를 홍길동 (S0001) 사원으로 업데이트 
+UPDATE EMP
+	SET MGR = 'S0001'
+    WHERE DEPT_ID = 'SYS';
+
+SELECT * FROM EMP WHERE DEPT_ID = 'MKT';
+ 
+-- MKT 부서의 사원들의 매니저를 오감자(S0011)사원으로 업데이트 
+UPDATE EMP
+	SET MGR = 'S0011'
+    WHERE DEPT_ID = 'MKT';
+
+SELECT * FROM EMP WHERE MGR IS NULL;
+
+-- HRD 부서의 사원들의 매니저를 정주고(S0019) 사원으로 업데이트 
+UPDATE EMP 
+	SET MGR = 'S0019'
+    WHERE DEPT_ID = 'HRD';
+
+-- SELF JOIN: EMP 테이블의 EMP_ID (기본키), MGR(참조키) 
+-- 홍길동 사원이 관리하는 모든 사원들의 사원번호, 사원명, 입사일, 급여, 부서아이디, 부서명 조회  
+SELECT MANAGER.EMP_ID, 
+	   MANAGER.EMP_NAME, 
+       MANAGER.HIRE_DATE,
+       MANAGER.SALARY,
+       MANAGER.DEPT_ID,
+       D.DEPT_NAME
+	FROM EMP EMPLOYEE, EMP MANAGER, DEPARTMENT D 
+    WHERE EMPLOYEE.EMP_ID = MANAGER.MGR
+		AND MANAGER.DEPT_ID = D.DEPT_ID
+        AND MANAGER.MGR = 'S0001';
+
+
+-- 여러 줄 중복 출력 시 DISTICT 사용        
+-- HRD 부서를 관리하는 매니저의 사원번호, 사원명, 입사일, 급여, 부서아이디, 부서명을 조회 
+SELECT DISTINCT E.EMP_ID, 
+		E.EMP_NAME, 
+        E.HIRE_DATE, 
+        E.SALARY, 
+        E.DEPT_ID, 
+        D.DEPT_NAME 
+	FROM EMP E, EMP M, DEPARTMENT D 
+    WHERE E.EMP_ID = M.MGR
+    AND M.DEPT_ID = D.DEPT_ID
+    AND M.DEPT_ID = 'HRD';
+    
+SELECT * FROM EMP;
+
+-- 매니저가 없는 사원의 사원번호, 사원명, 입사일, 급여, 부서아이디를 조회 
+-- INNER JOIN 진행 시 매니저가 없는 사원은 제외됨  
+-- 제외되는 데이터까지 조회하기 위해서는 OUTER JOIN 
+SELECT 
+	COUNT(*) -- 15 
+	FROM EMP E, EMP M
+    WHERE E.EMP_ID = M.MGR 
+    AND M.MGR IS NOT NULL;
+    
+SELECT * FROM EMP;
+
+SELECT *
+	FROM EMP M LEFT OUTER JOIN EMP E 
+		ON M.MGR = E.EMP_ID
+	WHERE M.MGR IS NULL; 
