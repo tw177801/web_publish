@@ -2677,5 +2677,95 @@ SELECT NO,
 -- DB 생성은 MYSQL에 작업, 코드 단축 후 코드 프로그램에 넣기
 
 
+-- 매니저(홍길동, 오감자, 정주고)에 따라 관리하는 모든 사원들의 
+-- 사원번호, 사원명, 입사일, 급여, 부서 ID, 부서명을 조회하는 서브쿼리 생성 후 뷰로 저장  
+-- VIEW 이름: VIEW_EMP_MGR
+CREATE VIEW VIEW_EMP_MGR
+AS 
+SELECT 
+	   E.EMP_ID AS MGR_ID,
+	   E.EMP_NAME AS MGR_NAME,
+       M.EMP_ID,
+       M.EMP_NAME,
+       M.DEPT_ID,
+       D.DEPT_NAME
+	FROM EMP E, EMP M, DEPARTMENT D
+    WHERE E.EMP_ID = M.MGR AND M.DEPT_ID = D.DEPT_ID
+    ORDER BY E.EMP_ID;
+    
+SELECT * FROM VIEW_EMP_MGR;
+DROP VIEW VIEW_EMP_MGR;
+
+-- 홍길동 매니저가 관리하는 사원들 조회  
+SELECT ROW_NUMBER() OVER(ORDER BY MGR_ID) NO,
+	EMP_ID, EMP_NAME, DEPT_ID, DEPT_NAME
+	FROM VIEW_EMP_MGR
+    WHERE MGR_NAME = '홍길동' ;
+
+-- 정주고 매니저가 관리하는 사원들 조회 
+SELECT ROW_NUMBER() OVER(ORDER BY MGR_ID) NO,
+	EMP_ID, EMP_NAME, DEPT_ID, DEPT_NAME
+	FROM VIEW_EMP_MGR
+    WHERE MGR_NAME = '정주고' ;
+    
+-- 오감자 매니저가 관리하는 사원들 조회 
+SELECT ROW_NUMBER() OVER(ORDER BY MGR_ID) NO,
+	EMP_ID, EMP_NAME, DEPT_ID, DEPT_NAME
+	FROM VIEW_EMP_MGR
+    WHERE MGR_NAME = '오감자' ;
+
+SELECT * FROM INFORMATION_SCHEMA.VIEWS
+	WHERE TABLE_SCHEMA = 'HRDB2019';
+    
+-- 홍길동, 정주고, 오감자 매니저가 관리하는 사원들 조회  
+SELECT ROW_NUMBER() OVER(ORDER BY MGR_ID) NO,
+	EMP_ID, EMP_NAME, DEPT_ID, DEPT_NAME
+	FROM VIEW_EMP_MGR
+    WHERE MGR_NAME IN ('홍길동','정주고','오감자') ;
+
+
+-- [전체 사원의 휴가일수 조회: 휴가를 사용한 사원정보 + 사용하지 않은 사원] 
+-- 사원별 휴가결제횟수, 휴가전체사용일수를 그룹핑하여,
+-- 사원 ID, 사원명, 입사일, 연봉, 휴가결제횟수, 휴가전체사용일수, 부서ID, 부서명, 소속본부를 조회 
+-- 단, 휴가를 사용하지 않은 사원의 휴가결제횟수, 휴가전체사용일수는 0값으로 할당 
+-- VIEW 이름: VIEW_EMP_VACATION 
+
+SELECT * FROM EMPLOYEE;
+SELECT * FROM VACATION;
+
+SELECT * FROM INFORMATION_SCHEMA.VIEWS
+	WHERE TABLE_SCHEMA = 'HRDB2019';
+
+-- 홍길동 휴가 사용일수 및 정보 조회 
+SELECT * FROM VIEW_EMP_VACATION
+	WHERE EMP_NAME = '홍길동';
+
+
+CREATE VIEW VIEW_EMP_VACATION
+AS
+SELECT 
+	E.EMP_ID,
+    E.EMP_NAME,
+    E.HIRE_DATE,
+    E.SALARY,
+    IFNULL(V.VCOUNT,0) VCOUNT,
+    IFNULL(V.VSUM,0) VSUM,
+    D.DEPT_ID,
+	D.DEPT_NAME,
+    U.UNIT_NAME
+		FROM EMPLOYEE E LEFT OUTER JOIN 
+	(SELECT 
+		EMP_ID,
+		COUNT(DURATION) VCOUNT,
+		SUM(DURATION) VSUM
+		FROM VACATION
+		GROUP BY EMP_ID) V
+		ON E.EMP_ID = V.EMP_ID
+		INNER JOIN DEPARTMENT D ON E.DEPT_ID = D.DEPT_ID
+        LEFT OUTER JOIN UNIT U ON D.UNIT_ID = U.UNIT_ID
+        ORDER BY E.EMP_ID;
+    
+    
+
 
 
