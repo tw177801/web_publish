@@ -14,4 +14,13 @@ fs.readFile('./readme.txt', (err, text)=>{
     } 
 });
 
-fsp.readFile('./readme.txt').then(()=>{}).catch();
+// 프로미스 타입으로 리턴 
+fsp.readFile('./readme.txt')
+            .then((data)=>{
+                console.log(data);
+                console.log('fsp-->',data.toString());
+            })
+            .catch((err)=>{
+                console.log(err);
+                
+            });
