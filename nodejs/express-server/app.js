@@ -32,6 +32,7 @@ server.get('/param/:name', (req, res) => {
     console.log('name ==>>', req.params.name);
     res.send(`${req.params.name} 전송 완료!!`)
     
+    
 });
 
 // server.get();
