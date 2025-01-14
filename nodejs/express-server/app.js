@@ -17,6 +17,7 @@ server.get('/', (req, res) => { //req: 요청정보(client --> server), res: 응
 
 
 
+
 // 브라우저 접속 url - http://localhost.8080/
 // path: /test
 server.get('/test', (req, res)=>{
