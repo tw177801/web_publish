@@ -1,7 +1,5 @@
 import React from 'react';
 import ProductList from '../components/ProductList.jsx';
-// import ProductList from '../components/ProductList.jsx';
-import '../styles/shoppy.css';
 
 export default function Home() {
     return (

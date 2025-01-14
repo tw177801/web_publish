@@ -8,7 +8,7 @@ export default function ProductList() {
     
     useEffect(()=>{
 
-        axios.get('data/products.json')
+        axios.get('/data/products.json')
             .then((res)=> setList(res.data))
             .catch((error)=> console.log(error));
 
@@ -32,13 +32,13 @@ export default function ProductList() {
         <div>
 
             {
-                rows.map((rowArray)=> {
-                    <div className='product-list'>
+                rows.map((rowArray, index)=> 
+                    <div key={index} className='product-list'>
                         {rowArray.map((product) => 
                             <ProductAvatar img={product.image} />
                         )}
                     </div>
-                })
+                )
             }
 
         </div>

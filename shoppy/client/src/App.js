@@ -4,7 +4,7 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import './styles/shoppy.css';
 import Layout from './pages/Layout.jsx';
 import Home from './pages/Home.jsx';
-import Carts from './pages/Carts.jsx';
+import Cart from './pages/Cart.jsx';
 import Products from './pages/Products.jsx';
 import Login from './pages/Login.jsx';
 import Signup from './pages/Signup.jsx';
@@ -15,14 +15,14 @@ export default function App() {
         <BrowserRouter>
           <Routes>
                 <Route path='/' element={<Layout/>} >
-                <Route index element={<Home />} />
-                <Route path='/Products' element={<Products />} />
-                <Route path='/Carts' element={<Carts />} />
-                <Route path='/Login' element={<Login />} />
-                <Route path='/Signup' element={<Signup />} />
+                  <Route index element={<Home />} />
+                  <Route path='/all' element={<Products />} />
+                  <Route path='/Cart' element={<Cart />} />
+                  <Route path='/Login' element={<Login />} />
+                  <Route path='/Signup' element={<Signup />} />
               
               
-              </Route>
+                </Route>
 
           </Routes>
         </BrowserRouter>
