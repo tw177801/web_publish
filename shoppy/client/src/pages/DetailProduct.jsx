@@ -18,7 +18,7 @@ export default function DetailProduct() {
             .catch((error)=>console.log(error));
     }, []);
 
-    console.log('product---->>>>', product);
+    console.log('product---->>>>>>', product);
     
 
 
