@@ -1,34 +1,30 @@
-// import logo from './logo.svg';
 import React from 'react';
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
-
-import './App.css';
-import Layout from './pages2/Layout.jsx';
-import Carts from './pages2/Carts.jsx';
-import Home from './pages2/Home.jsx';
-import Login from './pages2/Login.jsx';
-import Products from './pages2/Products.jsx';
-import Signup from './pages2/Signup.jsx';
+// import logo from './logo.svg';
+import './styles/shoppy.css';
+import Layout from './pages/Layout.jsx';
+import Home from './pages/Home.jsx';
+import Cart from './pages/Cart.jsx';
+import Products from './pages/Products.jsx';
+import Login from './pages/Login.jsx';
+import Signup from './pages/Signup.jsx';
 
 export default function App() {
   return (
     <div>
         <BrowserRouter>
-            <Routes>
-              <Route path='/' element={<Layout/>}>
-              
+          <Routes>
+              <Route path='/' element={<Layout/>} >
                 <Route index element={<Home />} />
-                <Route path='/Products' element={<Products />} />
-                <Route path='/Carts' element={<Carts />} />
+                <Route path='/all' element={<Products />} />
+                <Route path='/Cart' element={<Cart />} />
                 <Route path='/Login' element={<Login />} />
                 <Route path='/Signup' element={<Signup />} />
-
               </Route>
-            </Routes>
-        
+          </Routes>
         </BrowserRouter>
-
     </div>
   );
 }
+
 
