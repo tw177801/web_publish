@@ -4,35 +4,35 @@
         "pid": "1",
         "image": "/images/1.webp",
         "name": "분홍 후드티", 
-        "price": 15000,
+        "price": 41000,
         "info": "분홍색 후드티"
     },
     {
         "pid": "2",
         "image": "/images/2.webp",
         "name": "후드티", 
-        "price": 15000,
+        "price": 31000,
         "info": "후드티"
     },
     {
         "pid": "3",
         "image": "/images/3.webp",
-        "name": "분홍 후드티", 
-        "price": 15000,
-        "info": "분홍색 후드티"
+        "name": "미니 원피스", 
+        "price": 79000,
+        "info": "미니원피스"
     },
     {
         "pid": "4",
         "image": "/images/4.webp",
-        "name": "티셔츠", 
-        "price": 15000,
-        "info": "티셔츠"
+        "name": "반바지", 
+        "price": 39000,
+        "info": "반바지"
     },
     {
         "pid": "5",
         "image": "/images/5.webp",
         "name": "티셔츠", 
-        "price": 15000,
+        "price": 43000,
         "info": "티셔츠"
     },
     {
@@ -46,7 +46,7 @@
         "pid": "7",
         "image": "/images/7.webp",
         "name": "자켓", 
-        "price": 15000,
+        "price": 319000,
         "info": "자켓"
     }
 
