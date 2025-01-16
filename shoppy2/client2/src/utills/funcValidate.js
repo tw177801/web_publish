@@ -43,6 +43,11 @@ export const validateSignup = (refs, msgRefs) => {
             const msgName = msgItem[0];
             const msgRef = msgItem[1]; // 데이터 입력폼의 메시지 객체 주소 
 
+
+            // let msgItem, msgName, msgRef = null;
+
+            // if(i<refEntries)
+
             if(name !== 'emaildomainRef') { //  ''
                 if(ref.current.value === '') {
                     // alert('이메일 주소를 선택해주세요')
