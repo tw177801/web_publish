@@ -1,88 +1,99 @@
-import React, {useState, useRef} from 'react';
+import React, {useState} from 'react';
 import '../styles/signup.css';
 import {validateSignup} from '../utills/funcValidate.js';
+import { initSignup, useinitSignupRefs } from '../utills/funcInitialize.js';
 
 export default function Signup() {
 
-    const names = [ 
-        'id',
-        'pwd',
-        'cpwd',
-        'name',
-        'phone',
-        'emailname'
-                    ];
+    const {names, placeholders, labels, initFormData} = initSignup();
+    const {refs, msgRefs} = useinitSignupRefs(names);
+    const [formData, setFormData] = useState(initFormData);
 
-    const namesKor = [ 
-        '아이디',
-        '비밀번호',
-        '비밀번호 확인',
-        '이름',
-        '휴대폰 번호',
-        '이메일 주소'];
+    // const names = [ 
+    //     'id',
+    //     'pwd',
+    //     'cpwd',
+    //     'name',
+    //     'phone',
+    //     'emailname'
+    //                 ];
 
-    const placeholdersKor = [ 
-        '아이디(6~12자이내)',
-        '비밀번호',
-        '비밀번호 확인',
-        '이름',
-        '휴대폰 번호',
-        '이메일 주소'];
+    // const namesKor = [ 
+    //     '아이디',
+    //     '비밀번호',
+    //     '비밀번호 확인',
+    //     '이름',
+    //     '휴대폰 번호',
+    //     '이메일 주소'];
+
+    // const placeholdersKor = [ 
+    //     '아이디(6~12자이내)',
+    //     '비밀번호',
+    //     '비밀번호 확인',
+    //     '이름',
+    //     '휴대폰 번호',
+    //     '이메일 주소'];
                 
 
-    const placeholders = names.reduce((acc, name, idx)=>{
-        acc[name] = placeholdersKor[idx];
-        return acc;     // {id:"아이디", pwd:"비밀번호"}
-    }, {});
+    // const placeholders = names.reduce((acc, name, idx)=>{
+    //     acc[name] = placeholdersKor[idx];
+    //     return acc;     // {id:"아이디", pwd:"비밀번호"}
+    // }, {});
     
-    const labels = names.reduce((acc, name, idx)=>{
-        acc[name] = namesKor[idx];
-        return acc;     // {id:"아이디", pwd:"비밀번호"}
-    }, {});
-    // console.log('labels --->>', labels);
+    // const labels = names.reduce((acc, name, idx)=>{
+    //     acc[name] = namesKor[idx];
+    //     return acc;     // {id:"아이디", pwd:"비밀번호"}
+    // }, {});
+    // // console.log('labels --->>', labels);
     
 
-    // const labels = {
-    //     'id': '아이디',
-    //     'pwd': '비밀번호'
-    // }
+    // // const labels = {
+    // //     'id': '아이디',
+    // //     'pwd': '비밀번호'
+    // // }
 
-    // const label = labels.reduce((acc, lables)=> {
-    //     acc[lables] = "";
+    // // const label = labels.reduce((acc, lables)=> {
+    // //     acc[lables] = "";
+    // //     return acc;
+    // // }, {});
+
+    // // names.forEach((name)=>{
+    // //     initFormData = {...initFormData, [name]:''};
+    // // });
+
+    // // reduce 기억
+    // // 결과값 누적 함수 
+    // // **배열.reduce(콜백함수, 리턴데이터 타입정의)*/
+    // const initFormData = names.reduce((acc, name)=>{
+    //     // 실행코드
+    //     acc[name] = ""; // {"id":""} 
     //     return acc;
     // }, {});
 
-    // names.forEach((name)=>{
-    //     initFormData = {...initFormData, [name]:''};
-    // });
+    // // console.log('init reduce-->>', initFormData);
 
-    // reduce 기억
-    // 결과값 누적 함수 
-    // **배열.reduce(콜백함수, 리턴데이터 타입정의)*/
-    const initFormData = names.reduce((acc, name)=>{
-        // 실행코드
-        acc[name] = ""; // {"id":""} 
-        return acc;
-    }, {});
+    // const refs = useRef(
+    //     names.reduce((acc, name)=>{
+    //     acc[name.concat('Ref')] = React.createRef(); //useRef(null) Hook 바로 호출 x
+    //     return acc;
+    // }, {})
+    // );
 
-    // console.log('init reduce-->>', initFormData);
+    // refs.current.emaildomainRef = React.createRef();
 
-    const refs = names.reduce((acc, name)=>{
-        acc[name.concat('Ref')] = React.createRef(); //useRef(null) Hook 바로 호출 x
-        return acc;
-    }, {});
-
+    // // console.log('refs--->>', refs);
     
-    const msgRefs = names.reduce((acc, name)=>{
-        acc[name.concat('MsgRef')] = React.createRef();
-        return acc;
-    }, {});
+    
+    // const msgRefs = useRef( names.reduce((acc, name)=>{
+    //     acc[name.concat('MsgRef')] = React.createRef();
+    //     return acc;
+    //     }, {})
+    // );
     
 
-    console.log('init reduce -->>', initFormData);
-    console.log('refs reduce -->>', refs);
-    console.log('msgRefs reduce -->>', msgRefs);
-    
+    // console.log('init reduce -->>', initFormData);
+    // console.log('refs reduce -->>', refs);
+    // console.log('msgRefs reduce -->>', msgRefs);
     
 
    /* 
@@ -119,24 +130,23 @@ export default function Signup() {
 
     */
     
-
-    const [formData, setFormData] = useState(initFormData);
+   
+   // change
+   const handleChangeForm = (e) => {
+       const {name, value} = e.target;
+       // console.log(name, value);
+       
+       setFormData({...formData, [name]:value});        
+   };
 
     //submit
     const handleSubmit = (e) => {
         e.preventDefault();
         if(validateSignup(refs, msgRefs)) {
-
-            console.log('formData--->>', formData);
+            console.log('submit--->>', formData);
         }
-        
     };
 
-    // change
-    const handleChangeForm = (e) => {
-        const {name, value} = e.target;
-        setFormData({...formData, [name]:value});        
-    };
 
 
     /************************************************************************************ */
@@ -151,21 +161,23 @@ export default function Signup() {
                         names && names.map((name)=>(
                             <li>
                             <label for="" ><b>{labels[name]}</b></label>
-                            <span ref={msgRefs.msgIdRef}>{labels[name]}를 입력해주세요</span>
+                            <span ref={msgRefs.current[name.concat("MsgRef")]}>{labels[name]}를 입력해주세요</span>
                             <div>
                                 {
                                 (name === "emailname") ? (
                                     <>
                                     <input type="text" 
-                                    name="emailname"
-                                    id = "emailname"
-                                    ref={refs.emailnameRef}
+                                    name={name}
+                                    // id = "emailname"
+                                    ref={refs.current[name.concat("Ref")]} //ref.idRef
                                     onChange={handleChangeForm}
-                                    placeholder="이메일 주소" />
+                                    placeholder={placeholders[name]}/>
                                     <span>@</span>       
                                     <select name="emaildomain" 
-                                            id="emaildomain"
-                                            ref={refs.emaildomainRef}  >
+                                            // id="emaildomain"
+                                            // ref={refs.emaildomainRef}  
+                                            ref={refs.current["emaildomainRef"]}
+                                            onChange={handleChangeForm}>
                                         <option value="default">선택</option>
                                         <option value="naver.com">naver.com</option>
                                         <option value="gmail.com">gmail.com</option>
@@ -175,12 +187,12 @@ export default function Signup() {
 
                                 ) : (
                                     <>
-                                        <input type="text" 
-                                        name="id"
-                                        id="id"
-                                        ref={refs.idRef}
-                                        onChange={handleChangeForm}
-                                        placeholder = {placeholders[name]} />
+                                        <input type={ (name === "pwd" || name === "cpwd") ? "password" : "text" } 
+                                                name={name}
+                                                // id="id"
+                                                ref={refs.current[name.concat("Ref")]}
+                                                onChange={handleChangeForm}
+                                                placeholder = {placeholders[name]} />
                                         {   name === "id" &&
                                             <>
                                                 <button type="button" >중복확인</button>

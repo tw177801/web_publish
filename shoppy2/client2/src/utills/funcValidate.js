@@ -31,8 +31,12 @@
 export const validateSignup = (refs, msgRefs) => {
 
 
-        const refEntries = Object.entries(refs);    // {idRef:xxx,...}
-        const msgRefEntries = Object.entries(msgRefs);
+    // console.log('f-refs-->>', refs);
+    // console.log('f-msgRefs --->>', msgRefs);
+
+    
+        const refEntries = Object.entries(refs.current);    // {idRef:xxx,...}
+        const msgRefEntries = Object.entries(msgRefs.current);
 
 
         console.log(refEntries);    // []
@@ -42,16 +46,18 @@ export const validateSignup = (refs, msgRefs) => {
 
         for(let i=0; i<refEntries.length; i++) {
             const item = refEntries[i];
-            const msgItem = msgRefEntries[i];
+            // const msgItem = msgRefEntries[i];
             const name = item[0];
             const ref = item[1];    // 데이터 입력폼 객체 주소 
-            const msgName = msgItem[0];
-            const msgRef = msgItem[1]; // 데이터 입력폼의 메시지 객체 주소 
+            
+            let msgItem, msgName, msgRef = null;
 
-
-            // let msgItem, msgName, msgRef = null;
-
-            // if(i<refEntries)
+            if(i<refEntries.length-1) {
+                    msgItem = msgRefEntries[i];
+                    msgName = msgItem[0];
+                    msgRef = msgItem[1]; // 데이터 입력폼의 메시지 객체 주소 
+            }
+            
 
             if(name !== 'emaildomainRef') { //  ''
                 if(ref.current.value === '') {

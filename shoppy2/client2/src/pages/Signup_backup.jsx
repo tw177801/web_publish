@@ -1,8 +1,15 @@
 import React, {useState, useRef} from 'react';
 import '../styles/signup.css';
 import {validateSignup} from '../utills/funcValidate.js';
+import { initSignup } from '../utills/funcInitialize.js';
 
 export default function Signup() {
+
+
+    const  {names, placeholders, labels, refs, msgRefs}= initSignup();
+
+
+
 
     const msgRefs = {
         'msgIdRef':useRef(null),
