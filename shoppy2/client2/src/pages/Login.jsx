@@ -16,6 +16,10 @@ export default function Login() {
 
     }
 
+    const msgRefs = {
+        "msgRef" : useRef(null)
+    }
+
     const [formData, setFormData] = useState({'id':'', 'pwd':''}); // 전역 변수 
 
 
@@ -57,13 +61,11 @@ export default function Login() {
         event.preventDefault();
 
         // 리액트 ---> 노드서버 (express) 데이터 전송
-        if(validateLogin(refs)){
+        if(validateLogin(refs, msgRefs)){
             console.log('send data -->', formData);
             
         } 
             
-        
-
     };
 
 
@@ -99,6 +101,12 @@ export default function Login() {
                                     placeholder="패스워드를 입력해주세요" />
                         </div>
                         <p id="error-msg-pwd"></p>
+                    </li>
+
+                    <li><span style={{fontSize: "0.7em", color:"white"}}
+                        ref={msgRefs.msgRef}>아이디 또는 패스워드를 입력해주세요
+                    </span>
+
                     </li>
                     
                     <li>

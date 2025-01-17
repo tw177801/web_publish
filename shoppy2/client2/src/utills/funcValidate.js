@@ -6,17 +6,22 @@
   **********************************/
  
  /**validate 함수 */
- export const validateLogin = ({idRef, pwdRef}) => {
+ export const validateLogin = ({idRef, pwdRef}, {msgRef}) => {
     let result = true;
 
     if(idRef.current.value === '') {
-        alert('아이디를 입력해주세요');
+        // alert('아이디를 입력해주세요');
+        msgRef.current.style.setProperty('color', 'red');
         idRef.current.focus();
         result = false;
     } else if (pwdRef.current.value === '') {
-        alert('비밀번호를 입력해주세요');
+        // alert('비밀번호를 입력해주세요');
+        msgRef.current.style.setProperty('color', 'red');
         pwdRef.current.focus();
         result = false;
+    }  else {
+        msgRef.current.style.setProperty('color', 'red');
+
     }
     return result;
 
