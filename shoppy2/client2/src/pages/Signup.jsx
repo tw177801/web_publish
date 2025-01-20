@@ -148,6 +148,30 @@ export default function Signup() {
     };
 
 
+    const handleDuplicateIdCheck = () => {
+        // console.log('id--->',refs.current["idRef"].current.value);
+
+        if(refs.current["idRef"].current.value === '') {
+            msgRefs.current["idMsgRef"].current.style.setProperty('color', 'red');
+            refs.current["idRef"].current.focus();
+            return false;
+        } else {
+            const did = "test";
+            
+            if(refs.current["idRef"].current.value === did) {
+                alert("이미 사용중인 아이디입니다.");
+                refs.current["idRef"].current.focus();
+                return false;
+            } else {
+                alert("사용이 가능한 아이디입니다");
+                refs.current["pwdRef"].current.focus();
+                return false;
+
+            }
+        }
+    }
+
+
 
     /************************************************************************************ */
 
@@ -166,23 +190,24 @@ export default function Signup() {
                                 {
                                 (name === "emailname") ? (
                                     <>
-                                    <input type="text" 
-                                    name={name}
-                                    // id = "emailname"
-                                    ref={refs.current[name.concat("Ref")]} //ref.idRef
-                                    onChange={handleChangeForm}
-                                    placeholder={placeholders[name]}/>
-                                    <span>@</span>       
-                                    <select name="emaildomain" 
-                                            // id="emaildomain"
-                                            // ref={refs.emaildomainRef}  
-                                            ref={refs.current["emaildomainRef"]}
-                                            onChange={handleChangeForm}>
-                                        <option value="default">선택</option>
-                                        <option value="naver.com">naver.com</option>
-                                        <option value="gmail.com">gmail.com</option>
-                                        <option value="daum.net">daum.net</option>
-                                    </select>
+                                        <input type="text" 
+                                        name={name}
+                                        // id = "emailname"
+                                        ref={refs.current[name.concat("Ref")]} //ref.idRef
+                                        onChange={handleChangeForm}
+                                        placeholder={placeholders[name]}/>
+                                        <span>@</span>       
+                                        <select name="emaildomain" 
+                                                // id="emaildomain"
+                                                // ref={refs.emaildomainRef}  
+                                                ref={refs.current["emaildomainRef"]}
+                                                // onChange={handleChangeForm}>
+                                                onChange={handleDuplicateIdCheck}>
+                                            <option value="default">선택</option>
+                                            <option value="naver.com">naver.com</option>
+                                            <option value="gmail.com">gmail.com</option>
+                                            <option value="daum.net">daum.net</option>
+                                        </select>
                                     </>
 
                                 ) : (
