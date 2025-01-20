@@ -11,134 +11,7 @@ export default function Signup() {
     const {refs, msgRefs} = useInitSignupRefs(names);
     const [formData, setFormData] = useState(initFormData);
     const [idCheckResult, setIdCheckResult] = useState('default');
-
-
-    // console.log('refs-->', refs);
     
-
-
-    // const names = [ 
-    //     'id',
-    //     'pwd',
-    //     'cpwd',
-    //     'name',
-    //     'phone',
-    //     'emailname'
-    //                 ];
-
-    // const namesKor = [ 
-    //     '아이디',
-    //     '비밀번호',
-    //     '비밀번호 확인',
-    //     '이름',
-    //     '휴대폰 번호',
-    //     '이메일 주소'];
-
-    // const placeholdersKor = [ 
-    //     '아이디(6~12자이내)',
-    //     '비밀번호',
-    //     '비밀번호 확인',
-    //     '이름',
-    //     '휴대폰 번호',
-    //     '이메일 주소'];
-                
-
-    // const placeholders = names.reduce((acc, name, idx)=>{
-    //     acc[name] = placeholdersKor[idx];
-    //     return acc;     // {id:"아이디", pwd:"비밀번호"}
-    // }, {});
-    
-    // const labels = names.reduce((acc, name, idx)=>{
-    //     acc[name] = namesKor[idx];
-    //     return acc;     // {id:"아이디", pwd:"비밀번호"}
-    // }, {});
-    // // console.log('labels --->>', labels);
-    
-
-    // // const labels = {
-    // //     'id': '아이디',
-    // //     'pwd': '비밀번호'
-    // // }
-
-    // // const label = labels.reduce((acc, lables)=> {
-    // //     acc[lables] = "";
-    // //     return acc;
-    // // }, {});
-
-    // // names.forEach((name)=>{
-    // //     initFormData = {...initFormData, [name]:''};
-    // // });
-
-    // // reduce 기억
-    // // 결과값 누적 함수 
-    // // **배열.reduce(콜백함수, 리턴데이터 타입정의)*/
-    // const initFormData = names.reduce((acc, name)=>{
-    //     // 실행코드
-    //     acc[name] = ""; // {"id":""} 
-    //     return acc;
-    // }, {});
-
-    // // console.log('init reduce-->>', initFormData);
-
-    // const refs = useRef(
-    //     names.reduce((acc, name)=>{
-    //     acc[name.concat('Ref')] = React.createRef(); //useRef(null) Hook 바로 호출 x
-    //     return acc;
-    // }, {})
-    // );
-
-    // refs.current.emaildomainRef = React.createRef();
-
-    // // console.log('refs--->>', refs);
-    
-    
-    // const msgRefs = useRef( names.reduce((acc, name)=>{
-    //     acc[name.concat('MsgRef')] = React.createRef();
-    //     return acc;
-    //     }, {})
-    // );
-    
-
-    // console.log('init reduce -->>', initFormData);
-    // console.log('refs reduce -->>', refs);
-    // console.log('msgRefs reduce -->>', msgRefs);
-    
-
-   /* 
-    // const msgRefs = {
-    //     'msgIdRef':useRef(null),
-    //     'msgPwdRef':useRef(null),
-    //     'msgCpwdRef':useRef(null),
-    //     'msgNameRef':useRef(null),
-    //     'msgPhoneRef':useRef(null),
-    //     'msgEmailnameRef':useRef(null),
-    //     'msgEmaildomainRef':useRef(null)
-    // }
-
-    // const refs = {
-    //     'idRef':useRef(null),
-    //     'pwdRef':useRef(null),
-    //     'cpwdRef':useRef(null),
-    //     'nameRef':useRef(null),
-    //     'phoneRef':useRef(null),
-    //     'emailnameRef':useRef(null),
-    //     'emaildomainRef':useRef(null)
-    // }
-
-
-    // const initFormData = {
-    //     'id':'',
-    //     'pwd':'',
-    //     'cpwd':'',
-    //     'name':'',
-    //     'phone':'',
-    //     'emailname':'',
-    //     'emaildomain':''
-    // }
-
-    */
-    
-   
    // change
    const handleChangeForm = (event) => {
        const {name, value} = event.target;
@@ -150,8 +23,6 @@ export default function Signup() {
     //submit
     const handleSubmit = (event) => {
         event.preventDefault();
-
-        // console.log(refs.current["idCheckResultRef"].current.value);
 
         if(validateSignup(refs, msgRefs)) {
             if(idCheckResult === "default") {
@@ -165,37 +36,7 @@ export default function Signup() {
     };
 
 
-
-
-
-
-
-    // const handleDuplicateIdCheck = () => {
-    //     // console.log('id--->',refs.current["idRef"].current.value);
-
-    //     if(refs.current["idRef"].current.value === '') {
-    //         msgRefs.current["idMsgRef"].current.style.setProperty('color', 'red');
-    //         refs.current["idRef"].current.focus();
-    //         return false;
-    //     } else {
-    //         const did = "test";
-            
-    //         if(refs.current["idRef"].current.value === did) {
-    //             alert("이미 사용중인 아이디입니다.");
-    //             refs.current["idRef"].current.focus();
-    //             return false;
-    //         } else {
-    //             alert("사용이 가능한 아이디입니다");
-    //             refs.current["pwdRef"].current.focus();
-    //             return false;
-
-    //         }
-    //     }
-    // }
-
-
-
-    /************************************************************************************ */
+    /*************************************************************************************/
 
     return (
         <div className="content">

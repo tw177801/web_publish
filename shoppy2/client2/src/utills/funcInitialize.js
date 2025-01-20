@@ -41,6 +41,7 @@ export function initSignup() {
             acc[name] = namesKor[idx];
             return acc;     // {id:"아이디", pwd:"비밀번호"}
         }, {});
+        
         // console.log('labels --->>', labels);
         
     
@@ -61,6 +62,7 @@ export function initSignup() {
         // reduce 기억
         // 결과값 누적 함수 
         // **배열.reduce(콜백함수, 리턴데이터 타입정의)*/
+        
         const initFormData = names.reduce((acc, name)=>{
             // 실행코드
             acc[name] = ""; // {"id":""} 
