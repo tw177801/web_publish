@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import '../styles/signup.css';
-import {validateSignup} from '../utills/funcValidate.js';
+import {validateSignup, 
+    handlePasswordCheck,
+    handleDuplicateIdCheck} from '../utills/funcValidate.js';
 import { initSignup, useinitSignupRefs } from '../utills/funcInitialize.js';
 
 export default function Signup() {
@@ -148,28 +150,33 @@ export default function Signup() {
     };
 
 
-    const handleDuplicateIdCheck = () => {
-        // console.log('id--->',refs.current["idRef"].current.value);
 
-        if(refs.current["idRef"].current.value === '') {
-            msgRefs.current["idMsgRef"].current.style.setProperty('color', 'red');
-            refs.current["idRef"].current.focus();
-            return false;
-        } else {
-            const did = "test";
+
+
+
+
+    // const handleDuplicateIdCheck = () => {
+    //     // console.log('id--->',refs.current["idRef"].current.value);
+
+    //     if(refs.current["idRef"].current.value === '') {
+    //         msgRefs.current["idMsgRef"].current.style.setProperty('color', 'red');
+    //         refs.current["idRef"].current.focus();
+    //         return false;
+    //     } else {
+    //         const did = "test";
             
-            if(refs.current["idRef"].current.value === did) {
-                alert("이미 사용중인 아이디입니다.");
-                refs.current["idRef"].current.focus();
-                return false;
-            } else {
-                alert("사용이 가능한 아이디입니다");
-                refs.current["pwdRef"].current.focus();
-                return false;
+    //         if(refs.current["idRef"].current.value === did) {
+    //             alert("이미 사용중인 아이디입니다.");
+    //             refs.current["idRef"].current.focus();
+    //             return false;
+    //         } else {
+    //             alert("사용이 가능한 아이디입니다");
+    //             refs.current["pwdRef"].current.focus();
+    //             return false;
 
-            }
-        }
-    }
+    //         }
+    //     }
+    // }
 
 
 
@@ -217,10 +224,28 @@ export default function Signup() {
                                                 // id="id"
                                                 ref={refs.current[name.concat("Ref")]}
                                                 onChange={handleChangeForm}
+                                                onBlur={ ( name === 'cpwd' ) ? () => {
+                                                        handlePasswordCheck(
+                                                            refs.current["pwdRef"],
+                                                            refs.current["cpwdRef"],
+                                                            refs.current["nameRef"],
+                                                            msgRefs.current["pwdMsgRef"],
+                                                            msgRefs.current["cpwdMsgRef"]
+                                                        )
+                                                } : null }
                                                 placeholder = {placeholders[name]} />
                                         {   name === "id" &&
                                             <>
-                                                <button type="button" >중복확인</button>
+                                                <button type="button" 
+                                                        onClick={()=>{
+                                                            handleDuplicateIdCheck(
+                                                                refs.current["idRef"],
+                                                                refs.current["pwdRef"],
+                                                                msgRefs.current["idMsgRef"]
+                                                            )
+                                                        }}
+                                                        >
+                                                        중복확인</button>
                                                 <input type="hidden" id="idCheckResult" value="default" />
                                             </>
                                         }
