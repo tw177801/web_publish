@@ -98,8 +98,7 @@ export const validateSignup = (refs, msgRefs) => {
   *     Signup : 아이디 중복 체크 
   **********************************/
 
-export const handleDuplicateIdCheck = (idRef, idMsgRef, pwdRef) => {
-    // console.log('id--->',refs.current["idRef"].current.value);
+export const handleDuplicateIdCheck = (idRef, idMsgRef, pwdRef, setIdCheckResult) => {
 
     if(idRef.current.value === '') {
         idMsgRef.current.style.setProperty('color', 'red');
@@ -112,8 +111,11 @@ export const handleDuplicateIdCheck = (idRef, idMsgRef, pwdRef) => {
             alert("이미 사용중인 아이디입니다. 새로운 아이디를 입력해주세요.");
             idRef.current.focus();
             return false;
+
         } else {
             alert("사용이 가능한 아이디입니다");
+            // idCheckResultRef.current.value = "complete";
+            setIdCheckResult.current.value ="complete";
             pwdRef.current.focus();
             return false;
 

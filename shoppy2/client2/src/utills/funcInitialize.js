@@ -95,7 +95,7 @@ export function initSignup() {
 
 
 // 메모리(Hook) 영역 저장, 함수명 앞에 use가 붙으면 리액트가 속는다
-export function useinitSignupRefs(names) {  // 커스터머 훅 
+export function useInitSignupRefs(names) {  // 커스터머 훅 
     const refs = useRef(
         names.reduce((acc, name)=>{
         acc[name.concat('Ref')] = React.createRef(); //useRef(null) Hook 바로 호출 x
@@ -104,6 +104,7 @@ export function useinitSignupRefs(names) {  // 커스터머 훅
     );
 
     refs.current.emaildomainRef = React.createRef();
+    // refs.current.idCheckResultRef = React.createRef();
 
     // console.log('refs--->>', refs);
     

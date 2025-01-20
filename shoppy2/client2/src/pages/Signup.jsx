@@ -1,15 +1,21 @@
 import React, {useState} from 'react';
 import '../styles/signup.css';
 import {validateSignup, 
-    handlePasswordCheck,
-    handleDuplicateIdCheck} from '../utills/funcValidate.js';
-import { initSignup, useinitSignupRefs } from '../utills/funcInitialize.js';
+        handlePasswordCheck,
+        handleDuplicateIdCheck} from '../utills/funcValidate.js';
+import { initSignup, useInitSignupRefs } from '../utills/funcInitialize.js';
 
 export default function Signup() {
 
     const {names, placeholders, labels, initFormData} = initSignup();
-    const {refs, msgRefs} = useinitSignupRefs(names);
+    const {refs, msgRefs} = useInitSignupRefs(names);
     const [formData, setFormData] = useState(initFormData);
+    const [idCheckResult, setIdCheckResult] = useState('default');
+
+
+    // console.log('refs-->', refs);
+    
+
 
     // const names = [ 
     //     'id',
@@ -134,18 +140,27 @@ export default function Signup() {
     
    
    // change
-   const handleChangeForm = (e) => {
-       const {name, value} = e.target;
+   const handleChangeForm = (event) => {
+       const {name, value} = event.target;
        // console.log(name, value);
        
        setFormData({...formData, [name]:value});        
    };
 
     //submit
-    const handleSubmit = (e) => {
-        e.preventDefault();
+    const handleSubmit = (event) => {
+        event.preventDefault();
+
+        // console.log(refs.current["idCheckResultRef"].current.value);
+
         if(validateSignup(refs, msgRefs)) {
-            console.log('submit--->>', formData);
+            if(idCheckResult === "default") {
+                alert("중복확인을 진행해주세요");
+                return false;
+            }  else {
+
+                console.log('submit--->>', formData);
+            }
         }
     };
 
@@ -199,24 +214,23 @@ export default function Signup() {
                                     <>
                                         <input type="text" 
                                         name={name}
-                                        // id = "emailname"
                                         ref={refs.current[name.concat("Ref")]} //ref.idRef
                                         onChange={handleChangeForm}
                                         placeholder={placeholders[name]}/>
                                         <span>@</span>       
+
+
                                         <select name="emaildomain" 
-                                                // id="emaildomain"
-                                                // ref={refs.emaildomainRef}  
                                                 ref={refs.current["emaildomainRef"]}
-                                                // onChange={handleChangeForm}>
-                                                onChange={handleDuplicateIdCheck}>
+                                                onChange={handleChangeForm} >
+                                           
                                             <option value="default">선택</option>
                                             <option value="naver.com">naver.com</option>
                                             <option value="gmail.com">gmail.com</option>
                                             <option value="daum.net">daum.net</option>
                                         </select>
                                     </>
-
+                                        // onChange = handleDuplicateIdCheck
                                 ) : (
                                     <>
                                         <input type={ (name === "pwd" || name === "cpwd") ? "password" : "text" } 
@@ -241,12 +255,16 @@ export default function Signup() {
                                                             handleDuplicateIdCheck(
                                                                 refs.current["idRef"],
                                                                 refs.current["pwdRef"],
-                                                                msgRefs.current["idMsgRef"]
+                                                                msgRefs.current["idMsgRef"],
+                                                                setIdCheckResult
+                                                                // refs.current["idCheckResultRef"]
                                                             )
                                                         }}
-                                                        >
-                                                        중복확인</button>
-                                                <input type="hidden" id="idCheckResult" value="default" />
+                                                        
+                                                        >중복확인</button>
+                                                <input type="hidden" 
+                                                        value={idCheckResult} 
+                                                        />
                                             </>
                                         }
                                     
