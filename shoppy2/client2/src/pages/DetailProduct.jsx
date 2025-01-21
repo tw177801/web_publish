@@ -2,7 +2,11 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { PiGiftThin } from "react-icons/pi";
 import axios from "axios";
-import Delivery from '../components/w/Delivery.jsx';
+import QnA from '../components/QnA/QnA.jsx';
+import DetailMenu from '../components/QnA/DetailMenu.jsx';
+import Review from '../components/Review/Review.jsx';
+import Detail from '../components/Detail/Detail.jsx';
+import Delivery from '../components/Delivery/Delivery.jsx';
 // import { Link } from "react-router-dom";
 
 export default function DetailProduct({ addCart }) {
@@ -101,19 +105,12 @@ export default function DetailProduct({ addCart }) {
 
       {/* DETAIL / REVIEW / Q&A / RETURN & DELIVERY  */}
       <div className="product-detail-tab">
-        
-        {/* <ul className="product-menu">
-
-            <li><label >DETAIL</label></li>
-            <li><label >REVIEW</label></li>
-            <li><label >Q&A</label></li>
-            <li><label >RETURN & DELIVERY</label></li>
-            
-        </ul> */}
-
+        <DetailMenu />
         
         <div>
-            {/* <h5>해당 탭의 내용 출력</h5> */}
+            <Detail selectedPid={pid} products={product} />
+            <Review/>
+            <QnA />
             <Delivery/>
         </div>
       </div>
