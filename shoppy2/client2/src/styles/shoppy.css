@@ -266,7 +266,7 @@ p {
 .product-detail-tab {
   /* border: 3px solid green; */
   width: 1200px;
-  height: 2200px;
+  height: 1500px;
   display: flex;
   gap: 2rem;
   margin: auto;
