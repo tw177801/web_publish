@@ -8,8 +8,8 @@ export default function Review() {
     return (
         <>
             <Rating />
-            {/* <ReviewImage /> */}
-            {/* <ReviewComment /> */}
+            {/* <ReviewImage />
+            <ReviewComment /> */}
         </>
     );
 }

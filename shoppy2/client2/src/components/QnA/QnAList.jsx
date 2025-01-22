@@ -19,27 +19,27 @@ export default function QnAList() {
     return (
         <table className='qna-table'>
             {list && list.map((item) =>
-                    <tbody>
-                        <tr>
-                            <td className='complete'><span>{item.complete}</span></td>
-                            <td className='question'><p>{item.question}</p></td>
-                            <td className='qna-email'><span>{item.email}</span></td>
-                            <td className='qna-date'><span>{item.date}</span></td>
-                        </tr>
-                        <tr className='answer'>
-                            <td>
-                                <div>
-                                    <div><p>배송 언제와요</p>
-                                    </div>
-                                    <div>
-                                        <span>2025.01.21</span>
-                                        <p>다음주</p>
-                                    </div>
+                <tbody>
+                    <tr>
+                        <td className='complete'><span>{item.complete}</span></td>
+                        <td className='question'><p>{item.question}</p></td>
+                        <td className='qna-email'><span>{item.email}</span></td>
+                        <td className='qna-date'><span>{item.date}</span></td>
+                    </tr>
+                    <tr className='answer'>
+                        <td>
+                            <div>
+                                <div><p>배송 언제와요</p>
                                 </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                )
+                                <div>
+                                    <span>2025.01.21</span>
+                                    <p>다음주</p>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            )
             }
         </table>
     );
