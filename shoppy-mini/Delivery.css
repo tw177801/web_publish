@@ -33,6 +33,8 @@
   .delivery-content table th,
   .delivery-content table td {
       border-top: 1px solid #d5d5d5;
+      word-break: break-all;
+      background-clip: padding-box;
   }
   
   tbody {
@@ -48,6 +50,7 @@
       font-family: "ProximaNova-Regular", "Noto Sans KR";
       text-align: center;
       color: #333;
+      background-color: #fafafa;
       font-size: 15px;
       padding: 0;
   }

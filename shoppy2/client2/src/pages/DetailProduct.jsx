@@ -24,6 +24,7 @@ export default function DetailProduct({ addCart }) {
       })
       .catch((error) => console.log(error));
   }, []);
+  
 
   //장바구니 추가 버튼 이벤트
   const addCartItem = () => {
