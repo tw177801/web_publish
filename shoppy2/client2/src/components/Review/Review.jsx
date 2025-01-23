@@ -1,7 +1,7 @@
 import React from "react";
 import Rating from "./Rating.jsx";
 import ReviewImage from "./ReviewImage.jsx";
-// import ReviewComment from "./ReviewComment.jsx";
+import ReviewComment from "./ReviewComment.jsx";
 
 export default function Review() {
 
@@ -9,7 +9,7 @@ export default function Review() {
         <>
             <Rating />
             <ReviewImage />
-            {/* <ReviewComment /> */}
+            <ReviewComment />
         </>
     );
 }
