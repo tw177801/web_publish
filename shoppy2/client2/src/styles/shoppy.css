@@ -626,3 +626,262 @@
       padding: 5px;
   }
   
+
+  /**********Review***********/
+
+  /******************* REVIEW *************************/
+.review-container {
+  /* border: 1px solid red; */
+  margin: 20px 0;
+}
+
+.review-title {
+  /* border: 1px solid red; */
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 10px 0;
+}
+
+.review-top {
+  /* border: 1px solid red;ㄴ */
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.rating-group {
+  /* border: 1px solid red; */
+  display: flex;
+  width: 100%;
+  gap: 20px;
+}
+
+/* 상품 평점 (별점 및 점수) 스타일 */
+.rating-stars {
+  width: 40%;
+}
+
+.stars {
+  font-size: 2.5rem;
+  color: black;
+  margin-right: 20px;
+}
+
+.score {
+  font-size: 2rem;
+  font-weight: bold;
+  color: black;
+}
+
+.review-percent-style {
+  /* border: 1px solid red; */
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.review-detail-group {
+  /* border: 1px solid red; */
+  width: 60%;
+  display: flex;
+  gap: 20px;
+}
+
+.rating-category {
+  margin-bottom: 10px;
+}
+
+.rating-category h4 {
+  /* border: 1px solid red; */
+  margin: 0;
+  padding-bottom: 10px;
+  color: gray;
+}
+
+
+.review-detail-font {
+  /* border: 1px solid red; */
+  width: 50px;
+}
+
+/* Progress bar 스타일 */
+.progress-bar {
+  /* border: 1px solid red; */
+  display: flex;
+  width: 120px;
+  height: 4px;
+  background-color: #eee;
+  overflow: hidden;
+  margin: 0 15px;
+}
+
+.progress-bar-color {
+  background-color: black;
+}
+
+/* 리뷰 이미지 스타일 */
+.review-images {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.review-images :first-child {
+  margin-left: 0px;
+}
+
+.review-images :last-child {
+  margin-right: 0px;
+}
+
+.review-images img {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  margin: 5px;
+}
+
+/* 리뷰 메뉴 스타일 */
+.comment-menu {
+  /* border: 1px solid red; */
+  border-bottom: 1px solid black;
+  margin-top: 30px;
+}
+
+.comment-menu ul {
+  /* border: 1px solid red; */
+  list-style-type: none;
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.comment-menu li {
+  /* border: 1px solid red; */
+  cursor: pointer;
+  position: relative;
+  padding: 0 10px;
+}
+
+.comment-menu li:first-child {
+  padding-left: 0;
+}
+
+.comment-menu li:last-child {
+  padding-right: 0;
+}
+
+.comment-menu li:not(:last-child)::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 6px;
+  right: 0;
+  margin-left: 10px;
+  background-color: black;
+  width: 1px;
+  height: 12px;
+}
+
+.comment-menu button {
+  /* border: 1px solid red; */
+  border-radius: 50%;
+  cursor: pointer;
+  border: 1px solid black;
+}
+
+/* 리뷰 스타일 */
+.reviews-list {
+  /* border: 1px solid red; */
+  border-bottom: 1px solid black;
+  padding-bottom: 30px;
+  margin-bottom: 50px;
+}
+
+.reviews-list table {
+  width: 100%;
+}
+
+.review-stars {
+  /* border: 1px solid red; */
+  font-size: 1.6rem;
+  color: black;
+  margin-right: 20px;
+  display: inline-block;
+  padding: 10px;
+}
+
+.review-details {
+  /* border: 1px solid red; */
+  font-size: 0.8rem;
+  margin: 10px 0px;
+  line-height: 25px;
+}
+
+.review-info-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.review-buy-option {
+  margin-top: 10px;
+  flex: 1;
+  text-align: left;
+}
+
+.review-user-info {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.review-user,
+.review-date {
+  text-align: right;
+}
+
+.review-satisfaction ul {
+  list-style-type: none;
+  display: flex;
+}
+
+.review-satisfaction li {
+  border: 1px solid silver;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 0.8rem;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  padding: 6px;
+}
+
+.review-comment-image img {
+  width: 100px;
+  height: 100px;
+  margin: 10px 0;
+}
+
+.review-comment {
+  /* border: 1px solid red; */
+  margin-bottom: 20px;
+}
+
+.review-actions {
+  /* border: 1px solid red; */
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.review-actions button {
+  margin-right: 5px;
+}
+
+.review-actions>div:last-child button:last-child {
+  /* border: 1px solid red; */
+  margin-right: 0;
+}
