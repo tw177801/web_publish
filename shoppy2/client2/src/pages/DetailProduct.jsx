@@ -114,6 +114,7 @@ export default function DetailProduct({ addCart }) {
             <QnA />
             <Delivery/>
         </div>
+        
       </div>
     </div>
   );

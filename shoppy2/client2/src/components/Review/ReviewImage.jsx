@@ -1,25 +1,26 @@
-import axios from 'axios';
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import React, {useState, useEffect} from 'react';
 
 export default function ReviewImage() {
     const [reviewData, setReviewData] = useState([]);
-    const { pid } = useParams();
-
-    useEffect(() => {
-        axios
-            .get('/data/reviewcontent.json')
-            .then((res) => {
-                const iarray = res.data.products.filter((ri) => (ri.pid === pid))
-                setReviewData(iarray[0].reviewImages)
-            })
-            .catch((error) => console.error(error));
-    }, []);
+    
+        useEffect(() => {
+            fetch('/data/reviewcontent.json')
+                .then((response) => response.json())
+                .then((data) => setReviewData(data.products))
+                .catch((error) => console.error(error));
+        }, []);
 
     return (
         <div className="review-images">
-            {reviewData.map((src) =>
-                <img src={src} />
+            {reviewData.map((item, index) =>
+                item.reviewImages.map((src, idx) => (
+                    <img
+                        key={`${index}-${idx}`}
+                        src={src}
+                        alt={`Review image ${idx + 1}`}
+                        className="review-image"
+                    />
+                ))
             )}
         </div>
     );
