@@ -1,51 +1,114 @@
 [
     {
-        "pid" : "1",
-        "image" : "/images/1.webp",
-        "name" : "후드티",
-        "price" : 15000,
-        "info" : "분홍색 후드티"
+      "pid": "1",
+      "image": "/images/1.webp",
+      "name": "후드티",
+      "ename": "hoodie",
+      "price": 198000,
+      "info": "핑크 후드티",
+      "imgList": [
+        "https://image.wconcept.co.kr/images/Upload/VendorClosedBanner/20250117103402_3005374.jpg",
+        "http://qhdrus123.cafe24.com/web/24fall/Alpaca%20Essencial%20Cardigan_Blue/1.jpg",
+        "http://qhdrus123.cafe24.com/web/24fall/Alpaca%20Essencial%20Cardigan_Blue/2.jpg",
+        "http://qhdrus123.cafe24.com/web/24fall/Alpaca%20Essencial%20Cardigan_Blue/3.jpg",
+        "http://qhdrus123.cafe24.com/web/24fall/Alpaca%20Essencial%20Cardigan_Blue/4.jpg",
+        "http://qhdrus123.cafe24.com/web/24fall/Alpaca%20Essencial%20Cardigan_Blue/5.jpg"
+      ]
     },
     {
-        "pid" : "2",
-        "image" : "/images/2.webp",
-        "name" : "후드티",
-        "price" : 25000,
-        "info" : "검은색 후드티"
+      "pid": "2",
+      "image": "/images/2.webp",
+      "name": "후드티",
+      "ename": "hoodie",
+      "price": 15000,
+      "info": "검정색 후드티",
+      "imgList": [
+        "https://image.wconcept.co.kr/images/Upload/VendorClosedBanner/20250117103402_3005374.jpg",
+        "http://qhdrus123.cafe24.com/web/24winter/Vintage%20Lambswool%20Reversible%20Mustang_black/1.jpg",
+        "http://qhdrus123.cafe24.com/web/24winter/Vintage%20Lambswool%20Reversible%20Mustang_black/2.jpg",
+        "http://qhdrus123.cafe24.com/web/24winter/Vintage%20Lambswool%20Reversible%20Mustang_black/3.jpg",
+        "http://qhdrus123.cafe24.com/web/24winter/Vintage%20Lambswool%20Reversible%20Mustang_black/4.jpg",
+        "http://qhdrus123.cafe24.com/web/24winter/Vintage%20Lambswool%20Reversible%20Mustang_black/5.jpg"
+      ]
     },
     {
-        "pid" : "3",
-        "image" : "/images/3.webp",
-        "name" : "원피스",
-        "price" : 55000,
-        "info" : "원피스"
+      "pid": "3",
+      "image": "/images/3.webp",
+      "name": "원피스",
+      "ename": "one piece",
+      "price": 25000,
+      "info": "원피스",
+      "imgList": [
+        "https://image.wconcept.co.kr/images/Upload/VendorClosedBanner/20250117103402_3005374.jpg",
+        "http://qhdrus123.cafe24.com/web/23fall/cashmere%20essential%20cardigan/red/1.jpg",
+        "http://qhdrus123.cafe24.com/web/23fall/cashmere%20essential%20cardigan/red/2.jpg",
+        "http://qhdrus123.cafe24.com/web/23fall/cashmere%20essential%20cardigan/red/3.jpg",
+        "http://qhdrus123.cafe24.com/web/23fall/cashmere%20essential%20cardigan/red/4.jpg",
+        "http://qhdrus123.cafe24.com/web/23fall/cashmere%20essential%20cardigan/red/5.jpg"
+      ]
     },
     {
-        "pid" : "4",
-        "image" : "/images/4.webp",
-        "name" : "바지",
-        "price" : 25000,
-        "info" : "바지"
+      "pid": "4",
+      "image": "/images/4.webp",
+      "name": "티셔츠",
+      "ename": "t-shirt",
+      "price": 12000,
+      "info": "티셔츠",
+      "imgList": [
+        "https://image.wconcept.co.kr/images/Upload/VendorClosedBanner/20250117103402_3005374.jpg",
+        "http://qhdrus123.cafe24.com/web/23fall/essential%20v-neck%20sweater/light%20grey/1.jpg",
+        "http://qhdrus123.cafe24.com/web/23fall/essential%20v-neck%20sweater/light%20grey/2.jpg",
+        "http://qhdrus123.cafe24.com/web/23fall/essential%20v-neck%20sweater/light%20grey/3.jpg",
+        "http://qhdrus123.cafe24.com/web/23fall/essential%20v-neck%20sweater/light%20grey/4.jpg",
+        "http://qhdrus123.cafe24.com/web/23fall/essential%20v-neck%20sweater/light%20grey/5.jpg"
+      ]
     },
     {
-        "pid" : "5",
-        "image" : "/images/5.webp",
-        "name" : "티셔츠",
-        "price" : 15000,
-        "info" : "티셔츠"
+      "pid": "5",
+      "image": "/images/5.webp",
+      "name": "티셔츠",
+      "ename": "t-shirt",
+      "price": 20000,
+      "info": "티셔츠",
+      "imgList": [
+        "https://image.wconcept.co.kr/images/Upload/VendorClosedBanner/20250117103402_3005374.jpg",
+        "http://qhdrus123.cafe24.com/web/21fall/roundwoolpants/oatmeal/1.jpg",
+        "http://qhdrus123.cafe24.com/web/21fall/roundwoolpants/oatmeal/2.jpg",
+        "http://qhdrus123.cafe24.com/web/21fall/roundwoolpants/oatmeal/3.jpg",
+        "http://qhdrus123.cafe24.com/web/21fall/roundwoolpants/oatmeal/4.jpg",
+        "http://qhdrus123.cafe24.com/web/21fall/roundwoolpants/oatmeal/5.jpg"
+      ]
     },
     {
-        "pid" : "6",
-        "image" : "/images/6.webp",
-        "name" : "스트레치 비스트 드레스",
-        "price" : 75000,
-        "info" : "스트레치 비스트 드레스"
+      "pid": "6",
+      "image": "/images/6.webp",
+      "name": "스트레치 비스트 드레스",
+      "ename": "stretch beast dress",
+      "price": 55000,
+      "info": "스트레치 비스트 드레스",
+      "imgList": [
+        "https://image.wconcept.co.kr/images/Upload/VendorClosedBanner/20250117103402_3005374.jpg",
+        "http://qhdrus123.cafe24.com/web/24winter/Cashmere%20Hand%20Warmer/1.jpg",
+        "http://qhdrus123.cafe24.com/web/24winter/Cashmere%20Hand%20Warmer/2.jpg",
+        "http://qhdrus123.cafe24.com/web/24winter/Cashmere%20Hand%20Warmer/3.jpg",
+        "http://qhdrus123.cafe24.com/web/24winter/Cashmere%20Hand%20Warmer/4.jpg",
+        "http://qhdrus123.cafe24.com/web/24winter/Cashmere%20Hand%20Warmer/5.jpg"
+      ]
     },
     {
-        "pid" : "7",
-        "image" : "/images/7.webp",
-        "name" : "자켓",
-        "price" : 115000,
-        "info" : "자켓"
+      "pid": "7",
+      "image": "/images/7.webp",
+      "name": "자켓",
+      "ename": "jacket",
+      "price": 115000,
+      "info": "자켓",
+      "imgList": [
+        "https://image.wconcept.co.kr/images/Upload/VendorClosedBanner/20250117103402_3005374.jpg",
+        "http://qhdrus123.cafe24.com/web/24winter/Alpaca%20Stripe%20Sweater_grey/1.jpg",
+        "http://qhdrus123.cafe24.com/web/24winter/Alpaca%20Stripe%20Sweater_grey/2.jpg",
+        "http://qhdrus123.cafe24.com/web/24winter/Alpaca%20Stripe%20Sweater_grey/3.jpg",
+        "http://qhdrus123.cafe24.com/web/24winter/Alpaca%20Stripe%20Sweater_grey/4.jpg",
+        "http://qhdrus123.cafe24.com/web/24winter/Alpaca%20Stripe%20Sweater_grey/5.jpg"
+      ]
     }
-]
+  ]

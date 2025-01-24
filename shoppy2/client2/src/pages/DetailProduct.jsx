@@ -7,6 +7,7 @@ import DetailMenu from '../components/QnA/DetailMenu.jsx';
 import Review from '../components/Review/Review.jsx';
 import Detail from '../components/Detail/Detail.jsx';
 import Delivery from '../components/Delivery/Delivery.jsx';
+import useQnA from "../hooks/useQnA";
 // import { Link } from "react-router-dom";
 
 export default function DetailProduct({ addCart }) {
@@ -14,6 +15,7 @@ export default function DetailProduct({ addCart }) {
   const [product, setProduct] = useState({});
   const [size, setSize] = useState("XS");
   const [activeTab, setActiveTab] = useState('detail');
+  const { qnaList, qnaCount } = useQnA(pid);
 
   useEffect(() => {
     axios
@@ -107,11 +109,11 @@ export default function DetailProduct({ addCart }) {
 
       {/* DETAIL / REVIEW / Q&A / RETURN & DELIVERY  */}
       <div className="product-detail-tab">
-        <DetailMenu activeTab={activeTab} setActiveTab={setActiveTab} />
+        <DetailMenu activeTab={activeTab} setActiveTab={setActiveTab} qnaCount={qnaCount} />
         <div>
-          {activeTab === 'detail' && <Detail selectedPid={pid} products={product} />}
+          {activeTab === 'detail' && <Detail selectedPid={pid} product={product} />}
           {activeTab === 'review' && <Review />}
-          {activeTab === 'qna' && <QnA />}
+          {activeTab === 'qna' && <QnA qnaList={qnaList} />}
           {activeTab === 'delivery' && <Delivery />}
         </div>
 
