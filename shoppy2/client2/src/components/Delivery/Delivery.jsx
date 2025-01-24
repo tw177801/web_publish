@@ -52,6 +52,7 @@ export default function Delivery() {
                         </tr>
                     ))}
                 </tbody>
+                
             </table>
         </div>
     );
