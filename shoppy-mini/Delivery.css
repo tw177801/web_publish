@@ -1,4 +1,4 @@
- /********************************************/
+/********************************************/
 /*delivery style*/
 
 .delivery-list-title {
@@ -49,9 +49,9 @@ tbody {
     padding-left: 43px;
     font-family: "ProximaNova-Regular", "Noto Sans KR";
     text-align: center;
-    color: #000;
+    color: #333;
     background-color: #fafafa;
-    font-size: 16px;
+    font-size: 15px;
     padding: 0;
 }
 
@@ -67,11 +67,32 @@ tbody {
   unicode-bidi: isolate;
 }
 
-.delivery-content table td ul li {
-    font-size: 12px;
-    color: #333;
-    line-height: 18px;
-    position: relative;
-    padding-left: 12px;
-    padding: 5px;
+.delivery-content table td ul li::before {
+    content: '';
+    display: block;
+    width: 3px;
+    height: 3px;
+    background-color: #171717;
+    position: absolute;
+    top: 12px;
+    left: 0;
 }
+
+.delivery-content table td ul li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 0.75rem;
+    color: #333;
+    line-height: 17px;
+    position: relative;
+    padding: 5px;
+    padding-inline: 15px;
+    right: 5px;
+  }
+    
+.special-item {
+    font-weight: bold;
+    font-family: "NotoSansKR-Medium";
+    color: #000;
+  }
