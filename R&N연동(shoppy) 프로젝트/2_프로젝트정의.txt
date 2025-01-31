@@ -8,3 +8,14 @@
     npm i react-router-dom  # 리액트 라우터 돔 패키지 설치 
     npm i axios             # axios 패키지 설치 
     npm i react-icons       # 리액트 제공 아이콘 패키지 설치 
+
+
+3. NodeJS 서버 생성: Server
+    shoppy>mkdir server 
+    
+    shoppy/server>npm init --yes               : 프로젝트 초기화 -Node모듈 설치
+    shoppy/server>npm i express --save         : 
+    shoppy/server>npm i mysql2
+    shoppy/server>npm i cors
+    shoppy/server>npm i nodemon --save-dev
+
