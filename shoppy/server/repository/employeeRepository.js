@@ -9,7 +9,7 @@ export const getEmployeeAll = async () => {
                             emp_name as name,
                             eng_name as emane,
                             gender,
-                            hire_date as hiredate,
+                            Lect(hire_date, 10) as hiredate,
                             salary,
                             concat(format(salary,0), '만원') as osalary
                     from employee
@@ -18,8 +18,8 @@ export const getEmployeeAll = async () => {
     
     // 2. db.js의 connection을 이용하여 실행한 후 결과 가져오기 
     const [employees, field] = await db.execute(sql)
-                                .then(result =>  result[0]) // [ rows: [], fields: [ ]]
-                                .catch(error => console.log(error));
+                                        .then(result =>  result[0]) // [ rows: [], fields: [ ]]
+                                        .catch(error => console.log(error));
     
     // 3. 호출한 곳에 결과 리턴 
     return employees;

@@ -9,16 +9,13 @@ import Products from './pages/Products.jsx';
 import Login from './pages/Login.jsx';
 import Signup from './pages/Signup.jsx';
 import DetailProduct from './pages/DetailProduct.jsx'; // {}없으면 함수 디폴트 생성
-import employees from './pages/Employees.jsx';// {}없으면 함수 디폴트 생성
+import Employees from './pages/Employees.jsx';// {}없으면 함수 디폴트 생성
 
 
 export default function App() {
 
-
   const [cartList, setCartList] = useState([]);   /** 장바구니 리스트: 배열 */
   const [cartCount, setCartCount] = useState(0);    /** 장바구니 상품 갯수 */
-
-
 
   const addCart = (cartItem) => {
     // console.log('cartItem.js---->', cartItem);

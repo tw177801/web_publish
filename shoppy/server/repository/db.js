@@ -6,7 +6,6 @@
 
 import mysql from 'mysql2';
 
-
 const pool = mysql.createPool({
 
     host: 'localhost',
@@ -16,6 +15,5 @@ const pool = mysql.createPool({
     database: 'hrdb2019'
 
 });
-
 
 export const db = pool.promise();
