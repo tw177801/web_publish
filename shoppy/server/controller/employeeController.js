@@ -1,8 +1,8 @@
 import * as repository from '../repository/employeeRepository.js';
 
 
-export const getEmployeeAll = (req, res) => {
-    const result = repository.getEmployeeAll();
-    res.send(`Hello Employee`);
+export const getEmployeeAll = async(req, res) => {
+    const result = await repository.getEmployeeAll();
+    res.json(result);
     res.end();
 }
