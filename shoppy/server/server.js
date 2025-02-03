@@ -1,53 +1,47 @@
-// const express = require('express');  // Node.js에서 모듈 import 가져오기
-// package.json 파일에 "type":"module", 형식으로 수정하면 import 형식 사용 가능
-
 import express from 'express';
+import mainRouter from './router/mainRouter.js';
 import helloRouter from './router/helloRouter.js';
-import productRouter from './router/productRouter.js';
+import employeeRouter from './router/employeeRouter.js';
 
-const server = express(); // 익스프레스 서버 생성
+// 서버 생성 및 포트 지정
+
+const server = express();
 const port = 9000;
 
-/** 익스프레스 서버의 요청/응답 처리하는 미들웨어 
- * 요청/응답 메소드: GET, POST, PUST, DELETE, USE
- * MVC 패턴 적용 -> 작업 분리시킴 
- * --> 역할에 맞춰 작업 분리 용도 
- * --> M(Model), V(View), C(Controller)
- * --> M(Repository), V(Router), C(Controller)
-*/
+/* 서버의 요청 처리를 위한 미들 웨어 정의 */
 
-// server.get('/hello', (req, res)=>{
-//     console.log('Hello~ NodeJS~!!!');
-//     res.send('<h1>welcome~</h1>');
-// });
+server.use('/', mainRouter);
+server.use('/hello', helloRouter); // hello/test
+server.use('/employee', employeeRouter); // hello/test
 
 
-server.use('/hello', helloRouter);  // hello 시작하는 주소는 모두 helloRouter로 매핑
-// server.get('/hello/', router);
-// server.get('/hello/:id', router);
 
-server.use('/product', productRouter);
-// server.get('/product/all', productRouter);
-// server.get('/product/:pname', productRouter);
+/** / => Hello~ NodeJS~ */
+//     server.use('/', (req, res)=> {s
+//         res.send(`Hello`);
+//         // res.send(`Hello2~NodeJS`); send() 함수는 1번만 전송 가능
+//         res.end();
+//     });
 
+// /** /hello => welcome to Hello~ */
+//     server.use('/hello', (req, res)=> {
 
-//test 
-// server.get('/test', (req, res)=>{
-//     console.log('Hello~!!!');
-//     res.send(
-//         '<h1>test.</h1>'
-//     );
-// });
+//         // 요청
 
-//test/hong
-// -> const id = 'park';
-// server.get('/test/:name', (req, res)=>{ 
-//     res.send(`hi~ ${req.params.name}`);
-// });
+//         // DB 연동
 
+//         // 결과 비교
 
-server.listen(port, ()=>{
-    console.log(`서버 대기중----> ${port}`);
-});  // 익스프레스 서버 대기상태: 포트 설정 및 메시지 출력 // 동일 서버 금지
+//         // 결과 생성
+
+//         res.send(`welcome to Hello~`);
+//         res.end();
+//     });
 
 
+
+server.listen(port, ()=> {
+
+    console.log(`server port ===>> ${port}`);
+    
+});

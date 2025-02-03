@@ -1,20 +1,16 @@
 import express from 'express';
-import * as controller from '../controller/helloController.js';
+// import {getHello, getHelloTest} from '../controller/helloConstroller/'
+import  * as controller from '../controller/helloConstroller.js';
 
 const router = express.Router();
 
+/** router 경로 추가 */
 
-// router.get('라우팅 경로', 연동하는 컨트롤러 이름);
-
-// router.get('/hello', getHello);
-// router.get('/hello/:id', getHelloParam);
-// router.get('/hello', controller.getHello);
-// router.get('/hello:id', controller.getHelloParam);
+router.get('/', controller.getHello); // /hello/hello 
+router.get('/test', controller.getHelloTest); // /hello/hello 
 
 
-// use 사용 하지 않기
-router
-    .get('/', controller.getHello)
-    .get('/:id', controller.getHelloParam);
 
-export default router;
+// router.get('/', 컨트롤러 함수명);
+
+export default router; 
