@@ -6,7 +6,7 @@ export default function Employees() {
     const [employees, setEmployees] = useState([]);
 
     useEffect(()=> {
-        axios.get("http://localhost:9000/employees/all")
+        axios.get("http://localhost:9000/employee/all")
              .then(result => setEmployees(result.data))
              .catch(error => console.log(error));
     }, []);
