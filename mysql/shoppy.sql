@@ -29,7 +29,12 @@ DESC SHOPPY_MEMBER;
 SELECT * FROM SHOPPY_MEMBER;
 
 -- 'test1' 중복체크 : 결과를 count 함수 반환 
-select id from shoppy_member where id = 'test1';
+select count(id) as result from shoppy_member where id = 'test1';
+
+
+
+
+
 
 
 
