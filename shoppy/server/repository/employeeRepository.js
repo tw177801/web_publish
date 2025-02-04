@@ -1,27 +1,25 @@
-import {db} from './db.js';
+import { db } from './db.js';
 
-export const getEmployeeAll = async () => {
-
-    // 1. sql 쿼리 작성 
+export const getEmployeeAll = async() => {
+    //1. sql 쿼리 작성
     const sql = `
-                    select  row_number() over(order by emp_id) as no,
+                    select 	row_number() over(order by emp_id) as no,
                             emp_id as id,
                             emp_name as name,
-                            eng_name as emane,
+                            eng_name as ename,
                             gender,
-                            Lect(hire_date, 10) as hiredate,
+                            left(hire_date,10) as hiredate,
                             salary,
-                            concat(format(salary,0), '만원') as osalary
+                            concat(format(salary,0), '원') as osalary
                     from employee
-                    where emp_id = ?
                 `;
-    
-    // 2. db.js의 connection을 이용하여 실행한 후 결과 가져오기 
-    const [employees, field] = await db.execute(sql)
-                                        .then(result =>  result[0]) // [ rows: [], fields: [ ]]
-                                        .catch(error => console.log(error));
-    
-    // 3. 호출한 곳에 결과 리턴 
-    return employees;
 
-};
+    //2. db.js의 connection을 이용하여 실행 한 후 결과 가져오기
+    const [employees, fields] = await db.execute(sql)
+                            .then(result => result)  // [ rows: [], fields:[] ]
+                            .catch(error => console.log(error));
+
+
+    //3. 호출한 곳에 결과 리턴
+    return employees;
+}
