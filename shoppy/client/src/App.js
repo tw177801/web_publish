@@ -9,7 +9,6 @@ import Products from './pages/Products.jsx';
 import Login from './pages/Login.jsx';
 import Signup from './pages/Signup.jsx';
 import DetailProduct from './pages/DetailProduct.jsx'; // {}없으면 함수 디폴트 생성
-import Employees from './pages/Employees.jsx';// {}없으면 함수 디폴트 생성
 
 
 export default function App() {
@@ -37,7 +36,6 @@ export default function App() {
                 <Route path='/Cart' element={<Cart cartList={cartList}/>} />
                 <Route path='/Login' element={<Login />} />
                 <Route path='/Signup' element={<Signup />} />
-                <Route path='/employees' element={<Employees />} />
                 <Route path='/products/:pid' element={<DetailProduct addCart={addCart} />} />
               </Route>
           </Routes>

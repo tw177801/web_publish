@@ -30,13 +30,6 @@ export default function Header({cartCount}) {
                         </button>
                         
                     </Link>
-                    <Link to='/Employees'>
-                    
-                        <button type='button'>
-                            Employees
-                        </button>
-                        
-                    </Link>
                 </nav>
 
             </div>
