@@ -13,3 +13,26 @@ show tables;
 select * from information_schema.tables
 		 where table_name like 'shoppy%';
          
+CREATE TABLE SHOPPY_MEMBER(
+	ID					VARCHAR(30) PRIMARY KEY,
+    PWD					VARCHAR(50) NOT NULL,	
+    NAME				VARCHAR(10) NOT NULL,
+    PHONE				CHAR(13)	NOT NULL,
+    EMAILNAME 			VARCHAR(20) NOT NULL,
+    EMAILDOMAIN 		VARCHAR(20) NOT NULL,
+    ZIPCODE 			CHAR(5),
+    ADDRESS 			VARCHAR(80),
+    MDATE				DATETIME
+);
+
+DESC SHOPPY_MEMBER;
+SELECT * FROM SHOPPY_MEMBER;
+
+-- 'test1' 중복체크 : 결과를 count 함수 반환 
+select id from shoppy_member where id = 'test1';
+
+
+
+
+
+

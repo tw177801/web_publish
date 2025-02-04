@@ -1,3 +1,6 @@
+import axios from 'axios';
+
+
 /*************************
     title : 로그인 폼 체크
 **************************/
@@ -68,17 +71,25 @@ export const handleDuplicateIdCheck = (idRef, pwdRef, idMsgRef, setIdCheckResult
         idRef.current.focus();
         return false;
     } else {
-        const did = "test";
-        if(idRef.current.value === did) {
-            alert("이미 사용중인 아이디 입니다. 새로운 아이디를 입력해주세요.");
-            idRef.current.focus();
-            return false;
-        } else {
-            alert("사용이 가능한 아이디 입니다.");
-            setIdCheckResult("complete");
-            pwdRef.current.focus();
-            return false;
-        }
+        // const did = "test";
+
+        axios
+             .post('http://localhost:9000/member/idcheck', {"id": idRef.current.value})
+             .then(res => {
+
+                        if(res.data.result === 1) {
+                            alert("이미 사용중인 아이디 입니다. 새로운 아이디를 입력해주세요.");
+                            idRef.current.focus();
+                            return false;
+                        } else {
+                            alert("사용이 가능한 아이디 입니다.");
+                            setIdCheckResult("complete");
+                            pwdRef.current.focus();
+                            return false;
+                        }
+                  })
+             .catch(error => console.log(error));
+
     }
 }
 
@@ -95,6 +106,7 @@ export const handlePasswordCheck = (pwdRef, cpwdRef, nameRef, pwdMsgRef, cpwdMsg
         cpwdRef.current.focus();
         return false;
     } else {
+
         if(pwdRef.current.value === cpwdRef.current.value) {
             alert("비밀번호가 동일합니다.");
             nameRef.current.focus();

@@ -44,11 +44,17 @@ export default function Signup() {
                 // axios.post('http://localhost:9000/member/signup', formData)
                 //      .then(res => console.log('res.data==>> ', res.data))
                 //      .catch(error => console.log(error));
+
                 axios.post('http://localhost:9000/member/signup', formData)
                      .then(res => {
                         if(res.data.result_rows === 1) {
                             alert("회원가입에 성공하셨습니다.");        
-                            // 로그인 페이지 이동 --> useNavigate
+                            // window.location.href = '/login';
+                            // 3초 후 로그인 페이지 이동 --> useNavigate
+
+                            setTimeout(()=>{
+                                navigate('/login');
+                            }, 3000);
 
                         } else {                            
                             alert("회원가입에 실패하셨습니다.");                            
