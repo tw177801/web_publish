@@ -1,21 +1,6 @@
-import React from 'react';
-
-export default function temp() {
-    return (
-        <div>
-
-
-
-        </div>
-
-
-
-    );
-}
-
 
 /*** 반응형 웹사이트 ***/ 
-// (구분 단위)
+(구분 단위)
 
 // 시리즈
 // 페이지 축소 시리즈 이동 버튼
