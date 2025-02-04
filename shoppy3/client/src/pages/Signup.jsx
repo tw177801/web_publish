@@ -1,11 +1,14 @@
 import React, { useState, useRef } from 'react';
+import {useNavigate} from 'react-router-dom';
+import axios from 'axios';
 import '../styles/signup.css';
 import { validateSignup, 
-            handleDuplicateIdCheck, 
-            handlePasswordCheck} from '../utils/funcValidate.js';
+         handleDuplicateIdCheck, 
+         handlePasswordCheck} from '../utils/funcValidate.js';
 import { initSignup, useInitSignupRefs } from '../utils/funcInitialize.js';
 
 export default function Signup() {   
+    const navigate = useNavigate();
     const {names, placeholders, labels, initFormData} = initSignup();
     const {refs, msgRefs} = useInitSignupRefs(names);
     const [formData, setFormData] = useState(initFormData);
@@ -39,8 +42,24 @@ export default function Signup() {
                 */
 
                 // axios.post('http://localhost:9000/member/signup', formData)
-                //      .then(res => console.log(res.data))
+                //      .then(res => console.log('res.data==>> ', res.data))
                 //      .catch(error => console.log(error));
+                axios.post('http://localhost:9000/member/signup', formData)
+                     .then(res => {
+                        if(res.data.result_rows === 1) {
+                            alert("회원가입에 성공하셨습니다.");        
+                            // 로그인 페이지 이동 --> useNavigate
+
+                        } else {                            
+                            alert("회원가입에 실패하셨습니다.");                            
+                        }
+                    })
+
+                    .catch(error => {                        
+                         alert("회원가입에 실패하셨습니다.");
+                         console.log(error)
+                     });
+                        
             }   
         } 
     }
