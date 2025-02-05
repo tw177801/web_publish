@@ -54,14 +54,11 @@ export default function Login() {
                         alert("로그인 실패");
                     }
                 })
-                
+
                 .catch(error => {
                     alert("로그인 실패");
                     console.log(error);
                 })
-
-
-
         }
     }
 

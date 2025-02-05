@@ -1,13 +1,14 @@
 // import logo from './logo.svg';
 // import './App.css';
+import './project.css';
 
-import series from "../src/Home/series.jsx";
+import Series from "./Home/Series.jsx";
 
 export default function App() {
   return (
     <div className="App">
 
-      <series />
+      <Series />
 
 
     </div>
