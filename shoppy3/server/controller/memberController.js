@@ -23,8 +23,21 @@ export const checkLogin = async (req, res) => {
 } 
 
 
-
 // 5KldLlOVja
+// export const checkLogin = async (req, res) => {
+//     let result = await repository.checkLogin(req.body); // result_rows=1
+//     // let token = '';
+//     if(result.result_rows === 1) {
+//         // jwt 토큰 생성 및 result 객체에 추가 및 전송: { result_rows: 1, token: ~~~        
+//         const token = jwt.sign({"userId": req.body.id}, '5KldLlOVja');
+//         result = {...result, "token": token};
+//     }
+//     res.json(result);
+//     res.end();
+// } 
+
+
+
 
 
 
@@ -53,12 +66,9 @@ export const getIdCheck = async(req, res) => {
 
 
 /**
- * 
  * js 결과값
  * -> 오브젝트 리터럴 json으로 받는다
- * 
  * 회원가입: registerMember()
- * 
  * DB 방식: 비동기
  */
 
@@ -70,7 +80,6 @@ export const registerMember = async (req, res) => {
 }
 
 // result = null -> await, async 사용 안 하면
-
 // export async function registerMember() {}
 
 

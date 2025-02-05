@@ -7,9 +7,5 @@ router
     .post('/signup', controller.registerMember)
     .post('/idcheck', controller.getIdCheck)
     .post('/login', controller.checkLogin);
-
-
-
-
     
 export default router; 
