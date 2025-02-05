@@ -3,6 +3,7 @@ import '../styles/login.css';
 import { FaUser } from "react-icons/fa";
 import { FaLock } from "react-icons/fa";
 import { validateLogin } from '../utils/funcValidate.js';
+import axios from 'axios';
 
 export default function Login() {
     const refs = {
@@ -25,8 +26,24 @@ export default function Login() {
     const handleLoginSubmit = (event) => {
         event.preventDefault();        
         if(validateLogin(refs, msgRefs)) {
-            console.log('send data -->> ', formData);        
-            //리액트 ---> 노드서버(express) 데이터 전송
+            console.log('send data -->> ', formData);
+            
+            // 브라우저의 로컬스토리지 영역에 id, password 저장
+            // localStorage.setItem("userId", formData.id);
+            // localStorage.setItem("userPassword", formData.pwd);
+
+            // console.log(localStorage.getItem("userId"));
+            // localStorage.removeItem("userId");
+            // localStorage.clear();
+
+            //리액트 ---> 노드서버(express) 데이터 전송 로그인 
+            axios
+                .post('http://localhost:9000/member/login', formData)
+                .then(res => console.log('res.data-->', res.data))
+                .catch(error => console.log(error));
+
+
+
         }
     }
 

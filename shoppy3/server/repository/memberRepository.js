@@ -1,5 +1,19 @@
 import {db} from './db.js';
 
+/**
+ * 로그인 - select 
+ */
+export const checkLogin = async({id, pwd}) => {  //{id:'test', pwd:'1234'}
+    const sql = `
+        select count(*) as result_rows from shoppy_member
+	           where id = ? and pwd = ?
+    `;
+
+    const [result] = await db.execute(sql, [id, pwd]); // [[], []]
+    // [{result_rows : 1}]
+    return result[0];
+}
+
 
 /**
  * 아이디 중복 체크 - select 
@@ -43,14 +57,14 @@ export const registerMember = async(formData) => {
                     `;
 
         const values = [
-            formData.id,
-            formData.pwd,
-            formData.name,
-            formData.phone,
-            formData.emailname,
-            formData.emaildomain,
-            null,
-            null
+                formData.id,
+                formData.pwd,
+                formData.name,
+                formData.phone,
+                formData.emailname,
+                formData.emaildomain,
+                null,
+                null
         ];
 
     // 2. db 객체 이용하여 SQL 실행 후 결과 가져오기 
