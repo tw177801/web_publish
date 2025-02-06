@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import memberRouter from './router/memberRouter.js';
+import uploadRouter from './router/uploadRouter.js';
 
 // 서버 생성 및 포트 정의
 const server = express();
@@ -10,11 +11,12 @@ const port = 9000;
 server.use(express.json());
 server.use(express.urlencoded());
 server.use(cors());  
+// 업로드 파일 호출 경로 추가 - 이미지 호출 
 
 
 /** 서버의 요청처리를 위한 미들웨어 정의 */
 server.use('/member', memberRouter);
-
+server.use('/uploads', uploadRouter);
 
 
 server.listen(port, ()=>{
