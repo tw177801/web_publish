@@ -4,7 +4,7 @@ import ImageUpload from '../components/ImageUpload.jsx';
 
 export default function NewProduct() {
 
-    const [fname, setFnames] = useState();
+    const [fname, setFnames] = useState({});
 
     const getFileName = (fileNames) => {
         console.log('fileNames--> ', fileNames);        
