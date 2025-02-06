@@ -7,7 +7,9 @@ const storage = multer.diskStorage({
     },
     filename: function (req, file, cb) {
         // cb(null, file.fieldname + '-' + Date.now())
-        cb(null, file.originalname);
+        const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
+
+        cb(null, uniqueSuffix + "-" + file.originalname);
     }
   })
   
@@ -21,7 +23,12 @@ export const fileUpload = (req, res) => {
         if(err) {
             console.log(err);
         } else {
-            res.json({test: "파일 업로드 성공"});
+            res.json({
+                "uploadFileName": res.req.file.path,
+                "sourceFileName": req.file.originalname
+            });
+            // 저장된 폴더의 파일명
+            // 사용자가 선택한 원래 파일명
         }
     });
     // res.end();
