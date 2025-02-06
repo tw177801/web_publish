@@ -1,5 +1,53 @@
+@import "tailwindcss";
+/**
+  Global
+*/
+:root {
+    /* color list */
+    --color-primary: rgb(220, 220, 220);
+    --color-black: #000000;
+    --color-white: #ffffff;
+    --color-gray: #f7f7f7;
+    --color-bg: #f0ece1;
+    --color-detail-bg: #f6f6f6;
+    --color-name: #333333;
+    --color-pink: #fecad6;
+    --color-green: #21a664;
+    --color-blue: #2c5dab;
+    --color-red: #f15b41;
+    --color-yellow: #f6e163;
+}
 
-.content-container ul {
+/**
+      Commons
+    */
+* {
+    box-sizing: border-box;
+    font-family: "Open Sans";
+}
+
+.header,
+.footer,
+.content,
+body,
+div,
+nav,
+ul,
+li,
+p {
+    margin: 0;
+    padding: 0;
+}
+
+.header,
+.footer,
+.content {
+    width: 100%;
+    margin: auto;
+}
+
+
+/* .content-container ul {
     display: flex;
     gap: 16px;
     overflow: hidden;
@@ -8,7 +56,13 @@
     scroll-behavior: smooth;
     justify-content: space-between;
     
+} */
+
+* {
+    box-sizing: border-box;
 }
+
+
 
 .content-title {
     font-family: var(--heading-font-family, "PP Pangram Sans");
@@ -18,11 +72,71 @@
     margin-bottom: 8px;
 }
 
-.content-container ul li {
-    list-style-type: none;
+
+
+.content-container {
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: left;
+    padding: 10px;
+    gap: 16px;
+    flex: 0 0 39%;
+  
 }
 
 
-.content-seires {
-    border: 1px solid red;
+.item-contaner {
+    /* border: 1px solid red; */
+    border-radius: 30px;
+    height: 300px;
+    width: 200px;
+}
+
+.item-banner {
+    /* padding: 10px;
+    height: 50px; */
+    /* padding: 8px 8px 16px; */
+    /* min-height: 20px; */
+    /* height: 100%; */
+    /* cursor: pointer; */
+}
+
+
+
+
+
+.content-container div:nth-last-child(6) {
+    background-color: #21a664;
+}
+
+.content-container div:nth-last-child(5) {
+    background-color: #2c5dab;
+}
+
+.content-container div:nth-last-child(4) {
+    background-color: #f15b41;
+}
+
+.content-container div:nth-last-child(3) {
+    background-color: #f6e163;
+}
+.content-container div:nth-last-child(2) {
+    background-color: #fecad6;
+}
+
+
+
+.item-series1 p {
+    border: 1px solid red ;
+    /* font-family: var(--heading-font-family, "PP Pangram Sans");
+    font-size: 12px;
+    line-height: 1.2;
+    font-weight: 800;
+    word-break: break-word; */
+}
+
+
+
+.navbar-title {
+    background-color: #fecad6;
 }
