@@ -48,15 +48,10 @@ export const checkLogin = async (req, res) => {
 
 export const getIdCheck = async(req, res) => {
     // console.log('id--->> ', req.body);
+    // jwt 토큰 생성 및 result 객체에 추가 및 전송: { result_rows: 1, token: ~~~        
 
-    let token = '';
-    
-    const {result_rows} = await repository.getIdCheck(req.body); // result = {result_rows:1}
-    if(result_rows === 1) {
-        // jwt 토큰 생성 및 result 객체에 추가 및 전송: { result_rows: 1, token: ~~~        
-        token = jwt.sign({"userId": req.body.id}, '5pGkYR090r');
-    }
-    res.json({"result_rows": result_rows, "token": token});
+    const result = await repository.getIdCheck(req.body);
+    res.json(result);
     res.end();
 }
 
