@@ -5,10 +5,12 @@ import ImageUpload from '../components/ImageUpload.jsx';
 export default function NewProduct() {
 
     const [fname, setFnames] = useState({});
+    const [preview, setPreview] = useState('');
 
     const getFileName = (fileNames) => {
         console.log('fileNames--> ', fileNames);        
         setFnames(fileNames);
+        setPreview(`localhost:9000/${fileNames.uploadFileName}`);
     }
 
     return (
@@ -32,6 +34,11 @@ export default function NewProduct() {
                     <li>
                         <label>파일업로드</label>
                         <ImageUpload getFileName={getFileName}/>
+                        { preview && 
+                            <img src={preview} 
+                                 alt="preview image" 
+                                 style={{width:'100px', height:'100px'}}         
+                        />}
                     </li>
                     <li>
                         <input type="text" name="upload" value={fname.uploadFileName} />

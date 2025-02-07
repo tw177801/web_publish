@@ -13,7 +13,9 @@ export default function ImageUpload({getFileName}) {
         formData.append("oldFile", oldFile);  // 이전 파일 a.png
 
         axios
-            .post('http://localhost:9000/uploads', formData)
+            .post('http://localhost:9000/uploads', formData, {
+                headers: {"Content-Type": "multipart/form-data"},  // 파일과 문자 등 데이터 추가시 
+            })
             .then(res => {
                 getFileName(res.data);
                 setOldFile(res.data.oldFile);
