@@ -1,5 +1,27 @@
 import { db } from './db.js';
 
+/**
+ * 전체 상품 리스트 조회 
+ */
+export const getList = async() => {
+    const sql = `
+        select pid,
+               pname as name,
+               price,
+               concat('http://localhost:9000/', upload_file) as image,
+               description as info,
+               source_file,
+               pdate        
+        from shoppy_product
+    `;
+
+    const [result] = await db.execute(sql);
+    console.log('result--> ', result);
+    
+    return result;  // [{}, {}, {}]
+}
+
+//  concat('http://localhost:9000/', upload_file) as image, 
 
 /**
  * 상품 등록 
