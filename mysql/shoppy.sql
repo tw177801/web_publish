@@ -45,10 +45,26 @@ SELECT * FROM INFORMATION_SCHEMA.TABLES
 
 -- SHOPPY_PRODUCT
 CREATE TABLE SHOPPY_PRODUCT(
-	PID
-
+	PID		INT		PRIMARY KEY AUTO_INCREMENT,
+    PNAME 	VARCHAR(50)		NOT NULL, 
+    PRICE 	INT,
+    DESCRIPTION 	VARCHAR(200),
+    UPLOAD_FILE		VARCHAR(100),
+    SOURCE_FILE		VARCHAR(100),
+	PDATE			DATETIME
 );
 
+DESC SHOPPY_PRODUCT;
+SELECT * FROM SHOPPY_PRODUCT;
+
+select pid,
+	   pname as name,
+	   price,
+	   description as info,
+	   concat('http://localhost:9000', upload_file) as image, 
+	   source_file,
+	   pdate        
+			from shoppy_product;
 
 
 
