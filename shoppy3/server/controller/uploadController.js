@@ -23,9 +23,12 @@ export const fileUpload = (req, res) => {
         if(err) {
             console.log(err);
         } else {
+            console.log(req.file);
+            
             res.json({
                 "uploadFileName": res.req.file.path,
-                "sourceFileName": req.file.originalname
+                "sourceFileName": req.file.originalname,
+                "oldFile": res.req.file.filename
             });
             // 저장된 폴더의 파일명
             // 사용자가 선택한 원래 파일명

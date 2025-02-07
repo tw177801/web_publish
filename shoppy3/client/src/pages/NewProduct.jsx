@@ -12,7 +12,7 @@ export default function NewProduct() {
     }
 
     return (
-        <div>
+        <div className='content'>
             <h1>상품 등록</h1>
             <form>
                 <ul>
