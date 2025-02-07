@@ -39,8 +39,15 @@ select database();
 select count(*) as result_rows from shoppy_member
 	where id = 'test1' and pwd = '1234';
 
+USE HRDB2019;
+SELECT * FROM INFORMATION_SCHEMA.TABLES
+	WHERE TABLE_NAME LIKE 'shoppy%';
 
+-- SHOPPY_PRODUCT
+CREATE TABLE SHOPPY_PRODUCT(
+	PID
 
+);
 
 
 
