@@ -1,25 +1,18 @@
-// import logo from './logo.svg';
-// import './App.css';
-import './project.css';
-import { BrowserRouter, Routes, Route} from 'react-router-dom';
-
-import Series from "./Components/Home/Series.jsx";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "../src/Components/Header/Home.jsx";
+import Product from "../src/Components/Pages/Product.jsx";
 
 
 
 export default function App() {
   return (
-    <div className="App">
+    <Router>
+  
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/product/:id" element={<Product />} />
+      </Routes>
 
-      <BrowserRouter>
-            <Routes>
-                
-              <Route path='/' element={<Series/>} />
-
-            </Routes>            
-        </BrowserRouter>
-
-    </div>
+    </Router>
   );
 }
-
