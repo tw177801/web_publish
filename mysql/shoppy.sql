@@ -40,6 +40,7 @@ select count(*) as result_rows from shoppy_member
 	where id = 'test1' and pwd = '1234';
 
 USE HRDB2019;
+drop table shoppy_product;
 SELECT * FROM INFORMATION_SCHEMA.TABLES
 	WHERE TABLE_NAME LIKE 'shoppy%';
 
@@ -49,8 +50,8 @@ CREATE TABLE SHOPPY_PRODUCT(
     PNAME 	VARCHAR(50)		NOT NULL, 
     PRICE 	INT,
     DESCRIPTION 	VARCHAR(200),
-    UPLOAD_FILE		VARCHAR(100),
-    SOURCE_FILE		VARCHAR(100),
+    UPLOAD_FILE		json,
+    SOURCE_FILE		json,
 	PDATE			DATETIME
 );
 
@@ -59,8 +60,9 @@ SELECT * FROM SHOPPY_PRODUCT;
 
 SET SQL_SAFE_UPDATES = 0;
 delete from shoppy_product;
-
+commit;
 select * from shoppy_product;
+select source_file from shoppy_product;
 
 select pid,
 	   pname as name,
@@ -71,6 +73,14 @@ select pid,
 	   pdate        
 			from shoppy_product;
 
+select pid,
+	   pname as name,
+	   price,
+	   concat('http://localhost:9000/', upload_file--> '$[0]') as image,
+	   description as info,
+	   source_file,
+	   pdate        
+from shoppy_product;
 
 
 

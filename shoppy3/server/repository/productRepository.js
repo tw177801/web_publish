@@ -8,7 +8,7 @@ export const getList = async() => {
         select pid,
                pname as name,
                price,
-               concat('http://localhost:9000/', upload_file) as image,
+               concat('http://localhost:9000/', upload_file->>'$[0]') as image,
                description as info,
                source_file,
                pdate        

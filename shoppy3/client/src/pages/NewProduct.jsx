@@ -15,7 +15,7 @@ export default function NewProduct() {
     const getFileName = (fileNames) => {
         setFnames(fileNames);
         // setPreview(`http://localhost:9000/${fileNames.uploadFileName}`);
-        console.log('NewProduct fileNames===>>', fileNames);
+        // console.log('NewProduct fileNames===>>', fileNames);
         
     }
 
@@ -37,11 +37,11 @@ export default function NewProduct() {
         } else {
             // 서버 전송
             formData = {...formData, 
-                                "uploadFile": fname.uploadFileName,
-                                "sourceFile": fname.sourceFileName
+                            "uploadFile": fname.uploadFileName,
+                            "sourceFile": fname.sourceFileName
                        };
 
-            // console.log('formData -->', formData);
+            console.log('formData -->', formData);
 
             axios   
                 .post('http://localhost:9000/product/new', formData)
@@ -58,9 +58,8 @@ export default function NewProduct() {
                     alert("상품 등록 실패!!");
                     console.log(error);                    
                 });
+        
         }
-
-
     }
 
     return (
@@ -94,6 +93,13 @@ export default function NewProduct() {
                     <li>
                         <label>파일업로드(다중)</label>
                         <ImageUploadMultiple getFileName={getFileName}/>
+                        {/** 다중파일 preview*/}
+                        { preview && 
+                            <img src={preview} 
+                                 alt="preview image" 
+                                 style={{width:'100px', height:'100px'}}         
+                        />}
+
                     </li>
 
                     {/* <li>

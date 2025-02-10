@@ -14,8 +14,6 @@ export const getList = async(req, res) => {
 /**
  * 상품 등록
  */
-
-
 export const registerProduct = async (req, res) => {
     console.log('req.body--> ', req.body);
     const result = await repository.registerProduct(req.body); // 레파지토리 함수

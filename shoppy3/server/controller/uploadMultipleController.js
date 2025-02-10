@@ -30,27 +30,38 @@ const storage = multer.diskStorage({
             console.log(err); // 삭제 하지 않기  
         } else {
 
-            console.log('업로드 파일 리스트 --> ', req.files);
+            // console.log('업로드 파일 리스트 --> ', req.files);
+            // console.log('업로드 삭제 파일(oldFile)-->', req.body.oldFile);
+            
+            // const deleteFiles = req.body.oldFile;
+            // console.log(deleteFiles.length);
+            // const oldFileArray = deleteFiles.split(",");
+            const oldFileArray = req.body.oldFile.split(",");
+            console.log(oldFileArray);
             
 
             // console.log('file-->',req.file); // 전달된 파일 --> multer 이용한 파일 업로드
             // console.log('oldFile-->',req.body.oldFile); // 전달된 문자 
 
+          
+            /** 이전 파일 존재시 삭제 로직 */
             // const oldFile = req.body.oldFile;
-            
-            // if(oldFile) {
-            //     // oldFile 존재 시 업로드 폴더에서 삭제 
-            //     const oldFilePath = path.join("upload_files/", oldFile);
-            //     // fs -> 파일 시스템 file system
-            //     if(fs.existsSync(oldFilePath)) {
-            //         try {
-            //             fs.unlinkSync(oldFilePath);
-            //             console.log("이전 파일 삭제 완료:", oldFilePath);                        
-            //         } catch (error) {
-            //             console.error("이전 파일 삭제 실패:", error);                        
-            //         }
-            //     }
-            // }
+
+            for(const oldFile of oldFileArray) {
+                if(oldFile) {
+                    // oldFile 존재 시 업로드 폴더에서 삭제 
+                    const oldFilePath = path.join("upload_files/", oldFile);
+                    // fs -> 파일 시스템 file system
+                    if(fs.existsSync(oldFilePath)) {
+                        try {
+                            fs.unlinkSync(oldFilePath);
+                            console.log("이전 파일 삭제 완료:", oldFilePath);                        
+                        } catch (error) {
+                            console.error("이전 파일 삭제 실패:", error);                        
+                        }
+                    }
+                }
+            }
             
 
             // res 객체를 이용한 전송 객체 생성 -> uploadController의 res 객체명과 동일하게 정의!!
