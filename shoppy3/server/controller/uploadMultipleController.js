@@ -22,7 +22,8 @@ const storage = multer.diskStorage({
  
  
  export const fileUploadMultiple = (req, res) => {
-    const upload = multer({ storage: storage }).array("files", 5);
+    const maxFiles = parseInt(req.query.maxFiles);
+    const upload = multer({ storage: storage }).array("files", maxFiles);
 
     upload(req, res, (err)=>{
         if(err) {
