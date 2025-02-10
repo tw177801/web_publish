@@ -21,7 +21,7 @@ export default function ImageUploadMultiple() {
 
             // 서버전송 
             axios  
-                .post("http://localhost:9000/upload/multiple", formData)
+                .post("http://localhost:9000/uploads/multiple", formData)
                 .then(res => console.log(res.data))
                 .catch(error => console.log(error));
 
@@ -31,16 +31,13 @@ export default function ImageUploadMultiple() {
     }
     
 
-
     return (
         <div>
-            
             <Form.Control 
                         type="file"
                         onChange={(e)=>{handleFileUploadMultiple(e)}}
                         multiple 
             />
-
         </div>
     );
 }

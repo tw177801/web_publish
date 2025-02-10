@@ -93,7 +93,7 @@ export default function NewProduct() {
                         <label>파일업로드(다중) - 최대파일 업로드는 5개까지 가능 </label>
                         <ImageUploadMultiple/>
                     </li>
-                    
+
                     {/* <li>
                         <label>파일업로드</label>
                         <ImageUpload getFileName={getFileName}/>
@@ -103,6 +103,7 @@ export default function NewProduct() {
                                  style={{width:'100px', height:'100px'}}         
                         />}
                     </li> */}
+                    
                     <li>
                         <input type="text" name="upload" value={fname.uploadFileName} />
                         <input type="text" name="source" value={fname.sourceFileName} />

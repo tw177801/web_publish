@@ -51,10 +51,23 @@ const storage = multer.diskStorage({
             //     }
             // }
             
+
+            // res 객체를 이용한 전송 객체 생성 -> uploadController의 res 객체명과 동일하게 정의!!
+            let uploadFileName = [];
+            let sourceFileName = [];
+            let oldFile = [];
+
+            // req.files 배열의 파일 정보를 가져와서 위의 배열에 추가한다. 
+            for(const file of req.files) {
+                uploadFileName.push(file.path);
+                sourceFileName.push(file.originalname);
+                oldFile.push(file.filename);
+            }
+
             res.json({
-                "uploadFileName": res.req.file.path,
-                "sourceFileName": req.file.originalname,
-                "oldFile": res.req.file.filename
+                "uploadFileName": uploadFileName,
+                "sourceFileName": sourceFileName,
+                "oldFile": oldFile
             });
 
             // 저장된 폴더의 파일명
