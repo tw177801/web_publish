@@ -9,6 +9,7 @@ export default function Series() {
         <>
             <div className=''>
                 {/* media series item */}
+                
                 <div className='flex space-x-4 mx-7'>
 
                     <div className='bg-[#1a8550] h-full min-h-[100px] rounded-[16px] cursor-pointer pt-[8px] pr-[8px] pb-[16px]'>
@@ -45,17 +46,20 @@ export default function Series() {
 
                 {/* media button series item */}
                 <div className=''>
+
                     <div>
 
                     </div>
 
                     <div>
-                        
+
                     </div>
+
                 </div> 
 
             </div>
 
+            {/* All title */}
 
             <Title />
 
