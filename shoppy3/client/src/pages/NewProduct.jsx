@@ -20,8 +20,6 @@ export default function NewProduct() {
         // console.log('NewProduct fileNames===>>', fileNames);     
     }
 
-
-
     // 폼 입력시 값을 formData로 추가하는 이벤트 처리
     const handleChange = (e) => {
         const {name, value} = e.target;

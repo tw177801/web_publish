@@ -12,8 +12,7 @@ export default function ImageUploadMultiple({getFileName}) {
         const files = e.target.files;
 
         console.log(files.length);
-        
-        
+                
         // if(files.length < 6) {
 
             // formData에 append - file 개별로 append 되어야 함
