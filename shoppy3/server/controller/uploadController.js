@@ -26,9 +26,7 @@ export const fileUpload = (req, res) => {
             console.log(err); // 삭제 하지 않기  
         } else {
 
-            // console.log('업로드 파일 리스트 -->', req.files);
-            
-
+            // console.log('업로드 파일 리스트 -->', req.files);            
             // console.log('file-->',req.file); // 전달된 파일 --> multer 이용한 파일 업로드
             // console.log('oldFile-->',req.body.oldFile); // 전달된 문자 
 

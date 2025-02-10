@@ -41,10 +41,10 @@ export const registerProduct = async (formData) => {
 
     const values = [
         formData.productName,
-        formData.price,
-        formData.description,
-        formData.uploadFile,
-        formData.sourceFile
+        formData.price || 0,
+        formData.description || "",
+        formData.uploadFile || null,
+        formData.sourceFile || null
     ];
 
     const [result] = await db.execute(sql, values);

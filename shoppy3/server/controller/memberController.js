@@ -1,8 +1,6 @@
 import * as repository from '../repository/memberRepository.js';
 import jwt from 'jsonwebtoken';
 
-
-
 /**
  * 로그인: checkLogin
  */
@@ -36,9 +34,6 @@ export const checkLogin = async (req, res) => {
 //     res.json(result);
 //     res.end();
 // } 
-
-
-
 
 
 
