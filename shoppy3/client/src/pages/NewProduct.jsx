@@ -8,13 +8,15 @@ export default function NewProduct() {
 
     const navigate = useNavigate();
     const productNameRef = useRef(null);
-    const [fname, setFnames] = useState({});
+    const [fname, setFnames] = useState({});    // { [], [] }
     const [preview, setPreview] = useState('');
     let [formData, setFormData] = useState({});
 
     const getFileName = (fileNames) => {
         setFnames(fileNames);
-        setPreview(`http://localhost:9000/${fileNames.uploadFileName}`);
+        // setPreview(`http://localhost:9000/${fileNames.uploadFileName}`);
+        console.log('NewProduct fileNames===>>', fileNames);
+        
     }
 
     // 폼 입력시 값을 formData로 추가하는 이벤트 처리
@@ -90,8 +92,8 @@ export default function NewProduct() {
                     </li>
 
                     <li>
-                        <label>파일업로드(다중) - 최대파일 업로드는 5개까지 가능 </label>
-                        <ImageUploadMultiple/>
+                        <label>파일업로드(다중)</label>
+                        <ImageUploadMultiple getFileName={getFileName}/>
                     </li>
 
                     {/* <li>
@@ -103,7 +105,7 @@ export default function NewProduct() {
                                  style={{width:'100px', height:'100px'}}         
                         />}
                     </li> */}
-                    
+
                     <li>
                         <input type="text" name="upload" value={fname.uploadFileName} />
                         <input type="text" name="source" value={fname.sourceFileName} />
