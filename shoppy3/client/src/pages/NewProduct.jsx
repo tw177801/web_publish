@@ -2,7 +2,7 @@ import React, {useState, useRef} from 'react';
 import axios from 'axios';
 import {useNavigate} from 'react-router-dom';
 // import ImageUpload from '../components/ImageUpload.jsx';
-import ImageUpload from '../components/ImageUpload.jsx';
+import ImageUploadMultiple from '../components/ImageUploadMultiple.jsx';
 
 export default function NewProduct() {
 
@@ -90,6 +90,11 @@ export default function NewProduct() {
                     </li>
 
                     <li>
+                        <label>파일업로드(다중) - 최대파일 업로드는 5개까지 가능 </label>
+                        <ImageUploadMultiple/>
+                    </li>
+                    
+                    {/* <li>
                         <label>파일업로드</label>
                         <ImageUpload getFileName={getFileName}/>
                         { preview && 
@@ -97,7 +102,7 @@ export default function NewProduct() {
                                  alt="preview image" 
                                  style={{width:'100px', height:'100px'}}         
                         />}
-                    </li>
+                    </li> */}
                     <li>
                         <input type="text" name="upload" value={fname.uploadFileName} />
                         <input type="text" name="source" value={fname.sourceFileName} />

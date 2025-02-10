@@ -1,10 +1,10 @@
 import React, { useState, useRef } from 'react';
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../styles/signup.css';
 import { validateSignup, 
-         handleDuplicateIdCheck, 
-         handlePasswordCheck} from '../utils/funcValidate.js';
+            handleDuplicateIdCheck, 
+            handlePasswordCheck} from '../utils/funcValidate.js';
 import { initSignup, useInitSignupRefs } from '../utils/funcInitialize.js';
 
 export default function Signup() {   
@@ -28,49 +28,32 @@ export default function Signup() {
                 alert("중복 확인을 진행해 주세요");
                 return false;
             } else {
-                console.log('submit ---->> ', formData);          
-                // 회원가입 성공 후 ==> setIdCheckResult("default"); 
-
-                // 서버 --> DB 테이블에 insert      
-                // GET: URL 통해 호출 및 데이터 전달 => 패킷의 Header => req.params, 보안 필요 x, 작은 데이터 
-                // POST: URL 주소로 경로 호출, 데이터 전달 => 패킷의 Body => req.body, 보안 필요 o, 큰 데이터
-                
-                /*
-                axios.post('경로', 전송할 객체{ })
-                     .then()
-                     .catch(error => console.log(error));
-                */
-
-                // axios.post('http://localhost:9000/member/signup', formData)
-                //      .then(res => console.log('res.data==>> ', res.data))
-                //      .catch(error => console.log(error));
-
+                console.log('submit ---->> ', formData); 
+                //서버 --> DB 테이블에 insert
+                //GET : URL 통해 호출 및 데이터 전달 => 패킷의 Header => req.params, 보안필요X, 작은데이터
+                //POST : URL 주소로 경로 호출, 데이터 전달 => 패킷의 Body => req.body, 보안필요O, 큰데이터
                 axios.post('http://localhost:9000/member/signup', formData)
-                     .then(res => {
-                        if(res.data.result_rows === 1) {
-                            alert("회원가입에 성공하셨습니다.");        
-                            // window.location.href = '/login';
-                            // 3초 후 로그인 페이지 이동 --> useNavigate
+                        .then(res => {
+                            if(res.data.result_rows === 1){
+                                alert("회원가입에 성공하셨습니다.");
+                                // window.location.href = '/login';
 
-                            setTimeout(()=>{
-                                navigate('/login');
-                            }, 3000);
+                                //1초후에 로그인 페이지 이동 --> useNavigate
+                                setTimeout(()=>{
+                                    navigate('/login');
+                                }, 1000);
+                            } else {
+                                alert("회원가입에 실패하셨습니다.");
+                            }
+                        })
+                        .catch(error => {
+                            alert("회원가입에 실패하셨습니다.");
+                            console.log(error);
+                        });            
 
-                        } else {                            
-                            alert("회원가입에 실패하셨습니다.");                            
-                        }
-                    })
-
-                    .catch(error => {                        
-                         alert("회원가입에 실패하셨습니다.");
-                         console.log(error)
-                     });
-                        
             }   
         } 
     }
-
-
 
     return (
         <div className="content">
@@ -148,5 +131,4 @@ export default function Signup() {
         </div>
     );
 }
-
 

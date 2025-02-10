@@ -57,6 +57,11 @@ CREATE TABLE SHOPPY_PRODUCT(
 DESC SHOPPY_PRODUCT;
 SELECT * FROM SHOPPY_PRODUCT;
 
+SET SQL_SAFE_UPDATES = 0;
+delete from shoppy_product;
+
+select * from shoppy_product;
+
 select pid,
 	   pname as name,
 	   price,
