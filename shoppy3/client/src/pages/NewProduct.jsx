@@ -11,13 +11,16 @@ export default function NewProduct() {
     const [fname, setFnames] = useState({});    // { [], [] }
     const [preview, setPreview] = useState('');
     let [formData, setFormData] = useState({});
+    const [previewList, setPreviewList] = useState([]);
 
     const getFileName = (fileNames) => {
         setFnames(fileNames);
+        setPreviewList(fileNames.uploadFileName);
         // setPreview(`http://localhost:9000/${fileNames.uploadFileName}`);
-        // console.log('NewProduct fileNames===>>', fileNames);
-        
+        // console.log('NewProduct fileNames===>>', fileNames);     
     }
+
+
 
     // 폼 입력시 값을 formData로 추가하는 이벤트 처리
     const handleChange = (e) => {
@@ -91,14 +94,18 @@ export default function NewProduct() {
                     </li>
 
                     <li>
+
                         <label>파일업로드(다중)</label>
                         <ImageUploadMultiple getFileName={getFileName}/>
                         {/** 다중파일 preview*/}
-                        { preview && 
-                            <img src={preview} 
-                                 alt="preview image" 
-                                 style={{width:'100px', height:'100px'}}         
-                        />}
+
+                        {
+                            previewList && previewList.map((preview) =>
+                                <img src={`http://localhost:9000/${preview}`} 
+                                     alt="preview image" 
+                                     style={{width:'100px', height:'100px', margin: '5px'}} />
+                            )
+                        }
 
                     </li>
 

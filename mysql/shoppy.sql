@@ -31,7 +31,6 @@ SELECT * FROM SHOPPY_MEMBER;
 -- 'test1' 중복체크 : 결과를 count 함수 반환 
 select count(id) as result from shoppy_member where id = 'test1';
 
-
 use hrdb2019;
 select database();
 
@@ -76,7 +75,7 @@ select pid,
 select pid,
 	   pname as name,
 	   price,
-	   concat('http://localhost:9000/', upload_file--> '$[0]') as image,
+	   concat('http://localhost:9000/', upload_file->>'$[0]') as image,
 	   description as info,
 	   source_file,
 	   pdate        
