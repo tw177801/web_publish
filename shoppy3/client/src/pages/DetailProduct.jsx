@@ -11,6 +11,7 @@ export default function DetailProduct({ addCart }) {
   const { pid } = useParams();
   const [product, setProduct] = useState({});
   const [imgList, setImgList] = useState([]);
+  const [detailImgList, setDetailImgList] = useState([]);
   const [size, setSize] = useState("XS");
   const [tabName, setTabName] = useState('detail');
   const tabLabels = ['DETAIL', 'REVIEW', 'Q&A', 'RETURN & DELIVERY'];
@@ -22,9 +23,11 @@ export default function DetailProduct({ addCart }) {
       .then((res) => {
               console.log('res.data-->>', res.data)
               setProduct(res.data)
+              setImgList(res.data.imgList);
+              setDetailImgList(res.data.detailImgList);
+
               // uploadFile 배열의 3개 이미지를 출력 형태로 생성하여 배열에 저장 
               // const imgList = res.data.uploadFile.filter((image, i)=> (i<3) && image);
-              setImgList(res.data.imgList);
             })
       .catch((error) => console.log(error));
   }, []);
@@ -37,6 +40,7 @@ export default function DetailProduct({ addCart }) {
     //장바구니 추가 항목 : { pid, size, count, price }
     // alert(`${pid} --> 장바구니 추가 완료!`);
     // console.log(product.pid, product.price, size, 1);
+        
         const cartItem = {
           pid: product.pid,
           size: size,
@@ -142,9 +146,10 @@ export default function DetailProduct({ addCart }) {
         </ul> */}
 
         <div className="tabs_contents">
-          { tabName === "detail" && <Detail imgList={imgList} /> }
+          { tabName === "detail" && <Detail imgList={detailImgList} /> }
           { tabName === "review" && <Review /> }
         </div>
+
       </div>
     </div>
   );

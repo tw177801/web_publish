@@ -93,6 +93,15 @@ select pid,
 			concat('http://localhost:9000/', upload_file->>'$[0]'),
 			concat('http://localhost:9000/', upload_file->>'$[1]'),
             concat('http://localhost:9000/', upload_file->>'$[2]')
-       ) as imgList
-	from shoppy_product
-    where pid = 4;
+       ) as imgList,
+       json_arrayagg(
+			concat('http://localhost:9000/', jt.filename)
+       ) as detailImgList
+	from shoppy_product, 
+		json_table(shoppy_product.upload_file, '$[*]' 
+					columns( filename varchar(100) path '$' )) as jt
+    where pid = 4
+    group by pid;
+    
+
+    
