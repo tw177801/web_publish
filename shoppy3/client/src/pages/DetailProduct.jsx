@@ -23,8 +23,8 @@ export default function DetailProduct({ addCart }) {
               console.log('res.data-->>', res.data)
               setProduct(res.data)
               // uploadFile 배열의 3개 이미지를 출력 형태로 생성하여 배열에 저장 
-              const imgList = res.data.uploadFile.filter((image, i)=> (i<3) && image);
-              setImgList(imgList);
+              // const imgList = res.data.uploadFile.filter((image, i)=> (i<3) && image);
+              setImgList(res.data.imgList);
             })
       .catch((error) => console.log(error));
   }, []);

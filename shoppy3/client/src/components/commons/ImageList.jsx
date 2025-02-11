@@ -9,7 +9,7 @@ export default function ImageList({imgList, className}) {
         <ul className={className}>
             {   name !== 'review' ?
                         imgList && imgList.map( image => 
-                                <li><img src={`http://localhost:9000/${image}`} alt="" className={name=== 'detail'? 'detail-images-list img' : ''} /></li>
+                                <li><img src={image} alt="" className={name=== 'detail'? 'detail-images-list img' : ''} /></li>
                             )
                     :  imgList && imgList.map((image, i) =>                             
                             <li className="review-top-img-metadata">
@@ -24,3 +24,5 @@ export default function ImageList({imgList, className}) {
         </ul>
     );
 }
+
+// json_array(0, 1, 2 번지의 이미지를 가져와서 배열 객체로 생성하는 함수) as imgList

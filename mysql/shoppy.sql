@@ -88,7 +88,11 @@ select pid,
        upload_file as uploadFile,
        source_file as sourceFile,
        pdate,
-       concat('http://localhost:9000/', upload_file->>'$[0]') as image
+       concat('http://localhost:9000/', upload_file->>'$[0]') as image,
+       json_array(
+			concat('http://localhost:9000/', upload_file->>'$[0]'),
+			concat('http://localhost:9000/', upload_file->>'$[1]'),
+            concat('http://localhost:9000/', upload_file->>'$[2]')
+       ) as imgList
 	from shoppy_product
     where pid = 4;
-
