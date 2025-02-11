@@ -81,5 +81,14 @@ select pid,
 	   pdate        
 from shoppy_product;
 
-
+select pid,
+	   pname,
+       price,
+       description,
+       upload_file as uploadFile,
+       source_file as sourceFile,
+       pdate,
+       concat('http://localhost:9000/', upload_file->>'$[0]') as image
+	from shoppy_product
+    where pid = 4;
 

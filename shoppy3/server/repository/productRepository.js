@@ -1,6 +1,34 @@
 import { db } from './db.js';
 
 /**
+ * 상품 상세 정보 조회
+ */
+
+export const getProduct = async(pid) => {
+    console.log('pid-->', pid);
+    
+    const sql = `
+        select pid,
+               pname as name,
+               price,
+               description as info,
+               upload_file as uploadFile,
+               source_file as sourceFile,
+               pdate,
+               concat('http://localhost:9000/', upload_file->>'$[0]') as image
+        from shoppy_product
+        where pid = ?
+    `;
+
+    const [result] = await db.execute(sql, [pid]);    // result =  [ [{pid:4,~~}], [컬럼명 fields] ]
+    console.log('result --> ', result[0]);
+    
+    return result[0];
+
+}
+
+
+/**
  * 전체 상품 리스트 조회 
  */
 export const getList = async() => {

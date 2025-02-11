@@ -18,30 +18,32 @@ export default function DetailProduct({ addCart }) {
 
   useEffect(() => {
     axios
-      .get("/data/products.json") // http://localhost:3000/data/products.json
+      .post("http://localhost:9000/product/detail", {"pid": pid})
       .then((res) => {
-        res.data.filter((product) => {
-          if (product.pid === pid) {
-            setProduct(product);
-            setImgList(product.imgList);
-          }
-        });
-      })
+              console.log('res.data-->>', res.data)
+              setProduct(res.data)
+              // uploadFile 배열의 3개 이미지를 출력 형태로 생성하여 배열에 저장 
+              const imgList = res.data.uploadFile.filter((image, i)=> (i<3) && image);
+              setImgList(imgList);
+            })
       .catch((error) => console.log(error));
   }, []);
+
+  console.log('imgList--> ', imgList);
+  
 
   //장바구니 추가 버튼 이벤트
   const addCartItem = () => {
     //장바구니 추가 항목 : { pid, size, count, price }
     // alert(`${pid} --> 장바구니 추가 완료!`);
     // console.log(product.pid, product.price, size, 1);
-    const cartItem = {
-      pid: product.pid,
-      size: size,
-      qty: 1,
-      price: product.price,
-    };
-    addCart(cartItem); // App.js의 addCart 함수 호출
+        const cartItem = {
+          pid: product.pid,
+          size: size,
+          qty: 1,
+          price: product.price,
+        };
+        addCart(cartItem); // App.js의 addCart 함수 호출
   };
 
   //Tabs event
@@ -138,6 +140,7 @@ export default function DetailProduct({ addCart }) {
             <button type="button" onClick={(e)=> setTabName("return")}>RETURN & DELIVERY</button>
           </li>
         </ul> */}
+
         <div className="tabs_contents">
           { tabName === "detail" && <Detail imgList={imgList} /> }
           { tabName === "review" && <Review /> }

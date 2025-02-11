@@ -1,6 +1,17 @@
 import * as repository from '../repository/productRepository.js';
 
 /**
+ * 상품 상세 정보 조회
+ */
+export const getProduct = async (req, res) => {
+    // console.log('req.body--> ', req.body);
+    const result = await repository.getProduct(req.body.pid); // {"pid": pid}
+    res.json(result);
+    res.end();
+}
+
+
+/**
  * 전체 상품 리스트 조회 
  */
 
@@ -9,6 +20,7 @@ export const getList = async(req, res) => {
     res.json(result);
     res.end();
 }
+
 
 
 /**
