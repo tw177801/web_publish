@@ -25,4 +25,3 @@ export default function ImageList({imgList, className}) {
     );
 }
 
-// json_array(0, 1, 2 번지의 이미지를 가져와서 배열 객체로 생성하는 함수) as imgList
