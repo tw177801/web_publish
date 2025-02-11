@@ -51,6 +51,7 @@ export const getIdCheck = async(req, res) => {
 }
 
 
+
 /**
  * js 결과값
  * -> 오브젝트 리터럴 json으로 받는다
