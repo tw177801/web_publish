@@ -8,8 +8,6 @@ export const getCartItems = async({pids}) => {
     const strArray = [];
     pids.forEach(pid => strArray.push("?"));
     
-
-
     const sql = `       
         select 
                 pid,
