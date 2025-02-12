@@ -19,7 +19,7 @@ export default function Carts() {
             //cartItems에 res.data의 정보 추가
             const updateCartItems = cartItems.map((item, i)=> 
 
-                        parseInt(item.pid) === parseInt(res.data[i].pid)
+                        item.pid === res.data[i].pid
                         ?   {
                                 ...item, 
                                 "pname":res.data[i].pname,

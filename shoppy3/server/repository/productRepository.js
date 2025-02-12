@@ -20,7 +20,7 @@ export const getCartItems = async({pids}) => {
             where pid in (${strArray.join(",")})
     `;
     
-    const [result] = await db.execute(sql, pids);        
+    const [result] = await db.execute(sql, [pids]);        
     return result;
 
 }
