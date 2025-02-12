@@ -1,5 +1,23 @@
 import { db } from './db.js';
 
+
+
+export const getCartItems = async(pid) => {
+    console.log('pid-->', pid);
+    
+    const sql = `
+        
+    `;
+
+    const [result] = await db.execute(sql, [pid]);    
+    console.log('result --> ', result[0]);
+    
+    return result[0];
+
+}
+
+
+
 /**
  * 상품 상세 정보 조회
  */
