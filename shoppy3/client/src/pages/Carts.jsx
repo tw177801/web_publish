@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
 import axios from 'axios';
 
 export default function Carts() {
 
     // localStorage에 담긴 cartItems의 배열 객체 출력 
-    const cartItems = JSON.parse(localStorage.getItem("cartItems"));
+    const [cartItems, setCartItems] = useState(JSON.parse(localStorage.getItem("cartItems")));
     // console.log('cartItems --->> ', cartItems[0].pid);
     // pids 배열 생성 cartItems의 pid 값을 pids 배열에 추가 
 
@@ -14,10 +14,33 @@ export default function Carts() {
     // axios를 이용하여 DB 연동
     axios   
         .post("http://localhost:9000/product/cartItems", {"pids": pids})
-        .then(res =>
+        .then(res =>{
             console.log(res.data)
-        )
+            //cartItems에 res.data의 정보 추가
+            const updateCartItems = cartItems.map((item, i)=> 
+
+                        parseInt(item.pid) === parseInt(res.data[i].pid)
+                        ?   {
+                                ...item, 
+                                "pname":res.data[i].pname,
+                                "price":res.data[i].price,
+                                "description":res.data[i].description,
+                                "image":res.data[i].image
+                            }  
+                        :   item 
+
+            );
+
+            setCartItems(updateCartItems);
+            // [{pid, size, qty, pname, price, ...item}]
+        })
         .catch(error => console.log(error));
+
+
+    console.log('cartItems-->> ', cartItems);
+    
+
+
 
     return (
         <div className="content">

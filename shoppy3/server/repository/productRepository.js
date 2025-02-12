@@ -2,17 +2,26 @@ import { db } from './db.js';
 
 
 
-export const getCartItems = async(pid) => {
-    console.log('pid-->', pid);
+export const getCartItems = async({pids}) => {
+    // console.log('pid-->', pids);
     
-    const sql = `
-        
-    `;
+    const strArray = [];
+    pids.forEach(pid => strArray.push("?"));
+    
 
-    const [result] = await db.execute(sql, [pid]);    
-    console.log('result --> ', result[0]);
+
+    const sql = `       
+        select 
+                pid,
+                price,
+                description,
+                concat('http://localhost:9000/',upload_file->>'$[0]') as image
+            from shoppy_product
+            where pid in (${strArray.join(",")})
+    `;
     
-    return result[0];
+    const [result] = await db.execute(sql, pids);        
+    return result;
 
 }
 

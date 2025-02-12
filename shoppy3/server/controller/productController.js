@@ -6,7 +6,7 @@ import * as repository from '../repository/productRepository.js';
 
 export const getCartItems = async (req, res) => {
     console.log('pids--> ', req.body);
-    const [result] = await repository.getCartItems(req.body.pid); 
+    const result = await repository.getCartItems(req.body.pid); 
     res.json(result);
     res.end();
 }
