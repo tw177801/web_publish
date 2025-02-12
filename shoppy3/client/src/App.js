@@ -15,6 +15,7 @@ export default function App() {
   const [cartList, setCartList] = useState([]);   /** 장바구니 아이템 저장 : 배열 */
   const [cartCount, setCartCount] = useState(0);  /** 장바구니 상품 갯수 */
 
+  /** 장바구니 추가 **/
   const addCart = (cartItem) => {
     setCartList([...cartList, cartItem]);
     setCartCount(cartCount + 1);
