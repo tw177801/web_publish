@@ -20,13 +20,13 @@ export default function Carts() {
                     //cartItems에 res.data의 정보 추가
                     const updateCartItems = cartItems.map((item, i)=> 
                                 item.pid === res.data[i].pid
-                                &&  {
-                                        ...item, 
-                                        "pname":res.data[i].pname,
-                                        "price":res.data[i].price,
-                                        "description":res.data[i].description,
-                                        "image":res.data[i].image
-                                    }  
+                                    &&  {
+                                            ...item, 
+                                            "pname":res.data[i].pname,
+                                            "price":res.data[i].price,
+                                            "description":res.data[i].description,
+                                            "image":res.data[i].image
+                                        }  
                     );
                     setCartItems(updateCartItems);
                     // [{pid, size, qty, pname, price, ...item}]
@@ -59,7 +59,7 @@ export default function Carts() {
                             <td>{item.qty}</td>
                             <td>{item.description}</td>
                             <td>
-                                <img src="{item.image}" alt="" style={{width:"100px"}} />
+                                <img src={item.image} alt="error" style={{width:"100px"}} />
                             </td>
                         </tr>
                     )

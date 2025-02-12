@@ -1,7 +1,5 @@
 import { db } from './db.js';
 
-
-
 export const getCartItems = async({pids}) => {
     // console.log('pid-->', pids);
     
@@ -11,6 +9,7 @@ export const getCartItems = async({pids}) => {
     const sql = `       
         select 
                 pid,
+                pname,
                 price,
                 description,
                 concat('http://localhost:9000/',upload_file->>'$[0]') as image
@@ -18,7 +17,7 @@ export const getCartItems = async({pids}) => {
             where pid in (${strArray.join(",")})
     `;
     
-    const [result] = await db.execute(sql, [pids]);        
+    const [result] = await db.execute(sql, pids);        
     return result;
 
 }
