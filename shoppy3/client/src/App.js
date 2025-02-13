@@ -13,6 +13,25 @@ import { AuthProvider } from './auth/AuthContext.js';
 
 export default function App() {
 
+
+/**
+ * - 브라우저 업데이트 충돌 발생
+localstorage 새로 고침 -> 데이터 삭제 
+-> 데이터 삭제되면 안 된다
+
+
+- useState()로 관리되는 데이터가 저장 안 되거나 로직 문제 발생 
+
+
+CONSTRAINT 제약명  FOREIGN KEY(카트에서 정한 컬럼명)
+		    REFERENCE (참조하는 테이블과 컬럼명)
+ */
+
+
+
+
+
+
   /** 장바구니 아이템 저장 : 배열 */
 
   const [cartList, setCartList] = useState(()=> {

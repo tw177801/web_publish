@@ -33,17 +33,19 @@ export default function Carts() {
                 .then(res =>{
                     // console.log(res.data)
                     //cartItems에 res.data의 정보 추가
-                    const updateCartItems = cartList.map((item, i)=> 
-                                item.pid === res.data[i].pid
-                                    &&  {
-                                            ...item, 
-                                            "pname":res.data[i].pname,
-                                            "price":res.data[i].price,
-                                            "description":res.data[i].description,
-                                            "image":res.data[i].image
-                                        }  
-                    );
-                    setCartList(updateCartItems);
+                    const updateCartItems = cartList.map((item, i)=> {
+                        const filterItem = res.data.find((ritem)=> ritem.pid === item.pid)
+                        return filterItem ?
+                            {
+                                ...item, 
+                                "pname": filterItem.pname,
+                                "price": filterItem.price,
+                                "description": filterItem.description,
+                                "image": filterItem.image
+                            }
+                            :item
+                    });
+                        setCartList(updateCartItems);
                     // [{pid, size, qty, pname, price, ...item}]
                 })
                 .catch(error => console.log(error));
@@ -51,10 +53,19 @@ export default function Carts() {
     }, []);
 
     
+    /**주문하기 이벤트 처리 */
+    const handeleOrder = () => {
+
+        // 1. 로그인 여부 체크 
+        // 2. lodgin --> DB 연동 후 저장
+        // 3. 로그 아웃 --> 로그인 > db 연동 후 저장 
+    }
 
     return (
         <div className="content">
             <h1>MyCart!!</h1>
+            <button onClick={handeleOrder}>Oreder</button>
+
             <table border="1">
                 <tr>
                     <th>Pid</th>
@@ -79,6 +90,8 @@ export default function Carts() {
                     )
                 }
             </table>
+
+
         </div>
     );
 }
