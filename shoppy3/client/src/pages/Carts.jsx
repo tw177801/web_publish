@@ -4,12 +4,27 @@ import axios from 'axios';
 export default function Carts() {
 
     // localStorage에 담긴 cartItems의 배열 객체 출력 
-    const [cartItems, setCartItems] = useState(JSON.parse(localStorage.getItem("cartItems")) || []);
+    // const [cartItems, setCartItems] = useState(JSON.parse(localStorage.getItem("cartItems")) || []);
     // console.log('cartItems --->> ', cartItems[0].pid);
-    // pids 배열 생성 cartItems의 pid 값을 pids 배열에 추가 
-
-    const pids = cartItems && cartItems.map(item => item.pid);  // []
+    // const [pids, setPids] = useState([]);
     
+    
+    /** 장바구니 아이템 저장 : 배열 */
+    const [cartList, setCartList] = useState(()=> {
+        try {
+            const initCartList = localStorage.getItem("cartItems");
+            return initCartList ? JSON.parse(initCartList) : [];
+        } catch (error) {
+            console.log('로컬스토리지 데이터 작업도중 에러 발생');
+            console.log(error);      
+        }
+    });   
+    
+    
+    // pids 배열 생성 cartItems의 pid 값을 pids 배열에 추가 
+    const pids = cartList && cartList.map(item => item.pid);  // []
+
+
     useEffect(()=>{
         if(pids.length > 0) {
             // axios를 이용하여 DB 연동
@@ -18,7 +33,7 @@ export default function Carts() {
                 .then(res =>{
                     // console.log(res.data)
                     //cartItems에 res.data의 정보 추가
-                    const updateCartItems = cartItems.map((item, i)=> 
+                    const updateCartItems = cartList.map((item, i)=> 
                                 item.pid === res.data[i].pid
                                     &&  {
                                             ...item, 
@@ -28,14 +43,13 @@ export default function Carts() {
                                             "image":res.data[i].image
                                         }  
                     );
-                    setCartItems(updateCartItems);
+                    setCartList(updateCartItems);
                     // [{pid, size, qty, pname, price, ...item}]
                 })
                 .catch(error => console.log(error));
         }
     }, []);
 
-    console.log('cartItems-->> ', cartItems);
     
 
     return (
@@ -51,7 +65,7 @@ export default function Carts() {
                     <th>Image</th>
                 </tr>
                 {
-                    cartItems && cartItems.map((item) => 
+                    cartList && cartList.map((item) => 
                         <tr>
                             <td>{item.pid}</td>
                             <td>{item.pname}</td>
