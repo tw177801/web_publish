@@ -5,8 +5,9 @@ import {db} from './db.js';
  */
 
 export const addCart = async({id, cartList}) => {
-    
+    let result_rows = 0;
     cartList.map(async(item)=> {
+
         // try {
             const values= [item.size, item.qty, id, item.pid];
             // console.log('values--> ', values);
@@ -15,13 +16,16 @@ export const addCart = async({id, cartList}) => {
                     values(?, ?, ?, ?, now())
             `;
             const [result] = await db.execute(sql, values);
-            console.log(result.affectedRows);
+            // console.log(result.affectedRows);
+
+            result_rows = result.affectedRows;
+            console.log('result ==>', result_rows);
             
         // } catch (error) {
-
         // }
+
     });
 
-    return '';
+    return {"result_rows":result_rows};
 }
 

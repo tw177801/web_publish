@@ -74,7 +74,8 @@ export default function Carts() {
             axios
                 .post("http://localhost:9000/cart/add", formData)
                 .then(res => 
-                    console.log(res.data)
+                    // console.log(res.data)
+                    res.data.result_rows && alert("장바구니에 추가되었습니다.")
                 )
                 .catch(error => console.log(error));
 
