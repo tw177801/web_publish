@@ -73,10 +73,14 @@ export default function Carts() {
 
             axios
                 .post("http://localhost:9000/cart/add", formData)
-                .then(res => 
+                .then(res => {
                     // console.log(res.data)
-                    res.data.result_rows && alert("장바구니에 추가되었습니다.")
-                )
+                    if(res.data.result_rows) {
+                        alert("장바구니에 추가되었습니다.")
+                        localStorage.removeItem("cartItems");
+                    }
+
+                })
                 .catch(error => console.log(error));
 
         } else {
@@ -100,6 +104,7 @@ export default function Carts() {
                     <th>Qty</th>
                     <th>Description</th>
                     <th>Image</th>
+                    <th> </th>
                 </tr>
                 {
                     cartList && cartList.map((item) => 
@@ -112,6 +117,7 @@ export default function Carts() {
                             <td>
                                 <img src={item.image} alt="error" style={{width:"100px"}} />
                             </td>
+                            <td><button>계속담아두기</button></td>
                         </tr>
                     )
                 }
