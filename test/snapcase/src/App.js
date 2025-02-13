@@ -1,7 +1,12 @@
 import './index.css';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from '../src/Components/Header/Home.jsx';
-
+import Title from '../src/Components/Header/Title.jsx';
+import AllProduct from '../src/Components/Pages/AllProduct.jsx';
+import IphoneAll from '../src/Components/Pages/IphoneAll.jsx';
+import IphoneType from '../src/Components/Pages/IphoneType.jsx';
+import Model from '../src/Components/Pages/Model.jsx';
+import ModelAll from './Components/Pages/ModelAll.jsx';
 
 
 
@@ -14,7 +19,12 @@ export default function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home/>}/>
-          {/* <Route path="/products" element={<BookmarkPage/>}/> */}
+          <Route path="/title" element={<Title/>}/>
+          <Route path="/allproduct" element={<AllProduct/>}/>
+          <Route path="/iphoneall" element={<IphoneAll/>}/>
+          <Route path="/iphonetype" element={<IphoneType/>}/>
+          <Route path="/model" element={<Model/>}/>
+          <Route path="/modelall" element={<ModelAll/>}/>
         </Routes>
       </BrowserRouter>
 

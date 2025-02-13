@@ -15,7 +15,7 @@ export default function Title() {
                                 <Link to='/model'><span className='text-[#000]'>기종</span></Link>
                             </li>
                             <li>
-                                <Link to='/allmodel'><span className='text-[#000]'>모든 상품</span></Link>
+                                <Link to='/modelall'><span className='text-[#000]'>모든 상품</span></Link>
                             </li>
                             <li>
                                 <Link to='/iphoneall'><span className='text-[#000]'>아이폰</span></Link>
