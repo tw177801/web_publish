@@ -1,7 +1,13 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import axios from 'axios';
+import { AuthContext } from '../auth/AuthContext.js';
+import { useNavigate } from 'react-router-dom';
 
 export default function Carts() {
+
+    const navigate = useNavigate();
+    const { isLoggedIn, setIsLoggedIn }  = useContext(AuthContext);
+
 
     // localStorage에 담긴 cartItems의 배열 객체 출력 
     // const [cartItems, setCartItems] = useState(JSON.parse(localStorage.getItem("cartItems")) || []);
@@ -55,10 +61,29 @@ export default function Carts() {
     
     /**주문하기 이벤트 처리 */
     const handeleOrder = () => {
-
         // 1. 로그인 여부 체크 
-        // 2. lodgin --> DB 연동 후 저장
-        // 3. 로그 아웃 --> 로그인 > db 연동 후 저장 
+        
+        if(isLoggedIn) {
+            // 2. lodgin --> DB 연동 후 저장
+            // console.log('isLoggedIn --> ', isLoggedIn);
+            // {"id": "test1", "cartList": [~~~]}
+
+            const id = localStorage.getItem("user_id");
+            const formData = {"id": id, "cartList": cartList};
+
+            axios
+                .post("http://localhost:9000/cart/add", formData)
+                .then(res => 
+                    console.log(res.data)
+                )
+                .catch(error => console.log(error));
+
+        } else {
+            // 3. logout --> 로그인 > db 연동 후 저장 
+            // alert("로그인이 필요한 서비스입니다.");
+            // const select = window.confirm("로그인이 필요한 서비스입니다.")
+            window.confirm("로그인이 필요한 서비스입니다.") && navigate('/login');
+        }
     }
 
     return (

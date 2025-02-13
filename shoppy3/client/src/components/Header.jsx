@@ -7,8 +7,6 @@ export default function Header({cartCount}) {
 
     const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
     const navigate = useNavigate();
-
-    // console.log('isLoggedIn--> ', isLoggedIn);
     
     const handleLoginToggle = () => {
         if(isLoggedIn) {    // Logout 버튼 클릭!!! 
@@ -16,11 +14,12 @@ export default function Header({cartCount}) {
             // alert("로그아웃 되었습니다.")
             if(select) {
                 localStorage.removeItem("token");
+                localStorage.removeItem("user_id");
                 setIsLoggedIn(false);
                 navigate('/');
             }
         } else {
-            navigate('/login');
+                navigate('/login');
         }
     }
 
