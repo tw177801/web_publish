@@ -28,10 +28,6 @@ export default function App() {
  */
 
 
-
-
-
-
   /** 장바구니 아이템 저장 : 배열 */
 
   const [cartList, setCartList] = useState(()=> {
@@ -44,6 +40,17 @@ export default function App() {
     }
   });   
   
+  
+  /** 로컬 스토리지 재호출 --> cartList, cartCount 업데이트 */
+  const refreshStorage = (updateCart, updateCount) => {
+      setCartList(updateCart);
+      setCartCount(updateCount);
+  }
+
+
+
+
+
   
   // localstorage 별도의 기능 -> 콜백 함수 사용 
   /** 장바구니 상품 갯수 */
@@ -115,7 +122,7 @@ export default function App() {
                 <Route path='/' element={<Layout cartCount={cartCount}/>} >
                     <Route index element={<Home />} />
                     <Route path='/all' element={<Products />} />
-                    <Route path='/cart' element={<Carts />} />
+                    <Route path='/cart' element={<Carts refreshStorage = {refreshStorage}/>} />
                     <Route path='/login' element={<Login />} />
                     <Route path='/signup' element={<Signup />} />
                     <Route path='/products/:pid' element={<DetailProduct  addCart={addCart} />} />                  

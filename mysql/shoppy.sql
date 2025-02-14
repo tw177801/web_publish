@@ -134,7 +134,7 @@ SELECT * FROM SHOPPY_CART;
 DROP TABLE SHOPPY_CART;
 -- 
 
-
+truncate table shoppy_cart;
 
 
 
