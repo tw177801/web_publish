@@ -9,23 +9,10 @@ import Login from './pages/Login.jsx';
 import Signup from './pages/Signup.jsx';
 import DetailProduct from './pages/DetailProduct.jsx';
 import NewProduct from './pages/NewProduct.jsx';
+import CartsDB from './pages/CartsDB.jsx';
 import { AuthProvider } from './auth/AuthContext.js';
 
 export default function App() {
-
-
-/**
- * - 브라우저 업데이트 충돌 발생
-      localstorage 새로 고침 -> 데이터 삭제 
-      -> 데이터 삭제되면 안 된다
-
-
-      - useState()로 관리되는 데이터가 저장 안 되거나 로직 문제 발생 
-
-
-      CONSTRAINT 제약명  FOREIGN KEY(카트에서 정한 컬럼명)
-              REFERENCE (참조하는 테이블과 컬럼명)
- */
 
 
   /** 장바구니 아이템 저장 : 배열 */
@@ -40,7 +27,7 @@ export default function App() {
     }
   });   
   
-  
+
   /** 로컬 스토리지 재호출 --> cartList, cartCount 업데이트 */
   const refreshStorage = (updateCart, updateCount) => {
       setCartList(updateCart);
@@ -127,6 +114,7 @@ export default function App() {
                     <Route path='/signup' element={<Signup />} />
                     <Route path='/products/:pid' element={<DetailProduct  addCart={addCart} />} />                  
                     <Route path='/products/new' element={<NewProduct />} />                  
+                    <Route path='/cartdb' element={<CartsDB />} />                  
                 </Route>
             </Routes>            
         </BrowserRouter>

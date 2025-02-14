@@ -137,6 +137,36 @@ DROP TABLE SHOPPY_CART;
 truncate table shoppy_cart;
 
 
+-- 
+select * from shoppy_cart;
+
+insert into shoppy_cart(size, qty, cdate, id, pid)
+	values('XS', 2, now(), 'test2', 10);
+
+select * from shoppy_product where pid=3;
+
+-- shoppy_cart, shoppy_member, shoppy_product 조인 
+
+SELECT * FROM SHOPPY_MEMBER; 
+
+SELECT SC.CID,
+	   SC.SIZE,
+       SC.QTY,
+       SM.ZIPCODE,
+       SM.ADDRESS,
+       SP.PID,
+       SP.PNAME,
+       SP.PRICE,
+       SP.DESCRIPTION as info,
+       CONCAT('http://localhost:9000/', SP.UPLOAD_FILE->>'$[0]') as image
+	FROM SHOPPY_CART SC, 
+		 SHOPPY_MEMBER SM,
+         SHOPPY_PRODUCT SP
+	WHERE SC.ID = SM.ID AND SC.PID = SP.PID;
+
+
+
+
 
 
 

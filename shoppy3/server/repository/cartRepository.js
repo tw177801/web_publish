@@ -1,5 +1,43 @@
 import {db} from './db.js';
 
+
+
+/**
+ * 장바구니 전체 조회 
+ */
+
+export const getItems = async({id}) => {
+    const sql = `
+            SELECT SC.CID,
+            SC.SIZE,
+            SC.QTY,
+            SM.ID,
+            SM.ZIPCODE,
+            SM.ADDRESS,
+            SP.PID,
+            SP.PNAME,
+            SP.PRICE,
+            SP.DESCRIPTION as info,
+            CONCAT('http://localhost:9000/', SP.UPLOAD_FILE->>'$[0]') as image
+                FROM SHOPPY_CART SC, 
+                    SHOPPY_MEMBER SM,
+                    SHOPPY_PRODUCT SP
+                WHERE SC.ID = SM.ID 
+                        AND SC.PID = SP.PID
+                        AND SM.ID = ?
+    `;
+    const [result] = await db.execute(sql, [id]);
+    return result;
+}
+
+
+
+
+
+
+
+
+
 /**
  * 장바구니 추가 
  */

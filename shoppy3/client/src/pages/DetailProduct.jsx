@@ -67,9 +67,7 @@ export default function DetailProduct({ addCart }) {
 
         <ul className="product-detail-info-top">
           <li className="product-detail-title">{product.name}</li>
-          <li className="product-detail-title">{`${parseInt(
-            product.price
-          ).toLocaleString()}원`}</li>
+          <li className="product-detail-title">{`${parseInt(product.price).toLocaleString()}원`}</li>
           <li className="product-detail-subtitle">{product.info}</li>
           <li className="product-detail-subtitle-star">
             <StarRating totalRate={4.2} className="star-coral"/> <span>572개 리뷰 &nbsp;&nbsp; {">"}</span>

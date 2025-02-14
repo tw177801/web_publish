@@ -14,7 +14,7 @@ export default function ProductList() {
         // axios   
         //     .get('http://localhost:9000/product/all')
         //     .then( res => console.log(res.data))
-        //     .catch((error)=> console.log(error));
+        //     .catch((error) => console.log(error));
 
         axios   
             .get('http://localhost:9000/product/all')
