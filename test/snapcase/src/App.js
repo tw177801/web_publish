@@ -7,6 +7,7 @@ import IphoneAll from '../src/Components/Pages/IphoneAll.jsx';
 import IphoneType from '../src/Components/Pages/IphoneType.jsx';
 import Model from '../src/Components/Pages/Model.jsx';
 import ModelAll from './Components/Pages/ModelAll.jsx';
+import ProductList from './Components/Header/ProductList.jsx';
 
 
 
@@ -25,6 +26,7 @@ export default function App() {
           <Route path="/iphonetype" element={<IphoneType/>}/>
           <Route path="/model" element={<Model/>}/>
           <Route path="/modelall" element={<ModelAll/>}/>
+          <Route path="/productList" element={<ProductList/>}/>
         </Routes>
       </BrowserRouter>
 
