@@ -28,18 +28,24 @@ export default function Title() {
                 <div className=''>
                     <nav>
                         <ul className='flex space-x-4 mx-7'>
+
                             <li>
-                                <Link to='/allproduct'><span className='text-[#000]'>전 상품</span></Link>
+                                <Link to='/allproduct'>
+                                    <span className='text-[#000] cursor-pointer hover:text-[gray] text-[12px] md:text-[16px]'>전 상품</span></Link>
                             </li>
+                            
                             <li>
-                                <Link to='/model'><span className='text-[#000]'>기종</span></Link>
+                                <Link to='/model'><span className='text-[#000] cursor-pointer hover:text-[gray] text-[12px] md:text-[16px]'>기종</span></Link>
                             </li>
+                            
                             <li>
-                                <Link to='/modelall'><span className='text-[#000]'>모든 상품</span></Link>
+                                <Link to='/modelall'><span className='text-[#000] cursor-pointer hover:text-[gray] text-[12px] md:text-[16px]'>모든 상품</span></Link>
                             </li>
+                            
                             <li>
-                                <Link to='/iphoneall'><span className='text-[#000]'>아이폰</span></Link>
-                            </li>         
+                                <Link to='/iphoneall'><span className='text-[#000] cursor-pointer hover:text-[gray] text-[12px] md:text-[16px]'>아이폰</span></Link>
+                            </li>    
+
                             <li>
                                 <div className="flex gap-2 mb-4">
                                     {productTitle.map((category) => (

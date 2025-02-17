@@ -181,7 +181,7 @@ select * from shoppy_cart
 	where id='test1' and pid=4 and size='M';
 
 select * from shoppy_cart
-	where cid='1';
+	where id='test1';
 
 
 

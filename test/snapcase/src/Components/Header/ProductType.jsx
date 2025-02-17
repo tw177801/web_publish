@@ -11,7 +11,7 @@ export default function ProductType() {
     const [layoutType, setLayoutType] = useState(4);
     const [selectedCategory, setSelectedCategory] = useState(null);
     const [icons, setIcons] = useState([]);
-    const [selectedLayout, setSelectedLayout] = useState(4); // 선택된 레이아웃 상태 추가
+    const [selectedLayout, setSelectedLayout] = useState(4); 
 
     useEffect(() => {
         axios.get('/data/products.json')
