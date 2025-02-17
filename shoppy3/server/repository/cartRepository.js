@@ -2,6 +2,20 @@ import {db} from './db.js';
 
 
 /**
+ * 장바구니 상품 수량 업데이트
+ */
+export const updateQty = async({cid}) => {
+    const sql = `
+        update shoppy_cart
+            set qty=qty+1
+            where cid = ?
+    `;
+    const [result] = await db.execute(sql, [cid]);
+    return {"result_rows" : result.affectedRows};
+}
+
+
+/**
  * 장바구니 전체 카운트 조회 
  */
 export const getCount = async({id}) => {

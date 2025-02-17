@@ -10,7 +10,7 @@ export default function Header() {
 
 
 
-    const {cartCount, setCartCount} = useContext(CartContext);
+    const {cartCount, setCartCount, cartList, setCartList } = useContext(CartContext);
     const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
     const navigate = useNavigate();
     
@@ -28,6 +28,14 @@ export default function Header() {
                         setCartCount(res.data.count);
                      })
                 .catch((error) => console.log(error));
+            
+            axios
+                .post("http://localhost:9000/cart/items", {"id": id})
+                .then((res) => {
+                        console.log('list-->', res.data);
+                        setCartList(res.data);
+                     })
+                .catch((error) => console.log(error));
 
         } else {
             setCartCount(0);
@@ -35,7 +43,9 @@ export default function Header() {
 
     }, [isLoggedIn]);
 
-
+    console.log('Header :: cartList-------->', cartList);
+    console.log('Header :: cartCount-------->', cartCount);
+    
 
 
     // console.log('Header :: isLoggedIn-->', isLoggedIn);

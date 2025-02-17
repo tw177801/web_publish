@@ -1,5 +1,16 @@
 import * as repository from '../repository/cartRepository.js';
 
+
+/**
+ * 장바구니 상품 수량 업데이트 
+ */
+export const updateQty = async(req, res) => {
+    const result = await repository.updateQty(req.body);
+    res.json(result);
+    res.end();
+}
+
+
 /**
  * 장바구니 전체 카운트 조회 
  */
@@ -18,8 +29,6 @@ export const getItems = async(req, res) => {
     res.json(result);
     res.end();
 }
-
-
 
 
 /**

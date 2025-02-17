@@ -48,21 +48,53 @@ export default function DetailProduct() {
     // alert(`${pid} --> 장바구니 추가 완료!`);
     // console.log(product.pid, product.price, size, 1);
         
-  if(isLoggedIn) {
-    const cartItem = {
-      pid: product.pid,
-      size: size,
-      qty: 1,
-    };
+    if(isLoggedIn) {
+      const cartItem = {
+        pid: product.pid,
+        size: size,
+        qty: 1,
+      };
 
     // addCart(cartItem); // App.js의 addCart 함수 호출
     // cartItem--> 서버 전송 --> shoppy_cart 추가 
 
     const id = localStorage.getItem("user_id");
-    const formData = {id: id, cartList:[cartItem]};
-    console.log('formData--->>', formData);
+    // console.log('formData--->>', formData);
+
+    // cartItem에 있는 pid, size를 cartList(로그인 성공시 준비)의 item과 비교해서 있으며, qty+1, 없으면 새로 추가 
+
+
+
+    console.log('Detail :: cartList --->', cartList);
     
-    axios
+    const findItem = cartList && cartList.find(item => item.pid === product.pid 
+                                          && item.size === size );
+
+
+    // some --> boolean
+    // fine --> item 요소
+
+    
+    if(findItem !== undefined) {
+      //qty+1 :: update ----------> id, pid, size
+      //qty+1 :: update ----------> cid
+      console.log('update');
+      axios 
+        .put("http://localhost:9000/cart/updateQty", {"cid":findItem.cid})
+        .then(res => {
+          // console.log('res.data-->>', res.data)
+            if(res.data.result_rows) {
+              alert("장바구니에 추가되었습니다."); 
+              // setCartCount(cartCount+1)
+            } 
+          }
+        )
+        .catch(error => console.log(error));
+      
+    } else {
+      console.log('insert');
+      const formData = {id: id, cartList:[cartItem]};
+      axios
         .post("http://localhost:9000/cart/add", formData)
         .then(res => {
           // console.log('res.data-->>', res.data)
@@ -75,15 +107,22 @@ export default function DetailProduct() {
         )
         .catch(error => console.log(error));
 
-  } else {
-    const select = window.confirm("로그인 서비스가 필요합니다. 로그인 하시겠습니까?");
-    if(select) {
-      navigate('/login');
     }
-  }
-}
+
+    
+    } else {
+      const select = window.confirm("로그인 서비스가 필요합니다. 로그인 하시겠습니까?");
+      if(select) {
+        navigate('/login');
+      }
+    }
+
+};
   console.log('cartCount ---->>', cartCount);
   
+
+// {}
+
 
   //Tabs event
   // const handleChangeTabs = (text) => {

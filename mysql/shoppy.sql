@@ -172,10 +172,16 @@ use hrdb2019;
 select * from shoppy_cart;
 truncate table shoppy_cart;
 
-select count(*) as count from shoppy_cart
-where id='test2';
+-- select count(*) as count from shoppy_cart
+select * from shoppy_cart
+where id='test1';
 -- [{count: 4}] [count 필드 정보]
 
+select * from shoppy_cart
+	where id='test1' and pid=4 and size='M';
+
+select * from shoppy_cart
+	where cid='1';
 
 
 
