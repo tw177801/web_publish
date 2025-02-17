@@ -13,12 +13,3 @@ export default function Layout() {
     );
 }
 
-
-/**
- * 
- *  props 개념 이해
- *  APP, DetailProduct
- *  CRUD 로직
- *  커스텀 훅 -> use**** () -> 리액트 함수
- * 
- */

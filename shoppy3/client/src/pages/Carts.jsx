@@ -1,7 +1,7 @@
 import React, {useState, useEffect, useContext} from "react";
 import "../styles/cart.css";
 import axios from 'axios';
-import {useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../auth/AuthContext.js";
 import { CartContext } from "../context/CartContext.js";
 

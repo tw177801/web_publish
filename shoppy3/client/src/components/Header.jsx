@@ -8,8 +8,6 @@ import axios from 'axios';
 
 export default function Header() {
 
-
-
     const {cartCount, setCartCount, cartList, setCartList } = useContext(CartContext);
     const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
     const navigate = useNavigate();
