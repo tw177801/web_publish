@@ -8,7 +8,7 @@ import { CartContext } from "../context/CartContext.js";
 
 export default function Carts() {
 
-    const [list, setList] = useState([]);
+    // const [list, setList] = useState([]);
     const navigate = useNavigate();    
     const {isLoggedIn, setIsLoggedIn} = useContext(AuthContext);
     const {cartList, setCartList} = useContext(CartContext);
@@ -32,7 +32,7 @@ export default function Carts() {
                 if(select) {
                     navigate('/login');
                 }
-                // setCartList([]);
+                setCartList([]);
         }
 
     }, [isLoggedIn]);
@@ -63,7 +63,7 @@ export default function Carts() {
                                 <button >
                                 -
                                 </button>
-                                <input type="text" value="1" readOnly />
+                                    <input type="text" value={item.qty} readOnly />
                                 <button >
                                 +
                                 </button>

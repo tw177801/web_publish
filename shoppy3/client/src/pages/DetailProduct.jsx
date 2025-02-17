@@ -79,42 +79,57 @@ export default function DetailProduct() {
       //qty+1 :: update ----------> id, pid, size
       //qty+1 :: update ----------> cid
       console.log('update');
+        // 로컬 스토리지 액세스
       axios 
-        .put("http://localhost:9000/cart/updateQty", {"cid":findItem.cid})
-        .then(res => {
-          // console.log('res.data-->>', res.data)
-            if(res.data.result_rows) {
-              alert("장바구니에 추가되었습니다."); 
-              // setCartCount(cartCount+1)
-            } 
-          }
-        )
-        .catch(error => console.log(error));
+          .put("http://localhost:9000/cart/updateQty", {"cid":findItem.cid})
+          .then(res => {
+            // console.log('res.data-->>', res.data)
+              if(res.data.result_rows) {
+                alert("장바구니에 추가되었습니다."); 
+                /** DB 연동 --> cartList 재호출 */
+                // const updateCartList = cartList.map((item)=>
+                //   (item.cid === findItem.cid) ?
+                //       {
+                //         ...item,
+                //         qty:item.qty+1
+                //       } : item
+                // );
+                // setCartList(updateCartList)
+              } 
+            }
+          )
+          .catch(error => console.log(error));
       
+          
+
     } else {
       console.log('insert');
       const formData = {id: id, cartList:[cartItem]};
-      axios
-        .post("http://localhost:9000/cart/add", formData)
-        .then(res => {
-          // console.log('res.data-->>', res.data)
-          if(res.data.result_rows) {
-            alert("장바구니에 추가되었습니다."); 
-            setCartCount(cartCount+1)
-          } 
-            
-        }
-        )
-        .catch(error => console.log(error));
+        axios
+          .post("http://localhost:9000/cart/add", formData)
+          .then(res => {
+            // console.log('res.data-->>', res.data)
+            if(res.data.result_rows) {
+              alert("장바구니에 추가되었습니다."); 
+              // setCartCount(cartCount+1);
+              // setCartList([...cartList, cartItem]);
+
+            } 
+              
+          }
+          )
+          .catch(error => console.log(error));
+          
+          /** DB 연동 --> cartList 재호출 */
 
     }
 
     
     } else {
       const select = window.confirm("로그인 서비스가 필요합니다. 로그인 하시겠습니까?");
-      if(select) {
-        navigate('/login');
-      }
+        if(select) {
+          navigate('/login');
+        }
     }
 
 };
