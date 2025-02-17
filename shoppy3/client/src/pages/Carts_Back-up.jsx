@@ -38,7 +38,6 @@ export default function Carts({refreshStorage}) {
     }
 
 
-
     // localStorage에 담긴 cartItems의 배열 객체 출력 
     // const [cartItems, setCartItems] = useState(JSON.parse(localStorage.getItem("cartItems")) || []);
     // console.log('cartItems --->> ', cartItems[0].pid);

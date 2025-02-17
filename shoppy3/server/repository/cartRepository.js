@@ -1,6 +1,19 @@
 import {db} from './db.js';
 
 
+/**
+ * 장바구니 전체 카운트 조회 
+ */
+export const getCount = async({id}) => {
+    const sql = `
+        select count(*) as count from shoppy_cart
+        where id= ?
+    `;
+    const [result] = await db.execute(sql, [id]); // [{count: 4}] [count 필드 정보]
+    return result [0];
+}
+
+
 
 /**
  * 장바구니 전체 조회 
@@ -29,12 +42,6 @@ export const getItems = async({id}) => {
     const [result] = await db.execute(sql, [id]);
     return result;
 }
-
-
-
-
-
-
 
 
 

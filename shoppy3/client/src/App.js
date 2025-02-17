@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import './styles/shoppy.css';
+import './styles/cart.css';
 import Layout from './pages/Layout.jsx';
 import Home from './pages/Home.jsx';
 import Products from './pages/Products.jsx';
-import Carts from './pages/Carts_Back-up.jsx';
+// import Carts from './pages/Carts_Back-up.jsx';
+import Carts from './pages/Carts.jsx';
 import Login from './pages/Login.jsx';
 import Signup from './pages/Signup.jsx';
 import DetailProduct from './pages/DetailProduct.jsx';
@@ -36,10 +38,6 @@ export default function App() {
   }
 
 
-
-
-
-  
   // localstorage 별도의 기능 -> 콜백 함수 사용 
   /** 장바구니 상품 갯수 */
 
@@ -52,10 +50,6 @@ export default function App() {
       console.log(error);      
     }
   });  
-
-
-
-
 
   /** cartCount 업데이트가 되면 -> LocalStorage에 cartList를 저장 */
   useEffect(()=>{
@@ -102,13 +96,17 @@ export default function App() {
   }
 
 
+
+
+
+
   return (
     <div>
       <CartProvider>
         <AuthProvider>
           <BrowserRouter>
               <Routes>
-                  <Route path='/' element={<Layout cartCount={cartCount}/>} >
+                  <Route path='/' element={<Layout />} >
                       <Route index element={<Home />} />
                       <Route path='/all' element={<Products />} />
                       <Route path='/cart' element={<Carts refreshStorage = {refreshStorage}/>} />

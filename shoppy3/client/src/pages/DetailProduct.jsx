@@ -1,13 +1,20 @@
-import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import React, { useState, useEffect, useContext } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import { PiGiftThin } from "react-icons/pi";
 import Detail from "../components/detail_tabs/Detail.jsx";
 import Review from "../components/detail_tabs/Review.jsx";
 import ImageList from "../components/commons/ImageList.jsx";
 import StarRating from "../components/commons/StarRating.jsx";
 import axios from "axios";
+import { CartContext } from "../context/CartContext.js";
+import { AuthContext } from "../auth/AuthContext.js";
 
-export default function DetailProduct({ addCart }) {
+
+export default function DetailProduct() {
+
+  const {isLoggedIn, setLoggedIn} = useContext(AuthContext);
+  const { cartList, setCartList, cartCount, setCartCount } = useContext(CartContext);
+  const navigate = useNavigate();
   const { pid } = useParams();
   const [product, setProduct] = useState({});
   const [imgList, setImgList] = useState([]);
@@ -41,13 +48,42 @@ export default function DetailProduct({ addCart }) {
     // alert(`${pid} --> 장바구니 추가 완료!`);
     // console.log(product.pid, product.price, size, 1);
         
+  if(isLoggedIn) {
     const cartItem = {
       pid: product.pid,
       size: size,
       qty: 1,
     };
-    addCart(cartItem); // App.js의 addCart 함수 호출
-  };
+
+    // addCart(cartItem); // App.js의 addCart 함수 호출
+    // cartItem--> 서버 전송 --> shoppy_cart 추가 
+
+    const id = localStorage.getItem("user_id");
+    const formData = {id: id, cartList:[cartItem]};
+    console.log('formData--->>', formData);
+    
+    axios
+        .post("http://localhost:9000/cart/add", formData)
+        .then(res => {
+          // console.log('res.data-->>', res.data)
+          if(res.data.result_rows) {
+            alert("장바구니에 추가되었습니다."); 
+            setCartCount(cartCount+1)
+          } 
+            
+        }
+        )
+        .catch(error => console.log(error));
+
+  } else {
+    const select = window.confirm("로그인 서비스가 필요합니다. 로그인 하시겠습니까?");
+    if(select) {
+      navigate('/login');
+    }
+  }
+}
+  console.log('cartCount ---->>', cartCount);
+  
 
   //Tabs event
   // const handleChangeTabs = (text) => {

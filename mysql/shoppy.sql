@@ -152,6 +152,7 @@ SELECT * FROM SHOPPY_MEMBER;
 SELECT SC.CID,
 	   SC.SIZE,
        SC.QTY,
+       SM.ID,
        SM.ZIPCODE,
        SM.ADDRESS,
        SP.PID,
@@ -162,7 +163,30 @@ SELECT SC.CID,
 	FROM SHOPPY_CART SC, 
 		 SHOPPY_MEMBER SM,
          SHOPPY_PRODUCT SP
-	WHERE SC.ID = SM.ID AND SC.PID = SP.PID;
+	WHERE SC.ID = SM.ID 
+			AND SC.PID = SP.PID
+            AND SM.ID = 'TEST1';
+
+-- 
+use hrdb2019;
+select * from shoppy_cart;
+truncate table shoppy_cart;
+
+select count(*) as count from shoppy_cart
+where id='test2';
+-- [{count: 4}] [count 필드 정보]
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
