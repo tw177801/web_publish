@@ -9,7 +9,7 @@ export default function Carts() {
     const navigate = useNavigate();
     const { isLoggedIn } = useContext(AuthContext);
     const { cartList, setCartList } = useContext(CartContext);
-    const {getCartList, updateCartList} = useCart();
+    const {getCartList, updateCartList, deleteCartItem} = useCart();
     const hasCheckedLogin = useRef(false);
 
     useEffect(()=>{
@@ -33,10 +33,7 @@ export default function Carts() {
 
     // 수량 업데이트
     const handleQtyUpdate = (cid, type) => {
-        const result = updateCartList(cid, type);
-        console.log(type, 'result :: ', result);
-        
-
+        updateCartList(cid, type);
     };
 
 
@@ -68,11 +65,13 @@ export default function Carts() {
                     </button>
 
                 </div>
+                
                 <button
-                    className="cart-remove"
+                    className="cart-remove" onClick={()=> {deleteCartItem(item.cid)}}
                 >
                     🗑
                 </button>
+
                 </div> 
             </>
             )

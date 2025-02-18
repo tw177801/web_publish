@@ -14,6 +14,7 @@ export function useCart() { // custom Hook(커스텀 훅)
         const id = localStorage.getItem("user_id");
         const result = await axios.post("http://localhost:9000/cart/items", {"id":id});
         setCartList(result.data);
+        setCartCount(result.data.length);
     }
     
     /**
@@ -27,10 +28,9 @@ export function useCart() { // custom Hook(커스텀 훅)
             getCartList();
         }
         return result.data.result_rows;
-        
-        // alert("장바구니")
+
         //DB 연동 --> cartList 가져와야함
-        // axios.post("http://localhost:9000/cart/add");
+
     }
     
     /**
@@ -62,6 +62,18 @@ export function useCart() { // custom Hook(커스텀 훅)
 
     const setCount = (value) => { setCartCount(value); }
 
-    return {saveToCartList, updateCartList, getCartList, getCount, setCount};
+
+    /**
+     * 장바구니 아이템 삭제 
+     */
+
+    const deleteCartItem = async(cid) => {
+        const result = await axios.delete("http://localhost:9000/cart/deleteItem", 
+                                           {data : {"cid": cid}});
+        result.data.result_rows && getCartList(); 
+    }
+
+
+    return {saveToCartList, updateCartList, getCartList, getCount, setCount, deleteCartItem};
     
 }
