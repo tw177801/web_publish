@@ -28,10 +28,6 @@ export default function Carts() {
         }
     } , [isLoggedIn]);    
 
-    // 수량 업데이트
-    const handleQtyUpdate = (cid, type) => {
-        updateCartList(cid, type);
-    };
 
 
     return (
@@ -42,32 +38,29 @@ export default function Carts() {
             <>
                 <div className="cart-item" >
                 <img src={item.image} alt="" />
-                <div className="cart-item-details">
-                    <p className="cart-item-title">{item.pname}</p>
-                    <p className="cart-item-title">{item.size}</p> 
-                    <p className="cart-item-price">
-                        {item.price}원
-                    </p>
-                </div>
-                <div className="cart-quantity">
-                    
-                    <button type='button' onClick= {()=> {handleQtyUpdate(item.cid, "decrease")}}>
+                    <div className="cart-item-details">
+                        <p className="cart-item-title">{item.pname}</p>
+                        <p className="cart-item-title">{item.size}</p> 
+                        <p className="cart-item-price">
+                            {item.price}원
+                        </p>
+                    </div>
+               
+                    <div className="cart-quantity">
+                        <button onClick={() => {
+                            item.qty>1 && updateCartList(item.cid, "decrease")
+                        }}>
                         -
-                    </button>
-                    
-                    <input type="text" value={item.qty} readOnly />
-
-                    <button type='button' onClick= {()=> {handleQtyUpdate(item.cid, "increse")}}>
+                        </button>
+                        <input type="text" value={item.qty} readOnly />
+                        <button onClick={() => {updateCartList(item.cid, "increase")}}>
                         +
-                    </button>
-
-                </div>
-                
-                <button
-                    className="cart-remove" onClick={()=> {deleteCartItem(item.cid)}}
-                >
-                    🗑
+                        </button>
+                    </div>
+                <button className="cart-remove" onClick={()=>{deleteCartItem(item.cid)}}>
+                    <RiDeleteBin6Line />
                 </button>
+              
 
                 </div> 
             </>
