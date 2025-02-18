@@ -8,13 +8,13 @@ import StarRating from "../components/commons/StarRating.jsx";
 import axios from "axios";
 import { CartContext } from "../context/CartContext.js";
 import { AuthContext } from "../auth/AuthContext.js";
-
+import { useCart } from "../hooks/useCart.js";
 
 export default function DetailProduct() {
-
-  const {isLoggedIn, setLoggedIn} = useContext(AuthContext);
-  const { cartList, setCartList, cartCount, setCartCount } = useContext(CartContext);
   const navigate = useNavigate();
+  const { saveToCartList, updateCartList } = useCart();
+  const { isLoggedIn } = useContext(AuthContext);
+  const { cartList } = useContext(CartContext);
   const { pid } = useParams();
   const [product, setProduct] = useState({});
   const [imgList, setImgList] = useState([]);
@@ -24,119 +24,48 @@ export default function DetailProduct() {
   const tabLabels = ['DETAIL', 'REVIEW', 'Q&A', 'RETURN & DELIVERY'];
   const tabEventNames = ['detail', 'review', 'qna', 'return'];
 
-  useEffect(() => {
-    axios
-      .post("http://localhost:9000/product/detail", {"pid": pid})
-      .then((res) => {
-              console.log('res.data-->>', res.data)
-              setProduct(res.data)
-              setImgList(res.data.imgList);
-              setDetailImgList(res.data.detailImgList);
+    useEffect(() => {
+      axios
+        .post("http://localhost:9000/product/detail", {"pid": pid})
+        .then((res) => {
+                setProduct(res.data)
+                setImgList(res.data.imgList);
+                setDetailImgList(res.data.detailImgList);
+              })
+        .catch((error) => console.log(error));
+    }, []);
 
-              // uploadFile 배열의 3개 이미지를 출력 형태로 생성하여 배열에 저장 
-              // const imgList = res.data.uploadFile.filter((image, i)=> (i<3) && image);
-            })
-      .catch((error) => console.log(error));
-  }, []);
-
-  console.log('imgList--> ', imgList);
-  
+    console.log('imgList--> ', imgList);
 
   //장바구니 추가 버튼 이벤트
   const addCartItem = () => {
-    //장바구니 추가 항목 : { pid, size, qty }
-    // alert(`${pid} --> 장바구니 추가 완료!`);
-    // console.log(product.pid, product.price, size, 1);
         
-    if(isLoggedIn) {
-      const cartItem = {
-        pid: product.pid,
-        size: size,
-        qty: 1,
-      };
+      if(isLoggedIn) {
+      const cartItem = {pid:product.pid, size: size, qty:1};
+      const findItem = cartList && cartList.find(item => item.pid === product.pid 
+                                            && item.size === size );
 
-    // addCart(cartItem); // App.js의 addCart 함수 호출
-    // cartItem--> 서버 전송 --> shoppy_cart 추가 
+        if(findItem !== undefined)  {        
+          const result = updateCartList(findItem.cid);
+          result && alert("장바구니에 추가되었습니다.");
 
-    const id = localStorage.getItem("user_id");
-    // console.log('formData--->>', formData);
-
-    // cartItem에 있는 pid, size를 cartList(로그인 성공시 준비)의 item과 비교해서 있으며, qty+1, 없으면 새로 추가 
-
-
-
-    console.log('Detail :: cartList --->', cartList);
-    
-    const findItem = cartList && cartList.find(item => item.pid === product.pid 
-                                          && item.size === size );
+        } else {
+          const id = localStorage.getItem("user_id");
+          const formData = {id:id, cartList:[cartItem]};
+          const result = saveToCartList(formData);
+          result && alert("장바구니에 추가되었습니다.");
+        }                                                
 
 
-    // some --> boolean
-    // fine --> item 요소
-
-    
-    if(findItem !== undefined) {
-      //qty+1 :: update ----------> id, pid, size
-      //qty+1 :: update ----------> cid
-      console.log('update');
-        // 로컬 스토리지 액세스
-      axios 
-          .put("http://localhost:9000/cart/updateQty", {"cid":findItem.cid})
-          .then(res => {
-            // console.log('res.data-->>', res.data)
-              if(res.data.result_rows) {
-                alert("장바구니에 추가되었습니다."); 
-                /** DB 연동 --> cartList 재호출 */
-                // const updateCartList = cartList.map((item)=>
-                //   (item.cid === findItem.cid) ?
-                //       {
-                //         ...item,
-                //         qty:item.qty+1
-                //       } : item
-                // );
-                // setCartList(updateCartList)
-              } 
-            }
-          )
-          .catch(error => console.log(error));
-      
-          
-
-    } else {
-      console.log('insert');
-      const formData = {id: id, cartList:[cartItem]};
-        axios
-          .post("http://localhost:9000/cart/add", formData)
-          .then(res => {
-            // console.log('res.data-->>', res.data)
-            if(res.data.result_rows) {
-              alert("장바구니에 추가되었습니다."); 
-              // setCartCount(cartCount+1);
-              // setCartList([...cartList, cartItem]);
-
-            } 
-              
-          }
-          )
-          .catch(error => console.log(error));
-          
-          /** DB 연동 --> cartList 재호출 */
-
-    }
-
-    
-    } else {
-      const select = window.confirm("로그인 서비스가 필요합니다. 로그인 하시겠습니까?");
-        if(select) {
-          navigate('/login');
+        } else {
+          const select = window.confirm("로그인 서비스가 필요합니다. \n로그인 하시겠습니까?");
+          if(select) {
+              navigate('/login');
+          }    
         }
-    }
 
 };
-  console.log('cartCount ---->>', cartCount);
-  
-
-// {}
+    
 
 
   //Tabs event
@@ -215,22 +144,7 @@ export default function DetailProduct() {
             )
           }
         </ul>      
-        
-
-        {/* <ul className="tabs">
-          <li className={tabName==="detail" ? "active": ''}>
-            <button type="button" onClick={(e)=> setTabName("detail")}>DETAIL</button>
-          </li>
-          <li className={tabName==="review" ? "active": ''}>
-            <button type="button" onClick={(e)=> setTabName("review")}>REVIEW</button>
-          </li>
-          <li className={tabName==="qna" ? "active": ''}>
-            <button type="button" onClick={(e)=> setTabName("qna")}>Q&A</button>
-          </li>
-          <li className={tabName==="return" ? "active": ''}>
-            <button type="button" onClick={(e)=> setTabName("return")}>RETURN & DELIVERY</button>
-          </li>
-        </ul> */}
+  
 
         <div className="tabs_contents">
           { tabName === "detail" && <Detail imgList={detailImgList} /> }
