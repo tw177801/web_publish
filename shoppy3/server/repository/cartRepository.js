@@ -33,59 +33,115 @@ export const getCount = async({id}) => {
 }
 
 
+/**
+ * 장바구니 전체 조회
+ */
+export const getItems = async({id}) => {
+    const sql = `
+            select  sc.cid,
+                    sc.size,
+                    sc.qty,
+                    sm.id,
+                    sm.zipcode,
+                    sm.address,
+                    sp.pid,
+                    sp.pname,
+                    sp.price,
+
+                    sp.description as info,
+                    concat('http://localhost:9000/', sp.upload_file->>'$[0]') as image
+                from shoppy_cart sc,
+                    shoppy_member sm,
+                    shoppy_product sp
+                where sc.id = sm.id 
+                        and sc.pid = sp.pid
+                        and sm.id = ?
+    `;
+    const [result] = await db.execute(sql, [id]);
+    console.log('result--->>',result);
+    
+    return result; 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/************************************************* */
+/************************************************* */
+/************************************************* */
+/************************************************* */
+
 
 /**
  * 장바구니 전체 조회 
  */
 
-export const getItems = async({id}) => {
-    const sql = `
-            SELECT SC.CID,
-            SC.SIZE,
-            SC.QTY,
-            SM.ID,
-            SM.ZIPCODE,
-            SM.ADDRESS,
-            SP.PID,
-            SP.PNAME,
-            SP.PRICE,
-            SP.DESCRIPTION as info,
-            CONCAT('http://localhost:9000/', SP.UPLOAD_FILE->>'$[0]') as image
-                FROM SHOPPY_CART SC, 
-                    SHOPPY_MEMBER SM,
-                    SHOPPY_PRODUCT SP
-                WHERE SC.ID = SM.ID 
-                        AND SC.PID = SP.PID
-                        AND SM.ID = ?
-    `;
-    const [result] = await db.execute(sql, [id]);
-    return result;
-}
+// export const getItems = async({id}) => {
+//     const sql = `
+//             SELECT SC.CID,
+//             SC.SIZE,
+//             SC.QTY,
+//             SM.ID,
+//             SM.ZIPCODE,
+//             SM.ADDRESS,
+//             SP.PID,
+//             SP.PNAME,
+//             SP.PRICE,
+//             SP.DESCRIPTION as info,
+//             CONCAT('http://localhost:9000/', SP.UPLOAD_FILE->>'$[0]') as image
+//                 FROM SHOPPY_CART SC, 
+//                     SHOPPY_MEMBER SM,
+//                     SHOPPY_PRODUCT SP
+//                 WHERE SC.ID = SM.ID 
+//                         AND SC.PID = SP.PID
+//                         AND SM.ID = ?
+//     `;
+//     const [result] = await db.execute(sql, [id]);
+//     return result;
+// }
 
 
 
-/**
- * 장바구니 추가 
- */
+// /**
+//  * 장바구니 추가 
+//  */
 
-export const addCart = async({id, cartList}) => {
-    let result_rows = 0;
+// export const addCart = async({id, cartList}) => {
+//     let result_rows = 0;
 
-    const result = await Promise.all(   // [1, 1, 1, 1, 1, 1]
-        cartList.map(async(item)=> {
-                const values= [item.size, item.qty, id, item.pid];
-                const sql = `
-                    insert into shoppy_cart(size, qty, id, pid, cdate)
-                        values(?, ?, ?, ?, now())
-                `;
-                const [result] = await db.execute(sql, values); // Promise 형태로 실행
-                return result.affectedRows;
-        })
-    )
-    // console.log('result->', result);
-    result_rows = result.reduce((acc, cur)=> acc + cur, 0);
-    // console.log({"result_rows": result_rows});
+//     const result = await Promise.all(   // [1, 1, 1, 1, 1, 1]
+//         cartList.map(async(item)=> {
+//                 const values= [item.size, item.qty, id, item.pid];
+//                 const sql = `
+//                     insert into shoppy_cart(size, qty, id, pid, cdate)
+//                         values(?, ?, ?, ?, now())
+//                 `;
+//                 const [result] = await db.execute(sql, [values]); // Promise 형태로 실행
+//                 return result.affectedRows;
+//         })
+//     )
+//     // console.log('result->', result);
+//     result_rows = result.reduce((acc, cur)=> acc + cur, 0);
+//     // console.log({"result_rows": result_rows});
     
-    return {"result_rows":result_rows};
-}
+//     return {"result_rows":result_rows};
+// }
 

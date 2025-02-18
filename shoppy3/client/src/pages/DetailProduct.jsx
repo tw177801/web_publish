@@ -46,7 +46,7 @@ export default function DetailProduct() {
                                             && item.size === size );
 
         if(findItem !== undefined)  {        
-          const result = updateCartList(findItem.cid);
+          const result = updateCartList(findItem.cid, "increase");
           result && alert("장바구니에 추가되었습니다.");
 
         } else {
