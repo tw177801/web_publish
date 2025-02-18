@@ -43,6 +43,24 @@ export function useCart() { // custom Hook(커스텀 훅)
         return result.data.result_rows;
     }
 
-    return {saveToCartList, updateCartList, getCartList};
+    /**
+     * 장바구니 전체 카운트 조회 
+     */
+
+    const getCount = async() => {
+        const id = localStorage.getItem("user_id");
+        const result = await axios.post("http://localhost:9000/cart/count", {"id": id});
+        setCartCount(result.data.count);
+        return result.data.count;
+    }
+
+
+    /**
+     * 장바구니 카운트 초기화 
+     */
+
+    const setCount = (value) => { setCartCount(value); }
+
+    return {saveToCartList, updateCartList, getCartList, getCount, setCount};
     
 }
