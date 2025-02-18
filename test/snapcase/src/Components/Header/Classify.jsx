@@ -8,10 +8,10 @@ export default function Classify() {
   const [products, setProducts] = useState([]);
   const [allProducts, setAllProducts] = useState([]);
 
-  // JSON 데이터 가져오기
+  
   useEffect(() => {
     axios
-      .get("/data/products.json") // JSON 파일 경로에 맞게 수정
+      .get("/data/products.json") 
       .then((response) => {
         setAllProducts(response.data);
       })
@@ -20,12 +20,12 @@ export default function Classify() {
       });
   }, []);
 
-  // 카테고리 클릭 시 해당 상품 필터링
+ 
   const handleItemClick = (item) => {
-    // 동일한 아이템 클릭 시 선택 해제
+    
     if (selectedItem === item) {
       setSelectedItem(null);
-      setProducts(allProducts); // 전체 상품 다시 표시
+      setProducts(allProducts); 
     } else {
       setSelectedItem(item);
       const filteredProducts = allProducts.filter((product) => product.name === item);

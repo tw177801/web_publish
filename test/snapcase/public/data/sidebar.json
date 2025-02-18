@@ -1,0 +1,180 @@
+{
+    "filters": [
+      {
+        "category": "기종",
+        "subcategories": [
+          {
+            "name": "모든 기종",
+            "options": [
+              {
+                "brand": "아이폰",
+                "models": [
+                  { "id": 1, "name": "아이폰 15 프로 맥스" },
+                  { "id": 2, "name": "아이폰 15 프로" },
+                  { "id": 3, "name": "아이폰 15 플러스" },
+                  { "id": 4, "name": "아이폰 15" },
+                  { "id": 5, "name": "아이폰 14 프로 맥스" },
+                  { "id": 6, "name": "아이폰 14 프로" },
+                  { "id": 7, "name": "아이폰 14 플러스" },
+                  { "id": 8, "name": "아이폰 14" },
+                  { "id": 9, "name": "아이폰 13 프로 맥스" },
+                  { "id": 10, "name": "아이폰 13 프로" },
+                  { "id": 11, "name": "아이폰 13 미니" },
+                  { "id": 12, "name": "아이폰 13" },
+                  { "id": 13, "name": "아이폰 12 프로 맥스" },
+                  { "id": 14, "name": "아이폰 12 프로" },
+                  { "id": 15, "name": "아이폰 12 미니" },
+                  { "id": 16, "name": "아이폰 12" },
+                  { "id": 17, "name": "아이폰 11 프로 맥스" },
+                  { "id": 18, "name": "아이폰 11 프로" },
+                  { "id": 19, "name": "아이폰 11" },
+                  { "id": 20, "name": "아이폰 XS 맥스" },
+                  { "id": 21, "name": "아이폰 XS" },
+                  { "id": 22, "name": "아이폰 XR" },
+                  { "id": 23, "name": "아이폰 X" },
+                  { "id": 24, "name": "아이폰 8 플러스" },
+                  { "id": 25, "name": "아이폰 8" },
+                  { "id": 26, "name": "아이폰 7 플러스" },
+                  { "id": 27, "name": "아이폰 7" },
+                  { "id": 28, "name": "아이폰 SE 3세대" },
+                  { "id": 29, "name": "아이폰 SE 2세대" }
+                ]
+              },
+              {
+                "brand": "삼성 갤럭시 S 시리즈",
+                "models": [
+                  { "id": 101, "name": "갤럭시 S24 울트라" },
+                  { "id": 102, "name": "갤럭시 S24+" },
+                  { "id": 103, "name": "갤럭시 S24" },
+                  { "id": 104, "name": "갤럭시 S23 울트라" },
+                  { "id": 105, "name": "갤럭시 S23+" },
+                  { "id": 106, "name": "갤럭시 S23" },
+                  { "id": 107, "name": "갤럭시 S22 울트라" },
+                  { "id": 108, "name": "갤럭시 S22+" },
+                  { "id": 109, "name": "갤럭시 S22" },
+                  { "id": 110, "name": "갤럭시 S21 울트라" },
+                  { "id": 111, "name": "갤럭시 S21+" },
+                  { "id": 112, "name": "갤럭시 S21" }
+                ]
+              },
+              {
+                "brand": "삼성 갤럭시 Z 시리즈",
+                "models": [
+                  { "id": 201, "name": "갤럭시 Z 폴드5" },
+                  { "id": 202, "name": "갤럭시 Z 플립5" },
+                  { "id": 203, "name": "갤럭시 Z 폴드4" },
+                  { "id": 204, "name": "갤럭시 Z 플립4" },
+                  { "id": 205, "name": "갤럭시 Z 폴드3" },
+                  { "id": 206, "name": "갤럭시 Z 플립3" }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "워치",
+            "options": ["애플 워치"]
+          },
+          {
+            "name": "이어버드",
+            "options": ["에어팟", "갤럭시 버즈"]
+          },
+          {
+            "name": "아이패드",
+            "options": ["아이패드"]
+          },
+          {
+            "name": "맥북",
+            "options": ["맥북"]
+          },
+          {
+            "name": "아이패드 케이스",
+            "options": ["에어태그 케이스"]
+          }
+        ]
+      },
+      {
+        "category": "액세서리",
+        "options": []
+      },
+      {
+        "category": "시리즈",
+        "options": []
+      },
+      {
+        "category": "컬렉션",
+        "options": []
+      },
+      {
+        "category": "커스텀",
+        "options": []
+      },
+      {
+        "category": "Co-Lab",
+        "options": []
+      },
+      {
+        "category": "아티스트",
+        "options": [
+          { "id": 101, "name": "Lucia Pham" },
+          { "id": 102, "name": "Lulu the Piggy" },
+          { "id": 103, "name": "말로컴기버" },
+          { "id": 104, "name": "노리타케(Noritake)" },
+          { "id": 105, "name": "피카루카(Pikaruco)" },
+          { "id": 106, "name": "마르티나 칼비(Martina Calvi)" },
+          { "id": 107, "name": "최제훈 작가" },
+          { "id": 108, "name": "BuZMa" },
+          { "id": 109, "name": "마쓰이(Matsui)" },
+          { "id": 110, "name": "남성이" },
+          { "id": 111, "name": "Constant Bagel Therapy" },
+          { "id": 112, "name": "Peep" },
+          { "id": 113, "name": "프레디퍼디" },
+          { "id": 114, "name": "Gonhata" },
+          { "id": 115, "name": "Kaigo" },
+          { "id": 116, "name": "mikko Illustrations" },
+          { "id": 117, "name": "깨어진 흙 x 케이스티파이" },
+          { "id": 118, "name": "프레즈 x 케이스티파이: 사이먼 후지와라(Simon Fujiwara)" }
+        ]
+      },
+      {
+        "category": "인플루언서 컬렉션",
+        "options": [
+          { "id": 201, "name": "로시아" },
+          { "id": 202, "name": "로지 맥마이클(Rosy McMichael)" },
+          { "id": 203, "name": "Shoop Beaudelaire" },
+          { "id": 204, "name": "RETEM03" },
+          { "id": 205, "name": "KYUBI" },
+          { "id": 206, "name": "수한별 캘리조" },
+          { "id": 207, "name": "ALISHA MARIE" },
+          { "id": 208, "name": "Jeff Satur" },
+          { "id": 209, "name": "Connie Davalos" },
+          { "id": 210, "name": "Orion Carloto" },
+          { "id": 211, "name": "Dylan Conrique" },
+          { "id": 212, "name": "Summer McKeen" },
+          { "id": 213, "name": "Style By Deni" },
+          { "id": 214, "name": "Pia Mia" },
+          { "id": 215, "name": "Fer Rivas" },
+          { "id": 216, "name": "Pomato" },
+          { "id": 217, "name": "Teresuch" }
+        ]
+      },
+      {
+        "category": "프린트 패턴",
+        "options": [
+          { "id": 301, "name": "동물" },
+          { "id": 302, "name": "강아지" },
+          { "id": 303, "name": "사랑" },
+          { "id": 304, "name": "스타일" },
+          { "id": 305, "name": "패턴" },
+          { "id": 306, "name": "공룡" },
+          { "id": 307, "name": "한구" },
+          { "id": 308, "name": "꽃" },
+          { "id": 309, "name": "고양이" },
+          { "id": 310, "name": "하트" },
+          { "id": 311, "name": "Snake" }
+        ]
+      }
+
+
+    ]
+  }
+  

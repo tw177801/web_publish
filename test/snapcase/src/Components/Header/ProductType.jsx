@@ -22,7 +22,7 @@ export default function ProductType() {
             })
             .catch(error => console.error('상품 데이터를 불러오는 중 오류 발생:', error));
 
-        // 아이콘 JSON 불러오기
+        
         axios.get('/data/icons.json')
             .then(res => setIcons(res.data.layoutIcons))
             .catch(error => console.error('아이콘 데이터를 불러오는 중 오류 발생:', error));
@@ -38,7 +38,7 @@ export default function ProductType() {
 
     const handleLayoutChange = (type) => {
         setLayoutType(type);
-        setSelectedLayout(type); // 선택된 레이아웃 업데이트
+        setSelectedLayout(type); 
         applyFilter(products, type, selectedCategory);
     };
 
