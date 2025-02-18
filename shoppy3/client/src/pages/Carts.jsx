@@ -17,15 +17,12 @@ export default function Carts() {
         if(hasCheckedLogin.current) return; // true: 로그인 상태 --> 블록 return
             hasCheckedLogin.current = true;                    
 
-
         if(isLoggedIn) {
             getCartList();
             //테이블의 로그인 아이디의 카트 리스트 가져오기
             
         } else {        
-
             const select = window.confirm("로그인 서비스가 필요합니다. \n로그인 하시겠습니까?");
-
             select ? navigate('/login') : navigate('/');
             setCartList([]);
         }
@@ -55,13 +52,13 @@ export default function Carts() {
                 <div className="cart-quantity">
                     
                     <button type='button' onClick= {()=> {handleQtyUpdate(item.cid, "decrease")}}>
-                    -
+                        -
                     </button>
                     
                     <input type="text" value={item.qty} readOnly />
 
                     <button type='button' onClick= {()=> {handleQtyUpdate(item.cid, "increse")}}>
-                    +
+                        +
                     </button>
 
                 </div>
