@@ -53,11 +53,15 @@ export default function Header() {
                     <span>Shoppy</span>
                 </Link>
                 <nav className='header-right'>
+                    
                     <Link to='/all'>Products</Link>
+                    
                     <Link to='/cart'>MyCart({cartCount})</Link>
+
                     <button type="button" onClick={handleLoginToggle}>
                         {isLoggedIn ? "Logout" : "Login"}
                     </button>
+                    
                     <Link to='/signup'>
                         <button type="button">Signup</button>
                     </Link>

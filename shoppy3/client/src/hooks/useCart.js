@@ -37,8 +37,9 @@ export function useCart() { // custom Hook(커스텀 훅)
      * 장바구니 아이템 수량 업데이트   
      */
 
-    const updateCartList = async(cid) => {
-        const result = await axios.put("http://localhost:9000/cart/updateQty", {"cid": cid});
+    const updateCartList = async(cid, type) => {
+        const result = await axios.put("http://localhost:9000/cart/updateQty", 
+                                        {"cid": cid, "type":type});
         result.data.result_rows && getCartList();
         return result.data.result_rows;
     }

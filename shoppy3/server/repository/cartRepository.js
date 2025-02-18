@@ -4,10 +4,15 @@ import {db} from './db.js';
 /**
  * 장바구니 상품 수량 업데이트
  */
-export const updateQty = async({cid}) => {
+export const updateQty = async({cid, type}) => {
+
+    console.log('cid :: ', cid);
+    console.log('type :: ', type);
+    const str = type === "increase" ? "qty=qty+1" : "qty=qty-1"
+
     const sql = `
         update shoppy_cart
-            set qty=qty+1
+            set ${str}
             where cid = ?
     `;
     const [result] = await db.execute(sql, [cid]);

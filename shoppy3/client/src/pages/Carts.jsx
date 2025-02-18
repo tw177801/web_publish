@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { AuthContext } from '../auth/AuthContext.js';
 import { CartContext } from "../context/CartContext.js";
 import { useNavigate } from "react-router-dom";
@@ -9,7 +9,7 @@ export default function Carts() {
     const navigate = useNavigate();
     const { isLoggedIn } = useContext(AuthContext);
     const { cartList, setCartList } = useContext(CartContext);
-    const {getCartList} = useCart();
+    const {getCartList, updateCartList} = useCart();
     const hasCheckedLogin = useRef(false);
 
     useEffect(()=>{
@@ -29,24 +29,16 @@ export default function Carts() {
             select ? navigate('/login') : navigate('/');
             setCartList([]);
         }
-    } , [isLoggedIn]);
-
-    // console.log('cartList--------->> ', cartList);
-    
+    } , [isLoggedIn]);    
 
     // 수량 업데이트
-    const handleQtyIncrease = () => {
-        if(   ) {
-            
-        } 
+    const handleQtyUpdate = (cid, type) => {
+        const result = updateCartList(cid, type);
+        console.log(type, 'result :: ', result);
+        
 
     };
 
-    // 수량 감소 
-    const handleQtyDecrease = () => {
-
-
-    }
 
     return (
         <div className="cart-container">
@@ -65,13 +57,13 @@ export default function Carts() {
                 </div>
                 <div className="cart-quantity">
                     
-                    <button onClick={handleQtyDecrease}>
+                    <button type='button' onClick= {()=> {handleQtyUpdate(item.cid, "decrease")}}>
                     -
                     </button>
                     
                     <input type="text" value={item.qty} readOnly />
 
-                    <button onClick={handleQtyIncrease}>
+                    <button type='button' onClick= {()=> {handleQtyUpdate(item.cid, "increse")}}>
                     +
                     </button>
 
