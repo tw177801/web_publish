@@ -29,6 +29,7 @@ export const updateQty = async({cid, type}) => {
             set ${str}
             where cid = ?
     `;
+    
     const [result] = await db.execute(sql, [cid]);
     return {"result_rows" : result.affectedRows};
 }
