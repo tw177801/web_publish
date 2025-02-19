@@ -170,6 +170,9 @@ SELECT SC.CID,
 -- 
 use hrdb2019;
 select * from shoppy_cart;
+
+select * from shoppy_cart where id = 'test1';
+
 truncate table shoppy_cart;
 
 -- select count(*) as count from shoppy_cart
@@ -183,7 +186,29 @@ select * from shoppy_cart
 select * from shoppy_cart
 	where id='test1';
 
-
+-- 주문 / 결제 페이지 : 출력 
+-- shoppy_cart, shoppy_member 
+select * from shoppy_member where id='test1';
+SELECT SC.CID,
+	   SC.SIZE,
+       SC.QTY,
+       SM.ID,
+       SM.PHONE,
+       CONCAT(SM.EMAILNAME, '@', SM.EMAILDOMAIN) AS EMAIL,
+       SM.EMAILDOMAIN,
+       SM.ZIPCODE,
+       SM.ADDRESS,
+       SP.PID,
+       SP.PNAME,
+       SP.PRICE,
+       SP.DESCRIPTION as info,
+       CONCAT('http://localhost:9000/', SP.UPLOAD_FILE->>'$[0]') as image
+	FROM SHOPPY_CART SC, 
+		 SHOPPY_MEMBER SM,
+         SHOPPY_PRODUCT SP
+	WHERE SC.ID = SM.ID 
+			AND SC.PID = SP.PID
+            AND SM.ID = 'TEST1';
 
 
 
