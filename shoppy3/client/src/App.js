@@ -15,6 +15,7 @@ import NewProduct from './pages/NewProduct.jsx';
 import { AuthProvider } from './auth/AuthContext.js';
 import { CartProvider } from './context/CartContext.js';
 import CheckoutInfo from './pages/CheckoutInfo.jsx';
+import { OrderProvider } from './context/OrderContext.js';
 
 export default function App() {
 
@@ -101,24 +102,26 @@ export default function App() {
 
   return (
     <div>
-      <CartProvider>
-        <AuthProvider>
-          <BrowserRouter>
-              <Routes>
-                  <Route path='/' element={<Layout />} >
-                      <Route index element={<Home />} />
-                      <Route path='/all' element={<Products />} />
-                      <Route path='/cart' element={<Carts />} />
-                      <Route path='/login' element={<Login />} />
-                      <Route path='/signup' element={<Signup />} />
-                      <Route path='/products/:pid' element={<DetailProduct />} />                  
-                      <Route path='/products/new' element={<NewProduct />} />                  
-                      <Route path='/checkout' element={<CheckoutInfo />} />                  
-                  </Route>
-              </Routes>            
-          </BrowserRouter>
-        </AuthProvider>
-      </CartProvider>
+      <OrderProvider>
+        <CartProvider>
+          <AuthProvider>
+            <BrowserRouter>
+                <Routes>
+                    <Route path='/' element={<Layout />} >
+                        <Route index element={<Home />} />
+                        <Route path='/all' element={<Products />} />
+                        <Route path='/cart' element={<Carts />} />
+                        <Route path='/login' element={<Login />} />
+                        <Route path='/signup' element={<Signup />} />
+                        <Route path='/products/:pid' element={<DetailProduct />} />                  
+                        <Route path='/products/new' element={<NewProduct />} />                  
+                        <Route path='/checkout' element={<CheckoutInfo />} />                  
+                    </Route>
+                </Routes>            
+            </BrowserRouter>
+          </AuthProvider>
+        </CartProvider>
+      </OrderProvider>
     </div>
   );
 }

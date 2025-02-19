@@ -1,11 +1,20 @@
-import React, { useState } from "react";
-
+import React, { useState, useEffect, useContext } from "react";
 import DaumPostcode from "react-daum-postcode";
+import {useOrder} from '../hooks/useOrder.js';
+import {AuthContext} from '../auth/AuthContext.js';
 
 import "../styles/cart.css";
 import "../styles/checkoutinfo.css";
 
 export default function CheckoutInfo() {
+
+    const { isLoggedIn } = useContext(AuthContext);
+    const { getOrderList } = useOrder();
+
+    useEffect(()=>{
+        if(isLoggedIn) getOrderList();
+    }, [isLoggedIn]);
+
 /** 주소검색 버튼Toggle */
 const [isOpen, setIsOpen] = useState(false);
 
@@ -14,7 +23,11 @@ const handleToggle = () => {
     setIsOpen(!isOpen);
 };
 
+
+
+
 //---- DaumPostcode 관련 디자인 및 이벤트 시작 ----//
+
 const themeObj = {
     bgColor: "#FFFFFF",
     pageBgColor: "#FFFFFF",
@@ -41,6 +54,7 @@ const closeHandler = (state) => {
     // refs.detailAddressRef.current.focus();
     }
 };
+
 //---- DaumPostcode 관련 디자인 및 이벤트 종료 ----//
 
 return (
