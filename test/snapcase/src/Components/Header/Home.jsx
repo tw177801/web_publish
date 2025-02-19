@@ -1,5 +1,5 @@
 import React from "react";
-import Series from "../Header/Series.jsx";
+
 import ProductType from "../Header/ProductType.jsx";
 import ProductList from "../Header/ProductList.jsx";
 
@@ -14,7 +14,7 @@ export default function Home() {
 
 
 
-      <Series />
+      
 
       <ProductType />
 
