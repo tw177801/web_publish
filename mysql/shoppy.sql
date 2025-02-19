@@ -260,7 +260,8 @@ select  sc.cid,
                 where sc.id = sm.id 
                         and sc.pid = sp.pid;
 desc view_cart_list;
-select * from view_cart_list;
+select * from view_cart_list
+	where id='test1';
 create view view_cart_list 
 as 
       select  sc.cid,
