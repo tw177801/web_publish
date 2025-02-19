@@ -51,30 +51,15 @@ export const getCount = async({id}) => {
 /**
  * 장바구니 전체 조회
  */
-export const getItems = async({id}) => {
-    const sql = `
-            select  sc.cid,
-                    sc.size,
-                    sc.qty,
-                    sm.id,
-                    sm.zipcode,
-                    sm.address,
-                    sp.pid,
-                    sp.pname,
-                    sp.price,
 
-                    sp.description as info,
-                    concat('http://localhost:9000/', sp.upload_file->>'$[0]') as image
-                from shoppy_cart sc,
-                    shoppy_member sm,
-                    shoppy_product sp
-                where sc.id = sm.id 
-                        and sc.pid = sp.pid
-                        and sm.id = ?
+export const getItems = async({id}) => {
+
+    const sql = `
+            select * from view_cart_list
+            where id= ?
     `;
-    const [result] = await db.execute(sql, [id]);
-    console.log('result--->>',result);
     
+    const [result] = await db.execute(sql, [id]);    
     return result; 
 }
 
@@ -85,36 +70,6 @@ export const getItems = async({id}) => {
 /************************************************* */
 /************************************************* */
 /************************************************* */
-
-
-/**
- * 장바구니 전체 조회 
- */
-
-// export const getItems = async({id}) => {
-//     const sql = `
-//             SELECT SC.CID,
-//             SC.SIZE,
-//             SC.QTY,
-//             SM.ID,
-//             SM.ZIPCODE,
-//             SM.ADDRESS,
-//             SP.PID,
-//             SP.PNAME,
-//             SP.PRICE,
-//             SP.DESCRIPTION as info,
-//             CONCAT('http://localhost:9000/', SP.UPLOAD_FILE->>'$[0]') as image
-//                 FROM SHOPPY_CART SC, 
-//                     SHOPPY_MEMBER SM,
-//                     SHOPPY_PRODUCT SP
-//                 WHERE SC.ID = SM.ID 
-//                         AND SC.PID = SP.PID
-//                         AND SM.ID = ?
-//     `;
-//     const [result] = await db.execute(sql, [id]);
-//     return result;
-// }
-
 
 
 /**

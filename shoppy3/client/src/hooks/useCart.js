@@ -87,9 +87,6 @@ export function useCart() { // custom Hook(커스텀 훅)
 
 
 
-
-
-
-    return {saveToCartList, updateCartList, getCartList, getCount, setCount, deleteCartItem};
+    return {saveToCartList, updateCartList, getCartList, getCount, setCount, deleteCartItem, calculateTotalPrice};
     
 }
