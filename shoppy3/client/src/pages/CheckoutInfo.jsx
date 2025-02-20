@@ -37,8 +37,6 @@ export default function CheckoutInfo() {
     };
 
 
-
-
     //---- DaumPostcode 관련 디자인 및 이벤트 시작 ----//
 
     const themeObj = {
@@ -76,18 +74,18 @@ export default function CheckoutInfo() {
 
     const handlePayment = async() => {
         const id = localStorage.getItem("user_id");
-
         try {
             const res = await axios
-                            .post("http://localhost:9000/payment/qr", {
-                                "id": id,
-                                "item_name": "테스트 상품",
-                                "total_amount": 1000
-                            });
-            // console.log(res.data);
+                                    .post("http://localhost:9000/payment/qr", {
+                                            "id": id,
+                                            "item_name": "테스트 상품",
+                                            "total_amount": 1000
+                                    });
+            console.log(res.data);
             
             if(res.data.redirect_pc_url) {
                 window.location.href = res.data.redirect_pc_url;
+                localStorage.setItem("tid", res.data.tid);
             }
 
         } catch (error) {

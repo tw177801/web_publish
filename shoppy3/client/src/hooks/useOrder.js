@@ -6,11 +6,11 @@ import axios from 'axios';
 
 export default function useOrder() {
 
-    const {calculateTotalPrice} = useCart();
-    const {orderList, setOrderList,
-        orderPrice, setOrderPrice,
-        member, setMember
-    } = useContext(OrderContext);
+    const { calculateTotalPrice } = useCart();
+    const { orderList, setOrderList,
+            orderPrice, setOrderPrice,
+            member, setMember
+          } = useContext(OrderContext);
     
     /** useContext로 관리되는 객체들의 CRUD 함수 정의 */
     /**
@@ -25,7 +25,24 @@ export default function useOrder() {
         setMember(result.data[0]);
         calculateTotalPrice(result.data);
     }
+
+
+    const saveToOrder = async(orderList, totalPrice) => {
+
+        // getOrderList();
+        console.log('saveToOrder orderList -->', orderList);
+        console.log('saveToOrder orderPrice -->', totalPrice);
+        
+        const id = localStorage.getItem("user_id");
+        // const result = await axios.post("http://localhost:9000/order/add", {"id":id});
+        // console.log('order list-->', result.data);
+        // setOrderList(result.data);
+        // setMember(result.data[0]);
+        
+    }
+
+
     
-    return { getOrderList };
+    return { getOrderList, saveToOrder };
 }
 
