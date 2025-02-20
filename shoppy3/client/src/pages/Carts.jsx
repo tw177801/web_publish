@@ -4,6 +4,7 @@ import { CartContext } from "../context/CartContext.js";
 import { Link, useNavigate } from "react-router-dom";
 import "../styles/cart.css";
 import { useCart } from "../hooks/useCart.js";
+import { RiDeleteBin6Line } from "react-icons/ri";
 
 export default function Carts() {
     const navigate = useNavigate();
@@ -62,7 +63,7 @@ export default function Carts() {
 
 
                                 <button className="cart-remove" onClick={()=>{deleteCartItem(item.cid)}}>
-                                    {/* <RiDeleteBin6Line /> */}
+                                    <RiDeleteBin6Line />
                                 </button>
                         
 
@@ -108,12 +109,12 @@ export default function Carts() {
 
                             </div>
 
-                            <div className="cart-actions">
-                                <Link to="/checkout">
-                                    <button>주문하기</button>
-                                </Link>
+                            <div className="cart-actions">                      
+                                {/* <Link to="/checkout"> */}
+                                    <button onClick={()=>{ navigate("/checkout") }}>주문하기</button>                    
+                                    {/* <button onClick={navigate("/checkout")}>주문하기</button>                     */}
+                                {/* </Link> */}
                             </div>
-
                         </>
                     ) : (
 

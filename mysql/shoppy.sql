@@ -280,11 +280,31 @@ as
                     shoppy_member sm,
                     shoppy_product sp
                 where sc.id = sm.id 
-                        and sc.pid = sp.pid
+                        and sc.pid = sp.pid;
 
 
+-- shoopy_order
+-- oid(pk), pid, id, odate, total_price, tid, type, size, qty 등 ..
 
+CREATE TABLE SHOPPY_ORDER(
+		OID 	INT 			PRIMARY KEY AUTO_INCREMENT,
+		SIZE 	VARCHAR(10) 	NOT NULL,
+		QTY 	INT 			NOT NULL, 
+		TPRICE  INT				NOT NULL,
+		ODATE 	DATE,
+		TYPE	VARCHAR(30) 	NOT NULL,
+        TID		VARCHAR(50)		NOT NULL,
+		ID		VARCHAR(30) 	NOT NULL,
+		PID		INT 			NOT NULL,
+		CONSTRAINT FK_ORDER_SHOPPY_MEMBER_ID FOREIGN KEY(ID)
+						  REFERENCES SHOPPY_MEMBER(ID),
+		CONSTRAINT FK_ORDER_SHOPPY_PRODUCT_PID FOREIGN KEY(PID)
+						  REFERENCES SHOPPY_PRODUCT(PID)
+);
 
+DESC SHOPPY_ORDER;
+use hrdb2019;
+SELECT * FROM SHOPPY_ORDER;
 
 
 
