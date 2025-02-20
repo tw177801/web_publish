@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { OrderContext } from '../context/OrderContext';
 import useOrder from '../hooks/useOrder.js';
@@ -10,7 +10,9 @@ export default function PaymentSuccess() {
     const {orderList} = useContext(OrderContext);
     const [searchParams] = useSearchParams();
     const pg_token = searchParams.get("pg_token");
-    const tid = localStorage.getItem("tid");
+    const [isRun, setIsRun] = useState(false);
+
+    // const tid = localStorage.getItem("tid");
 
     // console.log('pg_token', pg_token);
     // console.log('tid', tid);
@@ -21,31 +23,30 @@ export default function PaymentSuccess() {
     
     useEffect(()=>{
 
+        const tid = localStorage.getItem("tid");
+        tid && setIsRun(true);
         const fetchOrderList = async() => {
             const orderList = await getOrderList();
             console.log('fetchOrderList => ', orderList);
             
             if(orderList.length > 0) {
-
                 const totalPrice = orderList.reduce((sum, item) => sum + item.price * item.qty, 0);
                     if(pg_token && tid) {
-                        
-                        saveToOrder(orderList, totalPrice, tid, "kakaopay");
                         // 1. axios를 통한 DB insert --> orderList, total_price 
                         // 2. useOrder 커스텀 훅을 이용한 DB insert
+                        saveToOrder(orderList, totalPrice, tid, "kakaopay");
                     }
             }
         }
 
-        if(pg_token && tid) {fetchOrderList();}
+        if(isRun) {fetchOrderList();}
 
-    }, [])
+    }, [isRun])
     
 
     // console.log('total_price--> ', orderList.reduce((sum, item)=> sum + item.price * item.qty, 0));
     // console.log('payment success orderlist--> ', orderList);
     
-
 
     return (
         <div>
