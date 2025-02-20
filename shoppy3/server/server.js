@@ -5,6 +5,7 @@ import uploadRouter from './router/uploadRouter.js';
 import productRouter from './router/productRouter.js';
 import cartRouter from './router/cartRouter.js';
 import orderRouter from './router/orderRouter.js';
+import paymentRouter from './router/paymentRouter.js';
 
 import path from 'path';
 
@@ -27,6 +28,7 @@ server.use('/uploads', uploadRouter);
 server.use('/product', productRouter);
 server.use('/cart', cartRouter);
 server.use('/order', orderRouter);
+server.use('/payment', paymentRouter);
 
 
 server.listen(port, ()=>{
