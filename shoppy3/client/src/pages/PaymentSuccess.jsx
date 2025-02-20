@@ -20,16 +20,27 @@ export default function PaymentSuccess() {
     
     
     useEffect(()=>{
-        getOrderList();
-    }, [pg_token, tid])
-    
-    const totalPrice = orderList.reduce((sum, item) => sum + item.price * item.qty, 0);
-        
-        if(pg_token && tid) {
-                saveToOrder(orderList, totalPrice);
-            // 1. axios를 통한 DB insert --> orderList, total_price 
-            // 2. useOrder 커스텀 훅을 이용한 DB insert
+
+        const fetchOrderList = async() => {
+            const orderList = await getOrderList();
+            console.log('fetchOrderList => ', orderList);
+            
+            if(orderList.length > 0) {
+
+                const totalPrice = orderList.reduce((sum, item) => sum + item.price * item.qty, 0);
+                    if(pg_token && tid) {
+                        
+                        saveToOrder(orderList, totalPrice, tid, "kakaopay");
+                        // 1. axios를 통한 DB insert --> orderList, total_price 
+                        // 2. useOrder 커스텀 훅을 이용한 DB insert
+                    }
+            }
         }
+
+        if(pg_token && tid) {fetchOrderList();}
+
+    }, [])
+    
 
     // console.log('total_price--> ', orderList.reduce((sum, item)=> sum + item.price * item.qty, 0));
     // console.log('payment success orderlist--> ', orderList);
