@@ -1,9 +1,9 @@
 import React from 'react';
 import {useState, useEffect} from 'react';
 import axios from 'axios';
-import Classify from '../Header/Classify.jsx';
-import ProductList from '../Header/ProductList.jsx';
-import FilterSidebar from '../Header/FilterSidebar.jsx';
+import Classify from './Classify.jsx';
+import ProductList from './ProductList.jsx';
+import FilterSidebar from './FilterSidebar.jsx';
 
 export default function ProductType() {
 

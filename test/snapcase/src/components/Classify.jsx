@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import ProductList from "../Header/ProductList.jsx";
+// import ProductList from "./ProductList.jsx"
 
 export default function Classify() {
   const [category, setCategory] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
-  const [products, setProducts] = useState([]);
+  const [ setProducts] = useState([]);
   const [allProducts, setAllProducts] = useState([]);
 
   

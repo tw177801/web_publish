@@ -1,7 +1,7 @@
 import React from "react";
 
-import ProductType from "../Header/ProductType.jsx";
-import ProductList from "../Header/ProductList.jsx";
+import ProductType from "./ProductType.jsx";
+import ProductList from "./ProductList.jsx";
 
 export default function Home() {
   return (

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import FilterSubcategories from "./FilterSubcategories.jsx"; 
 
 export default function FilterSidebar({ onFilterApply }) {
 
@@ -52,7 +53,7 @@ export default function FilterSidebar({ onFilterApply }) {
             {/* 오버레이 */}
                 {isOpen && (
                     <div 
-                        className="z-40 fixed inset-0 bg-black bg-opacity-50 blur-[30px] "
+                        className="z-40 fixed inset-0 bg-black bg-opacity-50 blur-lg "
                         onClick={() => setIsOpen(false)}
                     />
                 )}
@@ -117,40 +118,12 @@ export default function FilterSidebar({ onFilterApply }) {
                         // 선택한 카테고리의 서브카테고리 및 옵션 목록
                         <div>
 
-                            {/* 뒤로 가기 버튼 */}
-                            
-                                <button
-                                    className="w-[20px] text-left p-2 mb-2 bg-gray-300 rounded hover:bg-gray-400"
-                                    onClick={() => setSelectedCategory(null)}
-                                >
-                                    ← 
-                                </button>
-
-                            {/* 서브카테고리 및 옵션 */}
-
-                                {selectedCategory.subcategories?.map((sub, subIndex) => (
-                                    <div key={subIndex} className="mb-4">
-                                        <h3 className="font-semibold">{sub.name}</h3>
-                                        <ul className="mt-2 space-y-1">
-                                            {sub.options?.map((option, optIndex) => (
-                                                <li key={optIndex} className="ml-4 text-gray-700">
-                                                    {option.brand && <strong>{option.brand}</strong>}
-                                                    <ul>
-                                                        {option.models?.map((model) => (
-                                                            <li 
-                                                                key={model.id} 
-                                                                className="ml-6 cursor-pointer hover:text-blue-500"
-                                                                onClick={() => handleFilterSelect(model.name)}
-                                                            >
-                                                                - {model.name}
-                                                            </li>
-                                                        ))}
-                                                    </ul>
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    </div>
-                                ))}
+                            <FilterSubcategories 
+                                selectedCategory={selectedCategory} 
+                                onFilterSelect={handleFilterSelect} 
+                                onBack={() => setSelectedCategory(null)} 
+                            />
+                               
                         </div>
                     )}
 
