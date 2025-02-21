@@ -14,10 +14,10 @@ export default function FilterSubcategories({ selectedCategory, onFilterSelect, 
 
             {/* 뒤로 가기 버튼 */}
             <button
-                className="w-[20px] text-left p-2 mb-2 bg-gray-300 rounded hover:bg-gray-400"
+                className="text-left p-2 mb-2 cursor-pointer"
                 onClick={onBack}
             >
-                ← 
+                <img src="https://cdn-stamplib.casetify.com/cms/image/99672a20d2432000d0b3871c7d43887c.svg" alt="" />
             </button>
 
             {/* 서브카테고리 및 옵션 */}

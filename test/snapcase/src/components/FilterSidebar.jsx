@@ -61,7 +61,7 @@ export default function FilterSidebar({ onFilterApply }) {
             {/* 사이드바 */}
             <div 
                 className={`fixed top-0 left-0 w-[380px] h-full 
-                            bg-white shadow-lg z-50 transform transition-transform 
+                            bg-[#E8e8e8] shadow-lg z-50 transform transition-transform 
                             duration-300 rounded-r-[28px]
 
                     ${isOpen ? "translate-x-0" : "-translate-x-full"}`}
