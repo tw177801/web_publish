@@ -3,7 +3,7 @@ import {useState, useEffect} from 'react';
 import axios from 'axios';
 import Classify from './Classify.jsx';
 import ProductList from './ProductList.jsx';
-import FilterSidebar from './FilterSidebar.jsx';
+import FilterSidebar from './filter/FilterSidebar.jsx';
 
 export default function ProductType() {
 
