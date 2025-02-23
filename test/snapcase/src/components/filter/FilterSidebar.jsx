@@ -13,11 +13,29 @@ export default function FilterSidebar({ onFilterApply }) {
     const [selectedFilters, setSelectedFilters] = useState([]); // 선택된 필터 저장
     const [isAllModelsSelected, setIsAllModelsSelected] = useState(false);
 
+
+    // json
     useEffect(() => {
         axios.get('/data/sidebar.json') 
             .then(res => setSidebar(res.data))
             .catch(error => console.error(error));
     }, []);
+
+
+    // 스크롤 함수
+    useEffect(() => {
+        if (isOpen) {
+            document.body.style.overflow = "hidden"; 
+        } else {
+            document.body.style.overflow = "auto";   
+        }
+
+        return () => {
+            document.body.style.overflow = "auto";
+        };
+    }, [isOpen]);
+
+
 
 
     /* 필터 함수 */
@@ -79,9 +97,9 @@ export default function FilterSidebar({ onFilterApply }) {
 
     return (
 
-        <div className="relative">
+        <div className="">
 
-            {/* 버튼 -> 화면 필터 */}
+            {/* 화면 필터 */}
                 <button 
                     onClick={() => setIsOpen(true)}
                     className="flex items-center gap-2 p-2 rounded"
@@ -89,13 +107,20 @@ export default function FilterSidebar({ onFilterApply }) {
                     <span>필터</span>
                 </button>
 
-            {/* 화면 오버레이 */}
-                {isOpen && (
+            {/* 화면 오버레이 수정 중 */} 
+                {/* {isOpen && (
                     <div 
-                        className="z-40 fixed inset-0 bg-black bg-opacity-50 blur-lg "
+                        className="fixed inset-0 bg-black bg-opacity-40 
+                                    backdrop-blur-sm "
                         onClick={() => setIsOpen(false)}
                     />
-                )}
+                )} */}
+
+
+
+
+
+
 
             {/* ======================================================== */}
             
@@ -104,16 +129,17 @@ export default function FilterSidebar({ onFilterApply }) {
 
                 {/* 필터 사이드바창 css */}
                 <div 
-                    className={`fixed top-0 left-0 w-[380px] h-full 
-                                bg-[#E8e8e8] shadow-lg z-50 transform transition-transform 
-                                duration-300 rounded-r-[28px]
+                    className={`fixed top-0 left-0 w-[380px] h-screen 
+                                bg-[#E8e8e8] shadow-lg z-[101] transform transition-transform 
+                                duration-300 rounded-r-[28px] overflow-y-auto
                         ${isOpen ? "translate-x-0" : "-translate-x-full"}`}
+                        
                 >
 
             {/******** Header ********/}
 
                 {/* 타이틀, 닫기 */}
-                <div className="p-4 relative flex justify-center items-center">
+                <div className="p-4 flex justify-center items-center">
 
                     {/* 필터 타이틀 (선택한 카테고리명 표시) */}
                     <h2 className="text-lg font-semibold">
@@ -226,6 +252,7 @@ export default function FilterSidebar({ onFilterApply }) {
                                 결과 보기
                             </button>
                         </div>
+                        
                 </div>
             
             {/* ======================================================== */}

@@ -14,6 +14,8 @@ export default function ProductType() {
     const [icons, setIcons] = useState([]);
     const [selectedLayout, setSelectedLayout] = useState(4); 
 
+
+    // json 
     useEffect(() => {
         axios.get('/data/products.json')
             .then(res => {
@@ -27,6 +29,9 @@ export default function ProductType() {
             .then(res => setIcons(res.data.layoutIcons))
             .catch(error => console.error('아이콘 데이터를 불러오는 중 오류 발생:', error));
     }, []);
+
+
+    // 함수
 
     const applyFilter = (data, type, category) => {
         let filtered = data;
@@ -53,20 +58,27 @@ export default function ProductType() {
 
     return (
         <>
-            {/* 분홍색 타이틀 + 분류 컴포넌트 */}
+            
             <div className=''>
 
-                {/* 분홍색 타이틀만 */}
+                {/* 고정 Header */}
+                <div className='fixed p-4 top-0 z-50 w-full
+                                bg-white bg-opacity-80 backdrop-blur-sm 
+                '>
+
+            {/* ======================================================== */}
+
+                {/* 화면 타이틀 */}
                     <div className='flex bg-[#fecad6] 
                                     rounded-[16px] justify-between 
                                     w-full md:min-h-[84px]
                                     items-center p-[12px_16px]
                                     mb-2 min-h-[66px]
-                                    h-full
+                                    h-full 
                                                     
                     '>
                         
-                        {/* 타이틀 분류 */} 
+                        {/* 타이틀 */} 
                             <div className=''>
 
                                 <span className='text-[16px] font-extrabold 
@@ -79,19 +91,20 @@ export default function ProductType() {
                                 </span>
                             </div>
 
+                    {/* ======================================================== */}
 
-                        {/* 필터, 이미지 리스트 */}
+                        {/* 버튼 */}
 
-                            
                             <div className='flex gap-[10px]'>
 
-                                {/* 상품 필터 */}
+                                {/* 필터 버튼 */}
 
+                                    <div className=''>
 
-                                    <FilterSidebar />
+                                        <FilterSidebar />
+                                    </div>
                                     
-
-                                {/* 상품 이미지 리스트 */}  
+                                {/* 이미지 버튼 */}  
                                     <div>
                                         <div className='flex gap-[8px] p-[10px] border-2 border-solid border-[#000] rounded-[100px] items-center'>
                                             {icons.map((icon) => (
@@ -107,17 +120,31 @@ export default function ProductType() {
                                             ))}
                                         </div>   
                                     </div>
-                            </div>  {/* 마지막 필터, 이미지 리스트 */}
-                    </div> {/* 분홍색 타이틀만 */}
 
-                        {/* 분류 컴포넌트 */}
-                        <Classify onCategoryChange={handleCategoryChange} />
+                            </div>  
 
-                        {/* 필터링된 상품 리스트 렌더링 */}
-                        <div>
-                            <ProductList products={filteredProducts} layoutType={layoutType} />
+                {/* ======================================================== */}
 
-                        </div>
+                    </div> {/* 화면 타이틀 */}
+                    
+                {/* ======================================================== */}
+
+                    {/* 분류 버튼 */}
+
+                  <div className="">
+                    <Classify onCategoryChange={handleCategoryChange} />
+                  </div>
+
+                {/* ======================================================== */}
+            </div> {/* 고정 Header */}
+
+
+                    {/* 필터링된 상품 이미지 배열 리스트 */}
+                    <div className=''>
+                        <ProductList products={filteredProducts} layoutType={layoutType} />
+                    </div>
+
+
             </div>
         </>
     );

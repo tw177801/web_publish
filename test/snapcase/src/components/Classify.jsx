@@ -12,8 +12,8 @@ export default function Classify() {
   useEffect(() => {
     axios
       .get("/data/products.json") 
-      .then((response) => {
-        setAllProducts(response.data);
+      .then((res) => {
+        setAllProducts(res.data);
       })
       .catch((error) => {
         console.error("데이터 로드 실패:", error);
@@ -34,7 +34,11 @@ export default function Classify() {
   };
 
   return (
+
+
     <div>
+
+
       {/* 분류 버튼 */}
         <div className="flex relative md:text-[16px] justify-between items-center">
           <div className="ml-auto">
@@ -58,6 +62,7 @@ export default function Classify() {
       {/* 카테고리 리스트 */}
         {category && (
           <div className="absolute right-0 mt-2 w-48 bg-white shadow-lg border border-gray-200 rounded-[20px] z-50">
+            
             <ul className="p-2 cursor-pointer">
               {["케이스티파이 추천", "신상품", "인기"].map((item) => (
                 <li
@@ -67,6 +72,7 @@ export default function Classify() {
                   }`}
                   onClick={() => handleItemClick(item)}
                 >
+
                   <div className="w-5 h-5 flex items-center justify-center">
                     {selectedItem === item && (
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="black" className="w-5 h-5">
@@ -74,12 +80,19 @@ export default function Classify() {
                       </svg>
                     )}
                   </div>
+
                   <span>{item}</span>
+                  
                 </li>
               ))}
             </ul>
           </div>
         )}
+
+
+
+
+
     </div>
   );
 }
